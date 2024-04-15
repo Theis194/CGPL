@@ -1,1 +1,41 @@
 # Context Free Grammar for CGPL
+
+```
+PROGRAM     -> INSTRUCTION
+INSTRUCTION -> INSTRUCTION INSTRUCTION | VARDCL | Function | return VALUE;
+FUNCTION    -> function IDENTIFIER ( PARAMETER ) { INSTRUCTION }
+VARDCL      -> var IDENTIFIER = VALUE;
+IFSTMT      -> if ( BOOLEXP ) { INSTRUCTION }
+FORSTMT     -> for ( VARDCL; BOOLEXP; INCREMENT ) { INSTRUCTION } | for ( VALUE in COLLECTION ) { INSTRUCTION }
+
+BOOLEXP     -> VALUE COMPARISON VALUE | BOOLEAN LOGICAL BOOLEAN | (BOOLEXP)
+ARTHEXP     -> ARTHEXP ARTH_OP ARTHEXP | (ARTHEXP) | NUMBER
+INCREMENT   -> IDENTIFIER++
+DECREMENT   -> IDENTIFIER--
+
+LOGICAL     -> AND | OR | NOT | EQUAL
+COMPARISON  -> LESS_THAN | GREATER_THAN | LESS_THAN_OR_EQUAL | GREATER_THAN_OR_EQUAL | EQUAL
+ARTH_OP     -> OP_ADD | OP_SUB | OP_DIV | OP_MULT | OP_MOD | OP_INC | OP_DEC
+
+VALUE       -> NUMBER | STRING | BOOLEAN | LIST
+NUMBER      -> [1-9][0-9]*| [0]
+STRING      -> "[a-zA-Z]*"
+BOOLEAN     -> true | false | BOOLEXP
+LIST        -> '[]'
+IDENTIFIER  -> [a-zA-Z][a-zA-Z0-9_]*
+PARAMETER   -> [a-zA-Z][a-zA-Z0-9_]*
+
+EQUAL       -> ==
+LT          -> <
+GT          -> >
+LT_OR_EQUAL -> <=
+GT_OR_EQUAL -> >=
+
+OP_ADD      -> +
+OP_SUB      -> -
+OP_DIV      -> /
+OP_MULT     -> *
+OP_MOD      -> %
+OP_INC      -> ++
+OP_DEC      -> --
+```
