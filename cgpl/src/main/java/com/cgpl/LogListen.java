@@ -1,7 +1,7 @@
 package com.cgpl;
 
-import com.cgpl.LogBaseListener;
-import com.cgpl.LogParser;
+import com.cgpl.logGrammar.LogBaseListener;
+import com.cgpl.logGrammar.LogParser;
 import com.cgpl.log.LogEntry;
 import com.cgpl.log.LogLevel;
 

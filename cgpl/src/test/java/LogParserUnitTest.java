@@ -1,9 +1,9 @@
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import com.cgpl.LogLexer;
+import com.cgpl.logGrammar.LogLexer;
 import com.cgpl.LogListen;
-import com.cgpl.LogParser;
+import com.cgpl.logGrammar.LogParser;
 import com.cgpl.log.LogEntry;
 import com.cgpl.log.LogLevel;
 import org.antlr.v4.runtime.CharStreams;
