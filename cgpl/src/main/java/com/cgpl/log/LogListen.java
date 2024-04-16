@@ -1,9 +1,7 @@
-package com.cgpl;
+package com.cgpl.log;
 
 import com.cgpl.logGrammar.LogBaseListener;
 import com.cgpl.logGrammar.LogParser;
-import com.cgpl.log.LogEntry;
-import com.cgpl.log.LogLevel;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

@@ -28,15 +28,25 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitInstruction(CGPLParser.InstructionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CGPLParser#function}.
+	 * Enter a parse tree produced by {@link CGPLParser#vardcl}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunction(CGPLParser.FunctionContext ctx);
+	void enterVardcl(CGPLParser.VardclContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CGPLParser#function}.
+	 * Exit a parse tree produced by {@link CGPLParser#vardcl}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunction(CGPLParser.FunctionContext ctx);
+	void exitVardcl(CGPLParser.VardclContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#returnstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnstmt(CGPLParser.ReturnstmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#returnstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnstmt(CGPLParser.ReturnstmtContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#functionBody}.
 	 * @param ctx the parse tree
@@ -47,16 +57,6 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunctionBody(CGPLParser.FunctionBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CGPLParser#vardcl}.
-	 * @param ctx the parse tree
-	 */
-	void enterVardcl(CGPLParser.VardclContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CGPLParser#vardcl}.
-	 * @param ctx the parse tree
-	 */
-	void exitVardcl(CGPLParser.VardclContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#ifstmt}.
 	 * @param ctx the parse tree
@@ -77,6 +77,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitForstmt(CGPLParser.ForstmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction(CGPLParser.FunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction(CGPLParser.FunctionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#boolexp}.
 	 * @param ctx the parse tree

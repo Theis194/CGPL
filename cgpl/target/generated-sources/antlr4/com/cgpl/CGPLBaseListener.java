@@ -40,13 +40,25 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunction(CGPLParser.FunctionContext ctx) { }
+	@Override public void enterVardcl(CGPLParser.VardclContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunction(CGPLParser.FunctionContext ctx) { }
+	@Override public void exitVardcl(CGPLParser.VardclContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterReturnstmt(CGPLParser.ReturnstmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitReturnstmt(CGPLParser.ReturnstmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -59,18 +71,6 @@ public class CGPLBaseListener implements CGPLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFunctionBody(CGPLParser.FunctionBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVardcl(CGPLParser.VardclContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVardcl(CGPLParser.VardclContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -95,6 +95,18 @@ public class CGPLBaseListener implements CGPLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitForstmt(CGPLParser.ForstmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunction(CGPLParser.FunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunction(CGPLParser.FunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

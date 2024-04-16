@@ -2,10 +2,11 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.cgpl.logGrammar.LogLexer;
-import com.cgpl.LogListen;
 import com.cgpl.logGrammar.LogParser;
 import com.cgpl.log.LogEntry;
 import com.cgpl.log.LogLevel;
+import com.cgpl.log.LogListen;
+
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
