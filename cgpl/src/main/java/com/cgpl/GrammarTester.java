@@ -3,8 +3,9 @@ package com.cgpl;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 import java.io.File;
 import java.io.IOException;
 
@@ -20,22 +21,36 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 public class GrammarTester {
     private static final File folder = new File("cgpl\\src\\test\\cgpl");
 
-    public static List<String> offendingFiles = new ArrayList<>();
+    public static List<String> testedFiles = new ArrayList<>();
+    //public static List<String> offendingFiles = new ArrayList<>();
+    public static Map<String, List<String>> offendingFiles = new HashMap<>();
     public static void main(String[] args) {
         for (File file : folder.listFiles()) {
             if (file.isFile()) {
                 String fileName = file.getName();
+                testedFiles.add(fileName);
                 System.out.println(fileName);
                 try {
                     String content = new String(Files.readAllBytes(Paths.get(file.getAbsolutePath())));
                     CharStream input = CharStreams.fromString(content);
                     parseFile(input, fileName);
 
-                    for (String string : offendingFiles) {
-                        System.out.println("Offending file: " + string);
-                    }
                 } catch (IOException e) {
                     e.printStackTrace();
+                }
+            }
+        }
+
+        if (offendingFiles.isEmpty()) {
+            System.out.println("All files passed the test");
+        } else {
+            System.out.println(offendingFiles.size() + " files failed the test");
+            for (String string : testedFiles) {
+                if (offendingFiles.containsKey(string)) {
+                    System.out.println("Offending file: " + string);
+                    for (String error : offendingFiles.get(string)) {
+                        System.out.println(error);
+                    }
                 }
             }
         }
@@ -50,8 +65,8 @@ public class GrammarTester {
         parser.addErrorListener(new BaseErrorListener() {
             @Override
             public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
-                System.out.println("line " + line + ":" + charPositionInLine + " " + msg);
-                offendingFiles.add(fileName);
+                offendingFiles.putIfAbsent(fileName, new ArrayList<>());
+                offendingFiles.get(fileName).add("line " + line + ":" + charPositionInLine + " " + msg);
             }
         });
 

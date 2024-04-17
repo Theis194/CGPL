@@ -1,0 +1,4 @@
+function test(var1) {
+    var1 = 10;
+    return var1;
+}

@@ -53,8 +53,13 @@ public class Listener extends CGPLBaseListener{
     }
 
     @Override
-    public void enterIfstmt(CGPLParser.IfstmtContext ctx) {
-        System.out.println("Entering if statement");
+    public void enterAssignment(CGPLParser.AssignmentContext ctx) {
+        System.out.println("Entering assignment");
+    }
+
+    @Override
+    public void exitAssignment(CGPLParser.AssignmentContext ctx) {
+        System.out.println("Exiting assignment");
     }
 
     @Override

@@ -39,13 +39,9 @@ WS: [ \t\r\n]+ -> skip;
 
 // Parser rules
 program: instruction* EOF;
-instruction: 
-		vardcl
-		| function
-		| ifstmt
-		| forstmt
-		| returnstmt;
+instruction: vardcl | function | ifstmt | forstmt | returnstmt | assignment | increment | decrement | boolexp;
 vardcl: VAR IDENTIFIER ('=' value)? CRLF;
+assignment: IDENTIFIER '=' (value | arthexp | boolexp) CRLF;
 returnstmt: RETURN value CRLF;
 functionBody: instruction*;
 ifstmt: IF value instruction (ELSE instruction)?;
