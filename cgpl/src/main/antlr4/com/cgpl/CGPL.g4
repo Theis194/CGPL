@@ -1,6 +1,10 @@
 grammar CGPL;
 
 // Lexer rules
+AND: 'and';
+OR: 'or';
+NOT: 'not';
+
 RETURN: 'return';
 FUNCTION: 'function';
 LCURLY: '{';
@@ -22,26 +26,34 @@ LT: '<';
 GT: '>';
 LT_OR_EQUAL: '<=';
 GT_OR_EQUAL: '>=';
-AND: 'and';
-OR: 'or';
-NOT: 'not';
 
-OP_ADD: '+';
-OP_SUB: '-';
+OP_INC: '++';
+OP_DEC: '--';
+
 OP_DIV: '/';
 OP_MULT: '*';
 OP_MOD: '%';
-OP_INC: '++';
-OP_DEC: '--';
+
+OP_ADD: '+';
+OP_SUB: '-';
 
 CRLF: ';';
 WS: [ \t\r\n]+ -> skip;
 
 // Parser rules
 program: instruction* EOF;
-instruction: vardcl | function | ifstmt | forstmt | returnstmt | assignment | increment | decrement | boolexp;
+instruction
+	: vardcl 
+	| function 
+	| ifstmt 
+	| forstmt 
+	| returnstmt 
+	| assignment 
+	| increment 
+	| decrement
+	;
 vardcl: VAR IDENTIFIER ('=' value)? CRLF;
-assignment: IDENTIFIER '=' (value | arthexp | boolexp) CRLF;
+assignment: IDENTIFIER '=' value CRLF;
 returnstmt: RETURN value CRLF;
 functionBody: instruction*;
 ifstmt: IF value instruction (ELSE instruction)?;
@@ -49,20 +61,45 @@ forstmt: FOR IDENTIFIER IN value instruction;
 function:
 	FUNCTION IDENTIFIER LPAREN IDENTIFIER RPAREN LCURLY functionBody RCURLY;
 
-boolexp:
-	value comparison value
-	| BOOLEAN logical BOOLEAN
-	| BOOLEAN comparison BOOLEAN
-	| NUMBER comparison NUMBER
-	| LPAREN boolexp RPAREN;
-factor: NUMBER | IDENTIFIER | LPAREN arthexp RPAREN;
+value
+	: NUMBER 
+	| STRING
+	| boolExpr 
+	| arthexp 
+	| IDENTIFIER 
+	| list
+	;
+
+boolvalue
+	: LPAREN boolExpr RPAREN
+	| BOOLEAN
+	| IDENTIFIER
+	; 
+andExpr: boolvalue (AND boolvalue)*;
+orExpr: andExpr (OR andExpr)*;
+boolExpr: orExpr;
+factor
+	: NUMBER 
+	| IDENTIFIER 
+	| LPAREN arthexp RPAREN
+	;
 arthexp: factor (arth_op factor)*;
 increment: IDENTIFIER OP_INC;
 decrement: IDENTIFIER OP_DEC;
 
-logical: AND | OR | NOT | EQUAL;
-comparison: LT | GT | LT_OR_EQUAL | GT_OR_EQUAL | EQUAL;
-arth_op: OP_ADD | OP_SUB | OP_DIV | OP_MULT | OP_MOD;
+comparison
+	: LT 
+	| GT 
+	| LT_OR_EQUAL 
+	| GT_OR_EQUAL 
+	| EQUAL
+	;
+arth_op
+	: OP_ADD 
+	| OP_SUB 
+	| OP_DIV 
+	| OP_MULT 
+	| OP_MOD
+	;
 
-value: NUMBER | STRING | BOOLEAN | IDENTIFIER | list;
 list: '[' value (',' value)* ']' | '[' ']';

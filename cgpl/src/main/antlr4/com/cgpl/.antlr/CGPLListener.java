@@ -97,15 +97,55 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitFunction(CGPLParser.FunctionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CGPLParser#boolexp}.
+	 * Enter a parse tree produced by {@link CGPLParser#value}.
 	 * @param ctx the parse tree
 	 */
-	void enterBoolexp(CGPLParser.BoolexpContext ctx);
+	void enterValue(CGPLParser.ValueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CGPLParser#boolexp}.
+	 * Exit a parse tree produced by {@link CGPLParser#value}.
 	 * @param ctx the parse tree
 	 */
-	void exitBoolexp(CGPLParser.BoolexpContext ctx);
+	void exitValue(CGPLParser.ValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#boolvalue}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolvalue(CGPLParser.BoolvalueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#boolvalue}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolvalue(CGPLParser.BoolvalueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#andExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAndExpr(CGPLParser.AndExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#andExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAndExpr(CGPLParser.AndExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#orExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterOrExpr(CGPLParser.OrExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#orExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitOrExpr(CGPLParser.OrExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#boolExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolExpr(CGPLParser.BoolExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#boolExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolExpr(CGPLParser.BoolExprContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#factor}.
 	 * @param ctx the parse tree
@@ -147,16 +187,6 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitDecrement(CGPLParser.DecrementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CGPLParser#logical}.
-	 * @param ctx the parse tree
-	 */
-	void enterLogical(CGPLParser.LogicalContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CGPLParser#logical}.
-	 * @param ctx the parse tree
-	 */
-	void exitLogical(CGPLParser.LogicalContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link CGPLParser#comparison}.
 	 * @param ctx the parse tree
 	 */
@@ -176,16 +206,6 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArth_op(CGPLParser.Arth_opContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CGPLParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void enterValue(CGPLParser.ValueContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CGPLParser#value}.
-	 * @param ctx the parse tree
-	 */
-	void exitValue(CGPLParser.ValueContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#list}.
 	 * @param ctx the parse tree

@@ -124,13 +124,61 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBoolexp(CGPLParser.BoolexpContext ctx) { }
+	@Override public void enterValue(CGPLParser.ValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBoolexp(CGPLParser.BoolexpContext ctx) { }
+	@Override public void exitValue(CGPLParser.ValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoolvalue(CGPLParser.BoolvalueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolvalue(CGPLParser.BoolvalueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAndExpr(CGPLParser.AndExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAndExpr(CGPLParser.AndExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOrExpr(CGPLParser.OrExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOrExpr(CGPLParser.OrExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBoolExpr(CGPLParser.BoolExprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolExpr(CGPLParser.BoolExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -184,18 +232,6 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogical(CGPLParser.LogicalContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLogical(CGPLParser.LogicalContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterComparison(CGPLParser.ComparisonContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -215,18 +251,6 @@ public class CGPLBaseListener implements CGPLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitArth_op(CGPLParser.Arth_opContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterValue(CGPLParser.ValueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitValue(CGPLParser.ValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
