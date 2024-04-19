@@ -117,6 +117,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitValue(CGPLParser.ValueContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#stringConcat}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringConcat(CGPLParser.StringConcatContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#stringConcat}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringConcat(CGPLParser.StringConcatContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#boolvalue}.
 	 * @param ctx the parse tree
 	 */

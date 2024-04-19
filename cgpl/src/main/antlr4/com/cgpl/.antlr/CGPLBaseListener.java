@@ -148,6 +148,18 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStringConcat(CGPLParser.StringConcatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStringConcat(CGPLParser.StringConcatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBoolvalue(CGPLParser.BoolvalueContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -300,14 +312,4 @@ public class CGPLBaseListener implements CGPLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void visitErrorNode(ErrorNode node) { }
-
-	@Override
-	public void enterStringConcat(CGPLParser.StringConcatContext ctx) {
-		System.out.println("Entering list");
-	}
-
-	@Override
-	public void exitStringConcat(CGPLParser.StringConcatContext ctx) {
-		System.out.println("Exiting list");
-	}
 }

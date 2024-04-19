@@ -65,15 +65,15 @@ function:
 
 value
 	: NUMBER 
+	| stringConcat
 	| STRING
 	| boolExpr 
 	| arthexp 
 	| IDENTIFIER 
 	| list
-	| stringConcat
 	;
 
-stringConcat: STRING (OP_ADD STRING) + CRLF;
+stringConcat: STRING (OP_ADD STRING)+;
 
 boolvalue
 	: LPAREN boolExpr RPAREN
