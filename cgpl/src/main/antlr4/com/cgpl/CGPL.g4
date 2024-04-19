@@ -70,7 +70,10 @@ value
 	| arthexp 
 	| IDENTIFIER 
 	| list
+	| stringConcat
 	;
+
+stringConcat: STRING (OP_ADD STRING) + CRLF;
 
 boolvalue
 	: LPAREN boolExpr RPAREN
