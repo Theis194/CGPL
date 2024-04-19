@@ -1,4 +1,4 @@
-// Generated from .//CGPL.g4 by ANTLR 4.13.1
+// Generated from CGPL.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -42,7 +42,7 @@ public class CGPLLexer extends Lexer {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'='", "'['", "','", "']'", "'and'", "'or'", "'not'", "'return'", 
+			null, "'='", "','", "'['", "']'", "'and'", "'or'", "'not'", "'return'", 
 			"'function'", "'{'", "'}'", "'('", "')'", "'if'", "'else'", "'var'", 
 			"'for'", "'in'", null, null, null, null, "'=='", "'<'", "'>'", "'<='", 
 			"'>='", "'++'", "'--'", "'/'", "'*'", "'%'", "'+'", "'-'", "';'"
@@ -188,7 +188,7 @@ public class CGPLLexer extends Lexer {
 		"\u0000?\u00c3\u0001\u0000\u0000\u0000A\u00c5\u0001\u0000\u0000\u0000C"+
 		"\u00c7\u0001\u0000\u0000\u0000E\u00c9\u0001\u0000\u0000\u0000G\u00cc\u0001"+
 		"\u0000\u0000\u0000IJ\u0005=\u0000\u0000J\u0002\u0001\u0000\u0000\u0000"+
-		"KL\u0005[\u0000\u0000L\u0004\u0001\u0000\u0000\u0000MN\u0005,\u0000\u0000"+
+		"KL\u0005,\u0000\u0000L\u0004\u0001\u0000\u0000\u0000MN\u0005[\u0000\u0000"+
 		"N\u0006\u0001\u0000\u0000\u0000OP\u0005]\u0000\u0000P\b\u0001\u0000\u0000"+
 		"\u0000QR\u0005a\u0000\u0000RS\u0005n\u0000\u0000ST\u0005d\u0000\u0000"+
 		"T\n\u0001\u0000\u0000\u0000UV\u0005o\u0000\u0000VW\u0005r\u0000\u0000"+
