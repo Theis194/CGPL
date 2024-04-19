@@ -73,7 +73,7 @@ value
 	| list
 	;
 
-stringConcat: STRING (OP_ADD STRING)+;
+stringConcat: (STRING | IDENTIFIER) (OP_ADD (STRING | IDENTIFIER))+;
 
 boolvalue
 	: LPAREN boolExpr RPAREN
