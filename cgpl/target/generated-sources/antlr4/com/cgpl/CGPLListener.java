@@ -88,6 +88,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitForstmt(CGPLParser.ForstmtContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCall(CGPLParser.FunctionCallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCall(CGPLParser.FunctionCallContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#function}.
 	 * @param ctx the parse tree
 	 */

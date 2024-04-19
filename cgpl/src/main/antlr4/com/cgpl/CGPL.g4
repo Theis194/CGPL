@@ -51,6 +51,7 @@ instruction
 	| assignment 
 	| increment 
 	| decrement
+	| functionCall
 	;
 vardcl: VAR IDENTIFIER ('=' value)? CRLF;
 assignment: IDENTIFIER '=' value CRLF;
@@ -58,8 +59,9 @@ returnstmt: RETURN value CRLF;
 functionBody: instruction*;
 ifstmt: IF value instruction (ELSE instruction)?;
 forstmt: FOR IDENTIFIER IN value instruction;
+functionCall: IDENTIFIER LPAREN ((value)? | value (',' value)+) RPAREN CRLF;
 function:
-	FUNCTION IDENTIFIER LPAREN IDENTIFIER RPAREN LCURLY functionBody RCURLY;
+	FUNCTION IDENTIFIER LPAREN ((IDENTIFIER | value)? |(IDENTIFIER | value) (',' (IDENTIFIER | value))*) RPAREN LCURLY functionBody RCURLY;
 
 value
 	: NUMBER 
