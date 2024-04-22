@@ -43,23 +43,23 @@ WS: [ \t\r\n]+ -> skip;
 // Parser rules
 program: instruction* EOF;
 instruction
-	: vardcl 
-	| function 
+	: vardcl CRLF
+	| function
 	| ifstmt 
 	| forstmt 
-	| returnstmt 
-	| assignment 
-	| increment 
-	| decrement
-	| functionCall
+	| returnstmt CRLF
+	| assignment CRLF
+	| increment CRLF
+	| decrement CRLF
+	| functionCall CRLF
 	;
-vardcl: VAR IDENTIFIER ('=' value)? CRLF;
-assignment: IDENTIFIER '=' value CRLF;
-returnstmt: RETURN value CRLF;
+vardcl: VAR IDENTIFIER ('=' value)?;
+assignment: IDENTIFIER '=' value;
+returnstmt: RETURN value;
 functionBody: instruction*;
 ifstmt: IF value instruction (ELSE instruction)?;
 forstmt: FOR IDENTIFIER IN value instruction;
-functionCall: IDENTIFIER LPAREN ((value)? | value (',' value)+) RPAREN CRLF;
+functionCall: IDENTIFIER LPAREN ((value)? | value (',' value)+) RPAREN;
 function:
 	FUNCTION IDENTIFIER LPAREN ((IDENTIFIER | value)? |(IDENTIFIER | value) (',' (IDENTIFIER | value))*) RPAREN LCURLY functionBody RCURLY;
 
@@ -71,6 +71,7 @@ value
 	| arthexp 
 	| IDENTIFIER 
 	| list
+	| functionCall
 	;
 
 stringConcat: (STRING | IDENTIFIER) (OP_ADD (STRING | IDENTIFIER))+;
