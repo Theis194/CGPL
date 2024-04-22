@@ -1,0 +1,16 @@
+var test0 = 10;
+var test1 = "abc";
+var test2 = true;
+var test3 = false;
+var test4 = true or false;
+var test5 = (true and false);
+var test6 = (false) or true and (false or true and true);
+var test7 = 10 + 10;
+var test8 = (10 + 10);
+var test9 = (10 + 10) + 10;
+var test10 = 10 + (10);
+var test11 = 10 - 10;
+var test12 = (10 - 10);
+var test13 = (10 - 10) - 10;
+var test14 = 10 - (10);
+var test15 = (10) - (10);

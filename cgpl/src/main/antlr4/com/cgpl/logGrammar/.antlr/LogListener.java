@@ -1,5 +1,4 @@
-// Generated from com\cgpl\Log.g4 by ANTLR 4.7.1
-package com.cgpl;
+// Generated from c://Users//theis//Programmering//CGPL//cgpl//src//main//antlr4//com//cgpl//Log.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
