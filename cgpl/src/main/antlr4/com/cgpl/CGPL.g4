@@ -14,6 +14,7 @@ RPAREN: ')';
 IF: 'if';
 ELSE: 'else';
 VAR: 'var';
+KONST: 'const';
 FOR: 'for';
 IN: 'in';
 NUMBER: ([1-9][0-9]* | [0-9]);
@@ -46,6 +47,7 @@ WS: [ \t\r\n]+ -> skip;
 program: instruction* EOF;
 instruction
 	: vardcl CRLF
+	konstdcl CRLF
 	| function
 	| ifstmt 
 	| forstmt 
@@ -56,6 +58,7 @@ instruction
 	| functionCall CRLF
 	;
 vardcl: VAR IDENTIFIER ('=' value)?;
+konstdcl: KONST IDENTIFIER ('=' value)?;
 assignment: IDENTIFIER '=' value;
 returnstmt: RETURN value;
 functionBody: instruction*;
