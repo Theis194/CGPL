@@ -19,7 +19,9 @@ IN: 'in';
 NUMBER: ([1-9][0-9]* | [0-9]);
 STRING: '"' (~[\r\n"])* '"';
 BOOLEAN: 'true' | 'false';
+BREAK: 'break';
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
+
 
 EQUAL: '==';
 LT: '<';
@@ -64,14 +66,14 @@ function:
 	FUNCTION IDENTIFIER LPAREN ((IDENTIFIER | value)? |(IDENTIFIER | value) (',' (IDENTIFIER | value))*) RPAREN LCURLY functionBody RCURLY;
 
 value
-	: NUMBER 
-	| stringConcat
+	: NUMBER
+	| IDENTIFIER
 	| STRING
 	| boolExpr 
-	| arthexp 
-	| IDENTIFIER 
+	| arthexp
 	| list
 	| functionCall
+	| stringConcat
 	;
 
 stringConcat: (STRING | IDENTIFIER) (OP_ADD (STRING | IDENTIFIER))+;
@@ -111,9 +113,11 @@ arth_op
 list: '[' value (',' value)* ']' | '[' ']';
 
 switchstmt
-    : 'switch' LPAREN value RPAREN LCURLY casestmt* RCURLY
+    : 'switch' LPAREN value RPAREN LCURLY casestmt+ RCURLY
     ;
 
 casestmt
     : ('case' value | 'default')':'
+    instruction*
+    (BREAK CRLF)?
     ;
