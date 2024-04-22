@@ -109,3 +109,4 @@ arth_op
 	;
 
 list: '[' value (',' value)* ']' | '[' ']';
+
