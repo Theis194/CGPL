@@ -110,3 +110,10 @@ arth_op
 
 list: '[' value (',' value)* ']' | '[' ']';
 
+switchstmt
+    : 'switch' LPAREN value RPAREN LCURLY casestmt* RCURLY
+    ;
+
+casestmt
+    : ('case' value | 'default')':'
+    ;
