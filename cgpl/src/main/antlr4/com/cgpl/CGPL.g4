@@ -62,8 +62,8 @@ konstdcl: KONST IDENTIFIER ('=' value)?;
 assignment: IDENTIFIER '=' value;
 returnstmt: RETURN value;
 functionBody: instruction*;
-ifstmt: IF value instruction (ELSE instruction)?;
-forstmt: FOR IDENTIFIER IN value instruction;
+ifstmt: IF value RCURLY instruction* LCURLY (ELSE instruction)?;
+forstmt: FOR IDENTIFIER IN value RCURLY instruction* LCURLY;
 functionCall: IDENTIFIER LPAREN ((value)? | value (',' value)+) RPAREN;
 function:
 	FUNCTION IDENTIFIER LPAREN ((IDENTIFIER | value)? |(IDENTIFIER | value) (',' (IDENTIFIER | value))*) RPAREN LCURLY functionBody RCURLY;

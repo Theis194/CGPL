@@ -1,14 +1,14 @@
 package com.cgpl.AST.expressions;
 
-public class Boolean extends Expression{
-    public boolean value;
-    public String type = "boolean";
+public class CString extends Expression { // Name is subject to change
+    public String value;
+    public String type = "string";
 
-    public Boolean(boolean value) {
+    public CString(String value) {
         this.value = value;
     }
 
-    public boolean getValue() {
+    public String getValue() {
         return value;
     }
 
@@ -19,6 +19,6 @@ public class Boolean extends Expression{
 
     @Override
     public String toString() {
-        return this.value + "";
+        return this.value;
     }
 }

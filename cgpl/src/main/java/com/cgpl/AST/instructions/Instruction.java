@@ -1,5 +1,5 @@
 package com.cgpl.AST.instructions;
 
-public class Instruction {
+public abstract class Instruction {
     
 }

@@ -38,6 +38,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitVardcl(CGPLParser.VardclContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#konstdcl}.
+	 * @param ctx the parse tree
+	 */
+	void enterKonstdcl(CGPLParser.KonstdclContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#konstdcl}.
+	 * @param ctx the parse tree
+	 */
+	void exitKonstdcl(CGPLParser.KonstdclContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#assignment}.
 	 * @param ctx the parse tree
 	 */
@@ -237,4 +247,24 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitList(CGPLParser.ListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#switchstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchstmt(CGPLParser.SwitchstmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#switchstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchstmt(CGPLParser.SwitchstmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#casestmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterCasestmt(CGPLParser.CasestmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#casestmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitCasestmt(CGPLParser.CasestmtContext ctx);
 }
