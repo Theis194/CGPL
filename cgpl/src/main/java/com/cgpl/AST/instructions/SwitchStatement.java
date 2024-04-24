@@ -11,6 +11,7 @@ public class SwitchStatement extends Instruction {
     public SwitchStatement(Expression switchValue, List<CaseStatement> cases) {
         this.switchValue = switchValue;
         this.cases = cases;
+        super.setType("SwitchStatement");
     }
 
     public Expression getSwitchValue() {

@@ -47,7 +47,7 @@ WS: [ \t\r\n]+ -> skip;
 program: instruction* EOF;
 instruction
 	: vardcl CRLF
-	konstdcl CRLF
+	| konstdcl CRLF
 	| function
 	| ifstmt 
 	| forstmt 

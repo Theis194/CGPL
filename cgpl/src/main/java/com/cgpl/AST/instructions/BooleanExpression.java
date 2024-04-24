@@ -11,6 +11,7 @@ public class BooleanExpression extends Instruction {
         this.left = left;
         this.right = right;
         this.operator = operator;
+        super.setType("BooleanExpression");
     }
 
     public Expression getLeft() {

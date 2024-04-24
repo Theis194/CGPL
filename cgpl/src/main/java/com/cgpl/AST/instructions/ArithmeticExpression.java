@@ -11,6 +11,7 @@ public class ArithmeticExpression extends Instruction {
         this.left = left;
         this.right = right;
         this.operator = operator;
+        super.setType("ArithmeticExpression");
     }
 
     public Expression getLeft() {

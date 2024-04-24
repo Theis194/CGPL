@@ -1,10 +1,10 @@
 package com.cgpl.AST.expressions;
 
-public class CString extends Expression { // Name is subject to change
+public class StringLiteral extends Expression { // Name is subject to change
     public String value;
     public String type = "string";
 
-    public CString(String value) {
+    public StringLiteral(String value) {
         this.value = value;
     }
 

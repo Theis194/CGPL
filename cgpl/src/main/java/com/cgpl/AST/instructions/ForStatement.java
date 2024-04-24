@@ -13,6 +13,7 @@ public class ForStatement extends Instruction {
         this.identifier = identifier;
         this.iterable = iterable;
         this.body = body;
+        super.setType("ForStatement");
     }
 
     public String getIdentifier() {

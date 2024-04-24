@@ -9,6 +9,7 @@ public class Assignment extends Instruction {
     public Assignment(String identifier, Expression value) {
         this.identifier = identifier;
         this.value = value;
+        super.setType("Assignment");
     }
 
     public String getIdentifier() {

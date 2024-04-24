@@ -5,5 +5,6 @@ public class Increment extends Instruction {
 
     public Increment(String identifier) {
         this.identifier = identifier;
+        super.setType("Increment");
     }
 }

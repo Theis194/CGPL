@@ -8,6 +8,7 @@ public class VarDeclaration extends Instruction {
     private Expression value;
 
     public VarDeclaration(String identifier, Expression value) {
+        super.setType("VarDeclaration");
         this.identifier = identifier;
         this.value = value;
     }

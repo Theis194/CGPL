@@ -13,6 +13,7 @@ public class Function extends Instruction {
         this.identifier = identifier;
         this.arguments = arguments;
         this.functionBody = functionBody;
+        super.setType("Function");
     }
 
     public String getIdentifier() {

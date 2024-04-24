@@ -13,6 +13,7 @@ public class IfStatment extends Instruction {
         this.condition = condition;
         this.thenBody = thenBody;
         this.elseBody = elseBody;
+        super.setType("IfStatment");
     }
 
     public Expression getCondition() {

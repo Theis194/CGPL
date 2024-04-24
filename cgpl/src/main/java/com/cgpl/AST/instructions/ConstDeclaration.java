@@ -10,6 +10,7 @@ public class ConstDeclaration extends Instruction {
     public ConstDeclaration(String identifier, Expression value) {
         this.identifier = identifier;
         this.value = value;
+        super.setType("ConstDeclaration");
     }
 
     public String getIdentifier() {

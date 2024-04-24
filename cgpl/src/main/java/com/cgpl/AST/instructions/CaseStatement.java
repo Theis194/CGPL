@@ -11,6 +11,7 @@ public class CaseStatement extends Instruction {
     public CaseStatement(Expression caseValue, List<Instruction> instruction) {
         this.caseValue = caseValue;
         this.instruction = instruction;
+        super.setType("CaseStatement");
     }
 
     public Expression getCaseValue() {

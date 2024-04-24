@@ -5,5 +5,6 @@ public class Decrement extends Instruction{
 
     public Decrement(String identifier) {
         this.identifier = identifier;
+        super.setType("Decrement");
     }
 }

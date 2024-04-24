@@ -11,6 +11,7 @@ public class FunctionCall extends Instruction {
     public FunctionCall(String identifier, List<Expression> arguments) {
         this.identifier = identifier;
         this.arguments = arguments;
+        super.setType("FunctionCall");
     }
 
     public String getIdentifier() {
