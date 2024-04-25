@@ -13,7 +13,7 @@ import com.cgpl.AST.Program;
 
 public class VisitorTester {
     public static void main(String[] args) {
-        String code = readFile("cgpl/src/test/cgpl/varDeclaration.cgpl");
+        String code = readFile("../cgpl/src/test/cgpl/function.cgpl");
 
         final Program result = new AstParser().parse(code);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -27,7 +27,7 @@ public class VisitorTester {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //System.out.println(json);
+        System.out.println(json);
     }
 
     private static String readFile(String path) {

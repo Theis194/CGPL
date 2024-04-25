@@ -1,0 +1,16 @@
+{
+  "instructions": [
+    {
+      "identifier": "test",
+      "arguments": [
+        null,
+        null
+      ],
+      "functionBody": [
+        null,
+        null
+      ],
+      "instructionType": "Function"
+    }
+  ]
+}

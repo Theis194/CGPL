@@ -13,6 +13,7 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle constant declaration
         } else if (ctx.function() != null) {
             // Handle function
+            return new FunctionVisitor().visitFunction(ctx.function());
         } else if (ctx.ifstmt() != null) {
             // Handle if statement
         } else if (ctx.forstmt() != null) {
