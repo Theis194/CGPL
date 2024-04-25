@@ -15,6 +15,7 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             return new FunctionVisitor().visitFunction(ctx.function());
         } else if (ctx.ifstmt() != null) {
             // Handle if statement
+            return new IfStatementVisitor().visitIfstmt(ctx.ifstmt());
         } else if (ctx.forstmt() != null) {
             // Handle for statement
         } else if (ctx.returnstmt() != null) {
@@ -27,9 +28,7 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle increment
         } else if (ctx.decrement() != null) {
             // Handle decrement
-        } else if (ctx.functionCall() != null) {
-            // Handle function call
-        }
+        } 
         return super.visitInstruction(ctx);
     }
 }

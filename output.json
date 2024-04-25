@@ -1,44 +1,46 @@
 {
   "instructions": [
     {
-      "identifier": "test1",
-      "value": {
-        "expressions": [
-          {
-            "value": "a",
-            "type": "string"
-          },
-          {
-            "value": "b",
-            "type": "string"
-          }
-        ],
-        "type": "stringConcat"
-      },
+      "identifier": "a",
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
-      "identifier": "test1",
-      "value": {
-        "expressions": [
+      "condition": {
+        "operands": [
           {
-            "value": "a",
-            "type": "string"
-          },
-          {
+            "operands": [
+              {
+                "value": true,
+                "type": "boolean"
+              }
+            ],
+            "type": "and"
+          }
+        ],
+        "type": "or"
+      },
+      "thenBody": [
+        {
+          "identifier": "a",
+          "value": {
             "value": "b",
             "type": "string"
           },
-          {
-            "identifier": "b",
-            "type": "identifier"
-          }
-        ],
-        "type": "stringConcat"
-      },
-      "isConst": false,
-      "instructionType": "VarDeclaration"
+          "instructionType": "Assignment"
+        }
+      ],
+      "elseBody": [
+        {
+          "identifier": "a",
+          "value": {
+            "value": "a",
+            "type": "string"
+          },
+          "instructionType": "Assignment"
+        }
+      ],
+      "instructionType": "IfStatment"
     }
   ]
 }

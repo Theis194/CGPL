@@ -60,7 +60,7 @@ vardcl: (VAR|KONST) IDENTIFIER ('=' value)?;
 assignment: IDENTIFIER '=' value;
 returnstmt: RETURN value;
 functionBody: instruction*;
-ifstmt: IF value RCURLY instruction* LCURLY (ELSE instruction)?;
+ifstmt: IF value LCURLY instruction* RCURLY (ELSE LCURLY instruction* RCURLY)?;
 forstmt: FOR IDENTIFIER IN value RCURLY instruction* LCURLY;
 functionCall: IDENTIFIER LPAREN ((value)? | value (',' value)+) RPAREN;
 function:
