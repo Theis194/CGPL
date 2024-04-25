@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import com.cgpl.AST.Program;
@@ -17,7 +18,16 @@ public class VisitorTester {
         final Program result = new AstParser().parse(code);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         final String json = gson.toJson(result);
-        System.out.println(json);
+        
+        try {
+            FileWriter writer = new FileWriter("output.json");
+            writer.write(json);
+            writer.close();
+            System.out.println("JSON written to file successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //System.out.println(json);
     }
 
     private static String readFile(String path) {

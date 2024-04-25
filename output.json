@@ -1,0 +1,215 @@
+{
+  "instructions": [
+    {
+      "identifier": "test0",
+      "value": {
+        "value": 10,
+        "type": "number"
+      },
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test1",
+      "value": {
+        "value": "abc",
+        "type": "string"
+      },
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test2",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "value": true,
+                "type": "boolean"
+              }
+            ],
+            "type": "and"
+          }
+        ],
+        "type": "or"
+      },
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test3",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "value": false,
+                "type": "boolean"
+              }
+            ],
+            "type": "and"
+          }
+        ],
+        "type": "or"
+      },
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test4",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "value": true,
+                "type": "boolean"
+              }
+            ],
+            "type": "and"
+          },
+          {
+            "operands": [
+              {
+                "value": false,
+                "type": "boolean"
+              }
+            ],
+            "type": "and"
+          }
+        ],
+        "type": "or"
+      },
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test5",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "operands": [
+                  {
+                    "operands": [
+                      {
+                        "value": true,
+                        "type": "boolean"
+                      },
+                      {
+                        "value": false,
+                        "type": "boolean"
+                      }
+                    ],
+                    "type": "and"
+                  }
+                ],
+                "type": "or"
+              }
+            ],
+            "type": "and"
+          }
+        ],
+        "type": "or"
+      },
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test6",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "operands": [
+                  {
+                    "operands": [
+                      {
+                        "value": false,
+                        "type": "boolean"
+                      }
+                    ],
+                    "type": "and"
+                  }
+                ],
+                "type": "or"
+              }
+            ],
+            "type": "and"
+          },
+          {
+            "operands": [
+              {
+                "value": true,
+                "type": "boolean"
+              },
+              {
+                "operands": [
+                  {
+                    "operands": [
+                      {
+                        "value": false,
+                        "type": "boolean"
+                      }
+                    ],
+                    "type": "and"
+                  },
+                  {
+                    "operands": [
+                      {
+                        "value": true,
+                        "type": "boolean"
+                      },
+                      {
+                        "value": true,
+                        "type": "boolean"
+                      }
+                    ],
+                    "type": "and"
+                  }
+                ],
+                "type": "or"
+              }
+            ],
+            "type": "and"
+          }
+        ],
+        "type": "or"
+      },
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test7",
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test8",
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test9",
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test10",
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test11",
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test12",
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test13",
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test14",
+      "instructionType": "VarDeclaration"
+    },
+    {
+      "identifier": "test15",
+      "instructionType": "VarDeclaration"
+    }
+  ]
+}

@@ -4,6 +4,8 @@ com\cgpl\AST\Program.class
 com\cgpl\CGPLVisitor.class
 com\cgpl\CGPLParser$FunctionCallContext.class
 com\cgpl\CGPLParser.class
+com\cgpl\AST\expressions\OrExpression.class
+com\cgpl\AstParser$BooleanExpressionVisitor.class
 com\cgpl\GrammarTester.class
 com\cgpl\ParserCGPL.class
 com\cgpl\AST\instructions\Instruction.class
@@ -11,11 +13,13 @@ com\cgpl\CGPLParser$FunctionBodyContext.class
 com\cgpl\CGPLParser$ValueContext.class
 com\cgpl\AstParser.class
 com\cgpl\CGPLParser$VardclContext.class
+com\cgpl\AstParser$BooleanValueVisitor.class
 com\cgpl\AST\expressions\Number.class
 com\cgpl\CGPLParser$OrExprContext.class
 com\cgpl\AST\instructions\IfStatment.class
 com\cgpl\AST\instructions\ConstDeclaration.class
 com\cgpl\AST\instructions\VarDeclaration.class
+com\cgpl\AstParser$OrExpressionVisitor.class
 com\cgpl\AST\instructions\ArithmeticExpression.class
 com\cgpl\AST\expressions\Identifier.class
 com\cgpl\CGPLParser$DecrementContext.class
@@ -23,6 +27,7 @@ com\cgpl\CGPLParser$InstructionContext.class
 com\cgpl\CGPLParser$AndExprContext.class
 com\cgpl\CGPLParser$ReturnstmtContext.class
 com\cgpl\CGPLParser$SwitchstmtContext.class
+com\cgpl\AST\expressions\StringLiteral.class
 com\cgpl\AST\expressions\Expression.class
 com\cgpl\AST\instructions\BooleanExpression.class
 com\cgpl\CGPLBaseVisitor.class
@@ -31,7 +36,10 @@ com\cgpl\AST\instructions\Assignment.class
 com\cgpl\AST\expressions\Boolean.class
 com\cgpl\CGPLLexer.class
 com\cgpl\AST\instructions\CaseStatement.class
+CGPLLexer.tokens
 com\cgpl\CGPLParser$FactorContext.class
+com\cgpl\VisitorTester.class
+com\cgpl\AstParser$VardclVisitor.class
 com\cgpl\CGPLParser$Arth_opContext.class
 com\cgpl\CGPLParser$BoolvalueContext.class
 com\cgpl\CGPLParser$IncrementContext.class
@@ -42,10 +50,12 @@ com\cgpl\AstParser$ProgramVisitor.class
 com\cgpl\CGPLListener.class
 com\cgpl\CGPLParser$ListContext.class
 com\cgpl\CGPLParser$ComparisonContext.class
+com\cgpl\CGPL.interp
 com\cgpl\Listener.class
 com\cgpl\GrammarTester$1.class
-com\cgpl\AST\expressions\CString.class
 com\cgpl\AST\instructions\SwitchStatement.class
+com\cgpl\AstParser$InstructionVisitor.class
+com\cgpl\AstParser$AndExpressionVisitor.class
 com\cgpl\CGPLParser$BoolExprContext.class
 com\cgpl\CGPLParser$ArthexpContext.class
 com\cgpl\CGPLParser$AssignmentContext.class
@@ -53,7 +63,9 @@ com\cgpl\CGPLParser$ForstmtContext.class
 com\cgpl\CGPLParser$KonstdclContext.class
 com\cgpl\CGPLBaseListener.class
 com\cgpl\AST\instructions\Return.class
+com\cgpl\AstParser$ExpressionVisitor.class
 com\cgpl\CGPLParser$ProgramContext.class
+com\cgpl\AST\expressions\AndExpression.class
 com\cgpl\AST\expressions\CList.class
 com\cgpl\CGPLParser$FunctionContext.class
 com\cgpl\CGPLParser$CasestmtContext.class
