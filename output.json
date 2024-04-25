@@ -17,7 +17,13 @@
           },
           "instructionType": "Assignment"
         },
-        null
+        {
+          "value": {
+            "identifier": "var1",
+            "type": "identifier"
+          },
+          "instructionType": "Return"
+        }
       ],
       "instructionType": "Function"
     }

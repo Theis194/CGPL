@@ -19,7 +19,7 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
         } else if (ctx.forstmt() != null) {
             // Handle for statement
         } else if (ctx.returnstmt() != null) {
-            // Handle return statement
+            return new ReturnVisitor().visitReturnstmt(ctx.returnstmt());
         } else if (ctx.assignment() != null) {
             return new AssignmentVisitor().visitAssignment(ctx.assignment());
         } else if (ctx.increment() != null) {
