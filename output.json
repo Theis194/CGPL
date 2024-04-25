@@ -9,7 +9,14 @@
         }
       ],
       "functionBody": [
-        null,
+        {
+          "identifier": "var1",
+          "value": {
+            "value": 10,
+            "type": "number"
+          },
+          "instructionType": "Assignment"
+        },
         null
       ],
       "instructionType": "Function"
