@@ -7,17 +7,7 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 
 import com.cgpl.AST.Program;
-import com.cgpl.AST.expressions.AndExpression;
-import com.cgpl.AST.expressions.Boolean;
-import com.cgpl.AST.expressions.Expression;
-import com.cgpl.AST.expressions.Identifier;
-import com.cgpl.AST.expressions.Number;
-import com.cgpl.AST.expressions.OrExpression;
-import com.cgpl.AST.expressions.StringLiteral;
-import com.cgpl.AST.instructions.Instruction;
-import com.cgpl.AST.instructions.VarDeclaration;
-
-import static java.util.stream.Collectors.toList;
+import com.cgpl.visitors.ProgramVisitor;
 
 public class AstParser implements ParserCGPL{
     public Program parse(String code) {

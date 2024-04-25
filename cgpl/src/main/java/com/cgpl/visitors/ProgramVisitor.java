@@ -1,5 +1,14 @@
+package com.cgpl.visitors;
 
-public static class ProgramVisitor extends CGPLBaseVisitor<Program> {
+import java.util.List;
+import static java.util.stream.Collectors.toList;
+
+import com.cgpl.CGPLBaseVisitor;
+import com.cgpl.CGPLParser;
+import com.cgpl.AST.Program;
+import com.cgpl.AST.instructions.Instruction;
+
+public class ProgramVisitor extends CGPLBaseVisitor<Program> {
     @Override
     public Program visitProgram(CGPLParser.ProgramContext ctx) {
         InstructionVisitor instructionVisitor = new InstructionVisitor();

@@ -1,4 +1,13 @@
-public static class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
+package com.cgpl.visitors;
+
+import com.cgpl.CGPLBaseVisitor;
+import com.cgpl.CGPLParser;
+import com.cgpl.AST.expressions.Expression;
+import com.cgpl.AST.expressions.Number;
+import com.cgpl.AST.expressions.Identifier;
+import com.cgpl.AST.expressions.StringLiteral;
+
+public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
     @Override
     public Expression visitValue(CGPLParser.ValueContext ctx) {
         if (ctx.NUMBER() != null) {

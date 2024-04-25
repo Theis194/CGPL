@@ -1,4 +1,10 @@
-public static class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
+package com.cgpl.visitors;
+
+import com.cgpl.CGPLBaseVisitor;
+import com.cgpl.CGPLParser;
+import com.cgpl.AST.instructions.Instruction;
+
+public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     @Override
     public Instruction visitInstruction(CGPLParser.InstructionContext ctx) {
         if (ctx.vardcl() != null) {
