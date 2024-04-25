@@ -47,7 +47,6 @@ WS: [ \t\r\n]+ -> skip;
 program: instruction* EOF;
 instruction
 	: vardcl CRLF
-	| konstdcl CRLF
 	| function
 	| ifstmt 
 	| forstmt 
@@ -57,8 +56,7 @@ instruction
 	| decrement CRLF
 	| functionCall CRLF
 	;
-vardcl: VAR IDENTIFIER ('=' value)?;
-konstdcl: KONST IDENTIFIER ('=' value)?;
+vardcl: (VAR|KONST) IDENTIFIER ('=' value)?;
 assignment: IDENTIFIER '=' value;
 returnstmt: RETURN value;
 functionBody: instruction*;

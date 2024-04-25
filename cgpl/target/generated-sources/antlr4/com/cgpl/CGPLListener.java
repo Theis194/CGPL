@@ -38,16 +38,6 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitVardcl(CGPLParser.VardclContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CGPLParser#konstdcl}.
-	 * @param ctx the parse tree
-	 */
-	void enterKonstdcl(CGPLParser.KonstdclContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CGPLParser#konstdcl}.
-	 * @param ctx the parse tree
-	 */
-	void exitKonstdcl(CGPLParser.KonstdclContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link CGPLParser#assignment}.
 	 * @param ctx the parse tree
 	 */

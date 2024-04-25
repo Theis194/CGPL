@@ -29,12 +29,6 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVardcl(CGPLParser.VardclContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CGPLParser#konstdcl}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitKonstdcl(CGPLParser.KonstdclContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link CGPLParser#assignment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

@@ -9,8 +9,6 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     public Instruction visitInstruction(CGPLParser.InstructionContext ctx) {
         if (ctx.vardcl() != null) {
             return new VardclVisitor().visitVardcl(ctx.vardcl());
-        } else if (ctx.konstdcl() != null) {
-            // Handle constant declaration
         } else if (ctx.function() != null) {
             // Handle function
             return new FunctionVisitor().visitFunction(ctx.function());
