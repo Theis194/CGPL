@@ -11,20 +11,25 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
     @Override
     public Expression visitValue(CGPLParser.ValueContext ctx) {
         if (ctx.NUMBER() != null) {
+            // Handle number
             return new Number(Integer.parseInt(ctx.NUMBER().getText()));
         } else if (ctx.IDENTIFIER() != null) {
+            // Handle identifier
             return new Identifier(ctx.IDENTIFIER().getText());
         } else if (ctx.STRING() != null) {
+            // Handle string
             return new StringLiteral(ctx.STRING().getText().replaceAll("\"", ""));
         } else if (ctx.boolExpr() != null) {
+            // Handle boolean expression
             return new BooleanExpressionVisitor().visitBoolExpr(ctx.boolExpr());
         } else if (ctx.arthexp() != null) {
-            // Handle expression
+            // Handle arithmetic expression
             return new ArithmeticExpressionVisitor().visitArthexp(ctx.arthexp());
         } else if (ctx.list() != null) {
-            // Handle expression
+            // Handle list expression
         } else if (ctx.stringConcat() != null) {
-            // Handle expression
+            // Handle string concat expression
+            return new StringConcatVisitor().visitStringConcat(ctx.stringConcat());
         }
         return super.visitValue(ctx);
     }
