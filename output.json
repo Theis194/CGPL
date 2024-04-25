@@ -184,46 +184,222 @@
     },
     {
       "identifier": "test7",
+      "value": {
+        "operands": [
+          {
+            "value": 10,
+            "type": "number"
+          },
+          {
+            "value": 10,
+            "type": "number"
+          }
+        ],
+        "operator": "+",
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
       "identifier": "test8",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "value": 10,
+                "type": "number"
+              },
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
+          }
+        ],
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
       "identifier": "test9",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "value": 10,
+                "type": "number"
+              },
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
+          },
+          {
+            "value": 10,
+            "type": "number"
+          }
+        ],
+        "operator": "+",
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
       "identifier": "test10",
+      "value": {
+        "operands": [
+          {
+            "value": 10,
+            "type": "number"
+          },
+          {
+            "operands": [
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "type": "arithmetic"
+          }
+        ],
+        "operator": "+",
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
       "identifier": "test11",
+      "value": {
+        "operands": [
+          {
+            "value": 10,
+            "type": "number"
+          },
+          {
+            "value": 10,
+            "type": "number"
+          }
+        ],
+        "operator": "-",
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
       "identifier": "test12",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "value": 10,
+                "type": "number"
+              },
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "operator": "-",
+            "type": "arithmetic"
+          }
+        ],
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
       "identifier": "test13",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "value": 10,
+                "type": "number"
+              },
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "operator": "-",
+            "type": "arithmetic"
+          },
+          {
+            "value": 10,
+            "type": "number"
+          }
+        ],
+        "operator": "-",
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
       "identifier": "test14",
+      "value": {
+        "operands": [
+          {
+            "value": 10,
+            "type": "number"
+          },
+          {
+            "operands": [
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "type": "arithmetic"
+          }
+        ],
+        "operator": "-",
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },
     {
       "identifier": "test15",
+      "value": {
+        "operands": [
+          {
+            "operands": [
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "type": "arithmetic"
+          },
+          {
+            "operands": [
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "type": "arithmetic"
+          }
+        ],
+        "operator": "-",
+        "type": "arithmetic"
+      },
       "isConst": false,
       "instructionType": "VarDeclaration"
     },

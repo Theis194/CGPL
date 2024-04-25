@@ -20,6 +20,7 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
             return new BooleanExpressionVisitor().visitBoolExpr(ctx.boolExpr());
         } else if (ctx.arthexp() != null) {
             // Handle expression
+            return new ArithmeticExpressionVisitor().visitArthexp(ctx.arthexp());
         } else if (ctx.list() != null) {
             // Handle expression
         } else if (ctx.stringConcat() != null) {
