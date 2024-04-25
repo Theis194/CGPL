@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.cgpl.AST.expressions.Expression;
 
-public class IfStatment extends Instruction {
+public class IfStatment implements Instruction {
+    private String instructionType;
     private Expression condition;
     private List<Instruction> thenBody;
     private List<Instruction> elseBody;
@@ -13,7 +14,7 @@ public class IfStatment extends Instruction {
         this.condition = condition;
         this.thenBody = thenBody;
         this.elseBody = elseBody;
-        super.setType("IfStatment");
+        this.instructionType = "IfStatment";
     }
 
     public Expression getCondition() {
@@ -26,5 +27,10 @@ public class IfStatment extends Instruction {
 
     public List<Instruction> getElseBody() {
         return elseBody;
+    }
+
+    @Override
+    public String getInstructionType() {
+        return instructionType;
     }
 }

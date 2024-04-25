@@ -4,14 +4,15 @@ import java.util.List;
 
 import com.cgpl.AST.expressions.Expression;
 
-public class FunctionCall extends Instruction {
+public class FunctionCall implements Instruction {
+    private String instructionType;
     private String identifier;
     private List<Expression> arguments;
 
     public FunctionCall(String identifier, List<Expression> arguments) {
         this.identifier = identifier;
         this.arguments = arguments;
-        super.setType("FunctionCall");
+        this.instructionType = "FunctionCall";
     }
 
     public String getIdentifier() {
@@ -20,5 +21,10 @@ public class FunctionCall extends Instruction {
 
     public List<Expression> getArguments() {
         return arguments;
+    }
+
+    @Override
+    public String getInstructionType() {
+        return instructionType;
     }
 }

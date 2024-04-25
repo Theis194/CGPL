@@ -1,7 +1,7 @@
 package com.cgpl.AST.expressions;
 
-public abstract class Expression {
-    public abstract String getType();
+public interface Expression {
+    String getType();
 
-    public abstract String toString();
+    String toString();
 }

@@ -28,7 +28,9 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle increment
         } else if (ctx.decrement() != null) {
             // Handle decrement
-        } 
+        } else if (ctx.functionCall() != null) {
+            // Handle function call
+        }
         return super.visitInstruction(ctx);
     }
 }

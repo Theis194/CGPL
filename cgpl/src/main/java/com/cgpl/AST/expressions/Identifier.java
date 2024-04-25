@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-public class Identifier extends Expression {
+public class Identifier implements Expression {
     public String identifier;
     public String type = "identifier";
 

@@ -1,10 +1,20 @@
 package com.cgpl.AST.instructions;
 
-public class Decrement extends Instruction{
+public class Decrement implements Instruction{
+    private String instructionType;
     private String identifier;
 
     public Decrement(String identifier) {
         this.identifier = identifier;
-        super.setType("Decrement");
+        this.instructionType = "Decrement";
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    @Override
+    public String getInstructionType() {
+        return instructionType;
     }
 }

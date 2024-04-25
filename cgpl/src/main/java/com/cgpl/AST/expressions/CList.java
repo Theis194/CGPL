@@ -3,7 +3,7 @@ package com.cgpl.AST.expressions;
 import java.util.Arrays;
 import java.util.List;
 
-public class CList extends Expression { // Name is subject to change
+public class CList implements Expression { // Name is subject to change
     private List<Expression> list;
     private String type = "list";
 

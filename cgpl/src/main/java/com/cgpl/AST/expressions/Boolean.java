@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-public class Boolean extends Expression{
+public class Boolean implements Expression{
     public boolean value;
     public String type = "boolean";
 

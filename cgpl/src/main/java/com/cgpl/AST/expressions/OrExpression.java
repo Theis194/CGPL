@@ -2,7 +2,7 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
-public class OrExpression extends Expression {
+public class OrExpression implements Expression {
     private List<Expression> operands;
     private String type = "or";
 

@@ -2,7 +2,7 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
-public class StringConcat extends Expression {
+public class StringConcat implements Expression {
     private List<Expression> expressions;
     private String type = "stringConcat";
 

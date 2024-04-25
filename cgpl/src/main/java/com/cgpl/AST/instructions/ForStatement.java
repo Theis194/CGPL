@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.cgpl.AST.expressions.Expression;
 
-public class ForStatement extends Instruction {
+public class ForStatement implements Instruction {
+    private String instructionType;
     private String identifier;
     private Expression iterable; // This is the list that we are iterating over
     private List<Instruction> body;
@@ -13,7 +14,7 @@ public class ForStatement extends Instruction {
         this.identifier = identifier;
         this.iterable = iterable;
         this.body = body;
-        super.setType("ForStatement");
+        this.instructionType = "ForStatement";
     }
 
     public String getIdentifier() {
@@ -26,5 +27,10 @@ public class ForStatement extends Instruction {
 
     public List<Instruction> getBody() {
         return body;
+    }
+
+    @Override
+    public String getInstructionType() {
+        return instructionType;
     }
 }

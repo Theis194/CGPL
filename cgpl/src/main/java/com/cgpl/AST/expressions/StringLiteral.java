@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-public class StringLiteral extends Expression { // Name is subject to change
+public class StringLiteral implements Expression { // Name is subject to change
     public String value;
     public String type = "string";
 

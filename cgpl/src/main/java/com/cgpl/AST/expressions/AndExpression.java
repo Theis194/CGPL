@@ -2,7 +2,7 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
-public class AndExpression extends Expression {
+public class AndExpression implements Expression {
     List<Expression> operands;
     String type = "and";
 

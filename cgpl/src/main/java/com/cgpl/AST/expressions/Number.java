@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-public class Number extends Expression {
+public class Number implements Expression {
     private int value;
     private String type = "number";
 

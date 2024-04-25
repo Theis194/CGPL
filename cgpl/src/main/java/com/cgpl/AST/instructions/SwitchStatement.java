@@ -4,14 +4,15 @@ import java.util.List;
 
 import com.cgpl.AST.expressions.Expression;
 
-public class SwitchStatement extends Instruction {
+public class SwitchStatement implements Instruction {
+    private String instructionType;
     private Expression switchValue;
     private List<CaseStatement> cases;
 
     public SwitchStatement(Expression switchValue, List<CaseStatement> cases) {
         this.switchValue = switchValue;
         this.cases = cases;
-        super.setType("SwitchStatement");
+        this.instructionType = "SwitchStatement";
     }
 
     public Expression getSwitchValue() {
@@ -20,5 +21,10 @@ public class SwitchStatement extends Instruction {
 
     public List<CaseStatement> getCases() {
         return cases;
+    }
+
+    @Override
+    public String getInstructionType() {
+        return instructionType;
     }
 }

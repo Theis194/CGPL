@@ -4,7 +4,7 @@ import com.cgpl.AST.instructions.Instruction;
 
 import java.util.List;
 
-public class ArithmeticExpression extends Expression {
+public class ArithmeticExpression implements Expression {
     private List<Expression> operands;
     private String operator;
     private String type = "arithmetic";
