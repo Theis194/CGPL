@@ -6,11 +6,13 @@ public class VarDeclaration extends Instruction {
     private String identifier;
     private String type;
     private Expression value;
+    private boolean isConst;
 
-    public VarDeclaration(String identifier, Expression value) {
+    public VarDeclaration(String identifier, Expression value, boolean isConst) {
         super.setType("VarDeclaration");
         this.identifier = identifier;
         this.value = value;
+        this.isConst = isConst;
     }
 
     public String getIdentifier() {
