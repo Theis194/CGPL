@@ -30,6 +30,7 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle decrement
         } else if (ctx.functionCall() != null) {
             // Handle function call
+            return new FunctionCallVisitor<Instruction>().visitFunctionCall(ctx.functionCall());
         }
         return super.visitInstruction(ctx);
     }

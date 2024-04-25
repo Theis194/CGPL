@@ -32,6 +32,7 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
             return new StringConcatVisitor().visitStringConcat(ctx.stringConcat());
         } else if (ctx.functionCall() != null) {
             // Handle function call
+            return new FunctionCallVisitor<Expression>().visitFunctionCall(ctx.functionCall());
         }
         return super.visitValue(ctx);
     }
