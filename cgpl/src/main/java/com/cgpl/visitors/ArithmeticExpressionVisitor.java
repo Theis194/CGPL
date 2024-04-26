@@ -13,10 +13,17 @@ public class ArithmeticExpressionVisitor extends CGPLBaseVisitor<Expression> {
     @Override
     public Expression visitArthexp(CGPLParser.ArthexpContext ctx) {
         List<Expression> operands = ctx.factor().stream().map(this::visitFactor).toList();
+
+        if (operands.size() == 1) {
+            return operands.get(0);
+            
+        }
+
         String operator = null;
         if (ctx.arth_op(0) != null) {
             operator = getOperator(ctx.arth_op(0));
         }
+        
         return new ArithmeticExpression(operands, operator);
     }
 
