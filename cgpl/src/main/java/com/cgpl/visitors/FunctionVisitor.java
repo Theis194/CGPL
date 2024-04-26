@@ -14,12 +14,25 @@ import java.util.List;
 public class FunctionVisitor extends CGPLBaseVisitor<Instruction> {
     @Override
     public Function visitFunction(CGPLParser.FunctionContext ctx) {
-        FunctionBodyVisitor visitor = new FunctionBodyVisitor();
+        InstructionVisitor visitor = new InstructionVisitor();
         List<Expression> arguments = ctx.IDENTIFIER()
             .stream()
             .skip(1)
             .map(arg -> new Identifier(arg.getText()))
             .collect(toList());
-        return new Function(ctx.IDENTIFIER(0).getText(), arguments, visitor.visitFunctionBody(ctx.functionBody()));
+
+        List<Instruction> functionBody = ctx.functionBody()
+            .instruction()
+            .stream()
+            .map(instruction -> instruction.accept(visitor))
+            .collect(toList());
+
+        return new Function(ctx.IDENTIFIER(0).getText(), arguments, functionBody);
+    }
+
+    @Override
+    public  Instruction visitFunctionBody(CGPLParser.FunctionBodyContext ctx) {
+        InstructionVisitor instructionVisitor = new InstructionVisitor();
+        return instructionVisitor.visit(ctx);
     }
 }
