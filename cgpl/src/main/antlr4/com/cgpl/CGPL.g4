@@ -91,6 +91,7 @@ factor
 	: NUMBER 
 	| IDENTIFIER 
 	| LPAREN arthexp RPAREN
+	| functionCall
 	;
 arthexp: factor (arth_op factor)*;
 increment: IDENTIFIER OP_INC;

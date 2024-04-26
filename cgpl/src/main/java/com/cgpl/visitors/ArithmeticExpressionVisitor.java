@@ -35,6 +35,8 @@ public class ArithmeticExpressionVisitor extends CGPLBaseVisitor<Expression> {
             return new Identifier(ctx.IDENTIFIER().getText());
         } else if (ctx.arthexp() != null) {
             return visitArthexp(ctx.arthexp());
+        } else if (ctx.functionCall() != null) {
+            return new FunctionCallVisitor<Expression>().visitFunctionCall(ctx.functionCall());
         }
         return null;
     }

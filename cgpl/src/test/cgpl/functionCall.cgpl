@@ -10,3 +10,4 @@ func1();
 func2(10, "a", true);
 
 var test = func1();
+test = func2() * 10;
