@@ -1,4 +1,4 @@
-// Generated from .//CGPL.g4 by ANTLR 4.13.1
+// Generated from CGPL.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -86,6 +86,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitForstmt(CGPLParser.ForstmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#whilestmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhilestmt(CGPLParser.WhilestmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#whilestmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhilestmt(CGPLParser.WhilestmtContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#function}.
 	 * @param ctx the parse tree
