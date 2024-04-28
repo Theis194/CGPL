@@ -59,7 +59,7 @@ returnstmt: RETURN value CRLF;
 functionBody: instruction*;
 ifstmt: IF value instruction (ELSE instruction)?;
 forstmt: FOR LPAREN vardcl boolvalue arthexp RPAREN LCURLY instruction* RCURLY | FOR LPAREN IDENTIFIER IN value RPAREN LCURLY instruction* RCURLY;
-whilestmt: WHILE LPAREN boolvalue RPAREN LCURLY instruction RCURLY;
+whilestmt: WHILE LPAREN boolvalue RPAREN LCURLY instruction* RCURLY;
 function:
 	FUNCTION IDENTIFIER LPAREN IDENTIFIER RPAREN LCURLY functionBody RCURLY;
 
