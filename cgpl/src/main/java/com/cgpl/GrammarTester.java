@@ -19,7 +19,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class GrammarTester {
-    private static final File folder = new File("cgpl\\src\\test\\cgpl");
+    private static final File folder = new File(System.getProperty("user.dir") + File.separator + "cgpl/src/test/cgpl");
 
     public static List<String> testedFiles = new ArrayList<>();
     //public static List<String> offendingFiles = new ArrayList<>();

@@ -1,0 +1,12 @@
+function func1() {
+    return 10;
+}
+
+function func2(a, b, c) {
+    return 10;
+}
+
+func1();
+func2(10, "a", true);
+
+var test = func1();

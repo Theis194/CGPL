@@ -1,8 +1,8 @@
 token literal names:
 null
 '='
-'['
 ','
+'['
 ']'
 'and'
 'or'
@@ -17,6 +17,7 @@ null
 'else'
 'var'
 'for'
+'while'
 'in'
 null
 null
@@ -56,6 +57,7 @@ IF
 ELSE
 VAR
 FOR
+WHILE
 IN
 NUMBER
 STRING
@@ -87,6 +89,7 @@ ifstmt
 forstmt
 function
 value
+stringConcat
 boolvalue
 andExpr
 orExpr
@@ -95,6 +98,9 @@ factor
 arthexp
 increment
 decrement
+incrementNoCRLF
+decrementNoCRLF
+comparisonExpr
 comparison
 arth_op
 list

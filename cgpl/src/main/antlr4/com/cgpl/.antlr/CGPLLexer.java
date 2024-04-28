@@ -42,7 +42,7 @@ public class CGPLLexer extends Lexer {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'='", "'['", "','", "']'", "'and'", "'or'", "'not'", "'return'", 
+			null, "'='", "','", "'['", "']'", "'and'", "'or'", "'not'", "'return'", 
 			"'function'", "'{'", "'}'", "'('", "')'", "'if'", "'else'", "'var'", 
 			"'for'", "'while'", "'in'", null, null, null, null, "'=='", "'<'", "'>'", 
 			"'<='", "'>='", "'++'", "'--'", "'/'", "'*'", "'%'", "'+'", "'-'", "';'"

@@ -77,16 +77,6 @@ public class Listener extends CGPLBaseListener{
         System.out.println("Exiting for statement");
     }
 
-    /* @Override
-    public void enterBoolexp(CGPLParser.BoolexpContext ctx) {
-        System.out.println("Entering boolean expression");
-    }
-
-    @Override
-    public void exitBoolexp(CGPLParser.BoolexpContext ctx) {
-        System.out.println("Exiting boolean expression");
-    } */
-
     @Override
     public void enterFactor(CGPLParser.FactorContext ctx) {
         System.out.println("Entering factor");
@@ -127,16 +117,6 @@ public class Listener extends CGPLBaseListener{
         System.out.println("Exiting decrement");
     }
 
-    /* @Override
-    public void enterLogical(CGPLParser.LogicalContext ctx) {
-        System.out.println("Entering logical expression");
-    }
-
-    @Override
-    public void exitLogical(CGPLParser.LogicalContext ctx) {
-        System.out.println("Exiting logical expression");
-    } */
-
     @Override
     public void enterComparison(CGPLParser.ComparisonContext ctx) {
         System.out.println("Entering comparison");
@@ -175,5 +155,15 @@ public class Listener extends CGPLBaseListener{
     @Override
     public void exitList(CGPLParser.ListContext ctx) {
         System.out.println("Exiting list");
+    }
+
+    @Override
+    public void enterFunctionCall(CGPLParser.FunctionCallContext ctx) { 
+        System.out.println("Entering function call");
+    }
+
+    @Override
+    public void exitFunctionCall(CGPLParser.FunctionCallContext ctx) {
+        System.out.println("Exiting function call");
     }
 }

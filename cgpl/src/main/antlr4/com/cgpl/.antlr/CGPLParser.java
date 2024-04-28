@@ -40,7 +40,7 @@ public class CGPLParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'='", "'['", "','", "']'", "'and'", "'or'", "'not'", "'return'", 
+			null, "'='", "','", "'['", "']'", "'and'", "'or'", "'not'", "'return'", 
 			"'function'", "'{'", "'}'", "'('", "')'", "'if'", "'else'", "'var'", 
 			"'for'", "'while'", "'in'", null, null, null, null, "'=='", "'<'", "'>'", 
 			"'<='", "'>='", "'++'", "'--'", "'/'", "'*'", "'%'", "'+'", "'-'", "';'"
@@ -163,6 +163,7 @@ public class CGPLParser extends Parser {
 		public VardclContext vardcl() {
 			return getRuleContext(VardclContext.class,0);
 		}
+		public TerminalNode CRLF() { return getToken(CGPLParser.CRLF, 0); }
 		public FunctionContext function() {
 			return getRuleContext(FunctionContext.class,0);
 		}
@@ -171,6 +172,9 @@ public class CGPLParser extends Parser {
 		}
 		public ForstmtContext forstmt() {
 			return getRuleContext(ForstmtContext.class,0);
+		}
+		public WhilestmtContext whilestmt() {
+			return getRuleContext(WhilestmtContext.class,0);
 		}
 		public ReturnstmtContext returnstmt() {
 			return getRuleContext(ReturnstmtContext.class,0);
@@ -183,6 +187,9 @@ public class CGPLParser extends Parser {
 		}
 		public DecrementContext decrement() {
 			return getRuleContext(DecrementContext.class,0);
+		}
+		public FunctionCallContext functionCall() {
+			return getRuleContext(FunctionCallContext.class,0);
 		}
 		public InstructionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -270,7 +277,6 @@ public class CGPLParser extends Parser {
 	public static class VardclContext extends ParserRuleContext {
 		public TerminalNode VAR() { return getToken(CGPLParser.VAR, 0); }
 		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
-		public TerminalNode CRLF() { return getToken(CGPLParser.CRLF, 0); }
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
 		}
@@ -324,7 +330,6 @@ public class CGPLParser extends Parser {
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
 		}
-		public TerminalNode CRLF() { return getToken(CGPLParser.CRLF, 0); }
 		public AssignmentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -364,7 +369,6 @@ public class CGPLParser extends Parser {
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
 		}
-		public TerminalNode CRLF() { return getToken(CGPLParser.CRLF, 0); }
 		public ReturnstmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -706,6 +710,12 @@ public class CGPLParser extends Parser {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
 		public TerminalNode RCURLY() { return getToken(CGPLParser.RCURLY, 0); }
+		public List<ValueContext> value() {
+			return getRuleContexts(ValueContext.class);
+		}
+		public ValueContext value(int i) {
+			return getRuleContext(ValueContext.class,i);
+		}
 		public FunctionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -750,6 +760,9 @@ public class CGPLParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class ValueContext extends ParserRuleContext {
 		public TerminalNode NUMBER() { return getToken(CGPLParser.NUMBER, 0); }
+		public StringConcatContext stringConcat() {
+			return getRuleContext(StringConcatContext.class,0);
+		}
 		public TerminalNode STRING() { return getToken(CGPLParser.STRING, 0); }
 		public BoolExprContext boolExpr() {
 			return getRuleContext(BoolExprContext.class,0);
@@ -760,6 +773,9 @@ public class CGPLParser extends Parser {
 		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
 		public ListContext list() {
 			return getRuleContext(ListContext.class,0);
+		}
+		public FunctionCallContext functionCall() {
+			return getRuleContext(FunctionCallContext.class,0);
 		}
 		public ValueContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1008,6 +1024,9 @@ public class CGPLParser extends Parser {
 		public OrExprContext orExpr() {
 			return getRuleContext(OrExprContext.class,0);
 		}
+		public ComparisonExprContext comparisonExpr() {
+			return getRuleContext(ComparisonExprContext.class,0);
+		}
 		public BoolExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1159,6 +1178,7 @@ public class CGPLParser extends Parser {
 	public static class IncrementContext extends ParserRuleContext {
 		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
 		public TerminalNode OP_INC() { return getToken(CGPLParser.OP_INC, 0); }
+		public TerminalNode CRLF() { return getToken(CGPLParser.CRLF, 0); }
 		public IncrementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1175,6 +1195,8 @@ public class CGPLParser extends Parser {
 			match(IDENTIFIER);
 			setState(198);
 			match(OP_INC);
+			setState(270);
+			match(CRLF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1192,6 +1214,7 @@ public class CGPLParser extends Parser {
 	public static class DecrementContext extends ParserRuleContext {
 		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
 		public TerminalNode OP_DEC() { return getToken(CGPLParser.OP_DEC, 0); }
+		public TerminalNode CRLF() { return getToken(CGPLParser.CRLF, 0); }
 		public DecrementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1208,6 +1231,155 @@ public class CGPLParser extends Parser {
 			match(IDENTIFIER);
 			setState(201);
 			match(OP_DEC);
+			setState(274);
+			match(CRLF);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class IncrementNoCRLFContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
+		public TerminalNode OP_INC() { return getToken(CGPLParser.OP_INC, 0); }
+		public IncrementNoCRLFContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_incrementNoCRLF; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CGPLListener ) ((CGPLListener)listener).enterIncrementNoCRLF(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CGPLListener ) ((CGPLListener)listener).exitIncrementNoCRLF(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CGPLVisitor ) return ((CGPLVisitor<? extends T>)visitor).visitIncrementNoCRLF(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final IncrementNoCRLFContext incrementNoCRLF() throws RecognitionException {
+		IncrementNoCRLFContext _localctx = new IncrementNoCRLFContext(_ctx, getState());
+		enterRule(_localctx, 42, RULE_incrementNoCRLF);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(276);
+			match(IDENTIFIER);
+			setState(277);
+			match(OP_INC);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class DecrementNoCRLFContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
+		public TerminalNode OP_DEC() { return getToken(CGPLParser.OP_DEC, 0); }
+		public DecrementNoCRLFContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_decrementNoCRLF; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CGPLListener ) ((CGPLListener)listener).enterDecrementNoCRLF(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CGPLListener ) ((CGPLListener)listener).exitDecrementNoCRLF(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CGPLVisitor ) return ((CGPLVisitor<? extends T>)visitor).visitDecrementNoCRLF(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DecrementNoCRLFContext decrementNoCRLF() throws RecognitionException {
+		DecrementNoCRLFContext _localctx = new DecrementNoCRLFContext(_ctx, getState());
+		enterRule(_localctx, 44, RULE_decrementNoCRLF);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(279);
+			match(IDENTIFIER);
+			setState(280);
+			match(OP_DEC);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class ComparisonExprContext extends ParserRuleContext {
+		public List<ArthexpContext> arthexp() {
+			return getRuleContexts(ArthexpContext.class);
+		}
+		public ArthexpContext arthexp(int i) {
+			return getRuleContext(ArthexpContext.class,i);
+		}
+		public ComparisonContext comparison() {
+			return getRuleContext(ComparisonContext.class,0);
+		}
+		public ComparisonExprContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_comparisonExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CGPLListener ) ((CGPLListener)listener).enterComparisonExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CGPLListener ) ((CGPLListener)listener).exitComparisonExpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CGPLVisitor ) return ((CGPLVisitor<? extends T>)visitor).visitComparisonExpr(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ComparisonExprContext comparisonExpr() throws RecognitionException {
+		ComparisonExprContext _localctx = new ComparisonExprContext(_ctx, getState());
+		enterRule(_localctx, 46, RULE_comparisonExpr);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(282);
+			arthexp();
+			setState(283);
+			comparison();
+			setState(284);
+			arthexp();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1339,7 +1511,7 @@ public class CGPLParser extends Parser {
 				setState(213);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==T__2) {
+				while (_la==T__1) {
 					{
 					{
 					setState(209);

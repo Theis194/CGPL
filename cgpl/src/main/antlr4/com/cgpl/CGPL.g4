@@ -44,34 +44,40 @@ WS: [ \t\r\n]+ -> skip;
 // Parser rules
 program: instruction* EOF;
 instruction
-	: vardcl 
-	| function 
+	: vardcl CRLF
+	| function
 	| ifstmt 
 	| forstmt
 	| whilestmt
-	| returnstmt 
-	| assignment 
-	| increment 
-	| decrement
+	| returnstmt CRLF
+	| assignment CRLF
+	| increment CRLF
+	| decrement CRLF
+	| functionCall CRLF
 	;
-vardcl: VAR IDENTIFIER ('=' value)? CRLF;
-assignment: IDENTIFIER '=' value CRLF;
-returnstmt: RETURN value CRLF;
+vardcl: VAR IDENTIFIER ('=' value)?;
+assignment: IDENTIFIER '=' value;
+returnstmt: RETURN value;
 functionBody: instruction*;
 ifstmt: IF value instruction (ELSE instruction)?;
 forstmt: FOR LPAREN vardcl boolExpr CRLF (instruction|incrementNoCRLF|decrementNoCRLF) RPAREN LCURLY instruction* RCURLY | FOR LPAREN IDENTIFIER IN value RPAREN LCURLY instruction* RCURLY;
 whilestmt: WHILE LPAREN boolExpr RPAREN LCURLY instruction* RCURLY;
+functionCall: IDENTIFIER LPAREN ((value)? | value (',' value)+) RPAREN;
 function:
-	FUNCTION IDENTIFIER LPAREN IDENTIFIER RPAREN LCURLY functionBody RCURLY;
+	FUNCTION IDENTIFIER LPAREN ((IDENTIFIER | value)? |(IDENTIFIER | value) (',' (IDENTIFIER | value))*) RPAREN LCURLY functionBody RCURLY;
 
 value
 	: NUMBER 
+	| stringConcat
 	| STRING
 	| boolExpr 
 	| arthexp 
 	| IDENTIFIER 
 	| list
+	| functionCall
 	;
+
+stringConcat: (STRING | IDENTIFIER) (OP_ADD (STRING | IDENTIFIER))+;
 
 boolvalue
 	: LPAREN boolExpr RPAREN
@@ -111,3 +117,4 @@ arth_op
 	;
 
 list: '[' value (',' value)* ']' | '[' ']';
+

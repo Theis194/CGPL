@@ -1,4 +1,4 @@
-// Generated from com\cgpl\logGrammar\Log.g4 by ANTLR 4.7.1
+// Generated from com/cgpl/logGrammar/Log.g4 by ANTLR 4.7.1
 package com.cgpl.logGrammar;
 
 import org.antlr.v4.runtime.ParserRuleContext;
