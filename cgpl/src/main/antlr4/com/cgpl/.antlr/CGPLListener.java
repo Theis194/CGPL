@@ -1,4 +1,4 @@
-// Generated from c:/Uni/P4/CGPL/cgpl/src/main/antlr4/com/cgpl/CGPL.g4 by ANTLR 4.13.1
+// Generated from d://Programming//CGPL//cgpl//src//main//antlr4//com//cgpl//CGPL.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -216,26 +216,6 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDecrement(CGPLParser.DecrementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CGPLParser#incrementNoCRLF}.
-	 * @param ctx the parse tree
-	 */
-	void enterIncrementNoCRLF(CGPLParser.IncrementNoCRLFContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CGPLParser#incrementNoCRLF}.
-	 * @param ctx the parse tree
-	 */
-	void exitIncrementNoCRLF(CGPLParser.IncrementNoCRLFContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CGPLParser#decrementNoCRLF}.
-	 * @param ctx the parse tree
-	 */
-	void enterDecrementNoCRLF(CGPLParser.DecrementNoCRLFContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CGPLParser#decrementNoCRLF}.
-	 * @param ctx the parse tree
-	 */
-	void exitDecrementNoCRLF(CGPLParser.DecrementNoCRLFContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#comparisonExpr}.
 	 * @param ctx the parse tree

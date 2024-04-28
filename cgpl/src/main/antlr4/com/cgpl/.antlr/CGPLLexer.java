@@ -1,4 +1,4 @@
-// Generated from c:/Uni/P4/CGPL/cgpl/src/main/antlr4/com/cgpl/CGPL.g4 by ANTLR 4.13.1
+// Generated from d://Programming//CGPL//cgpl//src//main//antlr4//com//cgpl//CGPL.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -189,8 +189,8 @@ public class CGPLLexer extends Lexer {
 		"\u0000=\u00c7\u0001\u0000\u0000\u0000?\u00c9\u0001\u0000\u0000\u0000A"+
 		"\u00cb\u0001\u0000\u0000\u0000C\u00cd\u0001\u0000\u0000\u0000E\u00cf\u0001"+
 		"\u0000\u0000\u0000G\u00d1\u0001\u0000\u0000\u0000I\u00d4\u0001\u0000\u0000"+
-		"\u0000KL\u0005=\u0000\u0000L\u0002\u0001\u0000\u0000\u0000MN\u0005[\u0000"+
-		"\u0000N\u0004\u0001\u0000\u0000\u0000OP\u0005,\u0000\u0000P\u0006\u0001"+
+		"\u0000KL\u0005=\u0000\u0000L\u0002\u0001\u0000\u0000\u0000MN\u0005,\u0000"+
+		"\u0000N\u0004\u0001\u0000\u0000\u0000OP\u0005[\u0000\u0000P\u0006\u0001"+
 		"\u0000\u0000\u0000QR\u0005]\u0000\u0000R\b\u0001\u0000\u0000\u0000ST\u0005"+
 		"a\u0000\u0000TU\u0005n\u0000\u0000UV\u0005d\u0000\u0000V\n\u0001\u0000"+
 		"\u0000\u0000WX\u0005o\u0000\u0000XY\u0005r\u0000\u0000Y\f\u0001\u0000"+
