@@ -47,7 +47,8 @@ instruction
 	: vardcl 
 	| function 
 	| ifstmt 
-	| forstmt 
+	| forstmt
+	| whilestmt
 	| returnstmt 
 	| assignment 
 	| increment 
@@ -58,8 +59,8 @@ assignment: IDENTIFIER '=' value CRLF;
 returnstmt: RETURN value CRLF;
 functionBody: instruction*;
 ifstmt: IF value instruction (ELSE instruction)?;
-forstmt: FOR LPAREN vardcl boolvalue arthexp RPAREN LCURLY instruction* RCURLY | FOR LPAREN IDENTIFIER IN value RPAREN LCURLY instruction* RCURLY;
-whilestmt: WHILE LPAREN boolvalue RPAREN LCURLY instruction* RCURLY;
+forstmt: FOR LPAREN vardcl boolExpr CRLF (instruction|incrementNoCRLF|decrementNoCRLF) RPAREN LCURLY instruction* RCURLY | FOR LPAREN IDENTIFIER IN value RPAREN LCURLY instruction* RCURLY;
+whilestmt: WHILE LPAREN boolExpr RPAREN LCURLY instruction* RCURLY;
 function:
 	FUNCTION IDENTIFIER LPAREN IDENTIFIER RPAREN LCURLY functionBody RCURLY;
 
@@ -79,16 +80,21 @@ boolvalue
 	; 
 andExpr: boolvalue (AND boolvalue)*;
 orExpr: andExpr (OR andExpr)*;
-boolExpr: orExpr;
+boolExpr: orExpr | comparisonExpr;
+
 factor
 	: NUMBER 
 	| IDENTIFIER 
 	| LPAREN arthexp RPAREN
 	;
 arthexp: factor (arth_op factor)*;
-increment: IDENTIFIER OP_INC;
-decrement: IDENTIFIER OP_DEC;
 
+increment: IDENTIFIER OP_INC CRLF;
+decrement: IDENTIFIER OP_DEC CRLF;
+incrementNoCRLF: IDENTIFIER OP_INC;
+decrementNoCRLF: IDENTIFIER OP_DEC;
+
+comparisonExpr: arthexp comparison arthexp;
 comparison
 	: LT 
 	| GT 
