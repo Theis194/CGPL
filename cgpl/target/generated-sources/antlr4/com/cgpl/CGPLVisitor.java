@@ -59,6 +59,12 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitForstmt(CGPLParser.ForstmtContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#whilestmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhilestmt(CGPLParser.WhilestmtContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#functionCall}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -130,6 +136,12 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDecrement(CGPLParser.DecrementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#comparisonExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonExpr(CGPLParser.ComparisonExprContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CGPLParser#comparison}.
 	 * @param ctx the parse tree
