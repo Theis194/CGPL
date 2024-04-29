@@ -52,6 +52,7 @@ instruction
 	| ifstmt 
 	| forstmt
 	| whilestmt
+	| switchstmt
 	| returnstmt CRLF
 	| assignment CRLF
 	| increment CRLF
