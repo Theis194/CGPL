@@ -33,9 +33,10 @@ public class CGPLParser extends Parser {
 		RULE_casestmt = 24;
 	public static final String[] ruleNames = {
 		"program", "instruction", "vardcl", "assignment", "returnstmt", "functionBody", 
-		"ifstmt", "forstmt", "functionCall", "function", "value", "stringConcat", 
-		"boolvalue", "andExpr", "orExpr", "boolExpr", "factor", "arthexp", "increment", 
-		"decrement", "comparison", "arth_op", "list", "switchstmt", "casestmt"
+		"ifstmt", "forstmt", "whilestmt", "functionCall", "function", "value", 
+		"stringConcat", "boolvalue", "andExpr", "orExpr", "boolExpr", "factor", 
+		"arthexp", "increment", "decrement", "comparisonExpr", "comparison", "arth_op", 
+		"list", "switchstmt", "casestmt"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -138,7 +139,7 @@ public class CGPLParser extends Parser {
 			setState(53);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RETURN) | (1L << FUNCTION) | (1L << IF) | (1L << VAR) | (1L << KONST) | (1L << FOR) | (1L << IDENTIFIER))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RETURN) | (1L << FUNCTION) | (1L << IF) | (1L << VAR) | (1L << KONST) | (1L << FOR) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
 				{
 				{
 				setState(50);
@@ -177,6 +178,9 @@ public class CGPLParser extends Parser {
 		}
 		public ForstmtContext forstmt() {
 			return getRuleContext(ForstmtContext.class,0);
+		}
+		public WhilestmtContext whilestmt() {
+			return getRuleContext(WhilestmtContext.class,0);
 		}
 		public ReturnstmtContext returnstmt() {
 			return getRuleContext(ReturnstmtContext.class,0);
@@ -509,7 +513,7 @@ public class CGPLParser extends Parser {
 			setState(97);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RETURN) | (1L << FUNCTION) | (1L << IF) | (1L << VAR) | (1L << KONST) | (1L << FOR) | (1L << IDENTIFIER))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RETURN) | (1L << FUNCTION) | (1L << IF) | (1L << VAR) | (1L << KONST) | (1L << FOR) | (1L << WHILE) | (1L << IDENTIFIER))) != 0)) {
 				{
 				{
 				setState(94);
@@ -644,6 +648,32 @@ public class CGPLParser extends Parser {
 
 	public static class ForstmtContext extends ParserRuleContext {
 		public TerminalNode FOR() { return getToken(CGPLParser.FOR, 0); }
+		public TerminalNode LPAREN() { return getToken(CGPLParser.LPAREN, 0); }
+		public VardclContext vardcl() {
+			return getRuleContext(VardclContext.class,0);
+		}
+		public List<TerminalNode> CRLF() { return getTokens(CGPLParser.CRLF); }
+		public TerminalNode CRLF(int i) {
+			return getToken(CGPLParser.CRLF, i);
+		}
+		public BoolExprContext boolExpr() {
+			return getRuleContext(BoolExprContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(CGPLParser.RPAREN, 0); }
+		public TerminalNode LCURLY() { return getToken(CGPLParser.LCURLY, 0); }
+		public TerminalNode RCURLY() { return getToken(CGPLParser.RCURLY, 0); }
+		public List<InstructionContext> instruction() {
+			return getRuleContexts(InstructionContext.class);
+		}
+		public InstructionContext instruction(int i) {
+			return getRuleContext(InstructionContext.class,i);
+		}
+		public IncrementContext increment() {
+			return getRuleContext(IncrementContext.class,0);
+		}
+		public DecrementContext decrement() {
+			return getRuleContext(DecrementContext.class,0);
+		}
 		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
 		public TerminalNode IN() { return getToken(CGPLParser.IN, 0); }
 		public ValueContext value() {
@@ -679,6 +709,7 @@ public class CGPLParser extends Parser {
 	public final ForstmtContext forstmt() throws RecognitionException {
 		ForstmtContext _localctx = new ForstmtContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_forstmt);
+		int _la;
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -753,7 +784,7 @@ public class CGPLParser extends Parser {
 
 	public final FunctionCallContext functionCall() throws RecognitionException {
 		FunctionCallContext _localctx = new FunctionCallContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_functionCall);
+		enterRule(_localctx, 18, RULE_functionCall);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -857,7 +888,7 @@ public class CGPLParser extends Parser {
 
 	public final FunctionContext function() throws RecognitionException {
 		FunctionContext _localctx = new FunctionContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_function);
+		enterRule(_localctx, 20, RULE_function);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -1003,7 +1034,7 @@ public class CGPLParser extends Parser {
 
 	public final ValueContext value() throws RecognitionException {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_value);
+		enterRule(_localctx, 22, RULE_value);
 		try {
 			setState(186);
 			_errHandler.sync(this);
@@ -1111,7 +1142,7 @@ public class CGPLParser extends Parser {
 
 	public final StringConcatContext stringConcat() throws RecognitionException {
 		StringConcatContext _localctx = new StringConcatContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_stringConcat);
+		enterRule(_localctx, 24, RULE_stringConcat);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -1192,7 +1223,7 @@ public class CGPLParser extends Parser {
 
 	public final BoolvalueContext boolvalue() throws RecognitionException {
 		BoolvalueContext _localctx = new BoolvalueContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_boolvalue);
+		enterRule(_localctx, 26, RULE_boolvalue);
 		try {
 			setState(201);
 			_errHandler.sync(this);
@@ -1269,7 +1300,7 @@ public class CGPLParser extends Parser {
 
 	public final AndExprContext andExpr() throws RecognitionException {
 		AndExprContext _localctx = new AndExprContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_andExpr);
+		enterRule(_localctx, 28, RULE_andExpr);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -1337,7 +1368,7 @@ public class CGPLParser extends Parser {
 
 	public final OrExprContext orExpr() throws RecognitionException {
 		OrExprContext _localctx = new OrExprContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_orExpr);
+		enterRule(_localctx, 30, RULE_orExpr);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -1377,6 +1408,9 @@ public class CGPLParser extends Parser {
 		public OrExprContext orExpr() {
 			return getRuleContext(OrExprContext.class,0);
 		}
+		public ComparisonExprContext comparisonExpr() {
+			return getRuleContext(ComparisonExprContext.class,0);
+		}
 		public BoolExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1398,7 +1432,7 @@ public class CGPLParser extends Parser {
 
 	public final BoolExprContext boolExpr() throws RecognitionException {
 		BoolExprContext _localctx = new BoolExprContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_boolExpr);
+		enterRule(_localctx, 32, RULE_boolExpr);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -1449,7 +1483,7 @@ public class CGPLParser extends Parser {
 
 	public final FactorContext factor() throws RecognitionException {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_factor);
+		enterRule(_localctx, 34, RULE_factor);
 		try {
 			setState(228);
 			_errHandler.sync(this);
@@ -1533,7 +1567,7 @@ public class CGPLParser extends Parser {
 
 	public final ArthexpContext arthexp() throws RecognitionException {
 		ArthexpContext _localctx = new ArthexpContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_arthexp);
+		enterRule(_localctx, 36, RULE_arthexp);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -1593,7 +1627,7 @@ public class CGPLParser extends Parser {
 
 	public final IncrementContext increment() throws RecognitionException {
 		IncrementContext _localctx = new IncrementContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_increment);
+		enterRule(_localctx, 38, RULE_increment);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -1638,7 +1672,7 @@ public class CGPLParser extends Parser {
 
 	public final DecrementContext decrement() throws RecognitionException {
 		DecrementContext _localctx = new DecrementContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_decrement);
+		enterRule(_localctx, 40, RULE_decrement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -1686,7 +1720,7 @@ public class CGPLParser extends Parser {
 
 	public final ComparisonContext comparison() throws RecognitionException {
 		ComparisonContext _localctx = new ComparisonContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_comparison);
+		enterRule(_localctx, 44, RULE_comparison);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -1741,7 +1775,7 @@ public class CGPLParser extends Parser {
 
 	public final Arth_opContext arth_op() throws RecognitionException {
 		Arth_opContext _localctx = new Arth_opContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_arth_op);
+		enterRule(_localctx, 46, RULE_arth_op);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -1797,7 +1831,7 @@ public class CGPLParser extends Parser {
 
 	public final ListContext list() throws RecognitionException {
 		ListContext _localctx = new ListContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_list);
+		enterRule(_localctx, 48, RULE_list);
 		int _la;
 		try {
 			setState(262);

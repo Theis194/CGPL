@@ -22,6 +22,7 @@ null
 'var'
 'const'
 'for'
+'while'
 'in'
 null
 null
@@ -67,6 +68,7 @@ ELSE
 VAR
 KONST
 FOR
+WHILE
 IN
 NUMBER
 STRING
@@ -97,6 +99,7 @@ returnstmt
 functionBody
 ifstmt
 forstmt
+whilestmt
 functionCall
 function
 value
@@ -109,6 +112,7 @@ factor
 arthexp
 increment
 decrement
+comparisonExpr
 comparison
 arth_op
 list
