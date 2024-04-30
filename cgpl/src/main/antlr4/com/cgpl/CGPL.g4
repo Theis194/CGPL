@@ -23,6 +23,7 @@ STRING: '"' (~[\r\n"])* '"';
 BOOLEAN: 'true' | 'false';
 BREAK: 'break';
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
+DECK: 'deck';
 
 
 EQUAL: '==';
@@ -53,6 +54,9 @@ instruction
 	| forstmt
 	| whilestmt
 	| switchstmt
+	| deckfunction CRLF
+	| listfunction CRLF
+	| card CRLF
 	| returnstmt CRLF
 	| assignment CRLF
 	| increment CRLF
@@ -79,6 +83,10 @@ value
 	| boolExpr 
 	| arthexp
 	| list
+	| listfunction
+	| deck
+	| deckfunction
+	| card
 	| functionCall
 	| stringConcat
 	;
@@ -122,6 +130,12 @@ arth_op
 	;
 
 list: '[' value (',' value)* ']' | '[' ']';
+listfunction: IDENTIFIER '.' ('add' | 'remove' | 'get') LPAREN value RPAREN;
+
+deck: DECK;
+deckfunction: IDENTIFIER '.' ('shuffle' | 'draw' | 'add' | 'remove') LPAREN (value)? RPAREN;
+
+card: IDENTIFIER '.' ('value' | 'suit' | 'color' | 'name');
 
 switchstmt
     : 'switch' LPAREN value RPAREN LCURLY casestmt+ RCURLY

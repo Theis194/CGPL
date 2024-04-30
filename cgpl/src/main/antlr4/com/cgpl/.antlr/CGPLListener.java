@@ -1,4 +1,4 @@
-// Generated from d://Programming//CGPL//cgpl//src//main//antlr4//com//cgpl//CGPL.g4 by ANTLR 4.13.1
+// Generated from c://Users//theis//Programmering//CGPL//cgpl//src//main//antlr4//com//cgpl//CGPL.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -256,6 +256,46 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitList(CGPLParser.ListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#listfunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterListfunction(CGPLParser.ListfunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#listfunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitListfunction(CGPLParser.ListfunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#deck}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeck(CGPLParser.DeckContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#deck}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeck(CGPLParser.DeckContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#deckfunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeckfunction(CGPLParser.DeckfunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#deckfunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeckfunction(CGPLParser.DeckfunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#card}.
+	 * @param ctx the parse tree
+	 */
+	void enterCard(CGPLParser.CardContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#card}.
+	 * @param ctx the parse tree
+	 */
+	void exitCard(CGPLParser.CardContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#switchstmt}.
 	 * @param ctx the parse tree
