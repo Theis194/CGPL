@@ -46,7 +46,16 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle switch statement
             return new SwitchVisitor().visitSwitchstmt(ctx.switchstmt());
             
+        } else if (ctx.listfunction() != null) {
+            // Handle list function
+            return new ListFunctionVisitor<Instruction>().visitListfunction(ctx.listfunction());
+            
+        } else if (ctx.deckfunction() != null) {
+            // Handle deck function
+            return new DeckFunctionVisitor<Instruction>().visitDeckfunction(ctx.deckfunction());
+
         }
+        
         return super.visitInstruction(ctx);
     }
 }

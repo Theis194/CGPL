@@ -6,6 +6,7 @@ import com.cgpl.AST.expressions.Expression;
 import com.cgpl.AST.expressions.Number;
 import com.cgpl.AST.expressions.Identifier;
 import com.cgpl.AST.expressions.StringLiteral;
+import com.cgpl.AST.instructions.Instruction;
 
 public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
     @Override
@@ -41,6 +42,14 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
         } else if (ctx.functionCall() != null) {
             // Handle function call
             return new FunctionCallVisitor<Expression>().visitFunctionCall(ctx.functionCall());
+
+        } else if (ctx.listfunction() != null) {
+            // Handle list function
+            return new ListFunctionVisitor<Expression>().visitListfunction(ctx.listfunction());
+            
+        } else if (ctx.deckfunction() != null) {
+            // Handle deck function
+            return new DeckFunctionVisitor<Expression>().visitDeckfunction(ctx.deckfunction());
 
         }
         return super.visitValue(ctx);
