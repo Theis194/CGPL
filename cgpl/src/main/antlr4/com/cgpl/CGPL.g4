@@ -130,12 +130,28 @@ arth_op
 	;
 
 list: '[' value (',' value)* ']' | '[' ']';
-listfunction: IDENTIFIER '.' ('add' | 'remove' | 'get') LPAREN value RPAREN;
+listfunction: IDENTIFIER '.' listfunctionname LPAREN value RPAREN;
+listfunctionname
+	: 'add' 
+	| 'remove' 
+	| 'get';
 
 deck: DECK;
-deckfunction: IDENTIFIER '.' ('shuffle' | 'draw' | 'add' | 'remove') LPAREN (value)? RPAREN;
+deckfunction: IDENTIFIER '.' deckfunctionname LPAREN (value)? RPAREN;
+deckfunctionname
+	: 'shuffle' 
+	| 'draw' 
+	| 'add' 
+	| 'remove'
+	;
 
-card: IDENTIFIER '.' ('value' | 'suit' | 'color' | 'name');
+card: IDENTIFIER '.' cardfunctionname;
+cardfunctionname
+	: 'value' 
+	| 'suit' 
+	| 'color' 
+	| 'name'
+	;
 
 switchstmt
     : 'switch' LPAREN value RPAREN LCURLY casestmt+ RCURLY

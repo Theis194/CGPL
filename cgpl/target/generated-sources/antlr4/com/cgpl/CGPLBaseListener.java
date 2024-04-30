@@ -328,6 +328,18 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterListfunctionname(CGPLParser.ListfunctionnameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitListfunctionname(CGPLParser.ListfunctionnameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDeck(CGPLParser.DeckContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -352,6 +364,18 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDeckfunctionname(CGPLParser.DeckfunctionnameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeckfunctionname(CGPLParser.DeckfunctionnameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCard(CGPLParser.CardContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -359,6 +383,18 @@ public class CGPLBaseListener implements CGPLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCard(CGPLParser.CardContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCardfunctionname(CGPLParser.CardfunctionnameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCardfunctionname(CGPLParser.CardfunctionnameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

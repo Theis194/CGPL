@@ -268,6 +268,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitListfunction(CGPLParser.ListfunctionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#listfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void enterListfunctionname(CGPLParser.ListfunctionnameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#listfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void exitListfunctionname(CGPLParser.ListfunctionnameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#deck}.
 	 * @param ctx the parse tree
 	 */
@@ -288,6 +298,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitDeckfunction(CGPLParser.DeckfunctionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#deckfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeckfunctionname(CGPLParser.DeckfunctionnameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#deckfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeckfunctionname(CGPLParser.DeckfunctionnameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#card}.
 	 * @param ctx the parse tree
 	 */
@@ -297,6 +317,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCard(CGPLParser.CardContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#cardfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void enterCardfunctionname(CGPLParser.CardfunctionnameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#cardfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void exitCardfunctionname(CGPLParser.CardfunctionnameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#switchstmt}.
 	 * @param ctx the parse tree
