@@ -4,6 +4,7 @@ import com.cgpl.CGPLBaseVisitor;
 import com.cgpl.CGPLParser;
 import com.cgpl.AST.Scope;
 import com.cgpl.AST.instructions.Instruction;
+import com.cgpl.AST.instructions.VarDeclaration;
 
 public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     @Override
@@ -14,7 +15,11 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     public Instruction visitInstruction(CGPLParser.InstructionContext ctx, Scope scope) {
         if (ctx.vardcl() != null) {
             // Handle variable declaration
-            return new VardclVisitor().visitVardcl(ctx.vardcl());
+            VarDeclaration varDeclaration = new VardclVisitor().visitVardcl(ctx.vardcl());
+            if (scope != null) {
+                scope.addVariable(varDeclaration.getIdentifier(), varDeclaration.getValue());
+            }
+            return varDeclaration;
 
         } else if (ctx.function() != null) {
             // Handle function

@@ -16,7 +16,7 @@ public class OrExpression implements Expression {
 
     @Override
     public String getType() {
-        return "or";
+        return type;
     }
 
     @Override

@@ -16,7 +16,7 @@ public class VisitorTester {
         String code = readFile("cgpl/src/test/cgpl/ifStatement.cgpl");
 
         final Program result = new AstParser().parse(code);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
         final String json = gson.toJson(result);
         
         try {

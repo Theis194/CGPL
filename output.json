@@ -1,166 +1,137 @@
 {
   "instructions": [
     {
-      "instructionType": "Function",
-      "identifier": "func1",
-      "arguments": [],
-      "functionBody": [
-        {
-          "instructionType": "Return",
-          "value": {
-            "value": 10,
-            "type": "number"
-          }
-        }
-      ],
-      "scope": {
-        "variables": {
-          "a": {
-            "identifier": "a",
-            "type": "identifier"
-          },
-          "b": {
-            "identifier": "b",
-            "type": "identifier"
-          },
-          "c": {
-            "identifier": "c",
-            "type": "identifier"
-          },
-          "test": {
-            "instructionType": "FunctionCall",
-            "type": "FunctionCall",
-            "identifier": "func1",
-            "arguments": []
-          }
-        }
-      }
-    },
-    {
-      "instructionType": "Function",
-      "identifier": "func2",
-      "arguments": [
-        {
-          "identifier": "a",
-          "type": "identifier"
-        },
-        {
-          "identifier": "b",
-          "type": "identifier"
-        },
-        {
-          "identifier": "c",
-          "type": "identifier"
-        }
-      ],
-      "functionBody": [
-        {
-          "instructionType": "Return",
-          "value": {
-            "value": 10,
-            "type": "number"
-          }
-        }
-      ],
-      "scope": {
-        "variables": {
-          "a": {
-            "identifier": "a",
-            "type": "identifier"
-          },
-          "b": {
-            "identifier": "b",
-            "type": "identifier"
-          },
-          "c": {
-            "identifier": "c",
-            "type": "identifier"
-          },
-          "test": {
-            "instructionType": "FunctionCall",
-            "type": "FunctionCall",
-            "identifier": "func1",
-            "arguments": []
-          }
-        }
-      }
-    },
-    {
-      "instructionType": "FunctionCall",
-      "type": "FunctionCall",
-      "identifier": "func1",
-      "arguments": []
-    },
-    {
-      "instructionType": "FunctionCall",
-      "type": "FunctionCall",
-      "identifier": "func2",
-      "arguments": [
-        {
-          "value": 10,
-          "type": "number"
-        },
-        {
-          "value": "a",
-          "type": "string"
-        },
-        {
-          "value": true,
-          "type": "boolean"
-        }
-      ]
-    },
-    {
       "instructionType": "VarDeclaration",
-      "identifier": "test",
-      "value": {
-        "instructionType": "FunctionCall",
-        "type": "FunctionCall",
-        "identifier": "func1",
-        "arguments": []
-      },
+      "identifier": "a",
+      "type": null,
+      "value": null,
       "isConst": false
     },
     {
-      "instructionType": "Assignment",
-      "identifier": "test",
-      "value": {
-        "operands": [
-          {
-            "instructionType": "FunctionCall",
-            "type": "FunctionCall",
-            "identifier": "func2",
-            "arguments": []
-          },
-          {
-            "value": 10,
-            "type": "number"
+      "instructionType": "IfStatment",
+      "condition": {
+        "value": true,
+        "type": "boolean"
+      },
+      "thenBody": [
+        {
+          "instructionType": "Assignment",
+          "identifier": "a",
+          "value": {
+            "value": "b",
+            "type": "string"
           }
-        ],
-        "operator": "*",
-        "type": "arithmetic"
+        }
+      ],
+      "elseBody": [
+        {
+          "instructionType": "Assignment",
+          "identifier": "a",
+          "value": {
+            "value": "a",
+            "type": "string"
+          }
+        }
+      ],
+      "thenScope": {
+        "variables": {
+          "a": null
+        }
+      },
+      "elseScope": {
+        "variables": {
+          "a": null
+        }
+      }
+    },
+    {
+      "instructionType": "Function",
+      "identifier": "func1",
+      "arguments": [
+        {
+          "identifier": "b",
+          "type": "identifier"
+        }
+      ],
+      "functionBody": [
+        {
+          "instructionType": "IfStatment",
+          "condition": null,
+          "thenBody": [
+            {
+              "instructionType": "IfStatment",
+              "condition": {
+                "value": true,
+                "type": "boolean"
+              },
+              "thenBody": [
+                {
+                  "instructionType": "Return",
+                  "value": {
+                    "identifier": "b",
+                    "type": "identifier"
+                  }
+                }
+              ],
+              "elseBody": [],
+              "thenScope": {
+                "variables": {
+                  "a": null,
+                  "b": {
+                    "identifier": "b",
+                    "type": "identifier"
+                  }
+                }
+              },
+              "elseScope": {
+                "variables": {
+                  "a": null,
+                  "b": {
+                    "identifier": "b",
+                    "type": "identifier"
+                  }
+                }
+              }
+            }
+          ],
+          "elseBody": [],
+          "thenScope": {
+            "variables": {
+              "a": null,
+              "b": {
+                "identifier": "b",
+                "type": "identifier"
+              }
+            }
+          },
+          "elseScope": {
+            "variables": {
+              "a": null,
+              "b": {
+                "identifier": "b",
+                "type": "identifier"
+              }
+            }
+          }
+        }
+      ],
+      "scope": {
+        "variables": {
+          "a": null,
+          "b": {
+            "identifier": "b",
+            "type": "identifier"
+          }
+        }
       }
     }
   ],
   "scope": {
     "variables": {
-      "a": {
-        "identifier": "a",
-        "type": "identifier"
-      },
+      "a": null,
       "b": {
         "identifier": "b",
         "type": "identifier"
-      },
-      "c": {
-        "identifier": "c",
-        "type": "identifier"
-      },
-      "test": {
-        "instructionType": "FunctionCall",
-        "type": "FunctionCall",
-        "identifier": "func1",
-        "arguments": []
       }
     }
   }

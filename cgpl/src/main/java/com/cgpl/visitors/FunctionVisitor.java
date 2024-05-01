@@ -5,7 +5,6 @@ import com.cgpl.AST.expressions.Expression;
 import com.cgpl.AST.expressions.Identifier;
 import com.cgpl.AST.instructions.Function;
 import com.cgpl.AST.instructions.Instruction;
-import com.cgpl.AST.instructions.VarDeclaration;
 import com.cgpl.CGPLBaseVisitor;
 import com.cgpl.CGPLParser;
 
@@ -30,15 +29,9 @@ public class FunctionVisitor extends CGPLBaseVisitor<Instruction> {
         List<Instruction> functionBody = ctx.functionBody()
             .instruction()
             .stream()
-            .map(instruction -> instruction.accept(visitor))
+            .map(instruction -> visitor.visitInstruction(instruction, scope))
             .collect(toList());
 
-        for (Instruction instruction : functionBody) {
-            if (instruction instanceof VarDeclaration) {
-                VarDeclaration varDeclaration = (VarDeclaration) instruction;
-                scope.addVariable(varDeclaration.getIdentifier(), varDeclaration.getValue());
-            }
-        }
         return new Function(ctx.IDENTIFIER(0).getText(), arguments, functionBody, scope);
     }
 

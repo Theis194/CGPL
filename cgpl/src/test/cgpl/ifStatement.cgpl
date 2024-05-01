@@ -5,10 +5,10 @@ if true {
     a = "a";
 }
 
-function func1(a) {
-    if a == true {
+function func1(b) {
+    if b == true {
         if true {
-            return a;
+            return b;
         }
     }
 }

@@ -10,14 +10,16 @@ public class IfStatment implements Instruction {
     private Expression condition;
     private List<Instruction> thenBody;
     private List<Instruction> elseBody;
-    private Scope scope;
+    private Scope thenScope;
+    private Scope elseScope;
 
-    public IfStatment(Expression condition, List<Instruction> thenBody, List<Instruction> elseBody, Scope scope) {
+    public IfStatment(Expression condition, List<Instruction> thenBody, List<Instruction> elseBody, Scope thenScope, Scope elseScope) {
         this.condition = condition;
         this.thenBody = thenBody;
         this.elseBody = elseBody;
         this.instructionType = "IfStatment";
-        this.scope = scope;
+        this.thenScope = thenScope;
+        this.elseScope = elseScope;
     }
 
     public Expression getCondition() {
@@ -32,8 +34,12 @@ public class IfStatment implements Instruction {
         return elseBody;
     }
 
-    public Scope getScope() {
-        return scope;
+    public Scope getThenScope() {
+        return thenScope;
+    }
+
+    public Scope getElseScope() {
+        return elseScope;
     }
 
     @Override

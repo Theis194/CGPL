@@ -29,13 +29,22 @@ public class IfStatementVisitor extends CGPLBaseVisitor<Instruction> {
             // If the index is less than the number of instructions in the "then" block
             if (i < thenBlockInstructionCount) {
                 // The instruction is part of the "then" block
-                thenBlock.add(new InstructionVisitor().visitInstruction(instructions.get(i)));
+                thenBlock.add(new InstructionVisitor().visitInstruction(instructions.get(i), scope));
             } else if (i == thenBlockInstructionCount && ctx.ELSE() != null) {
                 // The instruction is part of the "else" block
-                elseBlock.add(new InstructionVisitor().visitInstruction(instructions.get(i)));
+                elseBlock.add(new InstructionVisitor().visitInstruction(instructions.get(i), scope));
             }
         }
+        Scope thenScope = new Scope(scope);
+        if (thenBlock.size() != 0) {
+            thenScope.addVariable(thenBlock);
+        }
 
-        return new IfStatment(condition, thenBlock, elseBlock, scope);
+        Scope elseScope = new Scope(scope);
+        if (elseBlock.size() != 0) {
+            elseScope.addVariable(elseBlock);
+        }
+
+        return new IfStatment(condition, thenBlock, elseBlock, thenScope, elseScope);
     }
 }

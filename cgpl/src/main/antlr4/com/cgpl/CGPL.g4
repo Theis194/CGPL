@@ -80,6 +80,7 @@ value
 	: NUMBER
 	| IDENTIFIER
 	| STRING
+	| comparisonExpr
 	| boolExpr 
 	| arthexp
 	| list

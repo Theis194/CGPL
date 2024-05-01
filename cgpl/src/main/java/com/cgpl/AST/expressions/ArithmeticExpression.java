@@ -1,7 +1,5 @@
 package com.cgpl.AST.expressions;
 
-import com.cgpl.AST.instructions.Instruction;
-
 import java.util.List;
 
 public class ArithmeticExpression implements Expression {
