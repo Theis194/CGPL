@@ -15,24 +15,25 @@ import java.util.List;
 public class FunctionVisitor extends CGPLBaseVisitor<Instruction> {
     public Function visitFunction(CGPLParser.FunctionContext ctx, Scope scope) {
         InstructionVisitor visitor = new InstructionVisitor();
+        Scope functionScope = new Scope(scope);
         List<Expression> arguments = ctx.IDENTIFIER()
             .stream()
             .skip(1)
             .map(arg -> new Identifier(arg.getText()))
             .collect(toList());
-        if (scope!=null) {
+        if (functionScope!=null) {
             for (Expression arg : arguments) {
-                scope.addVariable(((Identifier) arg).getIdentifier(), arg);
+                functionScope.addVariable(((Identifier) arg).getIdentifier(), arg);
             }
         }
 
         List<Instruction> functionBody = ctx.functionBody()
             .instruction()
             .stream()
-            .map(instruction -> visitor.visitInstruction(instruction, scope))
+            .map(instruction -> visitor.visitInstruction(instruction, functionScope))
             .collect(toList());
 
-        return new Function(ctx.IDENTIFIER(0).getText(), arguments, functionBody, scope);
+        return new Function(ctx.IDENTIFIER(0).getText(), arguments, functionBody, functionScope);
     }
 
     @Override

@@ -128,11 +128,7 @@
   ],
   "scope": {
     "variables": {
-      "a": null,
-      "b": {
-        "identifier": "b",
-        "type": "identifier"
-      }
+      "a": null
     }
   }
 }
