@@ -4,3 +4,11 @@ if true {
 } else {
     a = "a";
 }
+
+function func1(a) {
+    if a == true {
+        if true {
+            return a;
+        }
+    }
+}

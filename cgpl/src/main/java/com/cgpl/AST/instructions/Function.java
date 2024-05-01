@@ -2,6 +2,7 @@ package com.cgpl.AST.instructions;
 
 import java.util.List;
 
+import com.cgpl.AST.Scope;
 import com.cgpl.AST.expressions.Expression;
 
 public class Function implements Instruction {
@@ -9,12 +10,14 @@ public class Function implements Instruction {
     private String identifier;
     private List<Expression> arguments;
     private List<Instruction> functionBody;
+    private Scope scope;
 
-    public Function(String identifier, List<Expression> arguments, List<Instruction> functionBody) {
+    public Function(String identifier, List<Expression> arguments, List<Instruction> functionBody, Scope scope) {
         this.identifier = identifier;
         this.arguments = arguments;
         this.functionBody = functionBody;
         this.instructionType = "Function";
+        this.scope = scope;
     }
 
     public String getIdentifier() {
@@ -27,6 +30,10 @@ public class Function implements Instruction {
 
     public List<Instruction> getFunctionBody() {
         return functionBody;
+    }
+
+    public Scope getScope() {
+        return scope;
     }
 
     @Override

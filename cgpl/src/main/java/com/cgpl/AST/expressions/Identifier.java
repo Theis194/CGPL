@@ -8,6 +8,10 @@ public class Identifier implements Expression {
         this.identifier = identifier;
     }
 
+    public String getIdentifier() {
+        return this.identifier;
+    }
+
     @Override
     public String getType() {
         return this.type;

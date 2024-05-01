@@ -12,7 +12,29 @@
             "type": "number"
           }
         }
-      ]
+      ],
+      "scope": {
+        "variables": {
+          "a": {
+            "identifier": "a",
+            "type": "identifier"
+          },
+          "b": {
+            "identifier": "b",
+            "type": "identifier"
+          },
+          "c": {
+            "identifier": "c",
+            "type": "identifier"
+          },
+          "test": {
+            "instructionType": "FunctionCall",
+            "type": "FunctionCall",
+            "identifier": "func1",
+            "arguments": []
+          }
+        }
+      }
     },
     {
       "instructionType": "Function",
@@ -39,7 +61,29 @@
             "type": "number"
           }
         }
-      ]
+      ],
+      "scope": {
+        "variables": {
+          "a": {
+            "identifier": "a",
+            "type": "identifier"
+          },
+          "b": {
+            "identifier": "b",
+            "type": "identifier"
+          },
+          "c": {
+            "identifier": "c",
+            "type": "identifier"
+          },
+          "test": {
+            "instructionType": "FunctionCall",
+            "type": "FunctionCall",
+            "identifier": "func1",
+            "arguments": []
+          }
+        }
+      }
     },
     {
       "instructionType": "FunctionCall",
@@ -97,5 +141,27 @@
         "type": "arithmetic"
       }
     }
-  ]
+  ],
+  "scope": {
+    "variables": {
+      "a": {
+        "identifier": "a",
+        "type": "identifier"
+      },
+      "b": {
+        "identifier": "b",
+        "type": "identifier"
+      },
+      "c": {
+        "identifier": "c",
+        "type": "identifier"
+      },
+      "test": {
+        "instructionType": "FunctionCall",
+        "type": "FunctionCall",
+        "identifier": "func1",
+        "arguments": []
+      }
+    }
+  }
 }

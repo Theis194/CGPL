@@ -2,22 +2,27 @@ package com.cgpl.visitors;
 
 import com.cgpl.CGPLBaseVisitor;
 import com.cgpl.CGPLParser;
+import com.cgpl.AST.Scope;
 import com.cgpl.AST.instructions.Instruction;
 
 public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     @Override
     public Instruction visitInstruction(CGPLParser.InstructionContext ctx) {
+        return this.visitInstruction(ctx, null);
+    }
+
+    public Instruction visitInstruction(CGPLParser.InstructionContext ctx, Scope scope) {
         if (ctx.vardcl() != null) {
             // Handle variable declaration
             return new VardclVisitor().visitVardcl(ctx.vardcl());
 
         } else if (ctx.function() != null) {
             // Handle function
-            return new FunctionVisitor().visitFunction(ctx.function());
+            return new FunctionVisitor().visitFunction(ctx.function(), scope);
 
         } else if (ctx.ifstmt() != null) {
             // Handle if statement
-            return new IfStatementVisitor().visitIfstmt(ctx.ifstmt());
+            return new IfStatementVisitor().visitIfstmt(ctx.ifstmt(), scope);
 
         } else if (ctx.forstmt() != null) {
             // Handle for statement

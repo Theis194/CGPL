@@ -6,13 +6,13 @@ import java.util.List;
 import com.cgpl.CGPLBaseVisitor;
 import com.cgpl.CGPLParser;
 import com.cgpl.CGPLParser.InstructionContext;
+import com.cgpl.AST.Scope;
 import com.cgpl.AST.expressions.Expression;
 import com.cgpl.AST.instructions.IfStatment;
 import com.cgpl.AST.instructions.Instruction;
 
 public class IfStatementVisitor extends CGPLBaseVisitor<Instruction> {
-    @Override
-    public Instruction visitIfstmt(CGPLParser.IfstmtContext ctx) {
+    public Instruction visitIfstmt(CGPLParser.IfstmtContext ctx, Scope scope) {
         ExpressionVisitor expressionVisitor = new ExpressionVisitor();
         Expression condition = expressionVisitor.visitValue(ctx.value());
 
@@ -36,6 +36,6 @@ public class IfStatementVisitor extends CGPLBaseVisitor<Instruction> {
             }
         }
 
-        return new IfStatment(condition, thenBlock, elseBlock);
+        return new IfStatment(condition, thenBlock, elseBlock, scope);
     }
 }

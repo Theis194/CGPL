@@ -105,6 +105,7 @@ boolExpr: orExpr | comparisonExpr;
 factor
 	: NUMBER 
 	| IDENTIFIER 
+	| BOOLEAN
 	| LPAREN arthexp RPAREN
 	| functionCall
 	;

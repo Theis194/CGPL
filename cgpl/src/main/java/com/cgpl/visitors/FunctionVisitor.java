@@ -1,9 +1,11 @@
 package com.cgpl.visitors;
 
+import com.cgpl.AST.Scope;
 import com.cgpl.AST.expressions.Expression;
 import com.cgpl.AST.expressions.Identifier;
 import com.cgpl.AST.instructions.Function;
 import com.cgpl.AST.instructions.Instruction;
+import com.cgpl.AST.instructions.VarDeclaration;
 import com.cgpl.CGPLBaseVisitor;
 import com.cgpl.CGPLParser;
 
@@ -12,14 +14,18 @@ import static java.util.stream.Collectors.toList;
 import java.util.List;
 
 public class FunctionVisitor extends CGPLBaseVisitor<Instruction> {
-    @Override
-    public Function visitFunction(CGPLParser.FunctionContext ctx) {
+    public Function visitFunction(CGPLParser.FunctionContext ctx, Scope scope) {
         InstructionVisitor visitor = new InstructionVisitor();
         List<Expression> arguments = ctx.IDENTIFIER()
             .stream()
             .skip(1)
             .map(arg -> new Identifier(arg.getText()))
             .collect(toList());
+        if (scope!=null) {
+            for (Expression arg : arguments) {
+                scope.addVariable(((Identifier) arg).getIdentifier(), arg);
+            }
+        }
 
         List<Instruction> functionBody = ctx.functionBody()
             .instruction()
@@ -27,7 +33,13 @@ public class FunctionVisitor extends CGPLBaseVisitor<Instruction> {
             .map(instruction -> instruction.accept(visitor))
             .collect(toList());
 
-        return new Function(ctx.IDENTIFIER(0).getText(), arguments, functionBody);
+        for (Instruction instruction : functionBody) {
+            if (instruction instanceof VarDeclaration) {
+                VarDeclaration varDeclaration = (VarDeclaration) instruction;
+                scope.addVariable(varDeclaration.getIdentifier(), varDeclaration.getValue());
+            }
+        }
+        return new Function(ctx.IDENTIFIER(0).getText(), arguments, functionBody, scope);
     }
 
     @Override

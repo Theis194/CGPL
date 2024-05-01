@@ -6,7 +6,6 @@ import com.cgpl.AST.expressions.Expression;
 import com.cgpl.AST.expressions.Number;
 import com.cgpl.AST.expressions.Identifier;
 import com.cgpl.AST.expressions.StringLiteral;
-import com.cgpl.AST.instructions.Instruction;
 
 public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
     @Override
