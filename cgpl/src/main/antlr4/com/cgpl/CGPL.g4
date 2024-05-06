@@ -14,13 +14,17 @@ RPAREN: ')';
 IF: 'if';
 ELSE: 'else';
 VAR: 'var';
+KONST: 'const';
 FOR: 'for';
 WHILE: 'while';
 IN: 'in';
 NUMBER: ([1-9][0-9]* | [0-9]);
 STRING: '"' (~[\r\n"])* '"';
 BOOLEAN: 'true' | 'false';
+BREAK: 'break';
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
+DECK: 'deck';
+
 
 EQUAL: '==';
 LT: '<';
@@ -49,17 +53,21 @@ instruction
 	| ifstmt 
 	| forstmt
 	| whilestmt
+	| switchstmt
+	| deckfunction CRLF
+	| listfunction CRLF
+	| card CRLF
 	| returnstmt CRLF
 	| assignment CRLF
 	| increment CRLF
 	| decrement CRLF
 	| functionCall CRLF
 	;
-vardcl: VAR IDENTIFIER ('=' value)?;
+vardcl: (VAR|KONST) IDENTIFIER ('=' value)?;
 assignment: IDENTIFIER '=' value;
 returnstmt: RETURN value;
 functionBody: instruction*;
-ifstmt: IF value instruction (ELSE instruction)?;
+ifstmt: IF value LCURLY instruction* RCURLY (ELSE LCURLY instruction* RCURLY)?;
 forstmt
 	: FOR LPAREN vardcl CRLF boolExpr CRLF (instruction|increment|decrement) RPAREN LCURLY instruction* RCURLY 
 	| FOR LPAREN IDENTIFIER IN value RPAREN LCURLY instruction* RCURLY;
@@ -69,14 +77,19 @@ function:
 	FUNCTION IDENTIFIER LPAREN ((IDENTIFIER | value)? |(IDENTIFIER | value) (',' (IDENTIFIER | value))*) RPAREN LCURLY functionBody RCURLY;
 
 value
-	: NUMBER 
-	| stringConcat
+	: NUMBER
+	| IDENTIFIER
 	| STRING
+	| comparisonExpr
 	| boolExpr 
-	| arthexp 
-	| IDENTIFIER 
+	| arthexp
 	| list
+	| listfunction
+	| deck
+	| deckfunction
+	| card
 	| functionCall
+	| stringConcat
 	;
 
 stringConcat: (STRING | IDENTIFIER) (OP_ADD (STRING | IDENTIFIER))+;
@@ -93,7 +106,9 @@ boolExpr: orExpr | comparisonExpr;
 factor
 	: NUMBER 
 	| IDENTIFIER 
+	| BOOLEAN
 	| LPAREN arthexp RPAREN
+	| functionCall
 	;
 arthexp: factor (arth_op factor)*;
 
@@ -117,4 +132,35 @@ arth_op
 	;
 
 list: '[' value (',' value)* ']' | '[' ']';
+listfunction: IDENTIFIER '.' listfunctionname LPAREN value RPAREN;
+listfunctionname
+	: 'add' 
+	| 'remove' 
+	| 'get';
 
+deck: DECK;
+deckfunction: IDENTIFIER '.' deckfunctionname LPAREN (value)? RPAREN;
+deckfunctionname
+	: 'shuffle' 
+	| 'draw' 
+	| 'add' 
+	| 'remove'
+	;
+
+card: IDENTIFIER '.' cardfunctionname;
+cardfunctionname
+	: 'value' 
+	| 'suit' 
+	| 'color' 
+	| 'name'
+	;
+
+switchstmt
+    : 'switch' LPAREN value RPAREN LCURLY casestmt+ RCURLY
+    ;
+
+casestmt
+    : ('case' value | 'default')':'
+    instruction*
+    (BREAK CRLF)?
+    ;

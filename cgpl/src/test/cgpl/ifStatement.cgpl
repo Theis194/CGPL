@@ -1,0 +1,14 @@
+var a;
+if true {
+    a = "b";
+} else {
+    a = "a";
+}
+
+function func1(b) {
+    if b == true {
+        if true {
+            return b;
+        }
+    }
+}

@@ -1,0 +1,134 @@
+{
+  "instructions": [
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "a",
+      "type": null,
+      "value": null,
+      "isConst": false
+    },
+    {
+      "instructionType": "IfStatment",
+      "condition": {
+        "value": true,
+        "type": "boolean"
+      },
+      "thenBody": [
+        {
+          "instructionType": "Assignment",
+          "identifier": "a",
+          "value": {
+            "value": "b",
+            "type": "string"
+          }
+        }
+      ],
+      "elseBody": [
+        {
+          "instructionType": "Assignment",
+          "identifier": "a",
+          "value": {
+            "value": "a",
+            "type": "string"
+          }
+        }
+      ],
+      "thenScope": {
+        "variables": {
+          "a": null
+        }
+      },
+      "elseScope": {
+        "variables": {
+          "a": null
+        }
+      }
+    },
+    {
+      "instructionType": "Function",
+      "identifier": "func1",
+      "arguments": [
+        {
+          "identifier": "b",
+          "type": "identifier"
+        }
+      ],
+      "functionBody": [
+        {
+          "instructionType": "IfStatment",
+          "condition": null,
+          "thenBody": [
+            {
+              "instructionType": "IfStatment",
+              "condition": {
+                "value": true,
+                "type": "boolean"
+              },
+              "thenBody": [
+                {
+                  "instructionType": "Return",
+                  "value": {
+                    "identifier": "b",
+                    "type": "identifier"
+                  }
+                }
+              ],
+              "elseBody": [],
+              "thenScope": {
+                "variables": {
+                  "a": null,
+                  "b": {
+                    "identifier": "b",
+                    "type": "identifier"
+                  }
+                }
+              },
+              "elseScope": {
+                "variables": {
+                  "a": null,
+                  "b": {
+                    "identifier": "b",
+                    "type": "identifier"
+                  }
+                }
+              }
+            }
+          ],
+          "elseBody": [],
+          "thenScope": {
+            "variables": {
+              "a": null,
+              "b": {
+                "identifier": "b",
+                "type": "identifier"
+              }
+            }
+          },
+          "elseScope": {
+            "variables": {
+              "a": null,
+              "b": {
+                "identifier": "b",
+                "type": "identifier"
+              }
+            }
+          }
+        }
+      ],
+      "scope": {
+        "variables": {
+          "a": null,
+          "b": {
+            "identifier": "b",
+            "type": "identifier"
+          }
+        }
+      }
+    }
+  ],
+  "scope": {
+    "variables": {
+      "a": null
+    }
+  }
+}
