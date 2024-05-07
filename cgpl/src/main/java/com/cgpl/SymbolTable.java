@@ -1,8 +1,8 @@
 package com.cgpl;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
+
+import com.cgpl.AST.expressions.Expression;
 import com.cgpl.AST.Scope;
 
 // Represents the symbol table that contains all the scopes
@@ -26,35 +26,47 @@ public class SymbolTable {
     }
 
     // Adds a symbol to the current scope
-    public void addSymbol(String identifier, Scope value) {
-        this.scopes.peek().put(identifier, value);
+    public void addSymbol(String identifier, Expression value) {
+        this.scopes.peek().addVariable(identifier, value);
     }
 
     // Checks if any scope contains the symbol with the given identifier and returns the scope that contains it or null if it doesn't exist
-    public Scope getSymbol(String identifier) {
+    public Object getSymbol(String identifier) {
         for (Scope scope : this.scopes) {
-            if (scope.containsKey(identifier)) {
-                return scope.get(identifier);
+            if (scope.containsVariable(identifier)) {
+                return scope.getVariableValue(identifier);
+
+            } else if (scope.containsFunction(identifier)) {
+                return scope.getFunction(identifier);
             }
         }
         return null;
     }
 
+    public void updateSymbol(String identifier, Expression value) {
+        for (Scope scope : this.scopes) {
+            if (scope.containsVariable(identifier)) {
+                scope.updateVariable(identifier, value);
+            }
+        }
+    }
+
     // Checks if any scope contains the symbol with the given identifier and returns true if it does, false otherwise
     public boolean hasSymbol(String identifier) {
         for (Scope scope : this.scopes) {
-            if (scope.containsKey(identifier)) {
+            if (scope.containsVariable(identifier)) {
                 return true;
             }
         }
         return false;
     }
+    /* unsure why you would want to remove a variable from the symbol table
     // Removes the symbol with the given identifier from the current scope
     public void removeSymbol(String identifier) {
         for (Scope scope : this.scopes) {
-            if (scope.containsKey(identifier)) {
+            if (scope.containsVariable(identifier)) {
                 scope.remove(identifier);
             }
         }
-    }
+    } */
 }

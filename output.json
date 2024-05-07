@@ -1,609 +1,81 @@
 {
   "instructions": [
     {
-      "instructionType": "VarDeclaration",
-      "identifier": "test0",
-      "type": null,
-      "value": {
-        "value": 10,
-        "type": "number"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test1",
-      "type": null,
-      "value": {
-        "value": "abc",
-        "type": "string"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test2",
-      "type": null,
-      "value": {
-        "value": true,
-        "type": "boolean"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test3",
-      "type": null,
-      "value": {
-        "value": false,
-        "type": "boolean"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test4",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": true,
-            "type": "boolean"
-          },
-          {
-            "value": false,
-            "type": "boolean"
-          }
-        ],
-        "type": "or"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test5",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": true,
-            "type": "boolean"
-          },
-          {
-            "value": false,
-            "type": "boolean"
-          }
-        ],
-        "type": "and"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test6",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": false,
-            "type": "boolean"
-          },
-          {
-            "operands": [
-              {
-                "value": true,
-                "type": "boolean"
-              },
-              {
-                "operands": [
-                  {
-                    "value": false,
-                    "type": "boolean"
-                  },
-                  {
-                    "operands": [
-                      {
-                        "value": true,
-                        "type": "boolean"
-                      },
-                      {
-                        "value": true,
-                        "type": "boolean"
-                      }
-                    ],
-                    "type": "and"
-                  }
-                ],
-                "type": "or"
-              }
-            ],
-            "type": "and"
-          }
-        ],
-        "type": "or"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test7",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
+      "instructionType": "Function",
+      "identifier": "test",
+      "arguments": [
+        {
+          "identifier": "var1",
+          "type": "identifier"
+        }
+      ],
+      "functionBody": [
+        {
+          "instructionType": "Assignment",
+          "identifier": "var1",
+          "value": {
             "value": 10,
             "type": "number"
           }
-        ],
-        "operator": "+",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test8",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
+        },
+        {
+          "instructionType": "Return",
+          "value": {
+            "identifier": "var1",
+            "type": "identifier"
           }
-        ],
-        "operator": "+",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test9",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "operands": [
-              {
-                "value": 10,
-                "type": "number"
-              },
-              {
-                "value": 10,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          {
-            "value": 10,
-            "type": "number"
+        }
+      ],
+      "scope": {
+        "variables": {
+          "var1": {
+            "identifier": "var1",
+            "type": "identifier"
           }
-        ],
-        "operator": "+",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test10",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "+",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test11",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test12",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test13",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "operands": [
-              {
-                "value": 10,
-                "type": "number"
-              },
-              {
-                "value": 10,
-                "type": "number"
-              }
-            ],
-            "operator": "-",
-            "type": "arithmetic"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test14",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test15",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test16",
-      "type": null,
-      "value": {
-        "value": true,
-        "type": "boolean"
-      },
-      "isConst": true
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "test17",
-      "type": null,
-      "value": {
-        "operands": [
-          {
-            "value": 1,
-            "type": "number"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "isConst": false
+        },
+        "functions": {}
+      }
     }
   ],
   "scope": {
-    "variables": {
-      "test16": {
-        "value": true,
-        "type": "boolean"
-      },
-      "test15": {
-        "operands": [
+    "variables": {},
+    "functions": {
+      "test": {
+        "instructionType": "Function",
+        "identifier": "test",
+        "arguments": [
           {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
+            "identifier": "var1",
+            "type": "identifier"
           }
         ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "test14": {
-        "operands": [
+        "functionBody": [
           {
-            "value": 10,
-            "type": "number"
+            "instructionType": "Assignment",
+            "identifier": "var1",
+            "value": {
+              "value": 10,
+              "type": "number"
+            }
           },
           {
-            "value": 10,
-            "type": "number"
+            "instructionType": "Return",
+            "value": {
+              "identifier": "var1",
+              "type": "identifier"
+            }
           }
         ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "test13": {
-        "operands": [
-          {
-            "operands": [
-              {
-                "value": 10,
-                "type": "number"
-              },
-              {
-                "value": 10,
-                "type": "number"
-              }
-            ],
-            "operator": "-",
-            "type": "arithmetic"
+        "scope": {
+          "variables": {
+            "var1": {
+              "identifier": "var1",
+              "type": "identifier"
+            }
           },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "test12": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "test11": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "-",
-        "type": "arithmetic"
-      },
-      "test10": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "+",
-        "type": "arithmetic"
-      },
-      "test0": {
-        "value": 10,
-        "type": "number"
-      },
-      "test1": {
-        "value": "abc",
-        "type": "string"
-      },
-      "test17": {
-        "operands": [
-          {
-            "value": 1,
-            "type": "number"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "test4": {
-        "operands": [
-          {
-            "value": true,
-            "type": "boolean"
-          },
-          {
-            "value": false,
-            "type": "boolean"
-          }
-        ],
-        "type": "or"
-      },
-      "test5": {
-        "operands": [
-          {
-            "value": true,
-            "type": "boolean"
-          },
-          {
-            "value": false,
-            "type": "boolean"
-          }
-        ],
-        "type": "and"
-      },
-      "test2": {
-        "value": true,
-        "type": "boolean"
-      },
-      "test3": {
-        "value": false,
-        "type": "boolean"
-      },
-      "test8": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "+",
-        "type": "arithmetic"
-      },
-      "test9": {
-        "operands": [
-          {
-            "operands": [
-              {
-                "value": 10,
-                "type": "number"
-              },
-              {
-                "value": 10,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "+",
-        "type": "arithmetic"
-      },
-      "test6": {
-        "operands": [
-          {
-            "value": false,
-            "type": "boolean"
-          },
-          {
-            "operands": [
-              {
-                "value": true,
-                "type": "boolean"
-              },
-              {
-                "operands": [
-                  {
-                    "value": false,
-                    "type": "boolean"
-                  },
-                  {
-                    "operands": [
-                      {
-                        "value": true,
-                        "type": "boolean"
-                      },
-                      {
-                        "value": true,
-                        "type": "boolean"
-                      }
-                    ],
-                    "type": "and"
-                  }
-                ],
-                "type": "or"
-              }
-            ],
-            "type": "and"
-          }
-        ],
-        "type": "or"
-      },
-      "test7": {
-        "operands": [
-          {
-            "value": 10,
-            "type": "number"
-          },
-          {
-            "value": 10,
-            "type": "number"
-          }
-        ],
-        "operator": "+",
-        "type": "arithmetic"
+          "functions": {}
+        }
       }
-    },
-    "functions": {}
+    }
   }
 }

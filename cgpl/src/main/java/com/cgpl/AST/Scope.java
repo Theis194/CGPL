@@ -49,8 +49,19 @@ public class Scope {
         return variables.get(name);
     }
 
+    public void updateVariable(String name, Expression value) {
+        if (!containsVariable(name)) {
+            throw new RuntimeException("Undefined variable: " + name);
+        }
+        variables.put(name, value);
+    }
+
     public void addFunction(String name, Function function) {
         functions.put(name, function);
+    }
+
+    public boolean containsFunction(String name) {
+        return functions.containsKey(name);
     }
 
     public Function getFunction(String name) {

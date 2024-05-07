@@ -1,7 +1,10 @@
 package com.cgpl;
 
 import com.cgpl.AST.Program;
-import com.cgpl.AST.instructions.Instruction;
+
+import com.cgpl.AST.expressions.*;
+
+import com.cgpl.AST.instructions.*;
 
 public class Interpreter {
     private SymbolTable symbolTable;
@@ -11,16 +14,53 @@ public class Interpreter {
     }
 
     public boolean interpretProgram(Program program) {
-        symbolTable.pushScope();
+        symbolTable.pushScope(program.getScope());
         for (Instruction instruction : program.getInstructions()) {
-            if (!interpretInstruction(instruction)) {
-                return false;
-            }
+            interpretInstruction(instruction);
         }
         return true;
     }
 
-    public boolean interpretInstruction(Instruction instruction) {
-        return instruction.execute();
+    public void interpretInstruction(Instruction instruction) {
+        switch (instruction.getInstructionType()) {
+            case "VarDeclaration":
+                interpretVarDeclaration((VarDeclaration) instruction);
+                break;
+            case "Assignment":
+                interpretAssignment((Assignment) instruction);
+                break;
+        
+            default:
+                break;
+        }
+        throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
+    }
+
+    public void interpretVarDeclaration(VarDeclaration varDeclaration) {
+        // Does nothing since variabels are already declared in the symbol table
+    }
+
+    public void interpretAssignment(Assignment assignment) {
+        if (assignment.getValue() instanceof FunctionCall){
+            Function function = (Function) symbolTable.getSymbol(assignment.getIdentifier());
+            interpretFunction(function);
+        }
+        symbolTable.updateSymbol(assignment.getIdentifier(), assignment.getValue());
+    }
+
+    public Expression interpretFunction(Function function) {
+        symbolTable.pushScope(function.getScope());
+
+        Expression returnValue = null;
+        for (Instruction instruction : function.getFunctionBody()) {
+            if (instruction.getInstructionType().equals("Return")) {
+                returnValue = ((Return) instruction).getValue();
+            }
+            interpretInstruction(instruction);
+        }
+
+        symbolTable.popScope();
+
+        return returnValue; // Should return the return value of the function
     }
 }
