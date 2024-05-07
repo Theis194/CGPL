@@ -2,133 +2,72 @@
   "instructions": [
     {
       "instructionType": "VarDeclaration",
-      "identifier": "a",
+      "identifier": "list",
       "type": null,
-      "value": null,
+      "value": {
+        "list": [],
+        "type": "list"
+      },
       "isConst": false
     },
     {
-      "instructionType": "IfStatment",
-      "condition": {
-        "value": true,
-        "type": "boolean"
+      "instructionType": "ForEachStatement",
+      "identifier": "str",
+      "iterable": {
+        "identifier": "list",
+        "type": "identifier"
       },
-      "thenBody": [
+      "iteration": null,
+      "body": [
         {
-          "instructionType": "Assignment",
-          "identifier": "a",
+          "instructionType": "VarDeclaration",
+          "identifier": "j",
+          "type": null,
           "value": {
-            "value": "b",
-            "type": "string"
-          }
-        }
-      ],
-      "elseBody": [
-        {
-          "instructionType": "Assignment",
-          "identifier": "a",
-          "value": {
-            "value": "a",
-            "type": "string"
-          }
-        }
-      ],
-      "thenScope": {
-        "variables": {
-          "a": null
-        }
-      },
-      "elseScope": {
-        "variables": {
-          "a": null
-        }
-      }
-    },
-    {
-      "instructionType": "Function",
-      "identifier": "func1",
-      "arguments": [
-        {
-          "identifier": "b",
-          "type": "identifier"
-        }
-      ],
-      "functionBody": [
-        {
-          "instructionType": "IfStatment",
-          "condition": null,
-          "thenBody": [
-            {
-              "instructionType": "IfStatment",
-              "condition": {
-                "value": true,
-                "type": "boolean"
-              },
-              "thenBody": [
-                {
-                  "instructionType": "Return",
-                  "value": {
-                    "identifier": "b",
-                    "type": "identifier"
-                  }
-                }
-              ],
-              "elseBody": [],
-              "thenScope": {
-                "variables": {
-                  "a": null,
-                  "b": {
-                    "identifier": "b",
-                    "type": "identifier"
-                  }
-                }
-              },
-              "elseScope": {
-                "variables": {
-                  "a": null,
-                  "b": {
-                    "identifier": "b",
-                    "type": "identifier"
-                  }
-                }
-              }
-            }
-          ],
-          "elseBody": [],
-          "thenScope": {
-            "variables": {
-              "a": null,
-              "b": {
-                "identifier": "b",
-                "type": "identifier"
-              }
-            }
+            "value": 1,
+            "type": "number"
           },
-          "elseScope": {
-            "variables": {
-              "a": null,
-              "b": {
-                "identifier": "b",
-                "type": "identifier"
-              }
-            }
-          }
+          "isConst": false
         }
       ],
       "scope": {
         "variables": {
-          "a": null,
-          "b": {
-            "identifier": "b",
+          "str": {
+            "identifier": "list",
             "type": "identifier"
+          },
+          "j": {
+            "value": 1,
+            "type": "number"
+          },
+          "list": {
+            "list": [],
+            "type": "list"
           }
         }
       }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "i",
+      "type": null,
+      "value": {
+        "value": 0,
+        "type": "number"
+      },
+      "isConst": false
     }
   ],
   "scope": {
     "variables": {
-      "a": null
+      "i": {
+        "value": 0,
+        "type": "number"
+      },
+      "list": {
+        "list": [],
+        "type": "list"
+      }
     }
   }
 }
