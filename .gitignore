@@ -31,3 +31,4 @@ replay_pid*
 
 # Build things
 cgpl/target/
+cgpl/src/main/antlr4/com/.antlr/
