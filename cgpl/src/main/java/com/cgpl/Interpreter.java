@@ -37,7 +37,7 @@ public class Interpreter {
     }
 
     public void interpretVarDeclaration(VarDeclaration varDeclaration) {
-        // Does nothing since variabels are already declared in the symbol table
+            symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate());
     }
 
     public void interpretAssignment(Assignment assignment) {
@@ -45,7 +45,7 @@ public class Interpreter {
             Function function = (Function) symbolTable.getSymbol(assignment.getIdentifier());
             interpretFunction(function);
         }
-        symbolTable.updateSymbol(assignment.getIdentifier(), assignment.getValue());
+        symbolTable.updateSymbol(assignment.getIdentifier(), assignment.getValue().evaluate());
     }
 
     public Expression interpretFunction(Function function) {
@@ -54,7 +54,7 @@ public class Interpreter {
         Expression returnValue = null;
         for (Instruction instruction : function.getFunctionBody()) {
             if (instruction.getInstructionType().equals("Return")) {
-                returnValue = ((Return) instruction).getValue();
+                returnValue = ((Return) instruction).getValue().evaluate();
             }
             interpretInstruction(instruction);
         }

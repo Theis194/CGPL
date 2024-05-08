@@ -15,11 +15,7 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     public Instruction visitInstruction(CGPLParser.InstructionContext ctx, Scope scope) {
         if (ctx.vardcl() != null) {
             // Handle variable declaration
-            VarDeclaration varDeclaration = new VardclVisitor().visitVardcl(ctx.vardcl());
-            if (scope != null) {
-                scope.addVariable(varDeclaration.getIdentifier(), varDeclaration.getValue());
-            }
-            return varDeclaration;
+            return new VardclVisitor().visitVardcl(ctx.vardcl());
 
         } else if (ctx.function() != null) {
             // Handle function
