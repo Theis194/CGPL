@@ -28,3 +28,7 @@ replay_pid*
 
 # Workspace
 .idea/
+
+# Build things
+cgpl/target/
+cgpl/src/main/antlr4/com/.antlr/
