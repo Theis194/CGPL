@@ -2,6 +2,8 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
+import com.cgpl.AST.Scope;
+
 public class LinkedList implements Expression { // Name is subject to change
     private List<Expression> list;
     private String type = "list";
@@ -30,7 +32,7 @@ public class LinkedList implements Expression { // Name is subject to change
     }
 
     @Override
-    public Expression evaluate() {
+    public Expression evaluate(Scope scope) {
         return this;
     }
 }

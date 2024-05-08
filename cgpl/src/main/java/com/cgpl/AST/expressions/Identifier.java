@@ -1,5 +1,7 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.AST.Scope;
+
 public class Identifier implements Expression {
     public String identifier;
     public String type = "identifier";
@@ -28,7 +30,7 @@ public class Identifier implements Expression {
     }
 
     @Override
-    public Expression evaluate() {
-        return this;
+    public Expression evaluate(Scope scope) {
+        return scope.getVariableValue(this.identifier);
     }
 }

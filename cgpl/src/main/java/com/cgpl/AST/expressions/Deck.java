@@ -1,5 +1,7 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.AST.Scope;
+
 public class Deck implements Expression {
     String type = "deck";
 
@@ -19,7 +21,7 @@ public class Deck implements Expression {
     }
 
     @Override
-    public Expression evaluate() {
+    public Expression evaluate(Scope scope) {
         return this;
     }
 }

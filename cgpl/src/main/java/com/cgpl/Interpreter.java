@@ -1,7 +1,7 @@
 package com.cgpl;
 
 import com.cgpl.AST.Program;
-
+import com.cgpl.AST.Scope;
 import com.cgpl.AST.expressions.*;
 
 import com.cgpl.AST.instructions.*;
@@ -37,25 +37,32 @@ public class Interpreter {
     }
 
     public void interpretVarDeclaration(VarDeclaration varDeclaration) {
-        System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate().getValue() + " of type " + varDeclaration.getValue().evaluate().getType() + " added to symbol table");
-        symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate());
+        Scope scope = symbolTable.getCurrentScope();
+        System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate(scope).getValue() + " of type " + varDeclaration.getValue().evaluate(scope).getType() + " added to symbol table");
+        if (varDeclaration.isConst()) {
+            symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate(scope), true);
+        } else {
+            symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate(scope), false);
+        }
     }
 
     public void interpretAssignment(Assignment assignment) {
+        Scope scope = symbolTable.getCurrentScope();
         if (assignment.getValue() instanceof FunctionCall){
             Function function = (Function) symbolTable.getSymbol(assignment.getIdentifier());
             interpretFunction(function);
         }
-        symbolTable.updateSymbol(assignment.getIdentifier(), assignment.getValue().evaluate());
+        symbolTable.updateSymbol(assignment.getIdentifier(), assignment.getValue().evaluate(scope));
     }
 
     public Expression interpretFunction(Function function) {
         symbolTable.pushScope(function.getScope());
+        Scope scope = symbolTable.getCurrentScope();
 
         Expression returnValue = null;
         for (Instruction instruction : function.getFunctionBody()) {
             if (instruction.getInstructionType().equals("Return")) {
-                returnValue = ((Return) instruction).getValue().evaluate();
+                returnValue = ((Return) instruction).getValue().evaluate(scope);
             }
             interpretInstruction(instruction);
         }

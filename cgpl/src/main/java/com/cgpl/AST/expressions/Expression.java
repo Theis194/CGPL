@@ -1,5 +1,7 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.AST.Scope;
+
 public interface Expression<T> {
     String getType();
 
@@ -7,5 +9,5 @@ public interface Expression<T> {
 
     T getValue();
 
-    Expression evaluate();
+    Expression evaluate(Scope scope);
 }

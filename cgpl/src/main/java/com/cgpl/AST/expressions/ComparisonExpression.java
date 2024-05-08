@@ -2,6 +2,8 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
+import com.cgpl.AST.Scope;
+
 public class ComparisonExpression implements Expression {
     List<Expression> operands;
     String operator;
@@ -32,20 +34,24 @@ public class ComparisonExpression implements Expression {
     }
 
     @Override
-    public Expression evaluate() {
-        Expression left = operands.get(0).evaluate();
-        Expression right = operands.get(1).evaluate();
+    public Expression evaluate(Scope scope) {
+        Expression left = operands.get(0).evaluate(scope);
+        Expression right = operands.get(1).evaluate(scope);
 
-        if (left.getType().equals("boolean") && right.getType().equals("boolean")) {
-            boolean leftValue = ((Boolean) left).getValue();
-            boolean rightValue = ((Boolean) right).getValue();
+        if (left.getType().equals("number") && right.getType().equals("number")) {
+            int leftValue = ((Number) left).getValue();
+            int rightValue = ((Number) right).getValue();
             switch (operator) {
-                case "and":
-                    return new Boolean(leftValue && rightValue);
-                case "or":
-                    return new Boolean(leftValue || rightValue);
-                case "not":
-                    return new Boolean(!leftValue);
+                case "lt":
+                    return new Boolean(leftValue < rightValue);
+                case "gt":
+                    return new Boolean(leftValue > rightValue);
+                case "lte":
+                    return new Boolean(leftValue <= rightValue);
+                case "gte":
+                    return new Boolean(leftValue >= rightValue);
+                case "eq":
+                    return new Boolean(leftValue == rightValue);
                 default:
                     throw new RuntimeException("Invalid operator");
             }

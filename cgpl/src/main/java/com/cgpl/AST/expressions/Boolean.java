@@ -1,5 +1,7 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.AST.Scope;
+
 public class Boolean implements Expression<java.lang.Boolean>{
     public boolean value;
     public String type = "boolean";
@@ -24,7 +26,7 @@ public class Boolean implements Expression<java.lang.Boolean>{
     }
 
     @Override
-    public Expression evaluate() {
+    public Expression evaluate(Scope scope) {
         return this;
     }
 }

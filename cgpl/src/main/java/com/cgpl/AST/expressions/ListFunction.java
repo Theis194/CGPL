@@ -1,5 +1,6 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.AST.Scope;
 import com.cgpl.AST.instructions.Instruction;
 
 public class ListFunction implements Expression, Instruction{
@@ -37,7 +38,7 @@ public class ListFunction implements Expression, Instruction{
     }
 
     @Override
-    public Expression evaluate() {
+    public Expression evaluate(Scope scope) {
         return this;
     }
 }

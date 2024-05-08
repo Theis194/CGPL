@@ -2,6 +2,8 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
+import com.cgpl.AST.Scope;
+
 public class ArithmeticExpression implements Expression {
     private List<Expression> operands;
     private String operator;
@@ -41,9 +43,9 @@ public class ArithmeticExpression implements Expression {
     }
 
     @Override
-    public Expression evaluate() {
-        Expression left = operands.get(0).evaluate();
-        Expression right = operands.get(1).evaluate();
+    public Expression evaluate(Scope scope) {
+        Expression left = operands.get(0).evaluate(scope);
+        Expression right = operands.get(1).evaluate(scope);
 
         if (left.getType().equals("number") && right.getType().equals("number")) {
             int leftValue = ((Number) left).getValue();

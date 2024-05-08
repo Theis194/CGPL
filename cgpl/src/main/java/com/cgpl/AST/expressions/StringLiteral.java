@@ -1,5 +1,7 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.AST.Scope;
+
 public class StringLiteral implements Expression { // Name is subject to change
     public String value;
     public String type = "string";
@@ -23,7 +25,7 @@ public class StringLiteral implements Expression { // Name is subject to change
     }
 
     @Override
-    public Expression evaluate() {
+    public Expression evaluate(Scope scope) {
         return this;
     }
 }

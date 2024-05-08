@@ -1,5 +1,7 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.AST.Scope;
+
 public class Number implements Expression<Integer> {
     private int value;
     private String type = "number";
@@ -24,7 +26,7 @@ public class Number implements Expression<Integer> {
     }
 
     @Override
-    public Expression evaluate() {
+    public Expression evaluate(Scope scope) {
         return this;
     }
 }

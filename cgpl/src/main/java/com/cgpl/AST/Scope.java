@@ -11,6 +11,7 @@ import com.cgpl.AST.instructions.VarDeclaration;
 
 public class Scope {
     private Map<String, Expression> variables = new HashMap<>();
+    private Map<String, Expression> constants = new HashMap<>();
     private Map<String, Function> functions = new HashMap<>();
 
     public Scope() {
@@ -38,8 +39,15 @@ public class Scope {
         }
     }
 
+    public void addConstant(String name, Expression value) {
+        if (constants.containsKey(name)) {
+            throw new RuntimeException("Constant: " + name + " already defined");
+        }
+        constants.put(name, value);
+    }
+
     public boolean containsVariable(String name) {
-        return variables.containsKey(name);
+        return variables.containsKey(name) || constants.containsKey(name);
     }
 
     public Expression getVariableValue(String name) {
@@ -50,6 +58,9 @@ public class Scope {
     }
 
     public void updateVariable(String name, Expression value) {
+        if (constants.containsKey(name)) {
+            throw new RuntimeException("Cannot modify constant: " + name);
+        }
         if (!containsVariable(name)) {
             throw new RuntimeException("Undefined variable: " + name);
         }

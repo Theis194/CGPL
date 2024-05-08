@@ -25,9 +25,17 @@ public class SymbolTable {
         }
     }
 
+    public Scope getCurrentScope() {
+        return this.scopes.peek();
+    }
+
     // Adds a symbol to the current scope
-    public void addSymbol(String identifier, Expression value) {
-        this.scopes.peek().addVariable(identifier, value);
+    public void addSymbol(String identifier, Expression value, boolean isConst) {
+        if (isConst) {
+            this.scopes.peek().addConstant(identifier, value);
+        } else {
+            this.scopes.peek().addVariable(identifier, value);
+        }
     }
 
     // Checks if any scope contains the symbol with the given identifier and returns the scope that contains it or null if it doesn't exist
