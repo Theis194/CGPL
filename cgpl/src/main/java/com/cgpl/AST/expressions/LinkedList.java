@@ -23,4 +23,9 @@ public class LinkedList implements Expression { // Name is subject to change
     public String toString() {
         return this.list.toString();
     }
+
+    @Override
+    public Expression evaluate() {
+        return this;
+    }
 }

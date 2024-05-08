@@ -21,4 +21,9 @@ public class Boolean implements Expression{
     public String toString() {
         return this.value + "";
     }
+
+    @Override
+    public Expression evaluate() {
+        return this;
+    }
 }

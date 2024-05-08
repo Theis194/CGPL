@@ -27,4 +27,16 @@ public class StringConcat implements Expression {
     public String getType() {
         return this.type;
     }
+
+    @Override
+    public Expression evaluate() {
+        String result = "";
+        for (Expression expression : expressions) {
+            if (!expression.getType().equals("string")) {
+                throw new RuntimeException("Operands must be of type string");
+            }
+            result += ((StringLiteral)expression.evaluate()).getValue();
+        }
+        return new StringLiteral(result);
+    }
 }

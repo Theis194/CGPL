@@ -21,4 +21,9 @@ public class Identifier implements Expression {
     public String toString() {
         return this.identifier;
     }
+
+    @Override
+    public Expression evaluate() {
+        return this;
+    }
 }

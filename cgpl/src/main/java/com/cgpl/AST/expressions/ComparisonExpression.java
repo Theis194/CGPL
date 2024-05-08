@@ -25,4 +25,27 @@ public class ComparisonExpression implements Expression {
     public String toString() {
         return "ComparisonExpression";
     }
+
+    @Override
+    public Expression evaluate() {
+        Expression left = operands.get(0).evaluate();
+        Expression right = operands.get(1).evaluate();
+
+        if (left.getType().equals("boolean") && right.getType().equals("boolean")) {
+            boolean leftValue = ((Boolean) left).getValue();
+            boolean rightValue = ((Boolean) right).getValue();
+            switch (operator) {
+                case "and":
+                    return new Boolean(leftValue && rightValue);
+                case "or":
+                    return new Boolean(leftValue || rightValue);
+                case "not":
+                    return new Boolean(!leftValue);
+                default:
+                    throw new RuntimeException("Invalid operator");
+            }
+        } else {
+            throw new RuntimeException("Operands must be of type boolean");
+        }
+    }
 }

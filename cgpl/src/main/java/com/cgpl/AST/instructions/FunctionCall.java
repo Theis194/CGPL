@@ -44,4 +44,9 @@ public class FunctionCall implements Instruction, Expression {
                 ", arguments=" + arguments +
                 '}';
     }
+
+    @Override
+    public Expression evaluate() {
+        return this;
+    }
 }

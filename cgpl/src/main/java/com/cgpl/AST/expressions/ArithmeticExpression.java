@@ -34,4 +34,31 @@ public class ArithmeticExpression implements Expression {
         }
         return result.toString();
     }
+
+    @Override
+    public Expression evaluate() {
+        Expression left = operands.get(0).evaluate();
+        Expression right = operands.get(1).evaluate();
+
+        if (left.getType().equals("number") && right.getType().equals("number")) {
+            int leftValue = ((Number) left).getValue();
+            int rightValue = ((Number) right).getValue();
+            switch (operator) {
+                case "+":
+                    return new Number(leftValue + rightValue);
+                case "-":
+                    return new Number(leftValue - rightValue);
+                case "*":
+                    return new Number(leftValue * rightValue);
+                case "/":
+                    return new Number(leftValue / rightValue);
+                case "%":
+                    return new Number(leftValue % rightValue);
+                default:
+                    throw new RuntimeException("Invalid operator");
+            }
+        } else {
+            throw new RuntimeException("Operands must be of type number");
+        }
+    }
 }

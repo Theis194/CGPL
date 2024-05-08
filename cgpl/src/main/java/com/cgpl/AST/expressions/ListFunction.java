@@ -35,4 +35,9 @@ public class ListFunction implements Expression, Instruction{
     public String getInstructionType() {
         return "listFunction";
     }
+
+    @Override
+    public Expression evaluate() {
+        return this;
+    }
 }

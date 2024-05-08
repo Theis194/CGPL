@@ -21,4 +21,9 @@ public class StringLiteral implements Expression { // Name is subject to change
     public String toString() {
         return this.value;
     }
+
+    @Override
+    public Expression evaluate() {
+        return this;
+    }
 }

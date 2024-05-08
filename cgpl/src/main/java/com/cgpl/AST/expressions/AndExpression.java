@@ -23,4 +23,18 @@ public class AndExpression implements Expression {
     public String toString() {
         return "AndExpression";
     }
+
+    @Override
+    public Expression evaluate() {
+        Expression left = operands.get(0).evaluate();
+        Expression right = operands.get(1).evaluate();
+
+        if (left.getType().equals("boolean") && right.getType().equals("boolean")) {
+            boolean leftValue = ((Boolean) left).getValue();
+            boolean rightValue = ((Boolean) right).getValue();
+            return new Boolean(leftValue && rightValue);
+        } else {
+            throw new RuntimeException("Operands must be of type boolean");
+        }
+    }
 }
