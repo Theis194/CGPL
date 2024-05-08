@@ -28,6 +28,7 @@ public class ForStatement implements Instruction {
         this.iteration = iteration;
         this.body = body;
         this.instructionType = "ForStatement";
+        this.scope = scope;
     }
 
     public String getIdentifier() {

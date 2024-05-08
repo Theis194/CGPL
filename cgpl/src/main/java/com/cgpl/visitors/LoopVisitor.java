@@ -116,7 +116,6 @@ public class LoopVisitor extends CGPLBaseVisitor<Instruction> {
 
         List<Instruction> instructions = ctx.instruction()
         .stream()
-        .skip(1)
         .map(instruction -> instructionVisitor.visitInstruction(instruction, loopScope))
         .toList();
 

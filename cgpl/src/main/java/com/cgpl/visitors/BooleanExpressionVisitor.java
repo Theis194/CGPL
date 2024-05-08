@@ -14,7 +14,13 @@ import com.cgpl.AST.expressions.OrExpression;
 public class BooleanExpressionVisitor extends CGPLBaseVisitor<Expression> {
     @Override
     public Expression visitBoolExpr(CGPLParser.BoolExprContext ctx) {
-        return this.visit(ctx.orExpr());
+        Expression expression = null;
+        if (ctx.orExpr() != null) {
+            expression = this.visit(ctx.orExpr());
+        } else if (ctx.comparisonExpr() != null) {
+            expression = new ComparisonVisitor().visitComparisonExpr(ctx.comparisonExpr());
+        }
+        return expression;
     }
     
     @Override

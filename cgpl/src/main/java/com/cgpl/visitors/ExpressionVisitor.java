@@ -30,7 +30,11 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
             // Handle arithmetic expression
             return new ArithmeticExpressionVisitor().visitArthexp(ctx.arthexp());
 
-        } else if (ctx.list() != null) {
+        } else if (ctx.comparisonExpr() != null) {
+            // Handle comparison expression
+            return new ComparisonVisitor().visitComparisonExpr(ctx.comparisonExpr());
+        
+        }else if (ctx.list() != null) {
             // Handle list expression
             return new LinkedListVisitor().visitList(ctx.list());
 

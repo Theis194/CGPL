@@ -14,7 +14,7 @@ public class WhileStatement implements Instruction {
     public WhileStatement(Expression condition, List<Instruction> body, Scope scope) {
         this.condition = condition;
         this.body = body;
-        this.instructionType = "ForEachStatement";
+        this.instructionType = "WhileStatement";
         this.scope = scope;
     }
 
