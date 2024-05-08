@@ -14,8 +14,18 @@
           "instructionType": "Assignment",
           "identifier": "var1",
           "value": {
-            "value": 10,
-            "type": "number"
+            "operands": [
+              {
+                "identifier": "var1",
+                "type": "identifier"
+              },
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
           }
         },
         {
@@ -33,12 +43,31 @@
             "type": "identifier"
           }
         },
+        "constants": {},
         "functions": {}
       }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "test",
+      "type": null,
+      "value": {
+        "instructionType": "FunctionCall",
+        "type": "FunctionCall",
+        "identifier": "test",
+        "arguments": [
+          {
+            "value": 5,
+            "type": "number"
+          }
+        ]
+      },
+      "isConst": false
     }
   ],
   "scope": {
     "variables": {},
+    "constants": {},
     "functions": {
       "test": {
         "instructionType": "Function",
@@ -54,8 +83,18 @@
             "instructionType": "Assignment",
             "identifier": "var1",
             "value": {
-              "value": 10,
-              "type": "number"
+              "operands": [
+                {
+                  "identifier": "var1",
+                  "type": "identifier"
+                },
+                {
+                  "value": 10,
+                  "type": "number"
+                }
+              ],
+              "operator": "+",
+              "type": "arithmetic"
             }
           },
           {
@@ -73,6 +112,7 @@
               "type": "identifier"
             }
           },
+          "constants": {},
           "functions": {}
         }
       }
