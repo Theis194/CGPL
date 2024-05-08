@@ -3,9 +3,31 @@ for (var i = 0; i < 3; i++)
     var j = i + 1;
 }
 
+for (var i = 0; i < 3; i--)
+{
+    var j = i + 1;
+}
+
+for (var i = 0; i < 3; i = i + 5)
+{
+    var j = i + 1;
+}
+
+var list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+for (n in list)
+{
+    var k = n * 3;
+}
+
 var i = 0;
 
 while (i < 2)
 {
     i++;
+}
+
+while (true)
+{
+    i--;
 }
