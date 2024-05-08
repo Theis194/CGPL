@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-public class Boolean implements Expression{
+public class Boolean implements Expression<java.lang.Boolean>{
     public boolean value;
     public String type = "boolean";
 
@@ -8,8 +8,9 @@ public class Boolean implements Expression{
         this.value = value;
     }
 
-    public boolean getValue() {
-        return value;
+    @Override
+    public java.lang.Boolean getValue() {
+        return java.lang.Boolean.valueOf(value);
     }
 
     @Override

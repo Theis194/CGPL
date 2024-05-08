@@ -29,6 +29,11 @@ public class StringConcat implements Expression {
     }
 
     @Override
+    public Object getValue() {
+        return null;
+    }
+
+    @Override
     public Expression evaluate() {
         String result = "";
         for (Expression expression : expressions) {

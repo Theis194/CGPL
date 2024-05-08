@@ -17,7 +17,7 @@ public class CGPL {
             System.out.println("Will use varDeclaration.cgpl as default input file");
         }
 
-        String code = readFile("cgpl/src/test/cgpl/varDeclaration.cgpl");
+        String code = readFile("cgpl/src/test/cgpl/" + inputFileName);
         Program result = new AstParser().parse(code);
 
         Interpreter interpreter = new Interpreter();

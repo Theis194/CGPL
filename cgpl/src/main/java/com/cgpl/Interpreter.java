@@ -22,7 +22,8 @@ public class Interpreter {
     }
 
     public void interpretInstruction(Instruction instruction) {
-        switch (instruction.getInstructionType()) {
+        String instructionType = instruction.getInstructionType();
+        switch (instructionType) {
             case "VarDeclaration":
                 interpretVarDeclaration((VarDeclaration) instruction);
                 break;
@@ -31,13 +32,13 @@ public class Interpreter {
                 break;
         
             default:
-                break;
+                throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
         }
-        throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
     }
 
     public void interpretVarDeclaration(VarDeclaration varDeclaration) {
-            symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate());
+        System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate().getValue() + " of type " + varDeclaration.getValue().evaluate().getType() + " added to symbol table");
+        symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate());
     }
 
     public void interpretAssignment(Assignment assignment) {

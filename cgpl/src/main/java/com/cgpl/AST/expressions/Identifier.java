@@ -23,6 +23,11 @@ public class Identifier implements Expression {
     }
 
     @Override
+    public Object getValue() {
+        return null;
+    }
+
+    @Override
     public Expression evaluate() {
         return this;
     }

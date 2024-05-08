@@ -36,6 +36,11 @@ public class FunctionCall implements Instruction, Expression {
     }
 
     @Override
+    public Object getValue() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "FunctionCall{" +
                 "instructionType='" + instructionType + '\'' +

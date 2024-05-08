@@ -25,6 +25,11 @@ public class LinkedList implements Expression { // Name is subject to change
     }
 
     @Override
+    public List<Expression> getValue() {
+        return this.list;
+    }
+
+    @Override
     public Expression evaluate() {
         return this;
     }

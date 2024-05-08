@@ -25,6 +25,11 @@ public class AndExpression implements Expression {
     }
 
     @Override
+    public Object getValue() {
+        return null;
+    }
+
+    @Override
     public Expression evaluate() {
         Expression left = operands.get(0).evaluate();
         Expression right = operands.get(1).evaluate();
