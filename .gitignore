@@ -28,3 +28,6 @@ replay_pid*
 
 # Workspace
 .idea/
+
+# Build things
+cgpl/target/
