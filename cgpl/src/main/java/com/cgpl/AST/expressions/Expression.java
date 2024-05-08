@@ -4,4 +4,6 @@ public interface Expression {
     String getType();
 
     String toString();
+
+    Expression evaluate();
 }
