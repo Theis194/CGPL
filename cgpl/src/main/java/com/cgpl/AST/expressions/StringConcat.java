@@ -2,7 +2,7 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 
 public class StringConcat implements Expression {
     private List<Expression> expressions;
@@ -36,13 +36,13 @@ public class StringConcat implements Expression {
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
+    public Expression evaluate(SymbolTable symbolTable) {
         String result = "";
         for (Expression expression : expressions) {
             if (!expression.getType().equals("string")) {
                 throw new RuntimeException("Operands must be of type string");
             }
-            result += ((StringLiteral)expression.evaluate(scope)).getValue();
+            result += ((StringLiteral)expression.evaluate(symbolTable)).getValue();
         }
         return new StringLiteral(result);
     }

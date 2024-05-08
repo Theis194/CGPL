@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 
 public class StringLiteral implements Expression { // Name is subject to change
     public String value;
@@ -25,7 +25,7 @@ public class StringLiteral implements Expression { // Name is subject to change
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
+    public Expression evaluate(SymbolTable symbolTable) {
         return this;
     }
 }

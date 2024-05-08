@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 
 public interface Expression<T> {
     String getType();
@@ -9,5 +9,5 @@ public interface Expression<T> {
 
     T getValue();
 
-    Expression evaluate(Scope scope);
+    Expression evaluate(SymbolTable symbolTable);
 }

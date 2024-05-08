@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 
 public class Deck implements Expression {
     String type = "deck";
@@ -21,7 +21,7 @@ public class Deck implements Expression {
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
+    public Expression evaluate(SymbolTable symbolTable) {
         return this;
     }
 }

@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 
 public class Number implements Expression<Integer> {
     private int value;
@@ -26,7 +26,7 @@ public class Number implements Expression<Integer> {
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
+    public Expression evaluate(SymbolTable symbolTable) {
         return this;
     }
 }

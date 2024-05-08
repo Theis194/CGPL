@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 import com.cgpl.AST.instructions.Instruction;
 
 public class DeckFunction implements Expression, Instruction {
@@ -38,7 +38,7 @@ public class DeckFunction implements Expression, Instruction {
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
+    public Expression evaluate(SymbolTable symbolTable) {
         return this;
     }
 }

@@ -2,7 +2,7 @@ package com.cgpl.AST.instructions;
 
 import java.util.List;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 import com.cgpl.AST.expressions.Expression;
 
 public class FunctionCall implements Instruction, Expression {
@@ -52,7 +52,7 @@ public class FunctionCall implements Instruction, Expression {
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
+    public Expression evaluate(SymbolTable symbolTable) {
         return this;
     }
 }

@@ -2,6 +2,7 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
+import com.cgpl.SymbolTable;
 import com.cgpl.AST.Scope;
 
 public class OrExpression implements Expression {
@@ -32,9 +33,9 @@ public class OrExpression implements Expression {
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
-        Expression left = operands.get(0).evaluate(scope);
-        Expression right = operands.get(1).evaluate(scope);
+    public Expression evaluate(SymbolTable symbolTable) {
+        Expression left = operands.get(0).evaluate(symbolTable);
+        Expression right = operands.get(1).evaluate(symbolTable);
 
         if (left.getType().equals("boolean") && right.getType().equals("boolean")) {
             boolean leftValue = ((Boolean) left).getValue();

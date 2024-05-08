@@ -1,6 +1,6 @@
 package com.cgpl.AST.expressions;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 
 public class Identifier implements Expression {
     public String identifier;
@@ -30,7 +30,7 @@ public class Identifier implements Expression {
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
-        return scope.getVariableValue(this.identifier);
+    public Expression evaluate(SymbolTable symbolTable) {
+        return (Expression) symbolTable.getSymbol(this.identifier);
     }
 }

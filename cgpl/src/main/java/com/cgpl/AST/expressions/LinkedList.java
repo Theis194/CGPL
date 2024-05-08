@@ -2,7 +2,7 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
-import com.cgpl.AST.Scope;
+import com.cgpl.SymbolTable;
 
 public class LinkedList implements Expression { // Name is subject to change
     private List<Expression> list;
@@ -32,7 +32,7 @@ public class LinkedList implements Expression { // Name is subject to change
     }
 
     @Override
-    public Expression evaluate(Scope scope) {
+    public Expression evaluate(SymbolTable symbolTable) {
         return this;
     }
 }
