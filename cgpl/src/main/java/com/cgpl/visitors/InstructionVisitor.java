@@ -31,7 +31,11 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
 
         } else if (ctx.forstmt() != null) {
             // Handle for statement
+            return new LoopVisitor().visitForstmt(ctx.forstmt(), scope);
 
+        } else if (ctx.whilestmt() != null) {
+            // Handle while statement
+            return new LoopVisitor().visitWhilestmt(ctx.whilestmt(), scope);
         } else if (ctx.returnstmt() != null) {
             // Handle return statement
             return new ReturnVisitor().visitReturnstmt(ctx.returnstmt());

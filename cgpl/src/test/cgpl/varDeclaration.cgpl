@@ -15,3 +15,4 @@ var test13 = (10 - 10) - 10;
 var test14 = 10 - (10);
 var test15 = (10) - (10);
 const test16 = true;
+var test17 = 1 < 2;

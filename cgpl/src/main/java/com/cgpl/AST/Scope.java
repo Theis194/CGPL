@@ -5,11 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.cgpl.AST.expressions.Expression;
+import com.cgpl.AST.instructions.Function;
 import com.cgpl.AST.instructions.Instruction;
 import com.cgpl.AST.instructions.VarDeclaration;
 
 public class Scope {
-    private Map<String, Expression> variables = new HashMap<String, Expression>();
+    private Map<String, Expression> variables = new HashMap<>();
+    private Map<String, Function> functions = new HashMap<>();
 
     public Scope() {
     }
@@ -45,6 +47,14 @@ public class Scope {
             throw new RuntimeException("Undefined variable: " + name);
         }
         return variables.get(name);
+    }
+
+    public void addFunction(String name, Function function) {
+        functions.put(name, function);
+    }
+
+    public Function getFunction(String name) {
+        return functions.get(name);
     }
 
     public Map<String,Expression> getScope() {
