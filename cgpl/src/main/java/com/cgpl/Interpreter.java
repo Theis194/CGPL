@@ -16,6 +16,8 @@ public class Interpreter {
 
     public boolean interpretProgram(Program program) {
         symbolTable.pushScope(program.getScope());
+
+        // Interpret each instruction in the program
         for (Instruction instruction : program.getInstructions()) {
             interpretInstruction(instruction);
         }
@@ -24,6 +26,8 @@ public class Interpreter {
 
     public void interpretInstruction(Instruction instruction) {
         String instructionType = instruction.getInstructionType();
+
+        // Interpret the instruction based on its type
         switch (instructionType) {
             case "VarDeclaration":
                 interpretVarDeclaration((VarDeclaration) instruction);
@@ -32,9 +36,11 @@ public class Interpreter {
                 interpretAssignment((Assignment) instruction);
                 break;
             case "Function":
+                // if a function is reached and it is not a function call we do not interpret it
                 //interpretFunction((Function) instruction);
                 break;
             case "Return":
+                // return statements are handled in the function interpretation
                 //interpretReturn((Return) instruction);
                 break;
             default:
@@ -45,35 +51,31 @@ public class Interpreter {
     public void interpretVarDeclaration(VarDeclaration varDeclaration) {
         Expression returnValue = null;
         System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate(symbolTable).getValue() + " of type " + varDeclaration.getValue().evaluate(symbolTable).getType() + " added to symbol table");
-        if (varDeclaration.isConst()) {
-            if (varDeclaration.getValue() instanceof FunctionCall){
-                FunctionCall functionCall = (FunctionCall) varDeclaration.getValue();
-                Function function = (Function) symbolTable.getSymbol(varDeclaration.getIdentifier());
-                returnValue = interpretFunction(function, functionCall.getArguments());
+        
+        // If the value is a function call then interpret the function and assign the return value to the variable
+        if (varDeclaration.getValue() instanceof FunctionCall) { 
+            FunctionCall functionCall = (FunctionCall) varDeclaration.getValue();
+            Function function = (Function) symbolTable.getSymbol(varDeclaration.getIdentifier());
+            returnValue = interpretFunction(function, functionCall.getArguments());
 
-                symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, true);
-                return;
-            }
-            symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate(symbolTable), true);
-        } else {
-            if (varDeclaration.getValue() instanceof FunctionCall){
-                FunctionCall functionCall = (FunctionCall) varDeclaration.getValue();
-                Function function = (Function) symbolTable.getSymbol(varDeclaration.getIdentifier());
-                returnValue = interpretFunction(function, functionCall.getArguments());
-
-                symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, false);
-                return;
-            }
-            symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate(symbolTable), false);
+            symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
+            return;
         }
+        // If the value is a not a functin call then assign the value to the new variable
+        symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate(symbolTable), varDeclaration.isConst());
     }
 
     public void interpretAssignment(Assignment assignment) {
+        Expression returnValue = null;
+        // If the value is a function call then interpret the function and assign the return value to the variable
         if (assignment.getValue() instanceof FunctionCall){
             FunctionCall functionCall = (FunctionCall) assignment.getValue();
             Function function = (Function) symbolTable.getSymbol(assignment.getIdentifier());
-            interpretFunction(function, functionCall.getArguments());
+            returnValue = interpretFunction(function, functionCall.getArguments());
+
+            symbolTable.updateSymbol(assignment.getIdentifier(), returnValue);
         }
+        // If the value is a not a functin call then assign the value to the new variable
         symbolTable.updateSymbol(assignment.getIdentifier(), assignment.getValue().evaluate(symbolTable));
     }
 
@@ -85,9 +87,11 @@ public class Interpreter {
             symbolTable.updateSymbol(((Identifier)function.getArguments().get(i)).getIdentifier(), arguments.get(i).evaluate(symbolTable));
         }
 
+        // Interpret the function body
         Expression returnValue = null;
         for (Instruction instruction : function.getFunctionBody()) {
             if (instruction.getInstructionType().equals("Return")) {
+                // If the instruction is a return statement then evaluate the return value and return it
                 returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
             }
             interpretInstruction(instruction);
