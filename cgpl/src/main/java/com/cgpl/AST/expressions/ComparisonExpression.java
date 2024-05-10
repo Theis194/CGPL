@@ -55,6 +55,15 @@ public class ComparisonExpression implements Expression {
                 default:
                     throw new RuntimeException("Invalid operator");
             }
+        } else if (left.getType().equals("Boolean") && right.getType().equals("Boolean")) {
+            boolean leftValue = ((Boolean) left).getValue();
+            boolean rightValue = ((Boolean) right).getValue();
+            switch (operator) {
+                case "eq":
+                    return new Boolean(leftValue == rightValue);
+                default:
+                    throw new RuntimeException("Invalid operator");
+            }
         } else {
             throw new RuntimeException("Operands must be of type boolean");
         }

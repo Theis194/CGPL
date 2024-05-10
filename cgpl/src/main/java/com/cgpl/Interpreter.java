@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.cgpl.AST.Program;
 import com.cgpl.AST.expressions.*;
-
+import com.cgpl.AST.expressions.Boolean;
 import com.cgpl.AST.instructions.*;
 
 public class Interpreter {
@@ -24,7 +24,7 @@ public class Interpreter {
         return true;
     }
 
-    public void interpretInstruction(Instruction instruction) {
+    public Expression interpretInstruction(Instruction instruction) {
         String instructionType = instruction.getInstructionType();
 
         // Interpret the instruction based on its type
@@ -39,19 +39,33 @@ public class Interpreter {
                 // if a function is reached and it is not a function call we do not interpret it
                 //interpretFunction((Function) instruction);
                 break;
+            case "FunctionCall":
+                // Handle function calls without assignment/declaration
+                interpretFunctionCall((FunctionCall) instruction);
+                break;
             case "Return":
                 // return statements are handled in the function interpretation
                 //interpretReturn((Return) instruction);
                 break;
+            case "IfStatment":
+                return interpretIfStatement((IfStatment) instruction);
+                
             default:
                 throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
         }
+        return null;
     }
 
     public void interpretVarDeclaration(VarDeclaration varDeclaration) {
         Expression returnValue = null;
-        System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate(symbolTable).getValue() + " of type " + varDeclaration.getValue().evaluate(symbolTable).getType() + " added to symbol table");
         
+        // If the value is null then add the variable to the symbol table with a null value
+        if (varDeclaration.getValue() == null) {
+            symbolTable.addSymbol(varDeclaration.getIdentifier(), null, varDeclaration.isConst());
+            return;
+        }
+        
+        System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate(symbolTable).getValue() + " of type " + varDeclaration.getValue().evaluate(symbolTable).getType() + " added to symbol table");
         // If the value is a function call then interpret the function and assign the return value to the variable
         if (varDeclaration.getValue() instanceof FunctionCall) { 
             FunctionCall functionCall = (FunctionCall) varDeclaration.getValue();
@@ -70,10 +84,11 @@ public class Interpreter {
         // If the value is a function call then interpret the function and assign the return value to the variable
         if (assignment.getValue() instanceof FunctionCall){
             FunctionCall functionCall = (FunctionCall) assignment.getValue();
-            Function function = (Function) symbolTable.getSymbol(assignment.getIdentifier());
+            Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
             returnValue = interpretFunction(function, functionCall.getArguments());
 
             symbolTable.updateSymbol(assignment.getIdentifier(), returnValue);
+            return;
         }
         // If the value is a not a functin call then assign the value to the new variable
         symbolTable.updateSymbol(assignment.getIdentifier(), assignment.getValue().evaluate(symbolTable));
@@ -94,11 +109,48 @@ public class Interpreter {
                 // If the instruction is a return statement then evaluate the return value and return it
                 returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
             }
-            interpretInstruction(instruction);
+            returnValue = interpretInstruction(instruction);
         }
 
         symbolTable.popScope();
 
         return returnValue; // Should return the return value of the function
+    }
+
+    public Expression interpretIfStatement(IfStatment ifStatement) {
+        Expression returnValue = null;
+        // Evaluate the condition
+        if (((Boolean)ifStatement.getCondition().evaluate(symbolTable)).getValue()) {
+            // If the condition is true, execute the then body
+            symbolTable.pushScope(ifStatement.getThenScope());
+            for (Instruction instruction : ifStatement.getThenBody()) {
+                if (instruction.getInstructionType().equals("Return")) {
+                    returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
+                    break;
+                }
+                returnValue = interpretInstruction(instruction);
+            }
+            symbolTable.popScope();
+        } else {
+            // If the condition is false, execute the else body
+            symbolTable.pushScope(ifStatement.getElseScope());
+            for (Instruction instruction : ifStatement.getElseBody()) {
+                if (instruction.getInstructionType().equals("Return")) {
+                    returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
+                    break;
+                }
+                interpretInstruction(instruction);
+            }
+            symbolTable.popScope();
+        }
+        return returnValue;
+    }
+
+    public void interpretFunctionCall(FunctionCall functionCall) {
+        // Get the function from the symbol table
+        Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
+
+        // Interpret the function
+        interpretFunction(function, functionCall.getArguments());
     }
 }

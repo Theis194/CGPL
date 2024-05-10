@@ -4,7 +4,7 @@ import com.cgpl.SymbolTable;
 
 public class Boolean implements Expression<java.lang.Boolean>{
     public boolean value;
-    public String type = "boolean";
+    public String type = "Boolean";
 
     public Boolean(boolean value) {
         this.value = value;
