@@ -9,12 +9,12 @@ import com.cgpl.AST.Program;
 
 public class CGPL {
     public static void main(String[] args) {
-        String inputFileName = "ifStatement.cgpl";
+        String inputFileName = "loops.cgpl";
         if (args.length == 1) {
             inputFileName = args[0];
         } else {
             System.out.println("No input file provided");
-            System.out.println("Will use ifStatement.cgpl as default input file");
+            System.out.println("Will use loops.cgpl as default input file");
         }
 
         String code = readFile("cgpl/src/test/cgpl/" + inputFileName);

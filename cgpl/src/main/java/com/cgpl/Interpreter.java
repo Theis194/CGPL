@@ -3,6 +3,7 @@ package com.cgpl;
 import java.util.List;
 
 import com.cgpl.AST.Program;
+import com.cgpl.AST.Scope;
 import com.cgpl.AST.expressions.*;
 import com.cgpl.AST.expressions.Boolean;
 import com.cgpl.AST.instructions.*;
@@ -24,7 +25,7 @@ public class Interpreter {
         return true;
     }
 
-    public Expression interpretInstruction(Instruction instruction) {
+    private Expression interpretInstruction(Instruction instruction) {
         String instructionType = instruction.getInstructionType();
 
         // Interpret the instruction based on its type
@@ -49,14 +50,19 @@ public class Interpreter {
                 break;
             case "IfStatment":
                 return interpretIfStatement((IfStatment) instruction);
-                
+            case "WhileStatement":
+                return interpretWhileLoop((WhileStatement) instruction);
+            case "ForStatement":
+                return interpretForLoop((ForStatement) instruction);
+            case "ForEachStatement":
+                return interpretForLoop((ForStatement) instruction);
             default:
                 throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
         }
         return null;
     }
 
-    public void interpretVarDeclaration(VarDeclaration varDeclaration) {
+    private void interpretVarDeclaration(VarDeclaration varDeclaration) {
         Expression returnValue = null;
         
         // If the value is null then add the variable to the symbol table with a null value
@@ -79,7 +85,7 @@ public class Interpreter {
         symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate(symbolTable), varDeclaration.isConst());
     }
 
-    public void interpretAssignment(Assignment assignment) {
+    private void interpretAssignment(Assignment assignment) {
         Expression returnValue = null;
         // If the value is a function call then interpret the function and assign the return value to the variable
         if (assignment.getValue() instanceof FunctionCall){
@@ -94,7 +100,7 @@ public class Interpreter {
         symbolTable.updateSymbol(assignment.getIdentifier(), assignment.getValue().evaluate(symbolTable));
     }
 
-    public Expression interpretFunction(Function function, List<Expression> arguments) {
+    private Expression interpretFunction(Function function, List<Expression> arguments) {
         symbolTable.pushScope(function.getScope());
 
         // Assign the argument values to the function parameters
@@ -117,7 +123,7 @@ public class Interpreter {
         return returnValue; // Should return the return value of the function
     }
 
-    public Expression interpretIfStatement(IfStatment ifStatement) {
+    private Expression interpretIfStatement(IfStatment ifStatement) {
         Expression returnValue = null;
         // Evaluate the condition
         if (((Boolean)ifStatement.getCondition().evaluate(symbolTable)).getValue()) {
@@ -146,11 +152,84 @@ public class Interpreter {
         return returnValue;
     }
 
-    public void interpretFunctionCall(FunctionCall functionCall) {
+    private void interpretFunctionCall(FunctionCall functionCall) {
         // Get the function from the symbol table
         Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
 
         // Interpret the function
         interpretFunction(function, functionCall.getArguments());
+    }
+
+    private Expression interpretWhileLoop(WhileStatement whileLoop) {
+        Expression returnValue = null;
+
+        boolean condition = ((Boolean)whileLoop.getCondition().evaluate(symbolTable)).getValue();
+        // Evaluate the condition
+        while (condition) {
+            // Execute the body
+            symbolTable.pushScope(whileLoop.getScope());
+            for (Instruction instruction : whileLoop.getBody()) {
+                if (instruction.getInstructionType().equals("Return")) {
+                    returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
+                    break;
+                }
+                returnValue = interpretInstruction(instruction);
+            }
+            symbolTable.popScope();
+            condition = ((Boolean)whileLoop.getCondition().evaluate(symbolTable)).getValue();
+        }
+        return returnValue;
+    }
+
+    private Expression interpretForLoop(ForStatement forLoop) {
+        Expression returnValue = null;
+        String loopType = forLoop.getInstructionType();
+
+        if (loopType.equals("ForEachStatement")) {
+            LinkedList iterable = (LinkedList) forLoop.getIterable().evaluate(symbolTable);
+            symbolTable.pushScope(forLoop.getScope());
+            symbolTable.addSymbol(forLoop.getIdentifier(), null, false);
+            // Iterate over the elements in the list
+            for (Expression element : iterable.getList()) {
+                symbolTable.pushScope(new Scope());
+                // Assign the element to the loop variable
+                symbolTable.updateSymbol(forLoop.getIdentifier(), element);
+                // Execute the body
+                for (Instruction instruction : forLoop.getBody()) {
+                    // If the instruction is a return statement then evaluate the return value and return it
+                    if (instruction.getInstructionType().equals("Return")) {
+                        returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
+                        break;
+                    }
+                    returnValue = interpretInstruction(instruction);
+                }
+                symbolTable.popScope();
+            }
+            symbolTable.popScope();
+        } else {
+            symbolTable.pushScope(forLoop.getScope());
+            symbolTable.addSymbol(forLoop.getVarDeclaration().getIdentifier(), forLoop.getVarDeclaration().getValue().evaluate(symbolTable), false);
+            
+            boolean condition = ((Boolean)forLoop.getCondition().evaluate(symbolTable)).getValue();
+            // While the condition is true
+            while (condition) {
+                symbolTable.pushScope(new Scope());
+                // Execute the body
+                for (Instruction instruction : forLoop.getBody()) {
+                    if (instruction.getInstructionType().equals("Return")) {
+                        returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
+                        break;
+                    }
+                    returnValue = interpretInstruction(instruction);
+                }
+                // Interpret the iteration instruction
+                interpretInstruction(forLoop.getIteration());
+                condition = ((Boolean)forLoop.getCondition().evaluate(symbolTable)).getValue();
+                symbolTable.popScope();
+            }
+            symbolTable.popScope();
+        }
+
+        return returnValue;
     }
 }
