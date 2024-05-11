@@ -56,6 +56,8 @@ public class Interpreter {
                 return interpretForLoop((ForStatement) instruction);
             case "ForEachStatement":
                 return interpretForLoop((ForStatement) instruction);
+            case "SwitchStatement":
+                return interpretSwitch((SwitchStatement) instruction);
             default:
                 throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
         }
@@ -75,7 +77,7 @@ public class Interpreter {
         // If the value is a function call then interpret the function and assign the return value to the variable
         if (varDeclaration.getValue() instanceof FunctionCall) { 
             FunctionCall functionCall = (FunctionCall) varDeclaration.getValue();
-            Function function = (Function) symbolTable.getSymbol(varDeclaration.getIdentifier());
+            Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
             returnValue = interpretFunction(function, functionCall.getArguments());
 
             symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
@@ -228,6 +230,39 @@ public class Interpreter {
                 symbolTable.popScope();
             }
             symbolTable.popScope();
+        }
+
+        return returnValue;
+    }
+
+    private Expression interpretSwitch(SwitchStatement switchStatement) {
+        Expression returnValue = null;
+        
+        // Evaluate the switch value
+        Expression switchValue = switchStatement.getSwitchValue().evaluate(symbolTable);
+        // Get the case statements
+        List<CaseStatement> caseStatements = switchStatement.getCases();
+        // Iterate over the case statements
+        for (CaseStatement caseStatement : caseStatements) {
+            // Evaluate the case value
+            Expression caseValue = null;
+            if (caseStatement.getCaseValue() != null) {
+                caseValue = caseStatement.getCaseValue().evaluate(symbolTable);
+            }
+            // If the case value is equal to the switch value
+            if (caseValue == null || switchValue.getValue().equals(caseValue.getValue())) {
+                // Execute the case body
+                symbolTable.pushScope(caseStatement.getScope());
+                for (Instruction instruction : caseStatement.getInstruction()) {
+                    if (instruction.getInstructionType().equals("Return")) {
+                        returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
+                        break;
+                    }
+                    returnValue = interpretInstruction(instruction);
+                }
+                symbolTable.popScope();
+                break;
+            }
         }
 
         return returnValue;

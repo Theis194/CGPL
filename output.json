@@ -1,400 +1,262 @@
 {
   "instructions": [
     {
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 1,
-              "type": "number"
-            }
-          ],
-          "operator": "+",
-          "type": "arithmetic"
+      "instructionType": "Function",
+      "identifier": "switchTest",
+      "arguments": [
+        {
+          "identifier": "switchValue",
+          "type": "identifier"
         }
-      },
-      "varDeclaration": {
-        "instructionType": "VarDeclaration",
-        "identifier": "i",
-        "type": null,
-        "value": {
-          "value": 0,
-          "type": "number"
-        },
-        "isConst": false
-      },
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
+      ],
+      "functionBody": [
+        {
+          "instructionType": "SwitchStatement",
+          "switchValue": {
+            "identifier": "switchValue",
             "type": "identifier"
           },
-          {
-            "value": 3,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "j",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
+          "cases": [
+            {
+              "instructionType": "CaseStatement",
+              "caseValue": {
+                "value": "a",
+                "type": "string"
               },
-              {
+              "instruction": [
+                {
+                  "instructionType": "Return",
+                  "value": {
+                    "value": "A",
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "instructionType": "CaseStatement",
+              "caseValue": {
                 "value": 1,
                 "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          "isConst": false
+              },
+              "instruction": [
+                {
+                  "instructionType": "Return",
+                  "value": {
+                    "value": 2,
+                    "type": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "instructionType": "CaseStatement",
+              "caseValue": {
+                "value": true,
+                "type": "Boolean"
+              },
+              "instruction": [
+                {
+                  "instructionType": "Return",
+                  "value": {
+                    "value": false,
+                    "type": "Boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "instructionType": "CaseStatement",
+              "caseValue": null,
+              "instruction": [
+                {
+                  "instructionType": "Return",
+                  "value": {
+                    "value": "default",
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {}
-      }
-    },
-    {
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 1,
-              "type": "number"
-            }
-          ],
-          "operator": "-",
-          "type": "arithmetic"
-        }
-      },
-      "varDeclaration": {
-        "instructionType": "VarDeclaration",
-        "identifier": "i",
-        "type": null,
-        "value": {
-          "value": 0,
-          "type": "number"
-        },
-        "isConst": false
-      },
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
+        "variables": {
+          "switchValue": {
+            "identifier": "switchValue",
             "type": "identifier"
-          },
-          {
-            "value": 3,
-            "type": "number"
           }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "j",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          "isConst": false
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {}
-      }
-    },
-    {
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 5,
-              "type": "number"
-            }
-          ],
-          "operator": "+",
-          "type": "arithmetic"
-        }
-      },
-      "varDeclaration": {
-        "instructionType": "VarDeclaration",
-        "identifier": "i",
-        "type": null,
-        "value": {
-          "value": 0,
-          "type": "number"
         },
-        "isConst": false
-      },
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
-            "type": "identifier"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "j",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          "isConst": false
-        }
-      ],
-      "scope": {
-        "variables": {},
         "constants": {},
         "functions": {}
       }
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "list",
+      "identifier": "stringTest",
       "type": null,
       "value": {
-        "list": [
+        "instructionType": "FunctionCall",
+        "type": "FunctionCall",
+        "identifier": "switchTest",
+        "arguments": [
+          {
+            "value": "a",
+            "type": "string"
+          }
+        ]
+      },
+      "isConst": false
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "numberTest",
+      "type": null,
+      "value": {
+        "instructionType": "FunctionCall",
+        "type": "FunctionCall",
+        "identifier": "switchTest",
+        "arguments": [
           {
             "value": 1,
             "type": "number"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          },
-          {
-            "value": 4,
-            "type": "number"
-          },
-          {
-            "value": 5,
-            "type": "number"
-          },
-          {
-            "value": 6,
-            "type": "number"
-          },
-          {
-            "value": 7,
-            "type": "number"
-          },
-          {
-            "value": 8,
-            "type": "number"
-          },
-          {
-            "value": 9,
-            "type": "number"
           }
-        ],
-        "type": "list"
+        ]
       },
       "isConst": false
-    },
-    {
-      "instructionType": "ForEachStatement",
-      "identifier": "n",
-      "iterable": {
-        "identifier": "list",
-        "type": "identifier"
-      },
-      "iteration": null,
-      "varDeclaration": null,
-      "condition": null,
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "k",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "n",
-                "type": "identifier"
-              },
-              {
-                "value": 3,
-                "type": "number"
-              }
-            ],
-            "operator": "*",
-            "type": "arithmetic"
-          },
-          "isConst": false
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {}
-      }
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "i",
+      "identifier": "boolTest",
       "type": null,
       "value": {
-        "value": 0,
-        "type": "number"
+        "instructionType": "FunctionCall",
+        "type": "FunctionCall",
+        "identifier": "switchTest",
+        "arguments": [
+          {
+            "value": true,
+            "type": "Boolean"
+          }
+        ]
       },
       "isConst": false
     },
     {
-      "instructionType": "WhileStatement",
-      "condition": {
-        "operands": [
+      "instructionType": "VarDeclaration",
+      "identifier": "defaultTest",
+      "type": null,
+      "value": {
+        "instructionType": "FunctionCall",
+        "type": "FunctionCall",
+        "identifier": "switchTest",
+        "arguments": [
           {
-            "identifier": "i",
-            "type": "identifier"
-          },
-          {
-            "value": 2,
+            "value": 4,
             "type": "number"
           }
-        ],
-        "operator": "lt",
-        "type": "comparison"
+        ]
       },
-      "body": [
-        {
-          "instructionType": "Assignment",
-          "identifier": "i",
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          }
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {}
-      }
-    },
-    {
-      "instructionType": "WhileStatement",
-      "condition": {
-        "value": true,
-        "type": "Boolean"
-      },
-      "body": [
-        {
-          "instructionType": "Assignment",
-          "identifier": "i",
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "-",
-            "type": "arithmetic"
-          }
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {}
-      }
+      "isConst": false
     }
   ],
   "scope": {
     "variables": {},
     "constants": {},
-    "functions": {}
+    "functions": {
+      "switchTest": {
+        "instructionType": "Function",
+        "identifier": "switchTest",
+        "arguments": [
+          {
+            "identifier": "switchValue",
+            "type": "identifier"
+          }
+        ],
+        "functionBody": [
+          {
+            "instructionType": "SwitchStatement",
+            "switchValue": {
+              "identifier": "switchValue",
+              "type": "identifier"
+            },
+            "cases": [
+              {
+                "instructionType": "CaseStatement",
+                "caseValue": {
+                  "value": "a",
+                  "type": "string"
+                },
+                "instruction": [
+                  {
+                    "instructionType": "Return",
+                    "value": {
+                      "value": "A",
+                      "type": "string"
+                    }
+                  }
+                ]
+              },
+              {
+                "instructionType": "CaseStatement",
+                "caseValue": {
+                  "value": 1,
+                  "type": "number"
+                },
+                "instruction": [
+                  {
+                    "instructionType": "Return",
+                    "value": {
+                      "value": 2,
+                      "type": "number"
+                    }
+                  }
+                ]
+              },
+              {
+                "instructionType": "CaseStatement",
+                "caseValue": {
+                  "value": true,
+                  "type": "Boolean"
+                },
+                "instruction": [
+                  {
+                    "instructionType": "Return",
+                    "value": {
+                      "value": false,
+                      "type": "Boolean"
+                    }
+                  }
+                ]
+              },
+              {
+                "instructionType": "CaseStatement",
+                "caseValue": null,
+                "instruction": [
+                  {
+                    "instructionType": "Return",
+                    "value": {
+                      "value": "default",
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "scope": {
+          "variables": {
+            "switchValue": {
+              "identifier": "switchValue",
+              "type": "identifier"
+            }
+          },
+          "constants": {},
+          "functions": {}
+        }
+      }
+    }
   }
 }
