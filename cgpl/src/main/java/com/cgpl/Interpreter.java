@@ -6,6 +6,7 @@ import com.cgpl.AST.Program;
 import com.cgpl.AST.Scope;
 import com.cgpl.AST.expressions.*;
 import com.cgpl.AST.expressions.Boolean;
+import com.cgpl.AST.expressions.Number;
 import com.cgpl.AST.instructions.*;
 
 public class Interpreter {
@@ -58,6 +59,10 @@ public class Interpreter {
                 return interpretForLoop((ForStatement) instruction);
             case "SwitchStatement":
                 return interpretSwitch((SwitchStatement) instruction);
+            case "CardFunction":
+                return interpretCardFunction((CardFunction) instruction);
+            case "DeckFunction":
+                return interpretDeckFunction((DeckFunction) instruction);
             default:
                 throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
         }
@@ -73,18 +78,18 @@ public class Interpreter {
             return;
         }
         
-        System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate(symbolTable).getValue() + " of type " + varDeclaration.getValue().evaluate(symbolTable).getType() + " added to symbol table");
         // If the value is a function call then interpret the function and assign the return value to the variable
         if (varDeclaration.getValue() instanceof FunctionCall) { 
             FunctionCall functionCall = (FunctionCall) varDeclaration.getValue();
             Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
             returnValue = interpretFunction(function, functionCall.getArguments());
-
+            
             symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
             return;
         }
         // If the value is a not a functin call then assign the value to the new variable
         symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate(symbolTable), varDeclaration.isConst());
+        System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate(symbolTable).getValue() + " of type " + varDeclaration.getValue().evaluate(symbolTable).getType() + " added to symbol table");
     }
 
     private void interpretAssignment(Assignment assignment) {
@@ -263,6 +268,79 @@ public class Interpreter {
                 symbolTable.popScope();
                 break;
             }
+        }
+
+        return returnValue;
+    }
+
+    private Expression interpretCardFunction(CardFunction cardFunction) {
+        Expression returnValue = null;
+
+        // Get the identifier of the card function
+        String identifier = cardFunction.getIdentifier();
+
+        // Get the card from the symbol table
+        Card card = (Card) symbolTable.getSymbol(identifier);
+
+        // Get the type of card function
+        String type = cardFunction.getType();
+        switch (type) {
+            case "value":
+                returnValue = new StringLiteral(card.getValue());
+                break;
+            case "suit":
+                returnValue = new StringLiteral(card.getSuit());
+                break;
+            case "color":
+                returnValue = new StringLiteral(card.getColor());
+                break;
+            case "name":
+                returnValue = new StringLiteral(card.toString());
+                break;
+        
+            default:
+                throw new RuntimeException("Unknown card function type: " + type);
+        }
+
+        return returnValue;
+    }
+
+    private Expression interpretDeckFunction(DeckFunction deckFunction) {
+        Expression returnValue = null;
+
+        // Get the identifier of the deck function
+        String identifier = deckFunction.getIdentifier();
+
+        // Get the deck from the symbol table
+        Deck deck = (Deck) symbolTable.getSymbol(identifier);
+
+        Expression value = null;
+        if (deckFunction.getValue() != null) {
+            value = deckFunction.getValue().evaluate(symbolTable);
+        }
+
+        // Get the type of deck function
+        String type = deckFunction.getType();
+        switch (type) {
+            case "shuffle":
+                deck.shuffle();
+                break;
+            case "draw":
+                returnValue = deck.drawCard();
+                break;
+            case "add":
+                if (value == null) throw new RuntimeException("Value cannot be null");
+                deck.addCard((Card) deckFunction.getValue().evaluate(symbolTable));
+                returnValue = deck;
+                break;
+            case "remove":
+                if (value == null) throw new RuntimeException("Value cannot be null");
+                deck.remove(((Number)deckFunction.getValue().evaluate(symbolTable)).getValue().intValue());
+                returnValue = deck;
+                break;
+        
+            default:
+                throw new RuntimeException("Unknown deck function type: " + type);
         }
 
         return returnValue;

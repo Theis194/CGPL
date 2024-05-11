@@ -34,9 +34,17 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
             // Handle comparison expression
             return new ComparisonVisitor().visitComparisonExpr(ctx.comparisonExpr());
         
-        }else if (ctx.list() != null) {
+        } else if (ctx.list() != null) {
             // Handle list expression
             return new LinkedListVisitor().visitList(ctx.list());
+
+        } else if (ctx.deck() != null) {
+            // Handle deck expression
+            return new DeckVisitor().visitDeck(ctx.deck());
+
+        } else if (ctx.card() != null) {
+            // Handle card expression
+            return new CardVisitor().visitCard(ctx.card());
 
         } else if (ctx.stringConcat() != null) {
             // Handle string concat expression
@@ -53,6 +61,10 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
         } else if (ctx.deckfunction() != null) {
             // Handle deck function
             return new DeckFunctionVisitor<Expression>().visitDeckfunction(ctx.deckfunction());
+
+        } else if (ctx.cardfunction() != null) {
+            // Handle card function
+            return new CardFunctionVisitor<Expression>().visitCardfunction(ctx.cardfunction());
 
         }
         return super.visitValue(ctx);

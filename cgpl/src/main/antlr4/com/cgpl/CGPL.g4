@@ -22,8 +22,8 @@ NUMBER: ([1-9][0-9]* | [0-9]);
 STRING: '"' (~[\r\n"])* '"';
 BOOLEAN: 'true' | 'false';
 BREAK: 'break';
+DECK: 'Deck';
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
-DECK: 'deck';
 
 
 EQUAL: '==';
@@ -83,10 +83,11 @@ value
 	| comparisonExpr
 	| boolExpr 
 	| arthexp
-	| list
 	| listfunction
-	| deck
+	| list
 	| deckfunction
+	| deck
+	| cardfunction
 	| card
 	| functionCall
 	| stringConcat
@@ -141,18 +142,32 @@ listfunctionname
 deck: DECK;
 deckfunction: IDENTIFIER '.' deckfunctionname LPAREN (value)? RPAREN;
 deckfunctionname
-	: 'shuffle' 
-	| 'draw' 
-	| 'add' 
+	: 'shuffle'
+	| 'draw'
+	| 'add'
 	| 'remove'
 	;
 
-card: IDENTIFIER '.' cardfunctionname;
+card: cardvalue 'of' suit;
+cardfunction: IDENTIFIER '.' cardfunctionname LPAREN RPAREN;
 cardfunctionname
 	: 'value' 
 	| 'suit' 
 	| 'color' 
 	| 'name'
+	;
+suit
+	: 'hearts' 
+	| 'diamonds' 
+	| 'clubs' 
+	| 'spades'
+	;
+cardvalue
+	: NUMBER 
+	| 'jack' 
+	| 'queen' 
+	| 'king' 
+	| 'ace'
 	;
 
 switchstmt

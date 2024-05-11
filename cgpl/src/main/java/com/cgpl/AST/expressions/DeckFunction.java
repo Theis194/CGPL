@@ -34,7 +34,7 @@ public class DeckFunction implements Expression, Instruction {
 
     @Override
     public String getInstructionType() {
-        return "deckFunction";
+        return "DeckFunction";
     }
 
     @Override

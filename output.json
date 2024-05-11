@@ -1,162 +1,89 @@
 {
   "instructions": [
     {
-      "instructionType": "Function",
-      "identifier": "switchTest",
-      "arguments": [
-        {
-          "identifier": "switchValue",
-          "type": "identifier"
-        }
-      ],
-      "functionBody": [
-        {
-          "instructionType": "SwitchStatement",
-          "switchValue": {
-            "identifier": "switchValue",
-            "type": "identifier"
-          },
-          "cases": [
-            {
-              "instructionType": "CaseStatement",
-              "caseValue": {
-                "value": "a",
-                "type": "string"
-              },
-              "instruction": [
-                {
-                  "instructionType": "Return",
-                  "value": {
-                    "value": "A",
-                    "type": "string"
-                  }
-                }
-              ]
-            },
-            {
-              "instructionType": "CaseStatement",
-              "caseValue": {
-                "value": 1,
-                "type": "number"
-              },
-              "instruction": [
-                {
-                  "instructionType": "Return",
-                  "value": {
-                    "value": 2,
-                    "type": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "instructionType": "CaseStatement",
-              "caseValue": {
-                "value": true,
-                "type": "Boolean"
-              },
-              "instruction": [
-                {
-                  "instructionType": "Return",
-                  "value": {
-                    "value": false,
-                    "type": "Boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "instructionType": "CaseStatement",
-              "caseValue": null,
-              "instruction": [
-                {
-                  "instructionType": "Return",
-                  "value": {
-                    "value": "default",
-                    "type": "string"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "scope": {
-        "variables": {
-          "switchValue": {
-            "identifier": "switchValue",
-            "type": "identifier"
-          }
-        },
-        "constants": {},
-        "functions": {}
-      }
-    },
-    {
       "instructionType": "VarDeclaration",
-      "identifier": "stringTest",
+      "identifier": "deck",
       "type": null,
       "value": {
-        "instructionType": "FunctionCall",
-        "type": "FunctionCall",
-        "identifier": "switchTest",
-        "arguments": [
-          {
-            "value": "a",
-            "type": "string"
-          }
-        ]
+        "type": "deck",
+        "cards": []
       },
       "isConst": false
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "numberTest",
+      "identifier": "card",
       "type": null,
       "value": {
-        "instructionType": "FunctionCall",
-        "type": "FunctionCall",
-        "identifier": "switchTest",
-        "arguments": [
-          {
-            "value": 1,
-            "type": "number"
-          }
-        ]
+        "type": "card",
+        "suit": "hearts",
+        "value": "2"
+      },
+      "isConst": false
+    },
+    {
+      "identifier": "deck",
+      "value": null,
+      "type": "shuffle"
+    },
+    {
+      "identifier": "deck",
+      "value": null,
+      "type": "draw"
+    },
+    {
+      "identifier": "deck",
+      "value": {
+        "identifier": "card",
+        "type": "identifier"
+      },
+      "type": "add"
+    },
+    {
+      "identifier": "deck",
+      "value": {
+        "value": 0,
+        "type": "number"
+      },
+      "type": "remove"
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "cardValue",
+      "type": null,
+      "value": {
+        "identifier": "card",
+        "type": "value"
       },
       "isConst": false
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "boolTest",
+      "identifier": "cardSuit",
       "type": null,
       "value": {
-        "instructionType": "FunctionCall",
-        "type": "FunctionCall",
-        "identifier": "switchTest",
-        "arguments": [
-          {
-            "value": true,
-            "type": "Boolean"
-          }
-        ]
+        "identifier": "card",
+        "type": "suit"
       },
       "isConst": false
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "defaultTest",
+      "identifier": "cardColor",
       "type": null,
       "value": {
-        "instructionType": "FunctionCall",
-        "type": "FunctionCall",
-        "identifier": "switchTest",
-        "arguments": [
-          {
-            "value": 4,
-            "type": "number"
-          }
-        ]
+        "identifier": "card",
+        "type": "color"
+      },
+      "isConst": false
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "cardName",
+      "type": null,
+      "value": {
+        "identifier": "card",
+        "type": "name"
       },
       "isConst": false
     }
@@ -164,99 +91,6 @@
   "scope": {
     "variables": {},
     "constants": {},
-    "functions": {
-      "switchTest": {
-        "instructionType": "Function",
-        "identifier": "switchTest",
-        "arguments": [
-          {
-            "identifier": "switchValue",
-            "type": "identifier"
-          }
-        ],
-        "functionBody": [
-          {
-            "instructionType": "SwitchStatement",
-            "switchValue": {
-              "identifier": "switchValue",
-              "type": "identifier"
-            },
-            "cases": [
-              {
-                "instructionType": "CaseStatement",
-                "caseValue": {
-                  "value": "a",
-                  "type": "string"
-                },
-                "instruction": [
-                  {
-                    "instructionType": "Return",
-                    "value": {
-                      "value": "A",
-                      "type": "string"
-                    }
-                  }
-                ]
-              },
-              {
-                "instructionType": "CaseStatement",
-                "caseValue": {
-                  "value": 1,
-                  "type": "number"
-                },
-                "instruction": [
-                  {
-                    "instructionType": "Return",
-                    "value": {
-                      "value": 2,
-                      "type": "number"
-                    }
-                  }
-                ]
-              },
-              {
-                "instructionType": "CaseStatement",
-                "caseValue": {
-                  "value": true,
-                  "type": "Boolean"
-                },
-                "instruction": [
-                  {
-                    "instructionType": "Return",
-                    "value": {
-                      "value": false,
-                      "type": "Boolean"
-                    }
-                  }
-                ]
-              },
-              {
-                "instructionType": "CaseStatement",
-                "caseValue": null,
-                "instruction": [
-                  {
-                    "instructionType": "Return",
-                    "value": {
-                      "value": "default",
-                      "type": "string"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "scope": {
-          "variables": {
-            "switchValue": {
-              "identifier": "switchValue",
-              "type": "identifier"
-            }
-          },
-          "constants": {},
-          "functions": {}
-        }
-      }
-    }
+    "functions": {}
   }
 }
