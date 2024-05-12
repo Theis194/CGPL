@@ -4,7 +4,6 @@ import com.cgpl.CGPLBaseVisitor;
 import com.cgpl.CGPLParser;
 import com.cgpl.AST.Scope;
 import com.cgpl.AST.instructions.Instruction;
-import com.cgpl.AST.instructions.VarDeclaration;
 
 public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     @Override
@@ -18,6 +17,10 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             return new VardclVisitor().visitVardcl(ctx.vardcl());
 
         } else if (ctx.function() != null) {
+            // Check if the current scope is program scope
+            if (!scope.isProgramScope()) {
+                throw new RuntimeException("Function declaration is only allowed in the program scope");
+            }
             // Handle function
             return new FunctionVisitor().visitFunction(ctx.function(), scope);
 

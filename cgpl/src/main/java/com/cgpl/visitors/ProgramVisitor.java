@@ -13,7 +13,7 @@ public class ProgramVisitor extends CGPLBaseVisitor<Program> {
     @Override
     public Program visitProgram(CGPLParser.ProgramContext ctx) {
         InstructionVisitor instructionVisitor = new InstructionVisitor();
-        Scope scope = new Scope();
+        Scope scope = new Scope(true);
         List<Instruction> instructions = ctx.instruction()
                 .stream()
                 .map(instruction -> instructionVisitor.visitInstruction(instruction, scope))

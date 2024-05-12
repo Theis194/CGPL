@@ -14,7 +14,7 @@ import java.util.List;
 public class LoopVisitor extends CGPLBaseVisitor<Instruction> {
     public Instruction visitWhilestmt(CGPLParser.WhilestmtContext ctx, Scope scope)
     {
-        Scope loopScope = new Scope();
+        Scope loopScope = new Scope(false);
 
         // Get condition expression
         BooleanExpressionVisitor booleanExpressionVisitor = new BooleanExpressionVisitor();
@@ -48,7 +48,7 @@ public class LoopVisitor extends CGPLBaseVisitor<Instruction> {
     public Instruction visitForeachStmt(CGPLParser.ForstmtContext ctx, Scope scope)
     {
         // New scope
-        Scope loopScope = new Scope();
+        Scope loopScope = new Scope(false);
 
         // Get instructions
         InstructionVisitor instructionVisitor = new InstructionVisitor();
@@ -70,7 +70,7 @@ public class LoopVisitor extends CGPLBaseVisitor<Instruction> {
         // Get variable declaration
         VardclVisitor varVisitor = new VardclVisitor();
         VarDeclaration vardcl = varVisitor.visitVardcl(ctx.vardcl());
-        Scope loopScope = new Scope();
+        Scope loopScope = new Scope(false);
 
         // Get condition expression
         BooleanExpressionVisitor booleanExpressionVisitor = new BooleanExpressionVisitor();

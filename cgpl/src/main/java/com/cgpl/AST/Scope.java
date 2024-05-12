@@ -13,8 +13,10 @@ public class Scope {
     private Map<String, Expression> variables = new HashMap<>();
     private Map<String, Expression> constants = new HashMap<>();
     private Map<String, Function> functions = new HashMap<>();
+    private boolean isProgramScope;
 
-    public Scope() {
+    public Scope(boolean isProgramScope) {
+        this.isProgramScope = isProgramScope;
     }
 
     public Scope(Scope parentScope) {
@@ -79,7 +81,7 @@ public class Scope {
         return functions.get(name);
     }
 
-    public Map<String,Expression> getScope() {
-        return variables;
+    public boolean isProgramScope() {
+        return isProgramScope;
     }
 }

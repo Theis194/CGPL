@@ -216,7 +216,7 @@ public class Interpreter {
             symbolTable.addSymbol(forLoop.getIdentifier(), null, false);
             // Iterate over the elements in the list
             for (Expression element : iterable.getList()) {
-                symbolTable.pushScope(new Scope());
+                symbolTable.pushScope(new Scope(false));
                 // Assign the element to the loop variable
                 symbolTable.updateSymbol(forLoop.getIdentifier(), element);
                 // Execute the body
@@ -238,7 +238,7 @@ public class Interpreter {
             boolean condition = ((Boolean)forLoop.getCondition().evaluate(symbolTable)).getValue();
             // While the condition is true
             while (condition) {
-                symbolTable.pushScope(new Scope());
+                symbolTable.pushScope(new Scope(false));
                 // Execute the body
                 for (Instruction instruction : forLoop.getBody()) {
                     if (instruction.getInstructionType().equals("Return")) {

@@ -15,7 +15,7 @@ public class CaseStatement implements Instruction {
         this.caseValue = caseValue;
         this.instruction = instruction;
         this.instructionType = "CaseStatement";
-        this.scope = new Scope();
+        this.scope = new Scope(false);
     }
 
     public Expression getCaseValue() {

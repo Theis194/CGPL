@@ -35,12 +35,12 @@ public class IfStatementVisitor extends CGPLBaseVisitor<Instruction> {
                 elseBlock.add(new InstructionVisitor().visitInstruction(instructions.get(i), scope));
             }
         }
-        Scope thenScope = new Scope();
+        Scope thenScope = new Scope(false);
         if (thenBlock.size() != 0) {
             thenScope.addVariable(thenBlock);
         }
 
-        Scope elseScope = new Scope();
+        Scope elseScope = new Scope(false);
         if (elseBlock.size() != 0) {
             elseScope.addVariable(elseBlock);
         }

@@ -1,89 +1,172 @@
 {
   "instructions": [
     {
+      "instructionType": "Function",
+      "identifier": "test",
+      "arguments": [
+        {
+          "identifier": "var1",
+          "type": "identifier"
+        }
+      ],
+      "functionBody": [
+        {
+          "instructionType": "Assignment",
+          "identifier": "var1",
+          "value": {
+            "operands": [
+              {
+                "identifier": "var1",
+                "type": "identifier"
+              },
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
+          }
+        },
+        {
+          "instructionType": "Return",
+          "value": {
+            "identifier": "var1",
+            "type": "identifier"
+          }
+        }
+      ],
+      "scope": {
+        "variables": {
+          "var1": {
+            "identifier": "var1",
+            "type": "identifier"
+          }
+        },
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
+    },
+    {
       "instructionType": "VarDeclaration",
-      "identifier": "list",
+      "identifier": "test",
       "type": null,
       "value": {
-        "list": [
-          {
-            "value": 1,
-            "type": "number"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          },
-          {
-            "value": 4,
-            "type": "number"
-          },
+        "instructionType": "FunctionCall",
+        "type": "FunctionCall",
+        "identifier": "test",
+        "arguments": [
           {
             "value": 5,
             "type": "number"
-          },
-          {
-            "value": 6,
-            "type": "number"
-          },
-          {
-            "value": 7,
-            "type": "number"
-          },
-          {
-            "value": 8,
-            "type": "number"
-          },
-          {
-            "value": 9,
-            "type": "number"
           }
-        ],
-        "type": "list"
+        ]
       },
       "isConst": false
     },
     {
-      "identifier": "list",
-      "value": {
-        "value": 10,
-        "type": "number"
-      },
-      "type": "add"
+      "instructionType": "Function",
+      "identifier": "a",
+      "arguments": [],
+      "functionBody": [],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
     },
     {
-      "instructionType": "VarDeclaration",
-      "identifier": "listItem",
-      "type": null,
-      "value": {
-        "identifier": "list",
-        "value": null,
-        "type": "remove"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "listGetTest",
-      "type": null,
-      "value": {
-        "identifier": "list",
-        "value": {
-          "value": 4,
-          "type": "number"
-        },
-        "type": "get"
-      },
-      "isConst": false
+      "instructionType": "Function",
+      "identifier": "b",
+      "arguments": [],
+      "functionBody": [],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
     }
   ],
   "scope": {
     "variables": {},
     "constants": {},
-    "functions": {}
+    "functions": {
+      "a": {
+        "instructionType": "Function",
+        "identifier": "a",
+        "arguments": [],
+        "functionBody": [],
+        "scope": {
+          "variables": {},
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
+        }
+      },
+      "b": {
+        "instructionType": "Function",
+        "identifier": "b",
+        "arguments": [],
+        "functionBody": [],
+        "scope": {
+          "variables": {},
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
+        }
+      },
+      "test": {
+        "instructionType": "Function",
+        "identifier": "test",
+        "arguments": [
+          {
+            "identifier": "var1",
+            "type": "identifier"
+          }
+        ],
+        "functionBody": [
+          {
+            "instructionType": "Assignment",
+            "identifier": "var1",
+            "value": {
+              "operands": [
+                {
+                  "identifier": "var1",
+                  "type": "identifier"
+                },
+                {
+                  "value": 10,
+                  "type": "number"
+                }
+              ],
+              "operator": "+",
+              "type": "arithmetic"
+            }
+          },
+          {
+            "instructionType": "Return",
+            "value": {
+              "identifier": "var1",
+              "type": "identifier"
+            }
+          }
+        ],
+        "scope": {
+          "variables": {
+            "var1": {
+              "identifier": "var1",
+              "type": "identifier"
+            }
+          },
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
+        }
+      }
+    },
+    "isProgramScope": true
   }
 }
