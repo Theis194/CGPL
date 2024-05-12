@@ -66,27 +66,9 @@
       "isConst": false
     },
     {
-      "instructionType": "Function",
-      "identifier": "a",
-      "arguments": [],
-      "functionBody": [],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {},
-        "isProgramScope": false
-      }
-    },
-    {
-      "instructionType": "Function",
-      "identifier": "b",
-      "arguments": [],
-      "functionBody": [],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {},
-        "isProgramScope": false
+      "value": {
+        "identifier": "test",
+        "type": "identifier"
       }
     }
   ],
@@ -94,30 +76,6 @@
     "variables": {},
     "constants": {},
     "functions": {
-      "a": {
-        "instructionType": "Function",
-        "identifier": "a",
-        "arguments": [],
-        "functionBody": [],
-        "scope": {
-          "variables": {},
-          "constants": {},
-          "functions": {},
-          "isProgramScope": false
-        }
-      },
-      "b": {
-        "instructionType": "Function",
-        "identifier": "b",
-        "arguments": [],
-        "functionBody": [],
-        "scope": {
-          "variables": {},
-          "constants": {},
-          "functions": {},
-          "isProgramScope": false
-        }
-      },
       "test": {
         "instructionType": "Function",
         "identifier": "test",

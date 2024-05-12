@@ -39,6 +39,10 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle return statement
             return new ReturnVisitor().visitReturnstmt(ctx.returnstmt());
 
+        } else if (ctx.printstmt() != null) {
+            // Handle print statement
+            return new PrintVisitor().visitPrintstmt(ctx.printstmt());
+
         } else if (ctx.assignment() != null) {
             // Handle assignment
             return new AssignmentVisitor().visitAssignment(ctx.assignment());

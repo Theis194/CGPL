@@ -6,6 +6,7 @@ OR: 'or';
 NOT: 'not';
 
 RETURN: 'return';
+PRINT: 'print';
 FUNCTION: 'function';
 LCURLY: '{';
 RCURLY: '}';
@@ -58,6 +59,7 @@ instruction
 	| listfunction CRLF
 	| card CRLF
 	| returnstmt CRLF
+	| printstmt CRLF
 	| assignment CRLF
 	| increment CRLF
 	| decrement CRLF
@@ -66,6 +68,7 @@ instruction
 vardcl: (VAR|KONST) IDENTIFIER ('=' value)?;
 assignment: IDENTIFIER '=' value;
 returnstmt: RETURN value;
+printstmt: PRINT LPAREN value RPAREN;
 functionBody: instruction*;
 ifstmt: IF value LCURLY instruction* RCURLY (ELSE LCURLY instruction* RCURLY)?;
 forstmt

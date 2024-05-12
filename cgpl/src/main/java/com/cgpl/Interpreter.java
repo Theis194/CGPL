@@ -65,6 +65,8 @@ public class Interpreter {
                 return interpretDeckFunction((DeckFunction) instruction);
             case "ListFunction":
                 return interpretListFunction((ListFunction) instruction);
+            case "Print":
+                return interpretPrint((Print) instruction);
             default:
                 throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
         }
@@ -406,5 +408,25 @@ public class Interpreter {
         }
 
         return returnValue;
+    }
+
+    private Expression interpretPrint(Print print) {
+        Expression value = print.getValue();
+        if (value == null) {
+            throw new RuntimeException("Value cannot be null");
+        }
+
+        if (value instanceof FunctionCall) {
+            FunctionCall functionCall = (FunctionCall) value;
+            Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
+            value = interpretFunction(function, functionCall.getArguments());
+        }
+
+        if (value instanceof Identifier) {
+            Identifier identifier = (Identifier) value;
+            value = (Expression) symbolTable.getSymbol(identifier.getIdentifier());
+        }
+        System.out.println(value.toString());
+        return value;
     }
 }

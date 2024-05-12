@@ -41,6 +41,12 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitReturnstmt(CGPLParser.ReturnstmtContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#printstmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintstmt(CGPLParser.PrintstmtContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#functionBody}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
