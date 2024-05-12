@@ -34,7 +34,7 @@ public class ListFunction implements Expression, Instruction{
 
     @Override
     public String getInstructionType() {
-        return "listFunction";
+        return "ListFunction";
     }
 
     @Override

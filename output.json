@@ -2,88 +2,81 @@
   "instructions": [
     {
       "instructionType": "VarDeclaration",
-      "identifier": "deck",
+      "identifier": "list",
       "type": null,
       "value": {
-        "type": "deck",
-        "cards": []
+        "list": [
+          {
+            "value": 1,
+            "type": "number"
+          },
+          {
+            "value": 2,
+            "type": "number"
+          },
+          {
+            "value": 3,
+            "type": "number"
+          },
+          {
+            "value": 4,
+            "type": "number"
+          },
+          {
+            "value": 5,
+            "type": "number"
+          },
+          {
+            "value": 6,
+            "type": "number"
+          },
+          {
+            "value": 7,
+            "type": "number"
+          },
+          {
+            "value": 8,
+            "type": "number"
+          },
+          {
+            "value": 9,
+            "type": "number"
+          }
+        ],
+        "type": "list"
       },
       "isConst": false
     },
     {
-      "instructionType": "VarDeclaration",
-      "identifier": "card",
-      "type": null,
+      "identifier": "list",
       "value": {
-        "type": "card",
-        "suit": "hearts",
-        "value": "2"
-      },
-      "isConst": false
-    },
-    {
-      "identifier": "deck",
-      "value": null,
-      "type": "shuffle"
-    },
-    {
-      "identifier": "deck",
-      "value": null,
-      "type": "draw"
-    },
-    {
-      "identifier": "deck",
-      "value": {
-        "identifier": "card",
-        "type": "identifier"
+        "value": 10,
+        "type": "number"
       },
       "type": "add"
     },
     {
-      "identifier": "deck",
-      "value": {
-        "value": 0,
-        "type": "number"
-      },
-      "type": "remove"
-    },
-    {
       "instructionType": "VarDeclaration",
-      "identifier": "cardValue",
+      "identifier": "listItem",
       "type": null,
       "value": {
-        "identifier": "card",
-        "type": "value"
+        "identifier": "list",
+        "value": null,
+        "type": "remove"
       },
       "isConst": false
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "cardSuit",
+      "identifier": "listGetTest",
       "type": null,
       "value": {
-        "identifier": "card",
-        "type": "suit"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "cardColor",
-      "type": null,
-      "value": {
-        "identifier": "card",
-        "type": "color"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "cardName",
-      "type": null,
-      "value": {
-        "identifier": "card",
-        "type": "name"
+        "identifier": "list",
+        "value": {
+          "value": 4,
+          "type": "number"
+        },
+        "type": "get"
       },
       "isConst": false
     }

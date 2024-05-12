@@ -63,6 +63,8 @@ public class Interpreter {
                 return interpretCardFunction((CardFunction) instruction);
             case "DeckFunction":
                 return interpretDeckFunction((DeckFunction) instruction);
+            case "ListFunction":
+                return interpretListFunction((ListFunction) instruction);
             default:
                 throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
         }
@@ -75,6 +77,14 @@ public class Interpreter {
         // If the value is null then add the variable to the symbol table with a null value
         if (varDeclaration.getValue() == null) {
             symbolTable.addSymbol(varDeclaration.getIdentifier(), null, varDeclaration.isConst());
+            return;
+        }
+
+        // if the value is a list function then interpret the list function and assign the return value to the variable
+        if (varDeclaration.getValue() instanceof ListFunction) {
+            ListFunction listFunction = (ListFunction) varDeclaration.getValue();
+            returnValue = interpretListFunction(listFunction);
+            symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
             return;
         }
         
@@ -193,7 +203,7 @@ public class Interpreter {
         String loopType = forLoop.getInstructionType();
 
         if (loopType.equals("ForEachStatement")) {
-            LinkedList iterable = (LinkedList) forLoop.getIterable().evaluate(symbolTable);
+            LinkedListLiteral iterable = (LinkedListLiteral) forLoop.getIterable().evaluate(symbolTable);
             symbolTable.pushScope(forLoop.getScope());
             symbolTable.addSymbol(forLoop.getIdentifier(), null, false);
             // Iterate over the elements in the list
@@ -286,7 +296,7 @@ public class Interpreter {
         String type = cardFunction.getType();
         switch (type) {
             case "value":
-                returnValue = new StringLiteral(card.getValue());
+                returnValue = new Number(Integer.parseInt(card.getValue()));
                 break;
             case "suit":
                 returnValue = new StringLiteral(card.getSuit());
@@ -328,12 +338,12 @@ public class Interpreter {
             case "draw":
                 returnValue = deck.drawCard();
                 break;
-            case "add":
+            case "addCard":
                 if (value == null) throw new RuntimeException("Value cannot be null");
                 deck.addCard((Card) deckFunction.getValue().evaluate(symbolTable));
                 returnValue = deck;
                 break;
-            case "remove":
+            case "removeCard":
                 if (value == null) throw new RuntimeException("Value cannot be null");
                 deck.remove(((Number)deckFunction.getValue().evaluate(symbolTable)).getValue().intValue());
                 returnValue = deck;
@@ -341,6 +351,50 @@ public class Interpreter {
         
             default:
                 throw new RuntimeException("Unknown deck function type: " + type);
+        }
+
+        return returnValue;
+    }
+
+    private Expression interpretListFunction(ListFunction listFunction) {
+        Expression returnValue = null;
+
+        // Get the identifier of the list function
+        String identifier = listFunction.getIdentifier();
+
+        // Get the list from the symbol table
+        LinkedListLiteral list = (LinkedListLiteral) symbolTable.getSymbol(identifier);
+
+        Expression value = null;
+        if (listFunction.getValue() != null) {
+            value = listFunction.getValue().evaluate(symbolTable);
+        }
+
+        // Get the type of list function
+        String type = listFunction.getType();
+        switch (type) {
+            case "add":
+                if (value == null) throw new RuntimeException("Value cannot be null");
+                list.add(value);
+                returnValue = list;
+                break;
+            case "remove":
+                if (value == null) {
+                    returnValue = list.remove();
+                    break;
+                }
+                returnValue = list.remove(((Number)value).getValue());
+                break;
+            case "get":
+                if (value == null) throw new RuntimeException("Value cannot be null");
+                returnValue = list.get(((Number)value).getValue().intValue());
+                break;
+            case "size":
+                returnValue = new Number(list.size());
+                break;
+        
+            default:
+                throw new RuntimeException("Unknown list function type: " + type);
         }
 
         return returnValue;

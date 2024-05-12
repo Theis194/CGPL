@@ -4,8 +4,8 @@ var card = 2 of hearts;
 
 deck.shuffle();
 deck.draw();
-deck.add(card);
-deck.remove(0);
+deck.addCard(card);
+deck.removeCard(0);
 
 var cardValue = card.value();
 var cardSuit = card.suit();

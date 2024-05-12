@@ -133,19 +133,21 @@ arth_op
 	;
 
 list: '[' value (',' value)* ']' | '[' ']';
-listfunction: IDENTIFIER '.' listfunctionname LPAREN value RPAREN;
+listfunction: IDENTIFIER '.' listfunctionname LPAREN (value)? RPAREN;
 listfunctionname
 	: 'add' 
 	| 'remove' 
-	| 'get';
+	| 'get'
+	| 'size'
+	;
 
 deck: DECK;
 deckfunction: IDENTIFIER '.' deckfunctionname LPAREN (value)? RPAREN;
 deckfunctionname
 	: 'shuffle'
 	| 'draw'
-	| 'add'
-	| 'remove'
+	| 'addCard'
+	| 'removeCard'
 	;
 
 card: cardvalue 'of' suit;
