@@ -87,6 +87,14 @@ public class Interpreter {
             symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
             return;
         }
+
+        // if the value is a deck function then interpret the deck function and assign the return value to the variable
+        if (varDeclaration.getValue() instanceof DeckFunction) {
+            DeckFunction deckFunction = (DeckFunction) varDeclaration.getValue();
+            returnValue = interpretDeckFunction(deckFunction);
+            symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
+            return;
+        }
         
         // If the value is a function call then interpret the function and assign the return value to the variable
         if (varDeclaration.getValue() instanceof FunctionCall) { 
