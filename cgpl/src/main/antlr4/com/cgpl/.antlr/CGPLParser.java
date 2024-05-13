@@ -1,4 +1,4 @@
-// Generated from c://Users//theis//Programmering//CGPL//cgpl//src//main//antlr4//com//cgpl//CGPL.g4 by ANTLR 4.13.1
+// Generated from c:/Uni/P4/CGPL/cgpl/src/main/antlr4/com/cgpl/CGPL.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -705,17 +705,20 @@ public class CGPLParser extends Parser {
 		public TerminalNode RPAREN() { return getToken(CGPLParser.RPAREN, 0); }
 		public TerminalNode LCURLY() { return getToken(CGPLParser.LCURLY, 0); }
 		public TerminalNode RCURLY() { return getToken(CGPLParser.RCURLY, 0); }
-		public List<InstructionContext> instruction() {
-			return getRuleContexts(InstructionContext.class);
-		}
-		public InstructionContext instruction(int i) {
-			return getRuleContext(InstructionContext.class,i);
+		public AssignmentContext assignment() {
+			return getRuleContext(AssignmentContext.class,0);
 		}
 		public IncrementContext increment() {
 			return getRuleContext(IncrementContext.class,0);
 		}
 		public DecrementContext decrement() {
 			return getRuleContext(DecrementContext.class,0);
+		}
+		public List<InstructionContext> instruction() {
+			return getRuleContexts(InstructionContext.class);
+		}
+		public InstructionContext instruction(int i) {
+			return getRuleContext(InstructionContext.class,i);
 		}
 		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
 		public TerminalNode IN() { return getToken(CGPLParser.IN, 0); }
@@ -765,7 +768,7 @@ public class CGPLParser extends Parser {
 				case 1:
 					{
 					setState(156);
-					instruction();
+					assignment();
 					}
 					break;
 				case 2:
@@ -2755,7 +2758,7 @@ public class CGPLParser extends Parser {
 		"\u0000\u0096\u0097\u0005 \u0000\u0000\u0097\u0098\u0005\u001a\u0000\u0000"+
 		"\u0098\u0099\u0003\u0004\u0002\u0000\u0099\u009a\u00055\u0000\u0000\u009a"+
 		"\u009b\u0003 \u0010\u0000\u009b\u009f\u00055\u0000\u0000\u009c\u00a0\u0003"+
-		"\u0002\u0001\u0000\u009d\u00a0\u0003&\u0013\u0000\u009e\u00a0\u0003(\u0014"+
+		"\u0006\u0003\u0000\u009d\u00a0\u0003&\u0013\u0000\u009e\u00a0\u0003(\u0014"+
 		"\u0000\u009f\u009c\u0001\u0000\u0000\u0000\u009f\u009d\u0001\u0000\u0000"+
 		"\u0000\u009f\u009e\u0001\u0000\u0000\u0000\u00a0\u00a1\u0001\u0000\u0000"+
 		"\u0000\u00a1\u00a2\u0005\u001b\u0000\u0000\u00a2\u00a6\u0005\u0018\u0000"+

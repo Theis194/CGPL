@@ -723,17 +723,20 @@ public class CGPLParser extends Parser {
 		public TerminalNode RPAREN() { return getToken(CGPLParser.RPAREN, 0); }
 		public TerminalNode LCURLY() { return getToken(CGPLParser.LCURLY, 0); }
 		public TerminalNode RCURLY() { return getToken(CGPLParser.RCURLY, 0); }
-		public List<InstructionContext> instruction() {
-			return getRuleContexts(InstructionContext.class);
-		}
-		public InstructionContext instruction(int i) {
-			return getRuleContext(InstructionContext.class,i);
+		public AssignmentContext assignment() {
+			return getRuleContext(AssignmentContext.class,0);
 		}
 		public IncrementContext increment() {
 			return getRuleContext(IncrementContext.class,0);
 		}
 		public DecrementContext decrement() {
 			return getRuleContext(DecrementContext.class,0);
+		}
+		public List<InstructionContext> instruction() {
+			return getRuleContexts(InstructionContext.class);
+		}
+		public InstructionContext instruction(int i) {
+			return getRuleContext(InstructionContext.class,i);
 		}
 		public TerminalNode IDENTIFIER() { return getToken(CGPLParser.IDENTIFIER, 0); }
 		public TerminalNode IN() { return getToken(CGPLParser.IN, 0); }
@@ -788,7 +791,7 @@ public class CGPLParser extends Parser {
 				case 1:
 					{
 					setState(156);
-					instruction();
+					assignment();
 					}
 					break;
 				case 2:
@@ -2821,7 +2824,7 @@ public class CGPLParser extends Parser {
 		"\u0092\3\2\2\2\u0095\u0097\7\33\2\2\u0096\u008d\3\2\2\2\u0096\u0097\3"+
 		"\2\2\2\u0097\17\3\2\2\2\u0098\u0099\7\"\2\2\u0099\u009a\7\34\2\2\u009a"+
 		"\u009b\5\6\4\2\u009b\u009c\7\67\2\2\u009c\u009d\5\"\22\2\u009d\u00a1\7"+
-		"\67\2\2\u009e\u00a2\5\4\3\2\u009f\u00a2\5(\25\2\u00a0\u00a2\5*\26\2\u00a1"+
+		"\67\2\2\u009e\u00a2\5\b\5\2\u009f\u00a2\5(\25\2\u00a0\u00a2\5*\26\2\u00a1"+
 		"\u009e\3\2\2\2\u00a1\u009f\3\2\2\2\u00a1\u00a0\3\2\2\2\u00a2\u00a3\3\2"+
 		"\2\2\u00a3\u00a4\7\35\2\2\u00a4\u00a8\7\32\2\2\u00a5\u00a7\5\4\3\2\u00a6"+
 		"\u00a5\3\2\2\2\u00a7\u00aa\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a9\3\2"+
