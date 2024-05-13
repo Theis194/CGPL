@@ -1,24 +1,24 @@
 package com.cgpl.AST.expressions;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 import com.cgpl.SymbolTable;
 
 public class Player implements Expression {
     private String type = "player";
-    private List<Card> hand;
+    private LinkedList<Expression> hand;
     private int score;
 
     public Player() {
-        this.hand = new ArrayList<>();
+        this.hand = new LinkedList<>();
+        this.score = 0;
     }
 
     public void drawCard(Card card) {
         this.hand.add(card);
     }
 
-    public void discardCard(int index) {
-        this.hand.remove(index);
+    public Expression discardCard(int index) {
+        return this.hand.remove(index);
     }
 
     public int increaseScore(int points) {
@@ -35,7 +35,7 @@ public class Player implements Expression {
         return this.score;
     }
 
-    public List<Card> getHand() {
+    public LinkedList<Expression> getHand() {
         return this.hand;
     }
 
@@ -59,10 +59,10 @@ public class Player implements Expression {
         return this;
     }
 
-    public List<Card> shuffleHand() {
+    public LinkedList<Expression> shuffleHand() {
         for (int i = this.hand.size() - 1; i > 0; i--) {
             int j = (int) Math.floor(Math.random() * (i + 1));
-            Card temp = this.hand.get(i);
+            Card temp = (Card)this.hand.get(i);
             this.hand.set(i, hand.get(j));
             this.hand.set(j, temp);
         }
@@ -70,7 +70,7 @@ public class Player implements Expression {
     }
 
     public Card playCard(int index) {
-        Card cardPlayed = this.getHand().get(index);
+        Card cardPlayed = (Card)this.getHand().get(index);
         this.discardCard(index);
         return cardPlayed;
     }

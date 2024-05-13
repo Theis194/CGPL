@@ -179,16 +179,15 @@ cardvalue
 	;
 
 player: PLAYER;
-playerfunction: IDENTIFIER '.' playerfunctionname LPAREN (value)?s RPAREN;
+playerfunction: IDENTIFIER '.' playerfunctionname LPAREN (value)? RPAREN;
 playerfunctionname
     : 'drawCard'
     | 'discardCard'
     | 'shuffleHand'
     | 'getHand'
     | 'getScore'
-    | 'setScore'
-    | 'incrementScore'
-    | 'decrementScore'
+    | 'increaseScore'
+    | 'decreaseScore'
     | 'getHandSize'
     ;
 
