@@ -39,10 +39,14 @@ public class StringConcat implements Expression {
     public Expression evaluate(SymbolTable symbolTable) {
         String result = "";
         for (Expression expression : expressions) {
-            if (!expression.getType().equals("string")) {
+            if (expression.getType().equals("string")) {
+                result += ((StringLiteral)expression.evaluate(symbolTable)).getValue();
+            } else if (expression.getType().equals("identifier")) {
+                Expression evaluatedExpression = expression.evaluate(symbolTable);
+                result += evaluatedExpression.toString();
+            } else {
                 throw new RuntimeException("Operands must be of type string");
             }
-            result += ((StringLiteral)expression.evaluate(symbolTable)).getValue();
         }
         return new StringLiteral(result);
     }

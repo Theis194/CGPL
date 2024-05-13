@@ -67,8 +67,17 @@
     },
     {
       "value": {
-        "identifier": "test",
-        "type": "identifier"
+        "expressions": [
+          {
+            "value": "Test is: ",
+            "type": "string"
+          },
+          {
+            "identifier": "test",
+            "type": "identifier"
+          }
+        ],
+        "type": "stringConcat"
       }
     }
   ],

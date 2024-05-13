@@ -427,6 +427,10 @@ public class Interpreter {
             Identifier identifier = (Identifier) value;
             value = (Expression) symbolTable.getSymbol(identifier.getIdentifier());
         }
+
+        if (value instanceof StringConcat) {
+            value = ((StringConcat) value).evaluate(symbolTable);
+        }
         System.out.println(value.toString());
         return value;
     }
