@@ -141,6 +141,7 @@ public class Interpreter {
             if (instruction.getInstructionType().equals("Return")) {
                 // If the instruction is a return statement then evaluate the return value and return it
                 returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
+                break;
             }
             returnValue = interpretInstruction(instruction);
         }
