@@ -1,14 +1,17 @@
 package com.cgpl.AST.expressions;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.cgpl.SymbolTable;
 
 public class Player implements Expression {
     private String type = "player";
     private List<Card> hand;
-    private int score = 0;
+    private int score;
 
-    public Player() {}
+    public Player() {
+        this.hand = new ArrayList<>();
+    }
 
     public void drawCard(Card card) {
         this.hand.add(card);
@@ -56,18 +59,19 @@ public class Player implements Expression {
         return this;
     }
 
-    public void shuffleHand() {
+    public List<Card> shuffleHand() {
         for (int i = this.hand.size() - 1; i > 0; i--) {
             int j = (int) Math.floor(Math.random() * (i + 1));
             Card temp = this.hand.get(i);
             this.hand.set(i, hand.get(j));
             this.hand.set(j, temp);
         }
+        return this.hand;
     }
 
     public Card playCard(int index) {
         Card cardPlayed = this.getHand().get(index);
-        this.removeCard(index);
+        this.discardCard(index);
         return cardPlayed;
     }
 

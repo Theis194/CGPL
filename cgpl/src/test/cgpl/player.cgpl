@@ -1,0 +1,26 @@
+Var player = PLayer;
+player.drawCard(ace of hearts);
+
+var handSize = player.getHandSize();
+print("handsize: " + handsize);
+
+var playerDraw = player.discardCard();
+print("playerDraw: " + playerDraw);
+
+var hand1 = player.shuffleHand();
+print("hand1: " + hand1);
+
+var hand = player.getHand();
+print("hand: " + hand);
+
+var score = player.getScore();
+print("score: " + score);
+
+var setScore = player.setScore(10);
+print("setScore: " + setScore);
+
+var incScore = player.incrementScore(10);
+print("incScore: " + incScore);
+
+var decScore = player.decrementScore(10);
+print("decScore: " + decScore);

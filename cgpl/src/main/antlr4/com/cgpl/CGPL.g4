@@ -57,6 +57,7 @@ instruction
 	| switchstmt
 	| deckfunction CRLF
 	| listfunction CRLF
+	| playerfunction CRLF
 	| card CRLF
 	| returnstmt CRLF
 	| printstmt CRLF
@@ -94,6 +95,8 @@ value
 	| card
 	| functionCall
 	| stringConcat
+	| playerfunction
+	| player
 	;
 
 stringConcat: (STRING | IDENTIFIER) (OP_ADD (STRING | IDENTIFIER))+;
@@ -176,16 +179,16 @@ cardvalue
 	;
 
 player: PLAYER;
-playerfunction: IDENTIFIER '.' playerfunctionname LPAREN RPAREN;
+playerfunction: IDENTIFIER '.' playerfunctionname LPAREN (value)?s RPAREN;
 playerfunctionname
     : 'drawCard'
     | 'discardCard'
     | 'shuffleHand'
-    | 'getDeck'
     | 'getHand'
-    | 'getDiscard'
     | 'getScore'
     | 'setScore'
+    | 'incrementScore'
+    | 'decrementScore'
     | 'getHandSize'
     ;
 
