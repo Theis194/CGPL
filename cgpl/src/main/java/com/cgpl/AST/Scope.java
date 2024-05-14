@@ -35,6 +35,7 @@ public class Scope {
     public void addVariable(List<Instruction> instructions) {
         for (Instruction instruction : instructions) {
             if (instruction instanceof VarDeclaration) {
+                String name = ((VarDeclaration) instruction).getIdentifier();
                 if (containsVariable(name)) {
                     throw new RuntimeException("Variable: " + name + " already defined");
                 }
