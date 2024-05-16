@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // Generated from c:/Uni/P4/CGPL/cgpl/src/main/antlr4/com/cgpl/CGPL.g4 by ANTLR 4.13.1
+=======
+// Generated from d://Programming//CGPL//cgpl//src//main//antlr4//com//cgpl//CGPL.g4 by ANTLR 4.13.1
+>>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -56,6 +60,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitReturnstmt(CGPLParser.ReturnstmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#printstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintstmt(CGPLParser.PrintstmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#printstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintstmt(CGPLParser.PrintstmtContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#functionBody}.
 	 * @param ctx the parse tree
@@ -317,6 +331,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitCard(CGPLParser.CardContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#cardfunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterCardfunction(CGPLParser.CardfunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#cardfunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitCardfunction(CGPLParser.CardfunctionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#cardfunctionname}.
 	 * @param ctx the parse tree
 	 */
@@ -326,6 +350,26 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCardfunctionname(CGPLParser.CardfunctionnameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#suit}.
+	 * @param ctx the parse tree
+	 */
+	void enterSuit(CGPLParser.SuitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#suit}.
+	 * @param ctx the parse tree
+	 */
+	void exitSuit(CGPLParser.SuitContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#cardvalue}.
+	 * @param ctx the parse tree
+	 */
+	void enterCardvalue(CGPLParser.CardvalueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#cardvalue}.
+	 * @param ctx the parse tree
+	 */
+	void exitCardvalue(CGPLParser.CardvalueContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#switchstmt}.
 	 * @param ctx the parse tree

@@ -1,4 +1,4 @@
-// Generated from c:/Uni/P4/CGPL/cgpl/src/main/antlr4/com/cgpl/CGPL.g4 by ANTLR 4.13.1
+// Generated from c:/Uni/P4/CGPL/cgpl/src/main/antlr4/com/cgpl/d://Programming//CGPL//cgpl//src//main//antlr4//com//cgpl//CGPL.g4 by ANTLR 4.13.1
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -71,6 +71,18 @@ public class CGPLBaseListener implements CGPLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitReturnstmt(CGPLParser.ReturnstmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPrintstmt(CGPLParser.PrintstmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrintstmt(CGPLParser.PrintstmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -388,6 +400,18 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCardfunction(CGPLParser.CardfunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCardfunction(CGPLParser.CardfunctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCardfunctionname(CGPLParser.CardfunctionnameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -395,6 +419,30 @@ public class CGPLBaseListener implements CGPLListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCardfunctionname(CGPLParser.CardfunctionnameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSuit(CGPLParser.SuitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSuit(CGPLParser.SuitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCardvalue(CGPLParser.CardvalueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCardvalue(CGPLParser.CardvalueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

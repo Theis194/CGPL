@@ -2,6 +2,8 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
+import com.cgpl.SymbolTable;
+
 public class ComparisonExpression implements Expression {
     List<Expression> operands;
     String operator;
@@ -24,5 +26,46 @@ public class ComparisonExpression implements Expression {
     @Override
     public String toString() {
         return "ComparisonExpression";
+    }
+
+    @Override
+    public Object getValue() {
+        return null;
+    }
+
+    @Override
+    public Expression evaluate(SymbolTable symbolTable) {
+        Expression left = operands.get(0).evaluate(symbolTable);
+        Expression right = operands.get(1).evaluate(symbolTable);
+
+        if (left.getType().equals("number") && right.getType().equals("number")) {
+            int leftValue = ((Number) left).getValue();
+            int rightValue = ((Number) right).getValue();
+            switch (operator) {
+                case "lt":
+                    return new Boolean(leftValue < rightValue);
+                case "gt":
+                    return new Boolean(leftValue > rightValue);
+                case "lte":
+                    return new Boolean(leftValue <= rightValue);
+                case "gte":
+                    return new Boolean(leftValue >= rightValue);
+                case "eq":
+                    return new Boolean(leftValue == rightValue);
+                default:
+                    throw new RuntimeException("Invalid operator");
+            }
+        } else if (left.getType().equals("Boolean") && right.getType().equals("Boolean")) {
+            boolean leftValue = ((Boolean) left).getValue();
+            boolean rightValue = ((Boolean) right).getValue();
+            switch (operator) {
+                case "eq":
+                    return new Boolean(leftValue == rightValue);
+                default:
+                    throw new RuntimeException("Invalid operator");
+            }
+        } else {
+            throw new RuntimeException("Operands must be of type boolean");
+        }
     }
 }

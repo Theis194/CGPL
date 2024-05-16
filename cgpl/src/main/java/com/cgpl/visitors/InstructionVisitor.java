@@ -4,7 +4,6 @@ import com.cgpl.CGPLBaseVisitor;
 import com.cgpl.CGPLParser;
 import com.cgpl.AST.Scope;
 import com.cgpl.AST.instructions.Instruction;
-import com.cgpl.AST.instructions.VarDeclaration;
 
 public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     @Override
@@ -15,13 +14,13 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
     public Instruction visitInstruction(CGPLParser.InstructionContext ctx, Scope scope) {
         if (ctx.vardcl() != null) {
             // Handle variable declaration
-            VarDeclaration varDeclaration = new VardclVisitor().visitVardcl(ctx.vardcl());
-            if (scope != null) {
-                scope.addVariable(varDeclaration.getIdentifier(), varDeclaration.getValue());
-            }
-            return varDeclaration;
+            return new VardclVisitor().visitVardcl(ctx.vardcl());
 
         } else if (ctx.function() != null) {
+            // Check if the current scope is program scope
+            if (!scope.isProgramScope()) {
+                throw new RuntimeException("Function declaration is only allowed in the program scope");
+            }
             // Handle function
             return new FunctionVisitor().visitFunction(ctx.function(), scope);
 
@@ -39,6 +38,10 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
         } else if (ctx.returnstmt() != null) {
             // Handle return statement
             return new ReturnVisitor().visitReturnstmt(ctx.returnstmt());
+
+        } else if (ctx.printstmt() != null) {
+            // Handle print statement
+            return new PrintVisitor().visitPrintstmt(ctx.printstmt());
 
         } else if (ctx.assignment() != null) {
             // Handle assignment

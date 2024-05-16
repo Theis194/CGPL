@@ -1,5 +1,7 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.SymbolTable;
+
 public class StringLiteral implements Expression { // Name is subject to change
     public String value;
     public String type = "string";
@@ -20,5 +22,10 @@ public class StringLiteral implements Expression { // Name is subject to change
     @Override
     public String toString() {
         return this.value;
+    }
+
+    @Override
+    public Expression evaluate(SymbolTable symbolTable) {
+        return this;
     }
 }

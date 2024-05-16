@@ -2,6 +2,7 @@ package com.cgpl.AST.instructions;
 
 import java.util.List;
 
+import com.cgpl.SymbolTable;
 import com.cgpl.AST.expressions.Expression;
 
 public class FunctionCall implements Instruction, Expression {
@@ -36,6 +37,11 @@ public class FunctionCall implements Instruction, Expression {
     }
 
     @Override
+    public Object getValue() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "FunctionCall{" +
                 "instructionType='" + instructionType + '\'' +
@@ -43,5 +49,10 @@ public class FunctionCall implements Instruction, Expression {
                 ", identifier='" + identifier + '\'' +
                 ", arguments=" + arguments +
                 '}';
+    }
+
+    @Override
+    public Expression evaluate(SymbolTable symbolTable) {
+        return this;
     }
 }

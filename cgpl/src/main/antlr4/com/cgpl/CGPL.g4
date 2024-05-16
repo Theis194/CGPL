@@ -6,6 +6,7 @@ OR: 'or';
 NOT: 'not';
 
 RETURN: 'return';
+PRINT: 'print';
 FUNCTION: 'function';
 LCURLY: '{';
 RCURLY: '}';
@@ -22,8 +23,8 @@ NUMBER: ([1-9][0-9]* | [0-9]);
 STRING: '"' (~[\r\n"])* '"';
 BOOLEAN: 'true' | 'false';
 BREAK: 'break';
+DECK: 'Deck';
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
-DECK: 'deck';
 
 
 EQUAL: '==';
@@ -58,6 +59,7 @@ instruction
 	| listfunction CRLF
 	| card CRLF
 	| returnstmt CRLF
+	| printstmt CRLF
 	| assignment CRLF
 	| increment CRLF
 	| decrement CRLF
@@ -66,6 +68,7 @@ instruction
 vardcl: (VAR|KONST) IDENTIFIER ('=' value)?;
 assignment: IDENTIFIER '=' value;
 returnstmt: RETURN value;
+printstmt: PRINT LPAREN value RPAREN;
 functionBody: instruction*;
 ifstmt: IF value LCURLY instruction* RCURLY (ELSE LCURLY instruction* RCURLY)?;
 forstmt
@@ -83,10 +86,11 @@ value
 	| comparisonExpr
 	| boolExpr 
 	| arthexp
-	| list
 	| listfunction
-	| deck
+	| list
 	| deckfunction
+	| deck
+	| cardfunction
 	| card
 	| functionCall
 	| stringConcat
@@ -132,27 +136,43 @@ arth_op
 	;
 
 list: '[' value (',' value)* ']' | '[' ']';
-listfunction: IDENTIFIER '.' listfunctionname LPAREN value RPAREN;
+listfunction: IDENTIFIER '.' listfunctionname LPAREN (value)? RPAREN;
 listfunctionname
 	: 'add' 
 	| 'remove' 
-	| 'get';
+	| 'get'
+	| 'size'
+	;
 
 deck: DECK;
 deckfunction: IDENTIFIER '.' deckfunctionname LPAREN (value)? RPAREN;
 deckfunctionname
-	: 'shuffle' 
-	| 'draw' 
-	| 'add' 
-	| 'remove'
+	: 'shuffle'
+	| 'draw'
+	| 'addCard'
+	| 'removeCard'
 	;
 
-card: IDENTIFIER '.' cardfunctionname;
+card: cardvalue 'of' suit;
+cardfunction: IDENTIFIER '.' cardfunctionname LPAREN RPAREN;
 cardfunctionname
 	: 'value' 
 	| 'suit' 
 	| 'color' 
 	| 'name'
+	;
+suit
+	: 'hearts' 
+	| 'diamonds' 
+	| 'clubs' 
+	| 'spades'
+	;
+cardvalue
+	: NUMBER 
+	| 'jack' 
+	| 'queen' 
+	| 'king' 
+	| 'ace'
 	;
 
 switchstmt

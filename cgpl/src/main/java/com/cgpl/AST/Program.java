@@ -11,7 +11,7 @@ public class Program {
 
     public Program() {
         instructions = new ArrayList<>();
-        scope = new Scope();
+        scope = new Scope(true);
     }
 
     public Program(List<Instruction> instructions, Scope scope) {

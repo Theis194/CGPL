@@ -2,6 +2,8 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
+import com.cgpl.SymbolTable;
+
 public class ArithmeticExpression implements Expression {
     private List<Expression> operands;
     private String operator;
@@ -33,5 +35,37 @@ public class ArithmeticExpression implements Expression {
             result.append(" ");
         }
         return result.toString();
+    }
+
+    @Override
+    public Object getValue() {
+        return null;
+    }
+
+    @Override
+    public Expression evaluate(SymbolTable symbolTable) {
+        Expression left = operands.get(0).evaluate(symbolTable);
+        Expression right = operands.get(1).evaluate(symbolTable);
+
+        if (left.getType().equals("number") && right.getType().equals("number")) {
+            int leftValue = ((Number) left).getValue();
+            int rightValue = ((Number) right).getValue();
+            switch (operator) {
+                case "+":
+                    return new Number(leftValue + rightValue);
+                case "-":
+                    return new Number(leftValue - rightValue);
+                case "*":
+                    return new Number(leftValue * rightValue);
+                case "/":
+                    return new Number(leftValue / rightValue);
+                case "%":
+                    return new Number(leftValue % rightValue);
+                default:
+                    throw new RuntimeException("Invalid operator");
+            }
+        } else {
+            throw new RuntimeException("Operands must be of type number");
+        }
     }
 }

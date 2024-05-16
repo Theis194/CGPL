@@ -9,7 +9,10 @@ public class ListFunctionVisitor<T> extends CGPLBaseVisitor<T>{
     @Override
     public T visitListfunction(CGPLParser.ListfunctionContext ctx) {
         String identifier = ctx.IDENTIFIER().getText();
-        Expression value = ctx.value().accept(new ExpressionVisitor());
+        Expression value = null;
+        if (ctx.value() != null) {
+            value = new ExpressionVisitor().visitValue(ctx.value());
+        }
         String functionName = ctx.listfunctionname().getText();
 
         return (T) new ListFunction(identifier, value, functionName);

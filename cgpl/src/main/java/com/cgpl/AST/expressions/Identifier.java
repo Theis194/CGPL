@@ -1,5 +1,7 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.SymbolTable;
+
 public class Identifier implements Expression {
     public String identifier;
     public String type = "identifier";
@@ -20,5 +22,15 @@ public class Identifier implements Expression {
     @Override
     public String toString() {
         return this.identifier;
+    }
+
+    @Override
+    public Object getValue() {
+        return null;
+    }
+
+    @Override
+    public Expression evaluate(SymbolTable symbolTable) {
+        return (Expression) symbolTable.getSymbol(this.identifier);
     }
 }

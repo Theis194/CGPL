@@ -2,6 +2,9 @@
   "instructions": [
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
       "instructionType": "Function",
       "identifier": "test",
       "arguments": [
@@ -15,8 +18,18 @@
           "instructionType": "Assignment",
           "identifier": "var1",
           "value": {
-            "value": 10,
-            "type": "number"
+            "operands": [
+              {
+                "identifier": "var1",
+                "type": "identifier"
+              },
+              {
+                "value": 10,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
           }
         },
         {
@@ -25,6 +38,7 @@
             "identifier": "var1",
             "type": "identifier"
           }
+<<<<<<< HEAD
 =======
       "instructionType": "ForStatement",
       "identifier": null,
@@ -68,10 +82,13 @@
           },
           "isConst": false
 >>>>>>> 65ed6472092c85e4ae4aad35be171dc6ebd5d6ea
+=======
+>>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
         }
       ],
       "scope": {
         "variables": {
+<<<<<<< HEAD
 <<<<<<< HEAD
           "var1": {
             "identifier": "var1",
@@ -93,221 +110,43 @@
             ],
             "operator": "+",
             "type": "arithmetic"
+=======
+          "var1": {
+            "identifier": "var1",
+            "type": "identifier"
+>>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
           }
         },
-        "functions": {}
-      }
-    },
-    {
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 1,
-              "type": "number"
-            }
-          ],
-          "operator": "-",
-          "type": "arithmetic"
-        }
-      },
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "j",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          "isConst": false
-        }
-      ],
-      "scope": {
-        "variables": {
-          "i": {
-            "value": 0,
-            "type": "number"
-          },
-          "j": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          }
-        },
-        "functions": {}
-      }
-    },
-    {
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 1,
-              "type": "number"
-            }
-          ],
-          "operator": "+",
-          "type": "arithmetic"
-        }
-      },
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "j",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          "isConst": false
-        }
-      ],
-      "scope": {
-        "variables": {
-          "i": {
-            "value": 0,
-            "type": "number"
-          },
-          "j": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          }
-        },
-        "functions": {}
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
       }
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "list",
+      "identifier": "test",
       "type": null,
       "value": {
-        "list": [
-          {
-            "value": 1,
-            "type": "number"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          },
-          {
-            "value": 4,
-            "type": "number"
-          },
+        "instructionType": "FunctionCall",
+        "type": "FunctionCall",
+        "identifier": "test",
+        "arguments": [
           {
             "value": 5,
             "type": "number"
-          },
-          {
-            "value": 6,
-            "type": "number"
-          },
-          {
-            "value": 7,
-            "type": "number"
-          },
-          {
-            "value": 8,
-            "type": "number"
-          },
-          {
-            "value": 9,
-            "type": "number"
           }
-        ],
-        "type": "list"
+        ]
       },
       "isConst": false
     },
     {
-      "instructionType": "ForEachStatement",
-      "identifier": "n",
-      "iterable": {
-        "identifier": "list",
-        "type": "identifier"
-      },
-      "iteration": null,
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "k",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "n",
-                "type": "identifier"
-              },
-              {
-                "value": 3,
-                "type": "number"
-              }
-            ],
-            "operator": "*",
-            "type": "arithmetic"
+      "value": {
+        "expressions": [
+          {
+            "value": "Test is: ",
+            "type": "string"
           },
+<<<<<<< HEAD
           "isConst": false
         }
       ],
@@ -371,16 +210,24 @@
           "n": {
             "identifier": "list",
 >>>>>>> 65ed6472092c85e4ae4aad35be171dc6ebd5d6ea
+=======
+          {
+            "identifier": "test",
+>>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
             "type": "identifier"
           }
-        },
-        "functions": {}
+        ],
+        "type": "stringConcat"
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
     }
   ],
   "scope": {
     "variables": {},
+    "constants": {},
     "functions": {
       "test": {
         "instructionType": "Function",
@@ -396,8 +243,18 @@
             "instructionType": "Assignment",
             "identifier": "var1",
             "value": {
-              "value": 10,
-              "type": "number"
+              "operands": [
+                {
+                  "identifier": "var1",
+                  "type": "identifier"
+                },
+                {
+                  "value": 10,
+                  "type": "number"
+                }
+              ],
+              "operator": "+",
+              "type": "arithmetic"
             }
           },
           {
@@ -415,8 +272,11 @@
               "type": "identifier"
             }
           },
-          "functions": {}
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
         }
+<<<<<<< HEAD
 =======
     },
     {
@@ -643,5 +503,10 @@
 >>>>>>> 65ed6472092c85e4ae4aad35be171dc6ebd5d6ea
       }
     }
+=======
+      }
+    },
+    "isProgramScope": true
+>>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
   }
 }

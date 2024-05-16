@@ -41,6 +41,12 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitReturnstmt(CGPLParser.ReturnstmtContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#printstmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintstmt(CGPLParser.PrintstmtContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#functionBody}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -197,11 +203,29 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCard(CGPLParser.CardContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#cardfunction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCardfunction(CGPLParser.CardfunctionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#cardfunctionname}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCardfunctionname(CGPLParser.CardfunctionnameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#suit}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSuit(CGPLParser.SuitContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#cardvalue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCardvalue(CGPLParser.CardvalueContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CGPLParser#switchstmt}.
 	 * @param ctx the parse tree
