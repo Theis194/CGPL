@@ -1,240 +1,400 @@
 {
   "instructions": [
     {
-      "instructionType": "VarDeclaration",
-      "identifier": "player",
-      "type": null,
-      "value": {
-        "type": "player",
-        "hand": [],
-        "score": 0
-      },
-      "isConst": false
-    },
-    {
-      "identifier": "player",
-      "value": {
-        "type": "card",
-        "suit": "hearts",
-        "value": "ace"
-      },
-      "type": "drawCard"
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "handSize",
-      "type": null,
-      "value": {
-        "identifier": "player",
-        "value": null,
-        "type": "getHandSize"
-      },
-      "isConst": false
-    },
-    {
-      "value": {
-        "expressions": [
-          {
-            "value": "handsize: ",
-            "type": "string"
-          },
-          {
-            "identifier": "handsize",
-            "type": "identifier"
-          }
-        ],
-        "type": "stringConcat"
-      }
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "playerDraw",
-      "type": null,
-      "value": {
-        "identifier": "player",
-        "value": null,
-        "type": "discardCard"
-      },
-      "isConst": false
-    },
-    {
-      "value": {
-        "expressions": [
-          {
-            "value": "playerDraw: ",
-            "type": "string"
-          },
-          {
-            "identifier": "playerDraw",
-            "type": "identifier"
-          }
-        ],
-        "type": "stringConcat"
-      }
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "hand1",
-      "type": null,
-      "value": {
-        "identifier": "player",
-        "value": null,
-        "type": "shuffleHand"
-      },
-      "isConst": false
-    },
-    {
-      "value": {
-        "expressions": [
-          {
-            "value": "hand1: ",
-            "type": "string"
-          },
-          {
-            "identifier": "hand1",
-            "type": "identifier"
-          }
-        ],
-        "type": "stringConcat"
-      }
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "hand",
-      "type": null,
-      "value": {
-        "identifier": "player",
-        "value": null,
-        "type": "getHand"
-      },
-      "isConst": false
-    },
-    {
-      "value": {
-        "expressions": [
-          {
-            "value": "hand: ",
-            "type": "string"
-          },
-          {
-            "identifier": "hand",
-            "type": "identifier"
-          }
-        ],
-        "type": "stringConcat"
-      }
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "score",
-      "type": null,
-      "value": {
-        "identifier": "player",
-        "value": null,
-        "type": "getScore"
-      },
-      "isConst": false
-    },
-    {
-      "value": {
-        "expressions": [
-          {
-            "value": "score: ",
-            "type": "string"
-          },
-          {
-            "identifier": "score",
-            "type": "identifier"
-          }
-        ],
-        "type": "stringConcat"
-      }
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "SetScore",
-      "type": null,
-      "value": {
-        "identifier": "player",
+      "instructionType": "ForStatement",
+      "identifier": null,
+      "iterable": null,
+      "iteration": {
+        "instructionType": "Assignment",
+        "identifier": "i",
         "value": {
-          "value": 10,
+          "operands": [
+            {
+              "identifier": "i",
+              "type": "identifier"
+            },
+            {
+              "value": 1,
+              "type": "number"
+            }
+          ],
+          "operator": "+",
+          "type": "arithmetic"
+        }
+      },
+      "varDeclaration": {
+        "instructionType": "VarDeclaration",
+        "identifier": "i",
+        "type": null,
+        "value": {
+          "value": 0,
           "type": "number"
         },
-        "type": "setScore"
+        "isConst": false
       },
-      "isConst": false
-    },
-    {
-      "value": {
-        "expressions": [
+      "condition": {
+        "operands": [
           {
-            "value": "setScore: ",
-            "type": "string"
+            "identifier": "i",
+            "type": "identifier"
           },
           {
-            "identifier": "SetScore",
-            "type": "identifier"
+            "value": 3,
+            "type": "number"
           }
         ],
-        "type": "stringConcat"
+        "operator": "lt",
+        "type": "comparison"
+      },
+      "body": [
+        {
+          "instructionType": "VarDeclaration",
+          "identifier": "j",
+          "type": null,
+          "value": {
+            "operands": [
+              {
+                "identifier": "i",
+                "type": "identifier"
+              },
+              {
+                "value": 1,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
+          },
+          "isConst": false
+        }
+      ],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
+    },
+    {
+      "instructionType": "ForStatement",
+      "identifier": null,
+      "iterable": null,
+      "iteration": {
+        "instructionType": "Assignment",
+        "identifier": "i",
+        "value": {
+          "operands": [
+            {
+              "identifier": "i",
+              "type": "identifier"
+            },
+            {
+              "value": 1,
+              "type": "number"
+            }
+          ],
+          "operator": "-",
+          "type": "arithmetic"
+        }
+      },
+      "varDeclaration": {
+        "instructionType": "VarDeclaration",
+        "identifier": "i",
+        "type": null,
+        "value": {
+          "value": 6,
+          "type": "number"
+        },
+        "isConst": false
+      },
+      "condition": {
+        "operands": [
+          {
+            "identifier": "i",
+            "type": "identifier"
+          },
+          {
+            "value": 3,
+            "type": "number"
+          }
+        ],
+        "operator": "gt",
+        "type": "comparison"
+      },
+      "body": [
+        {
+          "instructionType": "VarDeclaration",
+          "identifier": "j",
+          "type": null,
+          "value": {
+            "operands": [
+              {
+                "identifier": "i",
+                "type": "identifier"
+              },
+              {
+                "value": 1,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
+          },
+          "isConst": false
+        }
+      ],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
+    },
+    {
+      "instructionType": "ForStatement",
+      "identifier": null,
+      "iterable": null,
+      "iteration": {
+        "instructionType": "Assignment",
+        "identifier": "i",
+        "value": {
+          "operands": [
+            {
+              "identifier": "i",
+              "type": "identifier"
+            },
+            {
+              "value": 5,
+              "type": "number"
+            }
+          ],
+          "operator": "+",
+          "type": "arithmetic"
+        }
+      },
+      "varDeclaration": {
+        "instructionType": "VarDeclaration",
+        "identifier": "i",
+        "type": null,
+        "value": {
+          "value": 0,
+          "type": "number"
+        },
+        "isConst": false
+      },
+      "condition": {
+        "operands": [
+          {
+            "identifier": "i",
+            "type": "identifier"
+          },
+          {
+            "value": 3,
+            "type": "number"
+          }
+        ],
+        "operator": "lt",
+        "type": "comparison"
+      },
+      "body": [
+        {
+          "instructionType": "VarDeclaration",
+          "identifier": "j",
+          "type": null,
+          "value": {
+            "operands": [
+              {
+                "identifier": "i",
+                "type": "identifier"
+              },
+              {
+                "value": 1,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
+          },
+          "isConst": false
+        }
+      ],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
       }
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "incScore",
+      "identifier": "list",
       "type": null,
       "value": {
-        "identifier": "player",
-        "value": {
-          "value": 10,
-          "type": "number"
-        },
-        "type": "incrementScore"
+        "list": [
+          {
+            "value": 1,
+            "type": "number"
+          },
+          {
+            "value": 2,
+            "type": "number"
+          },
+          {
+            "value": 3,
+            "type": "number"
+          },
+          {
+            "value": 4,
+            "type": "number"
+          },
+          {
+            "value": 5,
+            "type": "number"
+          },
+          {
+            "value": 6,
+            "type": "number"
+          },
+          {
+            "value": 7,
+            "type": "number"
+          },
+          {
+            "value": 8,
+            "type": "number"
+          },
+          {
+            "value": 9,
+            "type": "number"
+          }
+        ],
+        "type": "list"
       },
       "isConst": false
     },
     {
-      "value": {
-        "expressions": [
-          {
-            "value": "incScore: ",
-            "type": "string"
+      "instructionType": "ForEachStatement",
+      "identifier": "n",
+      "iterable": {
+        "identifier": "list",
+        "type": "identifier"
+      },
+      "iteration": null,
+      "varDeclaration": null,
+      "condition": null,
+      "body": [
+        {
+          "instructionType": "VarDeclaration",
+          "identifier": "k",
+          "type": null,
+          "value": {
+            "operands": [
+              {
+                "identifier": "n",
+                "type": "identifier"
+              },
+              {
+                "value": 3,
+                "type": "number"
+              }
+            ],
+            "operator": "*",
+            "type": "arithmetic"
           },
-          {
-            "identifier": "incScore",
-            "type": "identifier"
-          }
-        ],
-        "type": "stringConcat"
+          "isConst": false
+        }
+      ],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
       }
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "decScore",
+      "identifier": "i",
       "type": null,
       "value": {
-        "identifier": "player",
-        "value": {
-          "value": 10,
-          "type": "number"
-        },
-        "type": "decrementScore"
+        "value": 0,
+        "type": "number"
       },
       "isConst": false
     },
     {
-      "value": {
-        "expressions": [
+      "instructionType": "WhileStatement",
+      "condition": {
+        "operands": [
           {
-            "value": "decScore: ",
-            "type": "string"
+            "identifier": "i",
+            "type": "identifier"
           },
           {
-            "identifier": "decScore",
-            "type": "identifier"
+            "value": 2,
+            "type": "number"
           }
         ],
-        "type": "stringConcat"
+        "operator": "lt",
+        "type": "comparison"
+      },
+      "body": [
+        {
+          "instructionType": "Assignment",
+          "identifier": "i",
+          "value": {
+            "operands": [
+              {
+                "identifier": "i",
+                "type": "identifier"
+              },
+              {
+                "value": 1,
+                "type": "number"
+              }
+            ],
+            "operator": "+",
+            "type": "arithmetic"
+          }
+        }
+      ],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
+    },
+    {
+      "instructionType": "WhileStatement",
+      "condition": {
+        "value": true,
+        "type": "Boolean"
+      },
+      "body": [
+        {
+          "instructionType": "Assignment",
+          "identifier": "i",
+          "value": {
+            "operands": [
+              {
+                "identifier": "i",
+                "type": "identifier"
+              },
+              {
+                "value": 1,
+                "type": "number"
+              }
+            ],
+            "operator": "-",
+            "type": "arithmetic"
+          }
+        }
+      ],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
       }
     }
   ],
