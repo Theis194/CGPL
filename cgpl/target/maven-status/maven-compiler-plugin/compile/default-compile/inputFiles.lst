@@ -17,7 +17,6 @@ D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\AstParser.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\visitors\ListFunctionVisitor.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\visitors\PrintVisitor.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\visitors\DeckVisitor.java
-D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\AST\instructions\Increment.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\visitors\CardFunctionVisitor.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\AST\instructions\Assignment.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\AST\expressions\OrExpression.java
@@ -25,7 +24,6 @@ D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\AST\instructions\IfStatment.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\Interpreter.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\AST\expressions\Player.java
 D:\Programming\CGPL\cgpl\target\generated-sources\antlr4\com\cgpl\CGPLParser.java
-D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\AST\instructions\Decrement.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\visitors\CardVisitor.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\visitors\SwitchVisitor.java
 D:\Programming\CGPL\cgpl\src\main\java\com\cgpl\AST\expressions\AndExpression.java

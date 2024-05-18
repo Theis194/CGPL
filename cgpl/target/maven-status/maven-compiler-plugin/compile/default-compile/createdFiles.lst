@@ -12,13 +12,11 @@ com\cgpl\visitors\ListFunctionVisitor.class
 com\cgpl\visitors\FunctionVisitor.class
 com\cgpl\AST\instructions\Assignment.class
 com\cgpl\visitors\DeckVisitor.class
-com\cgpl\AST\instructions\Increment.class
 com\cgpl\Listener.class
 com\cgpl\visitors\InstructionVisitor.class
 com\cgpl\CGPLBaseListener.class
 com\cgpl\visitors\VardclVisitor.class
 com\cgpl\AST\instructions\ForStatement.class
-com\cgpl\AST\instructions\Decrement.class
 com\cgpl\CGPLVisitor.class
 com\cgpl\AST\expressions\OrExpression.class
 com\cgpl\ParserCGPL.class
