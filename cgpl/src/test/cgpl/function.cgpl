@@ -4,5 +4,3 @@ function test(var1) {
 }
 
 var test = test(5);
-
-print("Test is: " + test);
