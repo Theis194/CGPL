@@ -13,7 +13,11 @@ import com.cgpl.AST.Program;
 
 public class VisitorTester {
     public static void main(String[] args) {
+<<<<<<< HEAD
         String code = readFile("cgpl/src/test/cgpl/demo_concentration.cgpl");
+=======
+        String code = readFile("cgpl/src/test/cgpl/loops.cgpl");
+>>>>>>> 863a656e947f7dfaf2eea61eb693ad9af2041bb5
 
         final Program result = new AstParser().parse(code);
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();

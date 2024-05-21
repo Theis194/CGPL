@@ -98,4 +98,9 @@ public class Scope {
     public Boolean isVariable(String name) {
         return variables.containsKey(name);
     }
+
+    // Testing
+    public Boolean isFunction(String name) {
+        return functions.containsKey(name);
+    }
 }
