@@ -64,7 +64,26 @@ public class ComparisonExpression implements Expression {
                 default:
                     throw new RuntimeException("Invalid operator");
             }
-        } else {
+        } else if (left.getType().equals("string") && right.getType().equals("string")) {
+            String leftValue = ((StringLiteral) left).getValue();
+            String rightValue = ((StringLiteral) right).getValue();
+            switch (operator) {
+                case "eq":
+                    return new Boolean(leftValue.equals(rightValue));
+                default:
+                    throw new RuntimeException("Invalid operator");
+            }
+        } else if (left.getType().equals("player") && right.getType().equals("player")) {
+            Player leftValue = (Player) left;
+            Player rightValue = (Player) right;
+
+            switch (operator) {
+                case "eq":
+                    return new Boolean(leftValue == rightValue);
+                default:
+                    throw new RuntimeException("Invalid operator");
+            }
+        }else {
             throw new RuntimeException("Operands must be of type boolean");
         }
     }

@@ -60,6 +60,7 @@ instruction
 	| playerfunction CRLF
 	| card CRLF
 	| returnstmt CRLF
+	| breakstmt CRLF
 	| printstmt CRLF
 	| assignment CRLF
 	| increment CRLF
@@ -69,9 +70,10 @@ instruction
 vardcl: (VAR|KONST) IDENTIFIER ('=' value)?;
 assignment: IDENTIFIER '=' value;
 returnstmt: RETURN value;
+breakstmt: BREAK;
 printstmt: PRINT LPAREN value RPAREN;
 functionBody: instruction*;
-ifstmt: IF value LCURLY instruction* RCURLY (ELSE LCURLY instruction* RCURLY)?;
+ifstmt: IF boolExpr LCURLY instruction* RCURLY (ELSE LCURLY instruction* RCURLY | ELSE ifstmt)?;
 forstmt
 	: FOR LPAREN vardcl CRLF boolExpr CRLF (assignment|increment|decrement) RPAREN LCURLY instruction* RCURLY 
 	| FOR LPAREN IDENTIFIER IN value RPAREN LCURLY instruction* RCURLY;
@@ -84,8 +86,8 @@ value
 	: NUMBER
 	| IDENTIFIER
 	| STRING
-	| comparisonExpr
-	| boolExpr 
+	| boolExpr
+	| comparisonExpr 
 	| arthexp
 	| listfunction
 	| list
@@ -108,12 +110,16 @@ boolvalue
 	; 
 andExpr: boolvalue (AND boolvalue)*;
 orExpr: andExpr (OR andExpr)*;
-boolExpr: orExpr | comparisonExpr;
+boolExpr: comparisonExpr | orExpr;
 
 factor
 	: NUMBER 
 	| IDENTIFIER 
 	| BOOLEAN
+	| functionCall
+	| cardfunction
+	| deckfunction
+	| listfunction
 	| LPAREN arthexp RPAREN
 	| functionCall
 	;

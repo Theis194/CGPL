@@ -5,7 +5,7 @@ function Select(ply) {
     var c1 = deck.draw();
     var c2 = deck.draw();
 
-    if c1.value() == c2.value() and c1.color() == c2.color() {
+    if (c1.value() == c2.value()) and (c1.color() == c2.color()) {
         ply.drawCard(c1);
         ply.drawCard(c2);
     }
