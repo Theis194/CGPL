@@ -73,7 +73,9 @@ returnstmt: RETURN value;
 breakstmt: BREAK;
 printstmt: PRINT LPAREN value RPAREN;
 functionBody: instruction*;
-ifstmt: IF boolExpr LCURLY instruction* RCURLY (ELSE LCURLY instruction* RCURLY | ELSE ifstmt)?;
+ifstmt: IF boolExpr thenBlock (ELSE (elseBlock |ifstmt))?;
+thenBlock: LCURLY instruction* RCURLY;
+elseBlock: LCURLY instruction* RCURLY;
 forstmt
 	: FOR LPAREN vardcl CRLF boolExpr CRLF (assignment|increment|decrement) RPAREN LCURLY instruction* RCURLY 
 	| FOR LPAREN IDENTIFIER IN value RPAREN LCURLY instruction* RCURLY;

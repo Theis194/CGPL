@@ -65,6 +65,18 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfstmt(CGPLParser.IfstmtContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#thenBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitThenBlock(CGPLParser.ThenBlockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#elseBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElseBlock(CGPLParser.ElseBlockContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#forstmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

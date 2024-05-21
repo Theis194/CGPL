@@ -1,225 +1,129 @@
 {
   "instructions": [
     {
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 1,
-              "type": "number"
-            }
-          ],
-          "operator": "+",
-          "type": "arithmetic"
-        }
+      "instructionType": "VarDeclaration",
+      "identifier": "deck",
+      "type": null,
+      "value": {
+        "type": "deck",
+        "cards": []
       },
-      "varDeclaration": {
-        "instructionType": "VarDeclaration",
-        "identifier": "i",
-        "type": null,
-        "value": {
-          "value": 0,
-          "type": "number"
-        },
-        "isConst": false
-      },
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
-            "type": "identifier"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "j",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          "isConst": false
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {},
-        "isProgramScope": false
-      }
+      "isConst": false
     },
     {
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 1,
-              "type": "number"
-            }
-          ],
-          "operator": "-",
-          "type": "arithmetic"
-        }
-      },
-      "varDeclaration": {
-        "instructionType": "VarDeclaration",
-        "identifier": "i",
-        "type": null,
-        "value": {
-          "value": 6,
-          "type": "number"
-        },
-        "isConst": false
-      },
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
-            "type": "identifier"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          }
-        ],
-        "operator": "gt",
-        "type": "comparison"
-      },
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "j",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          "isConst": false
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {},
-        "isProgramScope": false
-      }
+      "identifier": "deck",
+      "value": null,
+      "type": "shuffle"
     },
     {
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 5,
-              "type": "number"
-            }
-          ],
-          "operator": "+",
-          "type": "arithmetic"
+      "instructionType": "Function",
+      "identifier": "Select",
+      "arguments": [
+        {
+          "identifier": "ply",
+          "type": "identifier"
         }
-      },
-      "varDeclaration": {
-        "instructionType": "VarDeclaration",
-        "identifier": "i",
-        "type": null,
-        "value": {
-          "value": 0,
-          "type": "number"
-        },
-        "isConst": false
-      },
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
-            "type": "identifier"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "body": [
+      ],
+      "functionBody": [
         {
           "instructionType": "VarDeclaration",
-          "identifier": "j",
+          "identifier": "c1",
           "type": null,
-          "value": {
+          "value": null,
+          "isConst": false
+        },
+        {
+          "instructionType": "VarDeclaration",
+          "identifier": "c2",
+          "type": null,
+          "value": null,
+          "isConst": false
+        },
+        {
+          "instructionType": "IfStatment",
+          "condition": {
             "operands": [
               {
-                "identifier": "i",
-                "type": "identifier"
+                "operands": [
+                  null,
+                  null
+                ],
+                "operator": "eq",
+                "type": "comparison"
               },
               {
-                "value": 1,
-                "type": "number"
+                "operands": [
+                  null,
+                  null
+                ],
+                "operator": "eq",
+                "type": "comparison"
               }
             ],
-            "operator": "+",
-            "type": "arithmetic"
+            "type": "and"
           },
-          "isConst": false
+          "thenBody": [
+            {
+              "identifier": "ply",
+              "value": {
+                "identifier": "c1",
+                "type": "identifier"
+              },
+              "type": "drawCard"
+            },
+            {
+              "identifier": "ply",
+              "value": {
+                "identifier": "c2",
+                "type": "identifier"
+              },
+              "type": "drawCard"
+            }
+          ],
+          "elseBody": [
+            {
+              "identifier": "deck",
+              "value": {
+                "identifier": "c1",
+                "type": "identifier"
+              },
+              "type": "addCard"
+            },
+            {
+              "identifier": "deck",
+              "value": {
+                "identifier": "c2",
+                "type": "identifier"
+              },
+              "type": "addCard"
+            },
+            {
+              "identifier": "deck",
+              "value": null,
+              "type": "shuffle"
+            }
+          ],
+          "thenScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          },
+          "elseScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          }
         }
       ],
       "scope": {
-        "variables": {},
+        "variables": {
+          "ply": {
+            "identifier": "ply",
+            "type": "identifier"
+          }
+        },
         "constants": {},
         "functions": {},
         "isProgramScope": false
@@ -227,142 +131,35 @@
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "list",
+      "identifier": "p1",
       "type": null,
       "value": {
-        "list": [
-          {
-            "value": 1,
-            "type": "number"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          },
-          {
-            "value": 4,
-            "type": "number"
-          },
-          {
-            "value": 5,
-            "type": "number"
-          },
-          {
-            "value": 6,
-            "type": "number"
-          },
-          {
-            "value": 7,
-            "type": "number"
-          },
-          {
-            "value": 8,
-            "type": "number"
-          },
-          {
-            "value": 9,
-            "type": "number"
-          }
-        ],
-        "type": "list"
+        "type": "player",
+        "hand": [],
+        "score": 0
       },
       "isConst": false
     },
     {
-      "instructionType": "ForEachStatement",
-      "identifier": "n",
-      "iterable": {
-        "identifier": "list",
+      "instructionType": "VarDeclaration",
+      "identifier": "p2",
+      "type": null,
+      "value": {
+        "type": "player",
+        "hand": [],
+        "score": 0
+      },
+      "isConst": false
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "currentPlayer",
+      "type": null,
+      "value": {
+        "identifier": "p1",
         "type": "identifier"
       },
-      "iteration": null,
-      "varDeclaration": null,
-      "condition": null,
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "k",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "n",
-                "type": "identifier"
-              },
-              {
-                "value": 3,
-                "type": "number"
-              }
-            ],
-            "operator": "*",
-            "type": "arithmetic"
-          },
-          "isConst": false
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {},
-        "isProgramScope": false
-      }
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "i",
-      "type": null,
-      "value": {
-        "value": 0,
-        "type": "number"
-      },
       "isConst": false
-    },
-    {
-      "instructionType": "WhileStatement",
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
-            "type": "identifier"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "body": [
-        {
-          "instructionType": "Assignment",
-          "identifier": "i",
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          }
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {},
-        "isProgramScope": false
-      }
     },
     {
       "instructionType": "WhileStatement",
@@ -372,25 +169,214 @@
       },
       "body": [
         {
-          "instructionType": "Assignment",
-          "identifier": "i",
-          "value": {
+          "instructionType": "IfStatment",
+          "condition": {
             "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
+              null,
               {
                 "value": 1,
                 "type": "number"
               }
             ],
-            "operator": "-",
-            "type": "arithmetic"
+            "operator": "lte",
+            "type": "comparison"
+          },
+          "thenBody": [
+            null
+          ],
+          "elseBody": [],
+          "thenScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          },
+          "elseScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          }
+        },
+        {
+          "instructionType": "IfStatment",
+          "condition": {
+            "operands": [
+              {
+                "identifier": "currentPlayer",
+                "type": "identifier"
+              },
+              {
+                "identifier": "p1",
+                "type": "identifier"
+              }
+            ],
+            "operator": "eq",
+            "type": "comparison"
+          },
+          "thenBody": [
+            {
+              "instructionType": "FunctionCall",
+              "type": "FunctionCall",
+              "identifier": "Select",
+              "arguments": [
+                {
+                  "identifier": "p1",
+                  "type": "identifier"
+                }
+              ]
+            },
+            {
+              "instructionType": "Assignment",
+              "identifier": "currentPlayer",
+              "value": {
+                "identifier": "p2",
+                "type": "identifier"
+              }
+            }
+          ],
+          "elseBody": [
+            {
+              "instructionType": "FunctionCall",
+              "type": "FunctionCall",
+              "identifier": "Select",
+              "arguments": [
+                {
+                  "identifier": "p2",
+                  "type": "identifier"
+                }
+              ]
+            },
+            {
+              "instructionType": "Assignment",
+              "identifier": "currentPlayer",
+              "value": {
+                "identifier": "p1",
+                "type": "identifier"
+              }
+            }
+          ],
+          "thenScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          },
+          "elseScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
           }
         }
       ],
       "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "hs1",
+      "type": null,
+      "value": {
+        "identifier": "p1",
+        "value": null,
+        "type": "getHandSize"
+      },
+      "isConst": false
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "hs2",
+      "type": null,
+      "value": {
+        "identifier": "p2",
+        "value": null,
+        "type": "getHandSize"
+      },
+      "isConst": false
+    },
+    {
+      "instructionType": "IfStatment",
+      "condition": {
+        "operands": [
+          {
+            "identifier": "hs1",
+            "type": "identifier"
+          },
+          {
+            "identifier": "hs2",
+            "type": "identifier"
+          }
+        ],
+        "operator": "eq",
+        "type": "comparison"
+      },
+      "thenBody": [
+        {
+          "value": {
+            "value": "Tie",
+            "type": "string"
+          }
+        }
+      ],
+      "elseBody": [
+        {
+          "instructionType": "IfStatment",
+          "condition": {
+            "operands": [
+              {
+                "identifier": "hs1",
+                "type": "identifier"
+              },
+              {
+                "identifier": "hs2",
+                "type": "identifier"
+              }
+            ],
+            "operator": "gt",
+            "type": "comparison"
+          },
+          "thenBody": [
+            {
+              "value": {
+                "value": "Player 1 wins",
+                "type": "string"
+              }
+            }
+          ],
+          "elseBody": [
+            {
+              "value": {
+                "value": "Player 2 wins",
+                "type": "string"
+              }
+            }
+          ],
+          "thenScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          },
+          "elseScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          }
+        }
+      ],
+      "thenScope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      },
+      "elseScope": {
         "variables": {},
         "constants": {},
         "functions": {},
@@ -401,7 +387,122 @@
   "scope": {
     "variables": {},
     "constants": {},
-    "functions": {},
+    "functions": {
+      "Select": {
+        "instructionType": "Function",
+        "identifier": "Select",
+        "arguments": [
+          {
+            "identifier": "ply",
+            "type": "identifier"
+          }
+        ],
+        "functionBody": [
+          {
+            "instructionType": "VarDeclaration",
+            "identifier": "c1",
+            "type": null,
+            "value": null,
+            "isConst": false
+          },
+          {
+            "instructionType": "VarDeclaration",
+            "identifier": "c2",
+            "type": null,
+            "value": null,
+            "isConst": false
+          },
+          {
+            "instructionType": "IfStatment",
+            "condition": {
+              "operands": [
+                {
+                  "operands": [
+                    null,
+                    null
+                  ],
+                  "operator": "eq",
+                  "type": "comparison"
+                },
+                {
+                  "operands": [
+                    null,
+                    null
+                  ],
+                  "operator": "eq",
+                  "type": "comparison"
+                }
+              ],
+              "type": "and"
+            },
+            "thenBody": [
+              {
+                "identifier": "ply",
+                "value": {
+                  "identifier": "c1",
+                  "type": "identifier"
+                },
+                "type": "drawCard"
+              },
+              {
+                "identifier": "ply",
+                "value": {
+                  "identifier": "c2",
+                  "type": "identifier"
+                },
+                "type": "drawCard"
+              }
+            ],
+            "elseBody": [
+              {
+                "identifier": "deck",
+                "value": {
+                  "identifier": "c1",
+                  "type": "identifier"
+                },
+                "type": "addCard"
+              },
+              {
+                "identifier": "deck",
+                "value": {
+                  "identifier": "c2",
+                  "type": "identifier"
+                },
+                "type": "addCard"
+              },
+              {
+                "identifier": "deck",
+                "value": null,
+                "type": "shuffle"
+              }
+            ],
+            "thenScope": {
+              "variables": {},
+              "constants": {},
+              "functions": {},
+              "isProgramScope": false
+            },
+            "elseScope": {
+              "variables": {},
+              "constants": {},
+              "functions": {},
+              "isProgramScope": false
+            }
+          }
+        ],
+        "scope": {
+          "variables": {
+            "ply": {
+              "identifier": "ply",
+              "type": "identifier"
+            }
+          },
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
+        }
+      }
+    },
     "isProgramScope": true
   }
 }
