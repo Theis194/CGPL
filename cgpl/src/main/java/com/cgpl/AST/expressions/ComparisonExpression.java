@@ -2,7 +2,9 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
+import com.cgpl.Interpreter;
 import com.cgpl.SymbolTable;
+import com.cgpl.AST.instructions.Instruction;
 
 public class ComparisonExpression implements Expression {
     List<Expression> operands;
@@ -37,6 +39,15 @@ public class ComparisonExpression implements Expression {
     public Expression evaluate(SymbolTable symbolTable) {
         Expression left = operands.get(0).evaluate(symbolTable);
         Expression right = operands.get(1).evaluate(symbolTable);
+
+        if (left instanceof Instruction) {
+            Interpreter interpreter = new Interpreter(symbolTable);
+            left = interpreter.interpretInstruction((Instruction) left);
+        }
+        if (right instanceof Instruction) {
+            Interpreter interpreter = new Interpreter(symbolTable);
+            right = interpreter.interpretInstruction((Instruction) left);
+        }
 
         if (left.getType().equals("number") && right.getType().equals("number")) {
             int leftValue = ((Number) left).getValue();

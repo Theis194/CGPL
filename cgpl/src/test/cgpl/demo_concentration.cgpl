@@ -21,7 +21,7 @@ var p2 = Player;
 var currentPlayer = p1;
 
 while (true) {
-    if deck.size() <= 1 {
+    if deck.deckSize() <= 1 {
         break;
     }
 

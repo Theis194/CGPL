@@ -10,6 +10,7 @@ public class Deck implements Expression {
 
     public Deck() {
         this.cards = new Stack<Card>();
+        fillDeck();
     }
 
     public void addCard(Card card) {
@@ -39,6 +40,17 @@ public class Deck implements Expression {
 
     public void remove(int index) {
         this.cards.remove(index);
+    }
+
+    public void fillDeck() {
+        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+        String[] values = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+    
+        for (String suit : suits) {
+            for (String value : values) {
+                this.addCard(new Card(value, suit));
+            }
+        }
     }
 
     @Override

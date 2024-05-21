@@ -6,7 +6,268 @@
       "type": null,
       "value": {
         "type": "deck",
-        "cards": []
+        "cards": [
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "Ace"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "2"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "3"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "4"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "5"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "6"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "7"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "8"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "9"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "10"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "Jack"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "Queen"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "King"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "Ace"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "2"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "3"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "4"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "5"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "6"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "7"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "8"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "9"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "10"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "Jack"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "Queen"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "King"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "Ace"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "2"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "3"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "4"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "5"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "6"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "7"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "8"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "9"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "10"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "Jack"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "Queen"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "King"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "Ace"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "2"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "3"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "4"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "5"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "6"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "7"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "8"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "9"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "10"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "Jack"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "Queen"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "King"
+          }
+        ]
       },
       "isConst": false
     },
@@ -29,14 +290,22 @@
           "instructionType": "VarDeclaration",
           "identifier": "c1",
           "type": null,
-          "value": null,
+          "value": {
+            "identifier": "deck",
+            "value": null,
+            "type": "draw"
+          },
           "isConst": false
         },
         {
           "instructionType": "VarDeclaration",
           "identifier": "c2",
           "type": null,
-          "value": null,
+          "value": {
+            "identifier": "deck",
+            "value": null,
+            "type": "draw"
+          },
           "isConst": false
         },
         {
@@ -45,16 +314,28 @@
             "operands": [
               {
                 "operands": [
-                  null,
-                  null
+                  {
+                    "identifier": "c1",
+                    "type": "value"
+                  },
+                  {
+                    "identifier": "c2",
+                    "type": "value"
+                  }
                 ],
                 "operator": "eq",
                 "type": "comparison"
               },
               {
                 "operands": [
-                  null,
-                  null
+                  {
+                    "identifier": "c1",
+                    "type": "color"
+                  },
+                  {
+                    "identifier": "c2",
+                    "type": "color"
+                  }
                 ],
                 "operator": "eq",
                 "type": "comparison"
@@ -172,7 +453,11 @@
           "instructionType": "IfStatment",
           "condition": {
             "operands": [
-              null,
+              {
+                "identifier": "deck",
+                "value": null,
+                "type": "deckSize"
+              },
               {
                 "value": 1,
                 "type": "number"
@@ -182,7 +467,9 @@
             "type": "comparison"
           },
           "thenBody": [
-            null
+            {
+              "instructionType": "Break"
+            }
           ],
           "elseBody": [],
           "thenScope": {
@@ -402,14 +689,22 @@
             "instructionType": "VarDeclaration",
             "identifier": "c1",
             "type": null,
-            "value": null,
+            "value": {
+              "identifier": "deck",
+              "value": null,
+              "type": "draw"
+            },
             "isConst": false
           },
           {
             "instructionType": "VarDeclaration",
             "identifier": "c2",
             "type": null,
-            "value": null,
+            "value": {
+              "identifier": "deck",
+              "value": null,
+              "type": "draw"
+            },
             "isConst": false
           },
           {
@@ -418,16 +713,28 @@
               "operands": [
                 {
                   "operands": [
-                    null,
-                    null
+                    {
+                      "identifier": "c1",
+                      "type": "value"
+                    },
+                    {
+                      "identifier": "c2",
+                      "type": "value"
+                    }
                   ],
                   "operator": "eq",
                   "type": "comparison"
                 },
                 {
                   "operands": [
-                    null,
-                    null
+                    {
+                      "identifier": "c1",
+                      "type": "color"
+                    },
+                    {
+                      "identifier": "c2",
+                      "type": "color"
+                    }
                   ],
                   "operator": "eq",
                   "type": "comparison"

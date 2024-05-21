@@ -2,7 +2,9 @@ package com.cgpl.AST.expressions;
 
 import java.util.List;
 
+import com.cgpl.Interpreter;
 import com.cgpl.SymbolTable;
+import com.cgpl.AST.instructions.Instruction;
 
 public class AndExpression implements Expression {
     List<Expression> operands;
@@ -36,7 +38,16 @@ public class AndExpression implements Expression {
         Expression left = operands.get(0).evaluate(symbolTable);
         Expression right = operands.get(1).evaluate(symbolTable);
 
-        if (left.getType().equals("boolean") && right.getType().equals("boolean")) {
+        if (left instanceof Instruction) {
+            Interpreter interpreter = new Interpreter(symbolTable);
+            left = interpreter.interpretInstruction((Instruction) left);
+        }
+        if (right instanceof Instruction) {
+            Interpreter interpreter = new Interpreter(symbolTable);
+            right = interpreter.interpretInstruction((Instruction) left);
+        }
+
+        if (left.getType().equals("Boolean") && right.getType().equals("Boolean")) {
             boolean leftValue = ((Boolean) left).getValue();
             boolean rightValue = ((Boolean) right).getValue();
             return new Boolean(leftValue && rightValue);

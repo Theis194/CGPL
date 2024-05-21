@@ -75,6 +75,10 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle player function
             return new PlayerFunctionVisitor<Instruction>().visitPlayerfunction(ctx.playerfunction());
             
+        } else if (ctx.breakstmt() != null) {
+            // Handle break statement
+            return new BreakVisitor().visitBreakstmt(ctx.breakstmt());
+            
         }
         
         return super.visitInstruction(ctx);

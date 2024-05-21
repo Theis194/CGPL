@@ -162,6 +162,7 @@ deckfunctionname
 	| 'draw'
 	| 'addCard'
 	| 'removeCard'
+	| 'deckSize'
 	;
 
 card: cardvalue 'of' suit;

@@ -23,6 +23,7 @@ public class Scope {
         for (Map.Entry<String, Expression> entry : parentScope.variables.entrySet()) {
             variables.put(entry.getKey(), entry.getValue());
         }
+        isProgramScope = parentScope.isProgramScope;
     }
 
     public void addVariable(String name, Expression value) {
