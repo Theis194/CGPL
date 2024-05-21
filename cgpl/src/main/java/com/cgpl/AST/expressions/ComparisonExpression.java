@@ -95,7 +95,7 @@ public class ComparisonExpression implements Expression {
                     throw new RuntimeException("Invalid operator");
             }
         }else {
-            throw new RuntimeException("Operands must be of type boolean");
+            throw new RuntimeException("Operands must be of the same type. Got left type: " + left.getType() + " and right type: " + right.getType() + " with operator: " + operator);
         }
     }
 }
