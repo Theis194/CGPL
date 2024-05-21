@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // Generated from c:/Uni/P4/CGPL/cgpl/src/main/antlr4/com/cgpl/CGPL.g4 by ANTLR 4.13.1
-=======
-// Generated from d://Programming//CGPL//cgpl//src//main//antlr4//com//cgpl//CGPL.g4 by ANTLR 4.13.1
->>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
