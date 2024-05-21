@@ -75,6 +75,7 @@ OP_ADD=74
 OP_SUB=75
 CRLF=76
 WS=77
+COMMENT=78
 '='=1
 ','=2
 '['=3

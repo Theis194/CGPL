@@ -410,16 +410,19 @@
         "isProgramScope": false
       }
     },
+    null,
+    null,
+    null,
+    null,
+    null,
     {
-      "instructionType": "VarDeclaration",
+      "instructionType": "Assignment",
       "identifier": "p1",
-      "type": null,
       "value": {
         "type": "player",
         "hand": [],
         "score": 0
-      },
-      "isConst": false
+      }
     },
     {
       "instructionType": "VarDeclaration",

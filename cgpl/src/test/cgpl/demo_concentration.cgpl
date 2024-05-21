@@ -16,6 +16,7 @@ function Select(ply) {
     }
 }
 
+// This is a test
 var p1 = Player;
 var p2 = Player;
 var currentPlayer = p1;
