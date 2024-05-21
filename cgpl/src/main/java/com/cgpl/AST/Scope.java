@@ -35,6 +35,10 @@ public class Scope {
     public void addVariable(List<Instruction> instructions) {
         for (Instruction instruction : instructions) {
             if (instruction instanceof VarDeclaration) {
+                String name = ((VarDeclaration) instruction).getIdentifier();
+                if (containsVariable(name)) {
+                    throw new RuntimeException("Variable: " + name + " already defined");
+                }
                 VarDeclaration varDeclaration = (VarDeclaration) instruction;
                 addVariable(varDeclaration.getIdentifier(), varDeclaration.getValue());
             }
@@ -83,5 +87,15 @@ public class Scope {
 
     public boolean isProgramScope() {
         return isProgramScope;
+    }
+
+    // Testing
+    public Boolean isConstant(String name) {
+        return constants.containsKey(name);
+    }
+
+    // Testing
+    public Boolean isVariable(String name) {
+        return variables.containsKey(name);
     }
 }

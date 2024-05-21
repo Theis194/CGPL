@@ -66,6 +66,14 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
             // Handle card function
             return new CardFunctionVisitor<Expression>().visitCardfunction(ctx.cardfunction());
 
+        } else if (ctx.playerfunction() != null) {
+            // Handle player function
+            return new PlayerFunctionVisitor<Expression>().visitPlayerfunction(ctx.playerfunction());
+            
+        } else if (ctx.player() != null) {
+            // Handle player expression
+            return new PlayerVisitor().visitPlayer(ctx.player());
+            
         }
         return super.visitValue(ctx);
     }

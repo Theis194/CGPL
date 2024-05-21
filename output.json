@@ -1,141 +1,33 @@
 {
   "instructions": [
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
-      "instructionType": "Function",
-      "identifier": "test",
-      "arguments": [
-        {
-          "identifier": "var1",
-          "type": "identifier"
-        }
-      ],
-      "functionBody": [
-        {
-          "instructionType": "Assignment",
-          "identifier": "var1",
-          "value": {
-            "operands": [
-              {
-                "identifier": "var1",
-                "type": "identifier"
-              },
-              {
-                "value": 10,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          }
-        },
-        {
-          "instructionType": "Return",
-          "value": {
-            "identifier": "var1",
-            "type": "identifier"
-          }
-<<<<<<< HEAD
-=======
-      "instructionType": "ForStatement",
-      "identifier": null,
-      "iterable": null,
-      "iteration": {
-        "instructionType": "Assignment",
-        "identifier": "i",
-        "value": {
-          "operands": [
-            {
-              "identifier": "i",
-              "type": "identifier"
-            },
-            {
-              "value": 1,
-              "type": "number"
-            }
-          ],
-          "operator": "+",
-          "type": "arithmetic"
-        }
+      "instructionType": "VarDeclaration",
+      "identifier": "player",
+      "type": null,
+      "value": {
+        "type": "player",
+        "hand": [],
+        "score": 0
       },
-      "body": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "j",
-          "type": null,
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          },
-          "isConst": false
->>>>>>> 65ed6472092c85e4ae4aad35be171dc6ebd5d6ea
-=======
->>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
-        }
-      ],
-      "scope": {
-        "variables": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-          "var1": {
-            "identifier": "var1",
-=======
-          "i": {
-            "value": 0,
-            "type": "number"
-          },
-          "j": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-=======
-          "var1": {
-            "identifier": "var1",
-            "type": "identifier"
->>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
-          }
-        },
-        "constants": {},
-        "functions": {},
-        "isProgramScope": false
-      }
+      "isConst": false
+    },
+    {
+      "identifier": "player",
+      "value": {
+        "type": "card",
+        "suit": "hearts",
+        "value": "ace"
+      },
+      "type": "drawCard"
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "test",
+      "identifier": "handSize",
       "type": null,
       "value": {
-        "instructionType": "FunctionCall",
-        "type": "FunctionCall",
-        "identifier": "test",
-        "arguments": [
-          {
-            "value": 5,
-            "type": "number"
-          }
-        ]
+        "identifier": "player",
+        "value": null,
+        "type": "getHandSize"
       },
       "isConst": false
     },
@@ -143,7 +35,199 @@
       "value": {
         "expressions": [
           {
-            "value": "Test is: ",
+            "value": "handsize: ",
+            "type": "string"
+          },
+          {
+            "identifier": "handsize",
+            "type": "identifier"
+          }
+        ],
+        "type": "stringConcat"
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "playerDraw",
+      "type": null,
+      "value": {
+        "identifier": "player",
+        "value": null,
+        "type": "discardCard"
+      },
+      "isConst": false
+    },
+    {
+      "value": {
+        "expressions": [
+          {
+            "value": "playerDraw: ",
+            "type": "string"
+          },
+          {
+            "identifier": "playerDraw",
+            "type": "identifier"
+          }
+        ],
+        "type": "stringConcat"
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "hand1",
+      "type": null,
+      "value": {
+        "identifier": "player",
+        "value": null,
+        "type": "shuffleHand"
+      },
+      "isConst": false
+    },
+    {
+      "value": {
+        "expressions": [
+          {
+            "value": "hand1: ",
+            "type": "string"
+          },
+          {
+            "identifier": "hand1",
+            "type": "identifier"
+          }
+        ],
+        "type": "stringConcat"
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "hand",
+      "type": null,
+      "value": {
+        "identifier": "player",
+        "value": null,
+        "type": "getHand"
+      },
+      "isConst": false
+    },
+    {
+      "value": {
+        "expressions": [
+          {
+            "value": "hand: ",
+            "type": "string"
+          },
+          {
+            "identifier": "hand",
+            "type": "identifier"
+          }
+        ],
+        "type": "stringConcat"
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "score",
+      "type": null,
+      "value": {
+        "identifier": "player",
+        "value": null,
+        "type": "getScore"
+      },
+      "isConst": false
+    },
+    {
+      "value": {
+        "expressions": [
+          {
+            "value": "score: ",
+            "type": "string"
+          },
+          {
+            "identifier": "score",
+            "type": "identifier"
+>>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
+          }
+        ],
+        "type": "stringConcat"
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "SetScore",
+      "type": null,
+      "value": {
+        "identifier": "player",
+        "value": {
+          "value": 10,
+          "type": "number"
+        },
+        "type": "setScore"
+      },
+      "isConst": false
+    },
+    {
+      "value": {
+        "expressions": [
+          {
+            "value": "setScore: ",
+            "type": "string"
+          },
+          {
+            "identifier": "SetScore",
+            "type": "identifier"
+          }
+        ],
+        "type": "stringConcat"
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "incScore",
+      "type": null,
+      "value": {
+        "identifier": "player",
+        "value": {
+          "value": 10,
+          "type": "number"
+        },
+        "type": "incrementScore"
+      },
+      "isConst": false
+    },
+    {
+      "value": {
+        "expressions": [
+          {
+            "value": "incScore: ",
+            "type": "string"
+          },
+          {
+            "identifier": "incScore",
+            "type": "identifier"
+          }
+        ],
+        "type": "stringConcat"
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "decScore",
+      "type": null,
+      "value": {
+        "identifier": "player",
+        "value": {
+          "value": 10,
+          "type": "number"
+        },
+        "type": "decrementScore"
+      },
+      "isConst": false
+    },
+    {
+      "value": {
+        "expressions": [
+          {
+            "value": "decScore: ",
             "type": "string"
           },
 <<<<<<< HEAD
@@ -212,8 +296,7 @@
 >>>>>>> 65ed6472092c85e4ae4aad35be171dc6ebd5d6ea
 =======
           {
-            "identifier": "test",
->>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
+            "identifier": "decScore",
             "type": "identifier"
           }
         ],
@@ -228,284 +311,7 @@
   "scope": {
     "variables": {},
     "constants": {},
-    "functions": {
-      "test": {
-        "instructionType": "Function",
-        "identifier": "test",
-        "arguments": [
-          {
-            "identifier": "var1",
-            "type": "identifier"
-          }
-        ],
-        "functionBody": [
-          {
-            "instructionType": "Assignment",
-            "identifier": "var1",
-            "value": {
-              "operands": [
-                {
-                  "identifier": "var1",
-                  "type": "identifier"
-                },
-                {
-                  "value": 10,
-                  "type": "number"
-                }
-              ],
-              "operator": "+",
-              "type": "arithmetic"
-            }
-          },
-          {
-            "instructionType": "Return",
-            "value": {
-              "identifier": "var1",
-              "type": "identifier"
-            }
-          }
-        ],
-        "scope": {
-          "variables": {
-            "var1": {
-              "identifier": "var1",
-              "type": "identifier"
-            }
-          },
-          "constants": {},
-          "functions": {},
-          "isProgramScope": false
-        }
-<<<<<<< HEAD
-=======
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "i",
-      "type": null,
-      "value": {
-        "value": 0,
-        "type": "number"
-      },
-      "isConst": false
-    },
-    {
-      "instructionType": "WhileStatement",
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
-            "type": "identifier"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
-      },
-      "body": [
-        {
-          "instructionType": "Assignment",
-          "identifier": "i",
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          }
-        }
-      ],
-      "scope": {
-        "variables": {
-          "i": {
-            "value": 0,
-            "type": "number"
-          },
-          "list": {
-            "list": [
-              {
-                "value": 1,
-                "type": "number"
-              },
-              {
-                "value": 2,
-                "type": "number"
-              },
-              {
-                "value": 3,
-                "type": "number"
-              },
-              {
-                "value": 4,
-                "type": "number"
-              },
-              {
-                "value": 5,
-                "type": "number"
-              },
-              {
-                "value": 6,
-                "type": "number"
-              },
-              {
-                "value": 7,
-                "type": "number"
-              },
-              {
-                "value": 8,
-                "type": "number"
-              },
-              {
-                "value": 9,
-                "type": "number"
-              }
-            ],
-            "type": "list"
-          }
-        },
-        "functions": {}
-      }
-    },
-    {
-      "instructionType": "WhileStatement",
-      "condition": {
-        "value": true,
-        "type": "boolean"
-      },
-      "body": [
-        {
-          "instructionType": "Assignment",
-          "identifier": "i",
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "-",
-            "type": "arithmetic"
-          }
-        }
-      ],
-      "scope": {
-        "variables": {
-          "i": {
-            "value": 0,
-            "type": "number"
-          },
-          "list": {
-            "list": [
-              {
-                "value": 1,
-                "type": "number"
-              },
-              {
-                "value": 2,
-                "type": "number"
-              },
-              {
-                "value": 3,
-                "type": "number"
-              },
-              {
-                "value": 4,
-                "type": "number"
-              },
-              {
-                "value": 5,
-                "type": "number"
-              },
-              {
-                "value": 6,
-                "type": "number"
-              },
-              {
-                "value": 7,
-                "type": "number"
-              },
-              {
-                "value": 8,
-                "type": "number"
-              },
-              {
-                "value": 9,
-                "type": "number"
-              }
-            ],
-            "type": "list"
-          }
-        },
-        "functions": {}
-      }
-    }
-  ],
-  "scope": {
-    "variables": {
-      "i": {
-        "value": 0,
-        "type": "number"
-      },
-      "list": {
-        "list": [
-          {
-            "value": 1,
-            "type": "number"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          },
-          {
-            "value": 3,
-            "type": "number"
-          },
-          {
-            "value": 4,
-            "type": "number"
-          },
-          {
-            "value": 5,
-            "type": "number"
-          },
-          {
-            "value": 6,
-            "type": "number"
-          },
-          {
-            "value": 7,
-            "type": "number"
-          },
-          {
-            "value": 8,
-            "type": "number"
-          },
-          {
-            "value": 9,
-            "type": "number"
-          }
-        ],
-        "type": "list"
->>>>>>> 65ed6472092c85e4ae4aad35be171dc6ebd5d6ea
-      }
-    }
-=======
-      }
-    },
+    "functions": {},
     "isProgramScope": true
 >>>>>>> 2500bab03f0bf0588caeeff9bab8ec80a5f6b8fe
   }

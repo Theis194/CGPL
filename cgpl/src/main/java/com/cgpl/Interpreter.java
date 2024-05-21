@@ -67,6 +67,8 @@ public class Interpreter {
                 return interpretListFunction((ListFunction) instruction);
             case "Print":
                 return interpretPrint((Print) instruction);
+            case "PlayerFunction":
+                return interpretPlayerFunction((PlayerFunction) instruction);
             default:
                 throw new RuntimeException("Unknown instruction type: " + instruction.getInstructionType());
         }
@@ -83,17 +85,9 @@ public class Interpreter {
         }
 
         // if the value is a list function then interpret the list function and assign the return value to the variable
-        if (varDeclaration.getValue() instanceof ListFunction) {
-            ListFunction listFunction = (ListFunction) varDeclaration.getValue();
-            returnValue = interpretListFunction(listFunction);
-            symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
-            return;
-        }
-
-        // if the value is a deck function then interpret the deck function and assign the return value to the variable
-        if (varDeclaration.getValue() instanceof DeckFunction) {
-            DeckFunction deckFunction = (DeckFunction) varDeclaration.getValue();
-            returnValue = interpretDeckFunction(deckFunction);
+        if (varDeclaration.getValue() instanceof Instruction) {
+            Instruction instruction = (Instruction)varDeclaration.getValue();
+            returnValue = interpretInstruction(instruction);
             symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
             return;
         }
@@ -421,17 +415,64 @@ public class Interpreter {
             FunctionCall functionCall = (FunctionCall) value;
             Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
             value = interpretFunction(function, functionCall.getArguments());
+        } else {
+            value = value.evaluate(symbolTable);
         }
 
-        if (value instanceof Identifier) {
-            Identifier identifier = (Identifier) value;
-            value = (Expression) symbolTable.getSymbol(identifier.getIdentifier());
-        }
-
-        if (value instanceof StringConcat) {
-            value = ((StringConcat) value).evaluate(symbolTable);
-        }
         System.out.println(value.toString());
         return value;
+    }
+
+    private Expression interpretPlayerFunction(PlayerFunction playerFunction) {
+        Expression returnValue = null;
+
+        // Get the identifier of the player function
+        String identifier = playerFunction.getIdentifier();
+
+        // Get the player from the symbol table
+        Player player = (Player) symbolTable.getSymbol(identifier);
+
+        Expression value = null;
+        if (playerFunction.getValue() != null) {
+            value = playerFunction.getValue().evaluate(symbolTable);
+        }
+
+        // Get the type of player function
+        String type = playerFunction.getType();
+        switch (type) {
+            case "drawCard":
+                if (value == null) throw new RuntimeException("Value cannot be null");
+                player.drawCard((Card) value);
+                break;
+            case "discardCard":
+                if (value == null) throw new RuntimeException("Value cannot be null");
+                returnValue = player.discardCard(((Number)value).getValue().intValue());
+                break;
+            case "increaseScore":
+                if (value == null) throw new RuntimeException("Value cannot be null");
+                returnValue = new Number(player.increaseScore(((Number)value).getValue().intValue()));
+                break;
+            case "decreaseScore":
+                if (value == null) throw new RuntimeException("Value cannot be null");
+                returnValue = new Number(player.decreaseScore(((Number)value).getValue().intValue()));
+                break;
+            case "getScore":
+                returnValue = new Number(player.getScore());
+                break;
+            case "getHandSize":
+                returnValue = new Number(player.getHand().size());
+                break;
+            case "getHand":
+                returnValue = new LinkedListLiteral(player.getHand());
+                break;
+            case "shuffleHand":
+                returnValue = new LinkedListLiteral(player.shuffleHand());
+                break;
+        
+            default:
+                throw new RuntimeException("Unknown player function type: " + type);
+        }
+
+        return returnValue;
     }
 }

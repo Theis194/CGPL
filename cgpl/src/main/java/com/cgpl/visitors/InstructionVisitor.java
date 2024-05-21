@@ -71,6 +71,10 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle deck function
             return new DeckFunctionVisitor<Instruction>().visitDeckfunction(ctx.deckfunction());
 
+        } else if (ctx.playerfunction() != null) {
+            // Handle player function
+            return new PlayerFunctionVisitor<Instruction>().visitPlayerfunction(ctx.playerfunction());
+            
         }
         
         return super.visitInstruction(ctx);

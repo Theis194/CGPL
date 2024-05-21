@@ -371,6 +371,36 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitCardvalue(CGPLParser.CardvalueContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#player}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlayer(CGPLParser.PlayerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#player}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlayer(CGPLParser.PlayerContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#playerfunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlayerfunction(CGPLParser.PlayerfunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#playerfunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlayerfunction(CGPLParser.PlayerfunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#playerfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlayerfunctionname(CGPLParser.PlayerfunctionnameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#playerfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlayerfunctionname(CGPLParser.PlayerfunctionnameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#switchstmt}.
 	 * @param ctx the parse tree
 	 */

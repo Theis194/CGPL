@@ -227,6 +227,24 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCardvalue(CGPLParser.CardvalueContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#player}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlayer(CGPLParser.PlayerContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#playerfunction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlayerfunction(CGPLParser.PlayerfunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#playerfunctionname}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlayerfunctionname(CGPLParser.PlayerfunctionnameContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#switchstmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

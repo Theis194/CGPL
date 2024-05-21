@@ -24,8 +24,8 @@ STRING: '"' (~[\r\n"])* '"';
 BOOLEAN: 'true' | 'false';
 BREAK: 'break';
 DECK: 'Deck';
+PLAYER: 'Player';
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
-
 
 EQUAL: '==';
 LT: '<';
@@ -51,12 +51,13 @@ program: instruction* EOF;
 instruction
 	: vardcl CRLF
 	| function
-	| ifstmt 
+	| ifstmt
 	| forstmt
 	| whilestmt
 	| switchstmt
 	| deckfunction CRLF
 	| listfunction CRLF
+	| playerfunction CRLF
 	| card CRLF
 	| returnstmt CRLF
 	| printstmt CRLF
@@ -94,6 +95,8 @@ value
 	| card
 	| functionCall
 	| stringConcat
+	| playerfunction
+	| player
 	;
 
 stringConcat: (STRING | IDENTIFIER) (OP_ADD (STRING | IDENTIFIER))+;
@@ -174,6 +177,20 @@ cardvalue
 	| 'king' 
 	| 'ace'
 	;
+
+player: PLAYER;
+playerfunction: IDENTIFIER '.' playerfunctionname LPAREN (value)? RPAREN;
+playerfunctionname
+    : 'drawCard'
+    | 'discardCard'
+    | 'shuffleHand'
+    | 'getHand'
+    | 'getScore'
+    | 'increaseScore'
+    | 'decreaseScore'
+    | 'getHandSize'
+    ;
+
 
 switchstmt
     : 'switch' LPAREN value RPAREN LCURLY casestmt+ RCURLY
