@@ -45,7 +45,6 @@ OP_SUB: '-';
 
 CRLF: ';';
 WS: [ \t\r\n]+ -> skip;
-COMMENT:   '//' ~[\r\n]* -> skip;
 
 // Parser rules
 program: instruction* EOF;
