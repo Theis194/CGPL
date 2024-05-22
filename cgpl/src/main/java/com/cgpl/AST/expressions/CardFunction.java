@@ -38,6 +38,12 @@ public class CardFunction implements Expression, Instruction{
 
     @Override
     public Expression evaluate(SymbolTable symbolTable) {
+        if (!symbolTable.hasSymbol(this.identifier)) {
+            throw new IllegalArgumentException("Card not found: " + this.identifier);
+        } else if (!(symbolTable.getSymbol(this.identifier) instanceof Card)) {
+            throw new IllegalArgumentException("Symbol is not a card: " + this.identifier);
+        }
+
         switch (this.type) {
             case "value":
                 int cardValue = Integer.parseInt(((Card)symbolTable.getSymbol(identifier)).getValue());

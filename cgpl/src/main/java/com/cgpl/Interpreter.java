@@ -312,6 +312,11 @@ public class Interpreter {
 
         // Get the identifier of the card function
         String identifier = cardFunction.getIdentifier();
+        if (!symbolTable.hasSymbol(identifier)) {
+            throw new IllegalArgumentException("Card not found: " + identifier);
+        } else if (!(symbolTable.getSymbol(identifier) instanceof Card)) {
+            throw new IllegalArgumentException("Symbol is not a card: " + identifier);
+        }
 
         // Get the card from the symbol table
         Card card = (Card) symbolTable.getSymbol(identifier);
@@ -344,6 +349,11 @@ public class Interpreter {
 
         // Get the identifier of the deck function
         String identifier = deckFunction.getIdentifier();
+        if (!symbolTable.hasSymbol(identifier)) {
+            throw new IllegalArgumentException("Deck not found: " + identifier);
+        } else if (!(symbolTable.getSymbol(identifier) instanceof Deck)) {
+            throw new IllegalArgumentException("Symbol is not a deck: " + identifier);
+        }
 
         // Get the deck from the symbol table
         Deck deck = (Deck) symbolTable.getSymbol(identifier);
@@ -388,6 +398,11 @@ public class Interpreter {
 
         // Get the identifier of the list function
         String identifier = listFunction.getIdentifier();
+        if (!symbolTable.hasSymbol(identifier)) {
+            throw new IllegalArgumentException("List not found: " + identifier);
+        } else if (!(symbolTable.getSymbol(identifier) instanceof LinkedListLiteral)) {
+            throw new IllegalArgumentException("Symbol is not a list: " + identifier);
+        }
 
         // Get the list from the symbol table
         LinkedListLiteral list = (LinkedListLiteral) symbolTable.getSymbol(identifier);
@@ -450,6 +465,11 @@ public class Interpreter {
 
         // Get the identifier of the player function
         String identifier = playerFunction.getIdentifier();
+        if (!symbolTable.hasSymbol(identifier)) {
+            throw new IllegalArgumentException("Player not found: " + identifier);
+        } else if (!(symbolTable.getSymbol(identifier) instanceof Player)) {
+            throw new IllegalArgumentException("Symbol is not a player: " + identifier);
+        }
 
         // Get the player from the symbol table
         Player player = (Player) symbolTable.getSymbol(identifier);
