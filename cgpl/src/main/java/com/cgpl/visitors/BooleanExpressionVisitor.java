@@ -56,21 +56,21 @@ public class BooleanExpressionVisitor extends CGPLBaseVisitor<Expression> {
     public Expression visitBoolvalue(CGPLParser.BoolvalueContext ctx) {
         Expression expression = null;
 
-    if (ctx.BOOLEAN() != null) {
-        expression = new Boolean(java.lang.Boolean.parseBoolean(ctx.BOOLEAN().getText()));
-    } else if (ctx.IDENTIFIER() != null) {
-        expression = new Identifier(ctx.IDENTIFIER().getText());
-    } else if (ctx.boolExpr() != null) {
-        expression = this.visit(ctx.boolExpr());
-    } else {
-        throw new IllegalArgumentException("Unexpected boolvalue");
-    }
+        if (ctx.BOOLEAN() != null) {
+            expression = new Boolean(java.lang.Boolean.parseBoolean(ctx.BOOLEAN().getText()));
+        } else if (ctx.IDENTIFIER() != null) {
+            expression = new Identifier(ctx.IDENTIFIER().getText());
+        } else if (ctx.boolExpr() != null) {
+            expression = this.visit(ctx.boolExpr());
+        } else {
+            throw new IllegalArgumentException("Unexpected boolvalue");
+        }
 
-    // Check if the NOT token is present and wrap the expression in a NotExpression if it is
-    if (ctx.NOT() != null) {
-        expression = new NotExpression(expression);
-    }
+        // Check if the NOT token is present and wrap the expression in a NotExpression if it is
+        if (ctx.NOT() != null) {
+            expression = new NotExpression(expression);
+        }
 
-    return expression;
+        return expression;
     }
 }
