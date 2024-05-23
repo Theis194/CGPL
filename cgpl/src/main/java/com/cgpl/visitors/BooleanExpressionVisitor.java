@@ -8,6 +8,7 @@ import com.cgpl.CGPLParser;
 import com.cgpl.AST.expressions.AndExpression;
 import com.cgpl.AST.expressions.Expression;
 import com.cgpl.AST.expressions.Identifier;
+import com.cgpl.AST.expressions.NotExpression;
 import com.cgpl.AST.expressions.Boolean;
 import com.cgpl.AST.expressions.OrExpression;
 
@@ -53,14 +54,23 @@ public class BooleanExpressionVisitor extends CGPLBaseVisitor<Expression> {
 
     @Override
     public Expression visitBoolvalue(CGPLParser.BoolvalueContext ctx) {
-        if (ctx.BOOLEAN() != null) {
-            return new Boolean(java.lang.Boolean.parseBoolean(ctx.BOOLEAN().getText()));
-        } else if (ctx.IDENTIFIER() != null) {
-            return new Identifier(ctx.IDENTIFIER().getText());
-        } else if (ctx.boolExpr() != null) {
-            return this.visit(ctx.boolExpr());
-        } else {
-            throw new IllegalArgumentException("Unexpected boolvalue");
-        }
+        Expression expression = null;
+
+    if (ctx.BOOLEAN() != null) {
+        expression = new Boolean(java.lang.Boolean.parseBoolean(ctx.BOOLEAN().getText()));
+    } else if (ctx.IDENTIFIER() != null) {
+        expression = new Identifier(ctx.IDENTIFIER().getText());
+    } else if (ctx.boolExpr() != null) {
+        expression = this.visit(ctx.boolExpr());
+    } else {
+        throw new IllegalArgumentException("Unexpected boolvalue");
+    }
+
+    // Check if the NOT token is present and wrap the expression in a NotExpression if it is
+    if (ctx.NOT() != null) {
+        expression = new NotExpression(expression);
+    }
+
+    return expression;
     }
 }

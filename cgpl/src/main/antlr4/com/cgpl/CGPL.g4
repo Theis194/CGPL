@@ -109,6 +109,7 @@ boolvalue
 	: LPAREN boolExpr RPAREN
 	| BOOLEAN
 	| IDENTIFIER
+	| NOT boolvalue
 	; 
 andExpr: boolvalue (AND boolvalue)*;
 orExpr: andExpr (OR andExpr)*;
