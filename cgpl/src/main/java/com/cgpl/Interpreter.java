@@ -47,8 +47,7 @@ public class Interpreter {
                 break;
             case "FunctionCall":
                 // Handle function calls without assignment/declaration
-                interpretFunctionCall((FunctionCall) instruction);
-                break;
+                return interpretFunctionCall((FunctionCall) instruction);
             case "Return":
                 // return statements are handled in the function interpretation
                 //interpretReturn((Return) instruction);
@@ -181,12 +180,12 @@ public class Interpreter {
         return returnValue;
     }
 
-    private void interpretFunctionCall(FunctionCall functionCall) {
+    private Expression interpretFunctionCall(FunctionCall functionCall) {
         // Get the function from the symbol table
         Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
 
         // Interpret the function
-        interpretFunction(function, functionCall.getArguments());
+        return interpretFunction(function, functionCall.getArguments());
     }
 
     private Expression interpretWhileLoop(WhileStatement whileLoop) {

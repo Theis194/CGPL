@@ -88,15 +88,15 @@ value
 	: NUMBER
 	| IDENTIFIER
 	| STRING
-	| boolExpr
-	| comparisonExpr 
-	| arthexp
 	| listfunction
 	| list
 	| deckfunction
 	| deck
 	| cardfunction
 	| card
+	| boolExpr
+	| comparisonExpr 
+	| arthexp
 	| functionCall
 	| stringConcat
 	| playerfunction
@@ -109,6 +109,10 @@ boolvalue
 	: LPAREN boolExpr RPAREN
 	| BOOLEAN
 	| IDENTIFIER
+	| functionCall
+	| cardfunction
+	| deckfunction
+	| listfunction
 	| NOT boolvalue
 	; 
 andExpr: boolvalue (AND boolvalue)*;
