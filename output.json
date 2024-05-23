@@ -1,6 +1,7 @@
 {
   "instructions": [
     {
+<<<<<<< HEAD
       "instructionType": "ForStatement",
       "identifier": null,
       "iterable": null,
@@ -34,14 +35,275 @@
       },
       "condition": {
         "operands": [
+=======
+      "instructionType": "VarDeclaration",
+      "identifier": "deck",
+      "type": null,
+      "value": {
+        "type": "deck",
+        "cards": [
+>>>>>>> 40ba6faaa8a6f20c5ee99ba7d6ded0219ab71d1c
           {
-            "identifier": "i",
-            "type": "identifier"
+            "type": "card",
+            "suit": "Hearts",
+            "value": "Ace"
           },
           {
-            "value": 3,
-            "type": "number"
+            "type": "card",
+            "suit": "Hearts",
+            "value": "2"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "3"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "4"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "5"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "6"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "7"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "8"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "9"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "10"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "Jack"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "Queen"
+          },
+          {
+            "type": "card",
+            "suit": "Hearts",
+            "value": "King"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "Ace"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "2"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "3"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "4"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "5"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "6"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "7"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "8"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "9"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "10"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "Jack"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "Queen"
+          },
+          {
+            "type": "card",
+            "suit": "Diamonds",
+            "value": "King"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "Ace"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "2"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "3"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "4"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "5"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "6"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "7"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "8"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "9"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "10"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "Jack"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "Queen"
+          },
+          {
+            "type": "card",
+            "suit": "Clubs",
+            "value": "King"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "Ace"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "2"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "3"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "4"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "5"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "6"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "7"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "8"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "9"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "10"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "Jack"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "Queen"
+          },
+          {
+            "type": "card",
+            "suit": "Spades",
+            "value": "King"
           }
+<<<<<<< HEAD
         ],
         "operator": "lt",
         "type": "comparison"
@@ -269,10 +531,14 @@
           }
         ],
         "type": "list"
+=======
+        ]
+>>>>>>> 40ba6faaa8a6f20c5ee99ba7d6ded0219ab71d1c
       },
       "isConst": false
     },
     {
+<<<<<<< HEAD
       "instructionType": "ForEachStatement",
       "identifier": "n",
       "iterable": {
@@ -283,29 +549,141 @@
       "varDeclaration": null,
       "condition": null,
       "body": [
+=======
+      "identifier": "deck",
+      "value": null,
+      "type": "shuffle"
+    },
+    {
+      "instructionType": "Function",
+      "identifier": "Select",
+      "arguments": [
+        {
+          "identifier": "ply",
+          "type": "identifier"
+        }
+      ],
+      "functionBody": [
+>>>>>>> 40ba6faaa8a6f20c5ee99ba7d6ded0219ab71d1c
         {
           "instructionType": "VarDeclaration",
-          "identifier": "k",
+          "identifier": "c1",
           "type": null,
           "value": {
-            "operands": [
-              {
-                "identifier": "n",
-                "type": "identifier"
-              },
-              {
-                "value": 3,
-                "type": "number"
-              }
-            ],
-            "operator": "*",
-            "type": "arithmetic"
+            "identifier": "deck",
+            "value": null,
+            "type": "draw"
           },
           "isConst": false
+        },
+        {
+          "instructionType": "VarDeclaration",
+          "identifier": "c2",
+          "type": null,
+          "value": {
+            "identifier": "deck",
+            "value": null,
+            "type": "draw"
+          },
+          "isConst": false
+        },
+        {
+          "instructionType": "IfStatment",
+          "condition": {
+            "operands": [
+              {
+                "operands": [
+                  {
+                    "identifier": "c1",
+                    "type": "value"
+                  },
+                  {
+                    "identifier": "c2",
+                    "type": "value"
+                  }
+                ],
+                "operator": "eq",
+                "type": "comparison"
+              },
+              {
+                "operands": [
+                  {
+                    "identifier": "c1",
+                    "type": "color"
+                  },
+                  {
+                    "identifier": "c2",
+                    "type": "color"
+                  }
+                ],
+                "operator": "eq",
+                "type": "comparison"
+              }
+            ],
+            "type": "and"
+          },
+          "thenBody": [
+            {
+              "identifier": "ply",
+              "value": {
+                "identifier": "c1",
+                "type": "identifier"
+              },
+              "type": "drawCard"
+            },
+            {
+              "identifier": "ply",
+              "value": {
+                "identifier": "c2",
+                "type": "identifier"
+              },
+              "type": "drawCard"
+            }
+          ],
+          "elseBody": [
+            {
+              "identifier": "deck",
+              "value": {
+                "identifier": "c1",
+                "type": "identifier"
+              },
+              "type": "addCard"
+            },
+            {
+              "identifier": "deck",
+              "value": {
+                "identifier": "c2",
+                "type": "identifier"
+              },
+              "type": "addCard"
+            },
+            {
+              "identifier": "deck",
+              "value": null,
+              "type": "shuffle"
+            }
+          ],
+          "thenScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          },
+          "elseScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          }
         }
       ],
       "scope": {
-        "variables": {},
+        "variables": {
+          "ply": {
+            "identifier": "ply",
+            "type": "identifier"
+          }
+        },
         "constants": {},
         "functions": {},
         "isProgramScope": false
@@ -313,56 +691,35 @@
     },
     {
       "instructionType": "VarDeclaration",
-      "identifier": "i",
+      "identifier": "p1",
       "type": null,
       "value": {
-        "value": 0,
-        "type": "number"
+        "type": "player",
+        "hand": [],
+        "score": 0
       },
       "isConst": false
     },
     {
-      "instructionType": "WhileStatement",
-      "condition": {
-        "operands": [
-          {
-            "identifier": "i",
-            "type": "identifier"
-          },
-          {
-            "value": 2,
-            "type": "number"
-          }
-        ],
-        "operator": "lt",
-        "type": "comparison"
+      "instructionType": "VarDeclaration",
+      "identifier": "p2",
+      "type": null,
+      "value": {
+        "type": "player",
+        "hand": [],
+        "score": 0
       },
-      "body": [
-        {
-          "instructionType": "Assignment",
-          "identifier": "i",
-          "value": {
-            "operands": [
-              {
-                "identifier": "i",
-                "type": "identifier"
-              },
-              {
-                "value": 1,
-                "type": "number"
-              }
-            ],
-            "operator": "+",
-            "type": "arithmetic"
-          }
-        }
-      ],
-      "scope": {
-        "variables": {},
-        "constants": {},
-        "functions": {},
-        "isProgramScope": false
-      }
+      "isConst": false
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "currentPlayer",
+      "type": null,
+      "value": {
+        "identifier": "p1",
+        "type": "identifier"
+      },
+      "isConst": false
     },
     {
       "instructionType": "WhileStatement",
@@ -372,21 +729,110 @@
       },
       "body": [
         {
-          "instructionType": "Assignment",
-          "identifier": "i",
-          "value": {
+          "instructionType": "IfStatment",
+          "condition": {
             "operands": [
               {
-                "identifier": "i",
-                "type": "identifier"
+                "identifier": "deck",
+                "value": null,
+                "type": "deckSize"
               },
               {
                 "value": 1,
                 "type": "number"
               }
             ],
-            "operator": "-",
-            "type": "arithmetic"
+            "operator": "lte",
+            "type": "comparison"
+          },
+          "thenBody": [
+            {
+              "instructionType": "Break"
+            }
+          ],
+          "elseBody": [],
+          "thenScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          },
+          "elseScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          }
+        },
+        {
+          "instructionType": "IfStatment",
+          "condition": {
+            "operands": [
+              {
+                "identifier": "currentPlayer",
+                "type": "identifier"
+              },
+              {
+                "identifier": "p1",
+                "type": "identifier"
+              }
+            ],
+            "operator": "eq",
+            "type": "comparison"
+          },
+          "thenBody": [
+            {
+              "instructionType": "FunctionCall",
+              "type": "FunctionCall",
+              "identifier": "Select",
+              "arguments": [
+                {
+                  "identifier": "p1",
+                  "type": "identifier"
+                }
+              ]
+            },
+            {
+              "instructionType": "Assignment",
+              "identifier": "currentPlayer",
+              "value": {
+                "identifier": "p2",
+                "type": "identifier"
+              }
+            }
+          ],
+          "elseBody": [
+            {
+              "instructionType": "FunctionCall",
+              "type": "FunctionCall",
+              "identifier": "Select",
+              "arguments": [
+                {
+                  "identifier": "p2",
+                  "type": "identifier"
+                }
+              ]
+            },
+            {
+              "instructionType": "Assignment",
+              "identifier": "currentPlayer",
+              "value": {
+                "identifier": "p1",
+                "type": "identifier"
+              }
+            }
+          ],
+          "thenScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          },
+          "elseScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
           }
         }
       ],
@@ -395,13 +841,257 @@
         "constants": {},
         "functions": {},
         "isProgramScope": false
+<<<<<<< HEAD
+=======
+      }
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "hs1",
+      "type": null,
+      "value": {
+        "identifier": "p1",
+        "value": null,
+        "type": "getHandSize"
+      },
+      "isConst": false
+    },
+    {
+      "instructionType": "VarDeclaration",
+      "identifier": "hs2",
+      "type": null,
+      "value": {
+        "identifier": "p2",
+        "value": null,
+        "type": "getHandSize"
+      },
+      "isConst": false
+    },
+    {
+      "instructionType": "IfStatment",
+      "condition": {
+        "operands": [
+          {
+            "identifier": "hs1",
+            "type": "identifier"
+          },
+          {
+            "identifier": "hs2",
+            "type": "identifier"
+          }
+        ],
+        "operator": "eq",
+        "type": "comparison"
+      },
+      "thenBody": [
+        {
+          "value": {
+            "value": "Tie",
+            "type": "string"
+          }
+        }
+      ],
+      "elseBody": [
+        {
+          "instructionType": "IfStatment",
+          "condition": {
+            "operands": [
+              {
+                "identifier": "hs1",
+                "type": "identifier"
+              },
+              {
+                "identifier": "hs2",
+                "type": "identifier"
+              }
+            ],
+            "operator": "gt",
+            "type": "comparison"
+          },
+          "thenBody": [
+            {
+              "value": {
+                "value": "Player 1 wins",
+                "type": "string"
+              }
+            }
+          ],
+          "elseBody": [
+            {
+              "value": {
+                "value": "Player 2 wins",
+                "type": "string"
+              }
+            }
+          ],
+          "thenScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          },
+          "elseScope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          }
+        }
+      ],
+      "thenScope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      },
+      "elseScope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+>>>>>>> 40ba6faaa8a6f20c5ee99ba7d6ded0219ab71d1c
       }
     }
   ],
   "scope": {
     "variables": {},
     "constants": {},
-    "functions": {},
+    "functions": {
+      "Select": {
+        "instructionType": "Function",
+        "identifier": "Select",
+        "arguments": [
+          {
+            "identifier": "ply",
+            "type": "identifier"
+          }
+        ],
+        "functionBody": [
+          {
+            "instructionType": "VarDeclaration",
+            "identifier": "c1",
+            "type": null,
+            "value": {
+              "identifier": "deck",
+              "value": null,
+              "type": "draw"
+            },
+            "isConst": false
+          },
+          {
+            "instructionType": "VarDeclaration",
+            "identifier": "c2",
+            "type": null,
+            "value": {
+              "identifier": "deck",
+              "value": null,
+              "type": "draw"
+            },
+            "isConst": false
+          },
+          {
+            "instructionType": "IfStatment",
+            "condition": {
+              "operands": [
+                {
+                  "operands": [
+                    {
+                      "identifier": "c1",
+                      "type": "value"
+                    },
+                    {
+                      "identifier": "c2",
+                      "type": "value"
+                    }
+                  ],
+                  "operator": "eq",
+                  "type": "comparison"
+                },
+                {
+                  "operands": [
+                    {
+                      "identifier": "c1",
+                      "type": "color"
+                    },
+                    {
+                      "identifier": "c2",
+                      "type": "color"
+                    }
+                  ],
+                  "operator": "eq",
+                  "type": "comparison"
+                }
+              ],
+              "type": "and"
+            },
+            "thenBody": [
+              {
+                "identifier": "ply",
+                "value": {
+                  "identifier": "c1",
+                  "type": "identifier"
+                },
+                "type": "drawCard"
+              },
+              {
+                "identifier": "ply",
+                "value": {
+                  "identifier": "c2",
+                  "type": "identifier"
+                },
+                "type": "drawCard"
+              }
+            ],
+            "elseBody": [
+              {
+                "identifier": "deck",
+                "value": {
+                  "identifier": "c1",
+                  "type": "identifier"
+                },
+                "type": "addCard"
+              },
+              {
+                "identifier": "deck",
+                "value": {
+                  "identifier": "c2",
+                  "type": "identifier"
+                },
+                "type": "addCard"
+              },
+              {
+                "identifier": "deck",
+                "value": null,
+                "type": "shuffle"
+              }
+            ],
+            "thenScope": {
+              "variables": {},
+              "constants": {},
+              "functions": {},
+              "isProgramScope": false
+            },
+            "elseScope": {
+              "variables": {},
+              "constants": {},
+              "functions": {},
+              "isProgramScope": false
+            }
+          }
+        ],
+        "scope": {
+          "variables": {
+            "ply": {
+              "identifier": "ply",
+              "type": "identifier"
+            }
+          },
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
+        }
+      }
+    },
     "isProgramScope": true
   }
 }

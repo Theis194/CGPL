@@ -57,6 +57,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitReturnstmt(CGPLParser.ReturnstmtContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#breakstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterBreakstmt(CGPLParser.BreakstmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#breakstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitBreakstmt(CGPLParser.BreakstmtContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#printstmt}.
 	 * @param ctx the parse tree
 	 */
@@ -86,6 +96,26 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfstmt(CGPLParser.IfstmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#thenBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterThenBlock(CGPLParser.ThenBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#thenBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitThenBlock(CGPLParser.ThenBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#elseBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterElseBlock(CGPLParser.ElseBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#elseBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitElseBlock(CGPLParser.ElseBlockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#forstmt}.
 	 * @param ctx the parse tree

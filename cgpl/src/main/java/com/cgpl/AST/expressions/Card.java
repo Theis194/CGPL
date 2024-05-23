@@ -30,7 +30,7 @@ public class Card implements Expression {
 
     @Override
     public String getValue() {
-        return value;
+        return convertValue() + "";
     }
 
     @Override
@@ -46,5 +46,20 @@ public class Card implements Expression {
     @Override
     public Expression evaluate(SymbolTable symbolTable) {
         return this;
+    }
+
+    private int convertValue() {
+        switch (value) {
+            case "Ace":
+                return 1;
+            case "Jack":
+                return 11;
+            case "Queen":
+                return 12;
+            case "King":
+                return 13;
+            default:
+                return Integer.parseInt(value);
+        }
     }
 }

@@ -41,6 +41,12 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitReturnstmt(CGPLParser.ReturnstmtContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#breakstmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBreakstmt(CGPLParser.BreakstmtContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#printstmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -58,6 +64,18 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIfstmt(CGPLParser.IfstmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#thenBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitThenBlock(CGPLParser.ThenBlockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#elseBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElseBlock(CGPLParser.ElseBlockContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CGPLParser#forstmt}.
 	 * @param ctx the parse tree

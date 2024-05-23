@@ -1,37 +1,40 @@
 var deck = Deck;
-deck.shuffle();
-
-function Select(ply) {
-    var c1 = deck.draw();
-    var c2 = deck.draw();
-
-    if c1.value() == c2.value() and c1.color() == c2.color() {
-        ply.drawCard(c1);
-        ply.drawCard(c2);
-    }
-    else {
-        deck.addCard(c1);
-        deck.addCard(c2);
-        deck.shuffle();
-    }
-}
-
 var p1 = Player;
 var p2 = Player;
 var currentPlayer = p1;
 
+function Select(ply) {
+    deck.shuffle();
+
+    var c1 = deck.draw();
+    var c2 = deck.draw();
+
+    if (c1.value() == c2.value()) and (c1.color() == c2.color()) {
+        ply.drawCard(c1);
+        ply.drawCard(c2);
+        return true;
+    }
+    else {
+        deck.addCard(c1);
+        deck.addCard(c2);
+        return false;
+    }
+}
+
 while (true) {
-    if deck.size() <= 1 {
+    if deck.deckSize() <= 1 {
         break;
     }
 
     if currentPlayer == p1 {
-        Select(p1);
-        currentPlayer = p2;
+        if not Select(p1) {
+            currentPlayer = p2;
+        }
     }
     else {
-        Select(p2);
-        currentPlayer = p1;
+        if not Select(p2) {
+            currentPlayer = p1;
+        }
     }
 }
 
