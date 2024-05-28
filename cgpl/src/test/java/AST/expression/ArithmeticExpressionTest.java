@@ -104,7 +104,7 @@ public class ArithmeticExpressionTest {
         Assertions.assertEquals(((Number)modulusArithmeticExpression.evaluate(null)).getValue().intValue(), left % right);
     }
 
-    // UNIT TEST
+    // UNIT
     @Test
     public void TestArithmeticExpressionNull()
     {
@@ -121,7 +121,7 @@ public class ArithmeticExpressionTest {
         }
     }
 
-    // UNIT TEST
+    // UNIT
     @Test
     public void TestArithmeticExpressionNaN()
     {

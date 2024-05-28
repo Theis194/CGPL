@@ -14,6 +14,7 @@ public class VarDeclaration implements Instruction {
         this.value = value;
         this.isConst = isConst;
         this.instructionType = "VarDeclaration";
+        this.type = "VarDeclaration";
     }
 
     public String getIdentifier() {
