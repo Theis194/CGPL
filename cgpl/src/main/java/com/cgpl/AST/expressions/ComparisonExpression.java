@@ -17,7 +17,11 @@ public class ComparisonExpression implements Expression {
     }
 
     public List<Expression> getOperands() {
-        return operands;
+        return this.operands;
+    }
+
+    public String getOperator() {
+        return this.operator;
     }
 
     @Override

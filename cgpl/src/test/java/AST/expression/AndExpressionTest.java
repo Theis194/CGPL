@@ -5,10 +5,10 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.cgpl.SymbolTable;
 import com.cgpl.AST.expressions.AndExpression;
 import com.cgpl.AST.expressions.Boolean;
 import com.cgpl.AST.expressions.Expression;
+import com.cgpl.AST.expressions.Number;
 
 public class AndExpressionTest {
     // UNIT
@@ -57,10 +57,38 @@ public class AndExpressionTest {
 
     // UNIT
     @Test
+    public void TestAndExpressionNull()
+    {
+        List<Expression> expressions = new java.util.ArrayList<>(){{
+            add(null);
+            add(null);
+        }};
+
+        AndExpression andExpression = new AndExpression(expressions);
+
+        Assertions.assertThrows(NullPointerException.class, () -> andExpression.evaluate(null));
+    }
+
+    // UNIT
+    @Test
+    public void TestAndExpressionNonBooleanFail()
+    {
+        List<Expression> expressions = new java.util.ArrayList<>(){{
+            add(new Number(1));
+            add(new Number(2));
+        }};
+
+        AndExpression andExpression = new AndExpression(expressions);
+
+        Assertions.assertThrows(RuntimeException.class, () -> andExpression.evaluate(null));
+    }
+
+    // UNIT
+    @Test
     public void TestAndExpressionEvaluate()
     {
         boolean left = true;
-        boolean right = true;
+        boolean right = false;
 
         Boolean booleanLeft = new Boolean(left);
         Boolean booleanRight = new Boolean(right);

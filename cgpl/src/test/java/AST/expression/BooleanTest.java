@@ -46,7 +46,7 @@ public class BooleanTest {
         Boolean boolTrue = new Boolean(bTrue);
         Boolean boolFalse = new Boolean(bFalse);
 
-        Assertions.assertEquals(boolTrue.getValue(), "true");
-        Assertions.assertEquals(boolFalse.getValue(), "false");
+        Assertions.assertEquals(boolTrue.getValue(), true);
+        Assertions.assertEquals(boolFalse.getValue(), false);
     }
 }

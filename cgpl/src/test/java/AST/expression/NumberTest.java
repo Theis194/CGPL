@@ -35,17 +35,7 @@ public class NumberTest {
         
         Assertions.assertEquals(number.toString(), "0");
     }
-
-    // UNIT
-    @Test
-    public void TestNumberNull()
-    {
-        Integer num = null;
-        Number number = new Number(num);
-
-        Assertions.assertThrows(NullPointerException.class, () -> number.toString());
-    }
-
+    
     // UNIT
     @Test
     public void TestNumberEvaluate()

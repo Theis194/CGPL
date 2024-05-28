@@ -37,7 +37,7 @@ public class OrExpression implements Expression {
         Expression left = operands.get(0).evaluate(symbolTable);
         Expression right = operands.get(1).evaluate(symbolTable);
 
-        if (left.getType().equals("boolean") && right.getType().equals("boolean")) {
+        if (left.getType().equals("Boolean") && right.getType().equals("Boolean")) {
             boolean leftValue = ((Boolean) left).getValue();
             boolean rightValue = ((Boolean) right).getValue();
             return new Boolean(leftValue || rightValue);

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.cgpl.SymbolTable;
+import com.cgpl.AST.Scope;
 import com.cgpl.AST.expressions.Identifier;
 
 public class IdentifierTest {
@@ -48,14 +49,17 @@ public class IdentifierTest {
         Assertions.assertEquals(identifier.toString(), identifier.getIdentifier());
     }
 
-    // UNIT
+    // INTEGRATION
     @Test
     public void TestIdentifierEvaluate()
     {
         SymbolTable symbolTable = new SymbolTable();
+        symbolTable.pushScope(new Scope(true));
 
         String id = "x";
         Identifier identifier = new Identifier(id);
+
+        symbolTable.addSymbol(id, identifier, false);
 
         Assertions.assertEquals(identifier.evaluate(symbolTable), identifier);
     }

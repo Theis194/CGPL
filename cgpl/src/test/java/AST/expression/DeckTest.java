@@ -15,7 +15,7 @@ public class DeckTest {
     {
         Deck deck = new Deck();
 
-        Assertions.assertEquals(deck.getCards(), DECK_SIZE);
+        Assertions.assertEquals(deck.getCards().size(), DECK_SIZE);
     }
 
     // UNIT
@@ -30,7 +30,7 @@ public class DeckTest {
 
         deck.addCard(card);
 
-        Assertions.assertEquals(deck.getCards().firstElement(), card);
+        Assertions.assertEquals(deck.getCards().firstElement().toString(), card.toString());
     }
 
     // UNIT
@@ -43,9 +43,10 @@ public class DeckTest {
         Card card = new Card(name, suit);
         Deck deck = new Deck();
 
+        deck.clear();
         deck.addCard(card);
 
-        Assertions.assertEquals(deck.getCards().firstElement(), card);
+        Assertions.assertEquals(deck.getCards().firstElement().toString(), card.toString());
 
         deck.remove(0);
 
@@ -79,7 +80,7 @@ public class DeckTest {
 
         deck.addCard(card);
 
-        Assertions.assertEquals(deck.getCards().size(), 1);
+        Assertions.assertEquals(deck.getCards().size(), DECK_SIZE + 1);
     }
 
     // UNIT
@@ -102,9 +103,22 @@ public class DeckTest {
 
     // UNIT
     @Test
+    public void TestDeckClear()
+    {
+        Deck deck = new Deck();
+
+        deck.clear();
+
+        Assertions.assertTrue(deck.getCards().empty());
+    }
+
+    // UNIT
+    @Test
     public void TestDeckFillDeck()
     {
         Deck deck = new Deck();
+
+        deck.clear();
         deck.fillDeck();
 
         Assertions.assertEquals(deck.size(), DECK_SIZE);

@@ -5,10 +5,10 @@ import com.cgpl.SymbolTable;
 public class Card implements Expression {
     private String type = "card";
     private String suit;
-    private String value;
+    private String rank;
 
-    public Card(String value, String suit) {
-        this.value = value;
+    public Card(String rank, String suit) {
+        this.rank = rank;
         this.suit = suit;
     }
 
@@ -24,8 +24,12 @@ public class Card implements Expression {
         }
     }
 
+    public String getRank() {
+        return this.rank;
+    }
+
     public String getName() {
-        return value + " of " + suit;
+        return this.rank + " of " + this.suit;
     }
 
     @Override
@@ -40,7 +44,7 @@ public class Card implements Expression {
 
     @Override
     public String toString() {
-        return value + " of " + suit;
+        return rank + " of " + suit;
     }
 
     @Override
@@ -48,8 +52,8 @@ public class Card implements Expression {
         return this;
     }
 
-    private int convertValue() {
-        switch (value) {
+    public int convertValue() {
+        switch (rank) {
             case "Ace":
                 return 1;
             case "Jack":
@@ -59,7 +63,7 @@ public class Card implements Expression {
             case "King":
                 return 13;
             default:
-                return Integer.parseInt(value);
+                return Integer.parseInt(rank);
         }
     }
 }

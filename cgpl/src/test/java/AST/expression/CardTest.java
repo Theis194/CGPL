@@ -9,12 +9,12 @@ public class CardTest {
     @Test
     public void TestCardConstructor()
     {
-        String name = "Ace";
+        String rank = "Ace";
         String suit = "Hearts";
 
         Card card = new Card("Ace", "Hearts");
 
-        Assertions.assertEquals(card.getName(), name);
+        Assertions.assertEquals(card.getRank(), rank);
         Assertions.assertEquals(card.getSuit(), suit);
     }
 
@@ -22,7 +22,7 @@ public class CardTest {
     @Test
     public void TestCardColor()
     {
-        String name = "Ace";
+        String rank = "Ace";
         String hearts = "Hearts";
         String diamonds = "Diamonds";
         String clubs = "Clubs";
@@ -31,10 +31,10 @@ public class CardTest {
         String red = "Red";
         String black = "Black";
 
-        Card cardHearts = new Card(name, hearts);
-        Card cardDiamonds = new Card(name, diamonds);
-        Card cardClubs = new Card(name, clubs);
-        Card cardSpades = new Card(name, spades);
+        Card cardHearts = new Card(rank, hearts);
+        Card cardDiamonds = new Card(rank, diamonds);
+        Card cardClubs = new Card(rank, clubs);
+        Card cardSpades = new Card(rank, spades);
 
         Assertions.assertEquals(cardHearts.getColor(), red);
         Assertions.assertEquals(cardDiamonds.getColor(), red);
@@ -58,34 +58,34 @@ public class CardTest {
     @Test
     public void TestCardType()
     {
-        String name = "Ace";
+        String rank = "Ace";
         String suit = "Hearts";
 
-        Card card = new Card(name, suit);
+        Card card = new Card(rank, suit);
 
         Assertions.assertEquals(card.getType(), "card");
     }
 
     // UNIT
     @Test
-    public void TestCardName()
+    public void TestCardRank()
     {
-        String name = "Ace";
+        String rank = "Ace";
         String suit = "Hearts";
 
-        Card card = new Card(name, suit);
+        Card card = new Card(rank, suit);
 
-        Assertions.assertEquals(card.getName(), name + " of " + suit);
+        Assertions.assertEquals(card.getName(), rank + " of " + suit);
     }
 
     // UNIT
     @Test
     public void TestCardEvaluate()
     {
-        String name = "Ace";
+        String rank = "Ace";
         String suit = "Hearts";
 
-        Card card = new Card(name, suit);
+        Card card = new Card(rank, suit);
 
         Assertions.assertEquals(card.evaluate(null), card);
     }

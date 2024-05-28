@@ -33,6 +33,10 @@ public class Deck implements Expression {
         return this.cards.size();
     }
 
+    public void clear() {
+        this.cards.clear();
+    }
+
     public void shuffle() {
         // Fisher-Yates shuffle
         for (int i = this.cards.size() - 1; i > 0; i--) {
