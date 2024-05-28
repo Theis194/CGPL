@@ -13,6 +13,7 @@ import java.util.List;
 
 public class CaseStatementTest {
 
+    // UNIT
     @Test
     public void testGetCaseValue() {
         // Create a test case value
@@ -25,6 +26,7 @@ public class CaseStatementTest {
         assertEquals(caseValue, caseStatement.getCaseValue());
     }
 
+    // UNIT
     @Test
     public void testGetInstruction() {
         // Create a test instruction list
@@ -38,6 +40,7 @@ public class CaseStatementTest {
         assertEquals(instructionList, caseStatement.getInstruction());
     }
 
+    // UNIT
     @Test
     public void testGetScope() {
         // Create a CaseStatement instance

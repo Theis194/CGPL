@@ -16,6 +16,7 @@ import org.antlr.v4.runtime.Token;
 
 public class LexerTest {
 
+    // UNIT
     @Test
     public void testEmptyInput() {
         CharStream input = CharStreams.fromString("");
@@ -24,6 +25,7 @@ public class LexerTest {
         assertEquals(Token.EOF, token.getType());
     }
 
+    // UNIT
     @Test
     public void testSingleToken() {
         CharStream input = CharStreams.fromString("123");
@@ -34,6 +36,7 @@ public class LexerTest {
         assertEquals(Token.EOF, lexer.nextToken().getType());
     }
 
+    // UNIT
     @Test
     public void testMultipleTokens() {
         CharStream input = CharStreams.fromString("1 + 2 * 3");
@@ -56,6 +59,7 @@ public class LexerTest {
         assertEquals(Token.EOF, lexer.nextToken().getType());
     }
 
+    // UNIT
     @Test
     public void testKeywordsAndIdentifiers() {
         CharStream input = CharStreams.fromString("function myFunction return");
@@ -72,6 +76,7 @@ public class LexerTest {
         assertEquals(Token.EOF, lexer.nextToken().getType());
     }
 
+    // UNIT
     @Test
     public void testOperators() {
         CharStream input = CharStreams.fromString("== < >= ++ --");
@@ -94,6 +99,7 @@ public class LexerTest {
         assertEquals(Token.EOF, lexer.nextToken().getType());
     }
 
+    // UNIT
     @Test
     public void testStringLiterals() {
         CharStream input = CharStreams.fromString("\"Hello, World!\"");
@@ -104,6 +110,7 @@ public class LexerTest {
         assertEquals(Token.EOF, lexer.nextToken().getType());
     }
 
+    // UNIT
     @Test
     public void testBooleanLiterals() {
         CharStream input = CharStreams.fromString("true false");
@@ -117,6 +124,7 @@ public class LexerTest {
         assertEquals(Token.EOF, lexer.nextToken().getType());
     }
 
+    // INTEGRATION
     @Test
     public void testCgplFile() throws Exception {
         String filePath = "src/test/cgpl/function.cgpl";

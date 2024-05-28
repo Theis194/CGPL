@@ -9,6 +9,7 @@ import com.cgpl.AST.expressions.Expression;
 
 public class FunctionTest {
 
+    // UNIT
     @Test
     public void testGetIdentifier() {
         String identifier = "myFunction";
@@ -21,6 +22,7 @@ public class FunctionTest {
         Assertions.assertEquals(identifier, function.getIdentifier());
     }
 
+    // UNIT
     @Test
     public void testGetArguments() {
         String identifier = "myFunction";
@@ -35,6 +37,7 @@ public class FunctionTest {
         Assertions.assertEquals(arguments, function.getArguments());
     }
 
+    // UNIT
     @Test
     public void testGetFunctionBody() {
         String identifier = "myFunction";
@@ -49,6 +52,7 @@ public class FunctionTest {
         Assertions.assertEquals(functionBody, function.getFunctionBody());
     }
 
+    // UNIT
     @Test
     public void testGetScope() {
         String identifier = "myFunction";
@@ -61,6 +65,7 @@ public class FunctionTest {
         Assertions.assertEquals(scope, function.getScope());
     }
 
+    // UNIT
     @Test
     public void testGetInstructionType() {
         String identifier = "myFunction";

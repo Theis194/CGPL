@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // This is a test class for Assignment
 public class AssignmentTest {
-
+    // UNIT
     // Test case for getIdentifier method
     @Test
     public void testGetIdentifier() {
@@ -21,6 +21,7 @@ public class AssignmentTest {
         assertEquals("x", assignment.getIdentifier());
     }
 
+    // UNIT
     // Test case for getValue method
     @Test
     public void testGetValue() {
@@ -32,6 +33,7 @@ public class AssignmentTest {
         assertEquals(value, assignment.getValue());
     }
 
+    // UNIT
     // Test case for getInstructionType method
     @Test
     public void testGetInstructionType() {

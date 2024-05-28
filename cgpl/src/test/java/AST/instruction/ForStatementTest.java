@@ -14,6 +14,7 @@ import com.cgpl.AST.instructions.VarDeclaration;
 
 public class ForStatementTest {
 
+    // UNIT
     // Test case for the first constructor and getters
     @Test
     public void testForEachStatement() {
@@ -31,6 +32,7 @@ public class ForStatementTest {
         assertEquals(scope, forStatement.getScope());
     }
 
+    // UNIT
     // Test case for the second constructor and getters
     @Test
     public void testForStatement() {

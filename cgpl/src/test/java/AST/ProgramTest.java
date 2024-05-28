@@ -8,12 +8,14 @@ import com.cgpl.AST.instructions.VarDeclaration;
 import com.cgpl.AST.expressions.Number;
 
 public class ProgramTest {
+    // UNIT
     @Test
     public void testEmptyProgram() {
         Program program = new Program();
         assertEquals(0, program.getInstructions().size());
     }
 
+    // UNIT
     @Test
     public void testAddInstruction() {
         Program program = new Program();
@@ -21,12 +23,14 @@ public class ProgramTest {
         assertEquals(1, program.getInstructions().size());
     }
 
+    // UNIT
     @Test
     public void testGetScope() {
         Program program = new Program();
         assertNotNull(program.getScope());
     }
 
+    // UNIT
     @Test
     public void testGetInstructions() {
         Program program = new Program();

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScopeTest {
+    // INTEGRATION
     @Test
     public void testAddVariable() {
         Scope scope = new Scope(true);
@@ -30,6 +31,7 @@ public class ScopeTest {
         assertTrue(scope.isVariable("y"));
     }
 
+    // INTEGRATION
     @Test
     public void testAddVariableFail() {
         Scope scope = new Scope(true);
@@ -57,6 +59,7 @@ public class ScopeTest {
         assertFalse(scope.isVariable("g"));
     }
 
+    // UNIT
     @Test
     public void testAddDuplicateVariable1() {
         Scope scope = new Scope(true);
@@ -64,6 +67,7 @@ public class ScopeTest {
         assertThrows(RuntimeException.class, () -> scope.addVariable("x", new Number(2)));
     }
 
+    // UNIT
     @Test
     public void testAddDuplicateVariable2() {
         Scope scope = new Scope(true);
@@ -73,6 +77,7 @@ public class ScopeTest {
         assertThrows(RuntimeException.class, () -> scope.addVariable(lst));
     }
 
+    // UNIT
     @Test
     public void testAddDuplicateVariable3() {
         Scope scope = new Scope(true);
@@ -82,6 +87,7 @@ public class ScopeTest {
         assertThrows(RuntimeException.class, () -> scope.addVariable("x", new Number(2)));
     }
 
+    // UNIT
     @Test
     public void testAddConstant() {
         Scope scope = new Scope(true);
@@ -89,6 +95,7 @@ public class ScopeTest {
         assertTrue(scope.isConstant("NINE"));
     }
 
+    // INTEGRATION
     @Test
     public void testAddConstantFail() {
         Scope scope = new Scope(true);
@@ -117,6 +124,7 @@ public class ScopeTest {
         assertFalse(scope.isConstant("g"));
     }
 
+    // INTEGRATION
     @Test
     public void testAddFunction() {
         Scope scope = new Scope(true);
@@ -134,6 +142,7 @@ public class ScopeTest {
         assertTrue(scope.isFunction("f"));
     }
 
+    // UNIT
     @Test
     public void testUpdateVariable() {
         Scope scope = new Scope(true);
@@ -142,6 +151,7 @@ public class ScopeTest {
         assertEquals(new Number(2).getValue(), scope.getVariableValue("x").getValue());
     }
 
+    // UNIT
     @Test
     public void testUpdateVariableFail() {
         Scope scope = new Scope(true);
