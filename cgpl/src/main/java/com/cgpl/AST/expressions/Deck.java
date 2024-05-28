@@ -13,6 +13,11 @@ public class Deck implements Expression {
         fillDeck();
     }
 
+    public Stack<Card> getCards()
+    {
+        return this.cards;
+    }
+
     public void addCard(Card card) {
         this.cards.push(card);
     }

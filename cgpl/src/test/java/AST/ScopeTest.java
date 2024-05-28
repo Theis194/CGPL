@@ -17,6 +17,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScopeTest {
+    // UNIT
+    @Test
+    public void testAddDuplicateVariable1() {
+        Scope scope = new Scope(true);
+        scope.addVariable("x", new Number(1));
+        assertThrows(RuntimeException.class, () -> scope.addVariable("x", new Number(2)));
+    }
+
+    // UNIT
+    @Test
+    public void testAddDuplicateVariable2() {
+        Scope scope = new Scope(true);
+        List<Instruction> lst = new ArrayList<>();
+        lst.add(new VarDeclaration("x", new Number(1), false));
+        scope.addVariable(lst);
+        assertThrows(RuntimeException.class, () -> scope.addVariable(lst));
+    }
+
+    // UNIT
+    @Test
+    public void testAddDuplicateVariable3() {
+        Scope scope = new Scope(true);
+        List<Instruction> lst = new ArrayList<>();
+        lst.add(new VarDeclaration("x", new Number(1), false));
+        scope.addVariable(lst);
+        assertThrows(RuntimeException.class, () -> scope.addVariable("x", new Number(2)));
+    }
+
+    // UNIT
+    @Test
+    public void testAddConstant() {
+        Scope scope = new Scope(true);
+        scope.addConstant("NINE", new Number(9));
+        assertTrue(scope.isConstant("NINE"));
+    }
+
+    // UNIT
+    @Test
+    public void testUpdateVariable() {
+        Scope scope = new Scope(true);
+        scope.addVariable("x", new Number(1));
+        scope.updateVariable("x", new Number(2));
+        assertEquals(new Number(2).getValue(), scope.getVariableValue("x").getValue());
+    }
+
+    // UNIT
+    @Test
+    public void testUpdateVariableFail() {
+        Scope scope = new Scope(true);
+        scope.addConstant("x", new Number(1));
+        assertThrows(RuntimeException.class, () -> scope.updateVariable("x", new Number(2))); // Cannot modify constant
+        assertThrows(RuntimeException.class, () -> scope.updateVariable("y", new Number(2))); // Undefined variable
+    }
+
     // INTEGRATION
     @Test
     public void testAddVariable() {
@@ -59,40 +113,22 @@ public class ScopeTest {
         assertFalse(scope.isVariable("g"));
     }
 
-    // UNIT
+    // INTEGRATION
     @Test
-    public void testAddDuplicateVariable1() {
+    public void testAddFunction() {
         Scope scope = new Scope(true);
-        scope.addVariable("x", new Number(1));
-        assertThrows(RuntimeException.class, () -> scope.addVariable("x", new Number(2)));
-    }
 
-    // UNIT
-    @Test
-    public void testAddDuplicateVariable2() {
-        Scope scope = new Scope(true);
-        List<Instruction> lst = new ArrayList<>();
-        lst.add(new VarDeclaration("x", new Number(1), false));
-        scope.addVariable(lst);
-        assertThrows(RuntimeException.class, () -> scope.addVariable(lst));
-    }
+        // Create a function named f
+        List<Expression> argumentsF = new ArrayList<>();
+        argumentsF.add(new Identifier("x"));
 
-    // UNIT
-    @Test
-    public void testAddDuplicateVariable3() {
-        Scope scope = new Scope(true);
-        List<Instruction> lst = new ArrayList<>();
-        lst.add(new VarDeclaration("x", new Number(1), false));
-        scope.addVariable(lst);
-        assertThrows(RuntimeException.class, () -> scope.addVariable("x", new Number(2)));
-    }
+        List<Instruction> functionBodyF = new ArrayList<>();
+        functionBodyF.add(new VarDeclaration("y", new Number(10), false));
 
-    // UNIT
-    @Test
-    public void testAddConstant() {
-        Scope scope = new Scope(true);
-        scope.addConstant("NINE", new Number(9));
-        assertTrue(scope.isConstant("NINE"));
+        Function functionF = new Function("f", argumentsF, functionBodyF, new Scope(false));
+
+        scope.addFunction("f", functionF);
+        assertTrue(scope.isFunction("f"));
     }
 
     // INTEGRATION
@@ -123,41 +159,4 @@ public class ScopeTest {
         assertFalse(scope.isConstant("f"));
         assertFalse(scope.isConstant("g"));
     }
-
-    // INTEGRATION
-    @Test
-    public void testAddFunction() {
-        Scope scope = new Scope(true);
-
-        // Create a function named f
-        List<Expression> argumentsF = new ArrayList<>();
-        argumentsF.add(new Identifier("x"));
-
-        List<Instruction> functionBodyF = new ArrayList<>();
-        functionBodyF.add(new VarDeclaration("y", new Number(10), false));
-
-        Function functionF = new Function("f", argumentsF, functionBodyF, new Scope(false));
-
-        scope.addFunction("f", functionF);
-        assertTrue(scope.isFunction("f"));
-    }
-
-    // UNIT
-    @Test
-    public void testUpdateVariable() {
-        Scope scope = new Scope(true);
-        scope.addVariable("x", new Number(1));
-        scope.updateVariable("x", new Number(2));
-        assertEquals(new Number(2).getValue(), scope.getVariableValue("x").getValue());
-    }
-
-    // UNIT
-    @Test
-    public void testUpdateVariableFail() {
-        Scope scope = new Scope(true);
-        scope.addConstant("x", new Number(1));
-        assertThrows(RuntimeException.class, () -> scope.updateVariable("x", new Number(2))); // Cannot modify constant
-        assertThrows(RuntimeException.class, () -> scope.updateVariable("y", new Number(2))); // Undefined variable
-    }
-
 }
