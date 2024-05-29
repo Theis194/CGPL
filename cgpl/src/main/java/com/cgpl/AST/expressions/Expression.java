@@ -1,7 +1,13 @@
 package com.cgpl.AST.expressions;
 
-public interface Expression {
+import com.cgpl.SymbolTable;
+
+public interface Expression<T> {
     String getType();
 
     String toString();
+
+    T getValue();
+
+    Expression evaluate(SymbolTable symbolTable);
 }

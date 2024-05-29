@@ -1,0 +1,21 @@
+function switchTest(switchValue) {
+    switch (switchValue) {
+        case "a":
+            return "A";
+            break;
+        case 1:
+            return 2;
+            break;
+        case true:
+            return false;
+            break;
+        default:
+            return "default";
+            break;
+    }
+}
+
+var stringTest = switchTest("a");
+var numberTest = switchTest(1);
+var boolTest = switchTest(true);
+var defaultTest = switchTest(4);

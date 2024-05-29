@@ -41,6 +41,18 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitReturnstmt(CGPLParser.ReturnstmtContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#breakstmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBreakstmt(CGPLParser.BreakstmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#printstmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintstmt(CGPLParser.PrintstmtContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#functionBody}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -52,6 +64,18 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIfstmt(CGPLParser.IfstmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#thenBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitThenBlock(CGPLParser.ThenBlockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#elseBlock}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElseBlock(CGPLParser.ElseBlockContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CGPLParser#forstmt}.
 	 * @param ctx the parse tree
@@ -197,11 +221,47 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCard(CGPLParser.CardContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#cardfunction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCardfunction(CGPLParser.CardfunctionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#cardfunctionname}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCardfunctionname(CGPLParser.CardfunctionnameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#suit}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSuit(CGPLParser.SuitContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#cardvalue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCardvalue(CGPLParser.CardvalueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#player}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlayer(CGPLParser.PlayerContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#playerfunction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlayerfunction(CGPLParser.PlayerfunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CGPLParser#playerfunctionname}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlayerfunctionname(CGPLParser.PlayerfunctionnameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CGPLParser#switchstmt}.
 	 * @param ctx the parse tree

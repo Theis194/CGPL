@@ -1,15 +1,18 @@
 package com.cgpl.AST.expressions;
 
-public class Boolean implements Expression{
+import com.cgpl.SymbolTable;
+
+public class Boolean implements Expression<java.lang.Boolean>{
     public boolean value;
-    public String type = "boolean";
+    public String type = "Boolean";
 
     public Boolean(boolean value) {
         this.value = value;
     }
 
-    public boolean getValue() {
-        return value;
+    @Override
+    public java.lang.Boolean getValue() {
+        return java.lang.Boolean.valueOf(value);
     }
 
     @Override
@@ -20,5 +23,10 @@ public class Boolean implements Expression{
     @Override
     public String toString() {
         return this.value + "";
+    }
+
+    @Override
+    public Expression evaluate(SymbolTable symbolTable) {
+        return this;
     }
 }

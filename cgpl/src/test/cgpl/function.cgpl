@@ -1,4 +1,6 @@
 function test(var1) {
-    var1 = 10;
+    var1 = var1 + 10;
     return var1;
 }
+
+var test = test(5);

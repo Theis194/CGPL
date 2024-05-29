@@ -1,0 +1,13 @@
+var deck = Deck;
+
+var card = 2 of hearts;
+
+deck.shuffle();
+deck.draw();
+deck.addCard(card);
+deck.removeCard(0);
+
+var cardValue = card.value();
+var cardSuit = card.suit();
+var cardColor = card.color();
+var cardName = card.name();

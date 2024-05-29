@@ -13,38 +13,43 @@ import com.cgpl.AST.instructions.Instruction;
 
 public class IfStatementVisitor extends CGPLBaseVisitor<Instruction> {
     public Instruction visitIfstmt(CGPLParser.IfstmtContext ctx, Scope scope) {
-        ExpressionVisitor expressionVisitor = new ExpressionVisitor();
-        Expression condition = expressionVisitor.visitValue(ctx.value());
-
-        // Get the list of instructions
-        List<InstructionContext> instructions = ctx.instruction();
-
-        // Determine the number of instructions in the "then" block
-        int thenBlockInstructionCount = ctx.LCURLY(0).getSymbol().getTokenIndex() - ctx.IF().getSymbol().getTokenIndex() - 1;
+        BooleanExpressionVisitor expressionVisitor = new BooleanExpressionVisitor();
+        Expression condition = expressionVisitor.visitBoolExpr(ctx.boolExpr());
 
         List<Instruction> thenBlock = new ArrayList<>();
         List<Instruction> elseBlock = new ArrayList<>();
-        // Iterate over the instructions
-        for (int i = 0; i < instructions.size(); i++) {
-            // If the index is less than the number of instructions in the "then" block
-            if (i < thenBlockInstructionCount) {
-                // The instruction is part of the "then" block
-                thenBlock.add(new InstructionVisitor().visitInstruction(instructions.get(i), scope));
-            } else if (i == thenBlockInstructionCount && ctx.ELSE() != null) {
-                // The instruction is part of the "else" block
-                elseBlock.add(new InstructionVisitor().visitInstruction(instructions.get(i), scope));
+        Instruction elseIfInstruction = null;
+
+        // Visit the then block
+        for (InstructionContext instruction : ctx.thenBlock().instruction()) {
+            thenBlock.add(new InstructionVisitor().visitInstruction(instruction, scope));
+        }
+
+        // Check if there is an else block
+        if (ctx.ELSE() != null) {
+            // Check if the else block is another if statement
+            if (ctx.ifstmt() != null) {
+                elseIfInstruction = visitIfstmt(ctx.ifstmt(), scope);
+            } else {
+                // Visit the else block
+                for (InstructionContext instruction : ctx.elseBlock().instruction()) {
+                    elseBlock.add(new InstructionVisitor().visitInstruction(instruction, scope));
+                }
             }
         }
-        Scope thenScope = new Scope();
-        if (thenBlock.size() != 0) {
-            thenScope.addVariable(thenBlock);
+
+        Scope thenScope = new Scope(false);
+        Scope elseScope = new Scope(false);
+
+        // Create the IfStatment with the condition, then block, and else block
+        IfStatment ifStatment = new IfStatment(condition, thenBlock, elseBlock, thenScope, elseScope);
+
+        // If there is an else if instruction, add it to the else block of the ifStatment
+        if (elseIfInstruction != null) {
+            ifStatment.getElseBody().clear();
+            ifStatment.getElseBody().add(elseIfInstruction);
         }
 
-        Scope elseScope = new Scope();
-        if (elseBlock.size() != 0) {
-            elseScope.addVariable(elseBlock);
-        }
-
-        return new IfStatment(condition, thenBlock, elseBlock, thenScope, elseScope);
+        return ifStatment;
     }
 }

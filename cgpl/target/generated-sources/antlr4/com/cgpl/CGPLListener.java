@@ -58,6 +58,26 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitReturnstmt(CGPLParser.ReturnstmtContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#breakstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterBreakstmt(CGPLParser.BreakstmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#breakstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitBreakstmt(CGPLParser.BreakstmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#printstmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintstmt(CGPLParser.PrintstmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#printstmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintstmt(CGPLParser.PrintstmtContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#functionBody}.
 	 * @param ctx the parse tree
 	 */
@@ -77,6 +97,26 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfstmt(CGPLParser.IfstmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#thenBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterThenBlock(CGPLParser.ThenBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#thenBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitThenBlock(CGPLParser.ThenBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#elseBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterElseBlock(CGPLParser.ElseBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#elseBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitElseBlock(CGPLParser.ElseBlockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#forstmt}.
 	 * @param ctx the parse tree
@@ -318,6 +358,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitCard(CGPLParser.CardContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#cardfunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterCardfunction(CGPLParser.CardfunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#cardfunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitCardfunction(CGPLParser.CardfunctionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#cardfunctionname}.
 	 * @param ctx the parse tree
 	 */
@@ -327,6 +377,56 @@ public interface CGPLListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCardfunctionname(CGPLParser.CardfunctionnameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#suit}.
+	 * @param ctx the parse tree
+	 */
+	void enterSuit(CGPLParser.SuitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#suit}.
+	 * @param ctx the parse tree
+	 */
+	void exitSuit(CGPLParser.SuitContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#cardvalue}.
+	 * @param ctx the parse tree
+	 */
+	void enterCardvalue(CGPLParser.CardvalueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#cardvalue}.
+	 * @param ctx the parse tree
+	 */
+	void exitCardvalue(CGPLParser.CardvalueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#player}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlayer(CGPLParser.PlayerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#player}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlayer(CGPLParser.PlayerContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#playerfunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlayerfunction(CGPLParser.PlayerfunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#playerfunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlayerfunction(CGPLParser.PlayerfunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CGPLParser#playerfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlayerfunctionname(CGPLParser.PlayerfunctionnameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#playerfunctionname}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlayerfunctionname(CGPLParser.PlayerfunctionnameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#switchstmt}.
 	 * @param ctx the parse tree

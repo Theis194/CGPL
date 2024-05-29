@@ -1,5 +1,6 @@
 package com.cgpl.AST.expressions;
 
+import com.cgpl.SymbolTable;
 import com.cgpl.AST.instructions.Instruction;
 
 public class DeckFunction implements Expression, Instruction {
@@ -33,6 +34,11 @@ public class DeckFunction implements Expression, Instruction {
 
     @Override
     public String getInstructionType() {
-        return "deckFunction";
+        return "DeckFunction";
+    }
+
+    @Override
+    public Expression evaluate(SymbolTable symbolTable) {
+        return this;
     }
 }

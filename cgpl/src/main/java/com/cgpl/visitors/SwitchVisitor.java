@@ -18,7 +18,7 @@ public class SwitchVisitor extends CGPLBaseVisitor<Instruction> {
         Expression switchValue = ctx.value().accept(expressionVisitor);
         List<CaseStatement> cases = ctx.casestmt()
             .stream()
-            .map(casestmt -> casestmt.accept(this))
+            .map(casestmt -> visitCasestmt(casestmt))
             .map(CaseStatement.class::cast)
             .collect(toList());
         return new SwitchStatement(switchValue, cases);
@@ -27,6 +27,12 @@ public class SwitchVisitor extends CGPLBaseVisitor<Instruction> {
     @Override
     public Instruction visitCasestmt(CGPLParser.CasestmtContext ctx) {
         ExpressionVisitor expressionVisitor = new ExpressionVisitor();
+        if (ctx.value() == null) {
+            return new CaseStatement(null, ctx.instruction()
+                .stream()
+                .map(instruction -> instruction.accept(new InstructionVisitor()))
+                .collect(toList()));
+        }
         Expression caseValue = ctx.value().accept(expressionVisitor);
         List<Instruction> instructions = ctx.instruction()
             .stream()

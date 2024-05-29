@@ -1,0 +1,48 @@
+var deck = Deck;
+var p1 = Player;
+var p2 = Player;
+var currentPlayer = p1;
+
+function Select(ply) {
+    deck.shuffle();
+
+    var c1 = deck.draw();
+    var c2 = deck.draw();
+
+    if (c1.value() == c2.value()) and (c1.color() == c2.color()) {
+        ply.drawCard(c1);
+        ply.drawCard(c2);
+        return true;
+    }
+    else {
+        deck.addCard(c1);
+        deck.addCard(c2);
+        return false;
+    }
+}
+
+while (deck.deckSize() > 1) {
+    if currentPlayer == p1 {
+        if not Select(p1) {
+            currentPlayer = p2;
+        }
+    }
+    else {
+        if not Select(p2) {
+            currentPlayer = p1;
+        }
+    }
+}
+
+var hs1 = p1.getHandSize();
+var hs2 = p2.getHandSize();
+
+if hs1 == hs2 {
+    print("Tie");
+}
+else if hs1 > hs2 {
+    print("Player 1 wins");
+}
+else {
+    print("Player 2 wins");
+}

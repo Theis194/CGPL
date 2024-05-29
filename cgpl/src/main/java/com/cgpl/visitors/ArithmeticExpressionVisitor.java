@@ -46,11 +46,24 @@ public class ArithmeticExpressionVisitor extends CGPLBaseVisitor<Expression> {
             // Handle function call
             return new FunctionCallVisitor<Expression>().visitFunctionCall(ctx.functionCall());
             
-        }else if (ctx.BOOLEAN() != null) {
+        } else if (ctx.BOOLEAN() != null) {
             // Handle boolean
             return new Boolean(java.lang.Boolean.parseBoolean(ctx.BOOLEAN().getText()));
 
+        } else if (ctx.cardfunction() != null) {
+            // Handle card function
+            return new CardFunctionVisitor<Expression>().visitCardfunction(ctx.cardfunction());
+        
+        } else if (ctx.deckfunction() != null) {
+            // Handle deck function
+            return new DeckFunctionVisitor<Expression>().visitDeckfunction(ctx.deckfunction());
+
+        } else if (ctx.listfunction() != null) {
+            // Handle list function
+            return new ListFunctionVisitor<Expression>().visitListfunction(ctx.listfunction());
+            
         }
+
         return null;
     }
 
