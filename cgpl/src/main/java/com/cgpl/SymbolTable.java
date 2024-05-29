@@ -25,6 +25,10 @@ public class SymbolTable {
         }
     }
 
+    public int size() {
+        return this.scopes.size();
+    }
+
     public Scope getCurrentScope() {
         return this.scopes.peek();
     }

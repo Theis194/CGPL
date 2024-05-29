@@ -4,7 +4,6 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.cgpl.SymbolTable;
 import com.cgpl.AST.expressions.Expression;
 import com.cgpl.AST.instructions.FunctionCall;
 
