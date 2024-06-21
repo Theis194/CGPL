@@ -447,6 +447,11 @@ public class Interpreter {
             throw new RuntimeException("Value cannot be null");
         }
 
+        if (value instanceof Instruction) {
+            Instruction instruction = (Instruction) value;
+            value = interpretInstruction(instruction);
+        }
+
         if (value instanceof FunctionCall) {
             FunctionCall functionCall = (FunctionCall) value;
             Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
