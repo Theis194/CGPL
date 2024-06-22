@@ -44,7 +44,7 @@ public class AndExpression implements Expression {
         }
         if (right instanceof Instruction) {
             Interpreter interpreter = new Interpreter(symbolTable);
-            right = interpreter.interpretInstruction((Instruction) left);
+            right = interpreter.interpretInstruction((Instruction) right);
         }
 
         if (left.getType().equals("Boolean") && right.getType().equals("Boolean")) {
