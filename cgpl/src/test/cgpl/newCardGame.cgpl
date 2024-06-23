@@ -1,27 +1,44 @@
 var cardSet = [1 of hearts, 2 of hearts, 3 of hearts, 4 of hearts, 1 of diamonds, 2 of diamonds, 3 of diamonds, 4 of diamonds, 1 of clubs, 2 of clubs, 3 of clubs, 4 of clubs, 1 of spades, 2 of spades, 3 of spades, 4 of spades];
 
-var playerCount = 4;
 var playerIndex = 0;
-var players = [];
+var players = [Player, Player, Player, Player];
 
-for (var i = 0; i < playerCount; i++)
+function DistributeCards()
 {
-    players.add(Player);
+    var playerSize = players.size();
 
-    var Size = cardSet.size();
-
-
-}
-
-function CheckPlayerHand(ply)
-{
-    var hs = ply.getHandSize();
-
-    for (var i = 0; i < hs; i++)
+    for (var i = 0; i < playerSize; i++)
     {
+        var ply = players.get(i);
 
+        var c1 = cardSet.get(i * 4);
+        var c2 = cardSet.get(i * 4 + 1);
+        var c3 = cardSet.get(i * 4 + 2);
+        var c4 = cardSet.get(i * 4 + 3);
+
+        ply.drawCard(c1);
+        ply.drawCard(c2);
+        ply.drawCard(c3);
+        ply.drawCard(c4);
     }
 }
 
-var p = players.get(1);
-CheckPlayerHand(p); 
+function CheckHand(hand)
+{
+    var firstCard = hand.get(0);
+
+    for (card in hand)
+    {
+        print(card.color());
+        if (not (card.color() == firstCard.color()))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+DistributeCards();
+var ply = players.get(0);
+print(CheckHand(ply.getHand()));
