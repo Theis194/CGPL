@@ -72,13 +72,4 @@ public class SymbolTable {
         }
         return false;
     }
-    /* unsure why you would want to remove a variable from the symbol table
-    // Removes the symbol with the given identifier from the current scope
-    public void removeSymbol(String identifier) {
-        for (Scope scope : this.scopes) {
-            if (scope.containsVariable(identifier)) {
-                scope.remove(identifier);
-            }
-        }
-    } */
 }
