@@ -1,6 +1,7 @@
 package com.cgpl;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import com.cgpl.AST.Program;
 import com.cgpl.AST.Scope;
@@ -184,8 +185,20 @@ public class Interpreter {
         // Get the function from the symbol table
         Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
 
+        List<Expression> arguments = new ArrayList<>();
+        for (Expression argument : functionCall.getArguments()) {
+            Expression value = argument;
+            if (value instanceof Instruction) {
+                Instruction instruction = (Instruction) value;
+                value = interpretInstruction(instruction);
+                arguments.add(value);
+            } else {
+                arguments.add(argument.evaluate(symbolTable));
+            }
+        }
+
         // Interpret the function
-        return interpretFunction(function, functionCall.getArguments());
+        return interpretFunction(function, arguments);
     }
 
     private Expression interpretWhileLoop(WhileStatement whileLoop) {
@@ -445,6 +458,11 @@ public class Interpreter {
         Expression value = print.getValue();
         if (value == null) {
             throw new RuntimeException("Value cannot be null");
+        }
+
+        if (value instanceof Instruction) {
+            Instruction instruction = (Instruction) value;
+            value = interpretInstruction(instruction);
         }
 
         if (value instanceof FunctionCall) {
