@@ -2,19 +2,18 @@ var cardSet = [1 of hearts, 2 of hearts, 3 of hearts, 4 of hearts, 1 of diamonds
 
 var playerIndex = 0;
 var players = [Player, Player, Player, Player];
+var playerSize = players.size();
 
 function DistributeCards()
 {
-    var playerSize = players.size();
-
     for (var i = 0; i < playerSize; i++)
     {
         var ply = players.get(i);
 
-        ply.drawCard(cardSet.get(i * 4));
-        ply.drawCard(cardSet.get(i * 4 + 1));
-        ply.drawCard(cardSet.get(i * 4 + 2));
-        ply.drawCard(cardSet.get(i * 4 + 3));
+        ply.drawCard(cardSet.get(i));
+        ply.drawCard(cardSet.get(playerSize + i));
+        ply.drawCard(cardSet.get(playerSize * 2 + i));
+        ply.drawCard(cardSet.get(playerSize * 3 + i));
     }
 }
 
@@ -24,7 +23,6 @@ function CheckHand(hand)
 
     for (card in hand)
     {
-        print(card.color());
         if (not (card.color() == firstCard.color()))
         {
             return false;
@@ -34,6 +32,57 @@ function CheckHand(hand)
     return true;
 }
 
-DistributeCards();
-var ply = players.get(0);
-print(CheckHand(ply.getHand()));
+function HashFunction(seed, index)
+{
+    return (seed * index + 5 + index * 526) % 42;
+}
+
+function TakeTurn(ply, seed)
+{
+    var i = seed % 4;
+
+    return ply.discardCard(i);
+}
+
+function PlayGame()
+{
+    DistributeCards();
+    var seed = 0;
+
+    while (true)
+    {
+        var extractedCards = [];
+
+        for (var i = 0; i < playerSize; i++)
+        {
+            var ply = players.get(i);
+
+            var card = TakeTurn(ply, seed);
+            extractedCards.add(card);
+
+            seed = HashFunction(seed, i);
+        }
+
+        for (var i = 0; i < playerSize; i++)
+        {
+            var receiverIndex = (i + 1) % playerSize;
+            var receiver = players.get(receiverIndex);
+
+            var card = extractedCards.get(i);
+
+            receiver.drawCard(card);
+        }
+
+        for (ply in players)
+        {
+            var hand = ply.getHand();
+            var hasWon = CheckHand(hand);
+            if (hasWon)
+            {
+                return;
+            }
+        }
+    }   
+}
+
+PlayGame();
