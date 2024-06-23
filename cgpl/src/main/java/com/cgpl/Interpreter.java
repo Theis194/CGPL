@@ -494,6 +494,10 @@ public class Interpreter {
         Expression value = null;
         if (playerFunction.getValue() != null) {
             value = playerFunction.getValue().evaluate(symbolTable);
+            if (value instanceof Instruction) {
+                Instruction instruction = (Instruction) value;
+                value = interpretInstruction(instruction);
+            }
         }
 
         // Get the type of player function

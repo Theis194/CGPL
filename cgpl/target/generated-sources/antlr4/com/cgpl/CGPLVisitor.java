@@ -143,6 +143,12 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFactor(CGPLParser.FactorContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTerm(CGPLParser.TermContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#arthexp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

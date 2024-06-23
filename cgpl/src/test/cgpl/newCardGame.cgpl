@@ -11,15 +11,10 @@ function DistributeCards()
     {
         var ply = players.get(i);
 
-        var c1 = cardSet.get(i * 4);
-        var c2 = cardSet.get(i * 4 + 1);
-        var c3 = cardSet.get(i * 4 + 2);
-        var c4 = cardSet.get(i * 4 + 3);
-
-        ply.drawCard(c1);
-        ply.drawCard(c2);
-        ply.drawCard(c3);
-        ply.drawCard(c4);
+        ply.drawCard(cardSet.get(i * 4));
+        ply.drawCard(cardSet.get(i * 4 + 1));
+        ply.drawCard(cardSet.get(i * 4 + 2));
+        ply.drawCard(cardSet.get(i * 4 + 3));
     }
 }
 

@@ -128,9 +128,13 @@ factor
 	| deckfunction
 	| listfunction
 	| LPAREN arthexp RPAREN
-	| functionCall
 	;
-arthexp: factor (arth_op factor)*;
+term
+	: factor (OP_MULT factor | OP_DIV factor | OP_MOD factor)*
+	;
+arthexp
+	: term (OP_ADD term | OP_SUB)*
+	;
 
 increment: IDENTIFIER OP_INC;
 decrement: IDENTIFIER OP_DEC;

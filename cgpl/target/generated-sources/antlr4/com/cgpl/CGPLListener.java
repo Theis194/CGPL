@@ -228,6 +228,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitFactor(CGPLParser.FactorContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTerm(CGPLParser.TermContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTerm(CGPLParser.TermContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#arthexp}.
 	 * @param ctx the parse tree
 	 */

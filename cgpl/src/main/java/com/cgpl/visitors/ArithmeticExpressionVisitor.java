@@ -9,11 +9,12 @@ import com.cgpl.AST.expressions.Identifier;
 import com.cgpl.AST.expressions.Number;
 import com.cgpl.AST.expressions.ArithmeticExpression;
 import com.cgpl.AST.expressions.Boolean;
+import com.cgpl.AST.expressions.Term;
 
 public class ArithmeticExpressionVisitor extends CGPLBaseVisitor<Expression> {
     @Override
     public Expression visitArthexp(CGPLParser.ArthexpContext ctx) {
-        List<Expression> operands = ctx.factor().stream().map(this::visitFactor).toList();
+        List<Expression> operands = ctx.term().stream().map(this::visitTerm).toList();
 
         if (operands.size() == 1) {
             return operands.get(0);
@@ -21,11 +22,34 @@ public class ArithmeticExpressionVisitor extends CGPLBaseVisitor<Expression> {
         }
 
         String operator = null;
-        if (ctx.arth_op(0) != null) {
-            operator = getOperator(ctx.arth_op(0));
+        if (ctx.OP_ADD() != null) {
+            operator = "+";
+        } else if (ctx.OP_SUB() != null) {
+            operator = "-";
         }
         
         return new ArithmeticExpression(operands, operator);
+    }
+
+    @Override
+    public Expression visitTerm(CGPLParser.TermContext ctx) {
+        List<Expression> factors = ctx.factor().stream().map(this::visitFactor).toList();
+
+        if (factors.size() == 1) {
+            return factors.get(0);
+        }
+
+        String operator = null;
+        if (ctx.OP_MULT() != null) {
+            operator = "*";
+        } else if (ctx.OP_DIV() != null) {
+            operator = "/";
+        } else if (ctx.OP_MOD() != null) {
+            operator = "%";
+        }
+
+        // Assuming Term is a class that can handle a list of factors and multiplication/division operators
+        return new Term(factors, operator);
     }
 
     @Override

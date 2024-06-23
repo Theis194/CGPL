@@ -280,6 +280,18 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTerm(CGPLParser.TermContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTerm(CGPLParser.TermContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterArthexp(CGPLParser.ArthexpContext ctx) { }
 	/**
 	 * {@inheritDoc}
