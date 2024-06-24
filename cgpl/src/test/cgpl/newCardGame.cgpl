@@ -34,6 +34,7 @@ function CheckHand(hand)
 
 function HashFunction(seed, index)
 {
+    print("About to do modulo");
     return (seed * index + 5 + index * 526) % 42;
 }
 
@@ -79,7 +80,7 @@ function PlayGame()
             var hasWon = CheckHand(hand);
             if (hasWon)
             {
-                return;
+                return true;
             }
         }
     }   

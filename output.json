@@ -133,21 +133,21 @@
       "isConst": false
     },
     {
+      "instructionType": "VarDeclaration",
+      "identifier": "playerSize",
+      "type": "VarDeclaration",
+      "value": {
+        "identifier": "players",
+        "value": null,
+        "type": "size"
+      },
+      "isConst": false
+    },
+    {
       "instructionType": "Function",
       "identifier": "DistributeCards",
       "arguments": [],
       "functionBody": [
-        {
-          "instructionType": "VarDeclaration",
-          "identifier": "playerSize",
-          "type": "VarDeclaration",
-          "value": {
-            "identifier": "players",
-            "value": null,
-            "type": "size"
-          },
-          "isConst": false
-        },
         {
           "instructionType": "ForStatement",
           "identifier": null,
@@ -214,46 +214,26 @@
               "value": {
                 "identifier": "cardSet",
                 "value": {
-                  "factors": [
+                  "identifier": "i",
+                  "type": "identifier"
+                },
+                "type": "get"
+              },
+              "type": "drawCard"
+            },
+            {
+              "identifier": "ply",
+              "value": {
+                "identifier": "cardSet",
+                "value": {
+                  "operands": [
                     {
-                      "identifier": "i",
+                      "identifier": "playerSize",
                       "type": "identifier"
                     },
                     {
-                      "value": 4,
-                      "type": "number"
-                    }
-                  ],
-                  "operator": "*",
-                  "type": "term"
-                },
-                "type": "get"
-              },
-              "type": "drawCard"
-            },
-            {
-              "identifier": "ply",
-              "value": {
-                "identifier": "cardSet",
-                "value": {
-                  "operands": [
-                    {
-                      "factors": [
-                        {
-                          "identifier": "i",
-                          "type": "identifier"
-                        },
-                        {
-                          "value": 4,
-                          "type": "number"
-                        }
-                      ],
-                      "operator": "*",
-                      "type": "term"
-                    },
-                    {
-                      "value": 1,
-                      "type": "number"
+                      "identifier": "i",
+                      "type": "identifier"
                     }
                   ],
                   "operator": "+",
@@ -272,11 +252,11 @@
                     {
                       "factors": [
                         {
-                          "identifier": "i",
+                          "identifier": "playerSize",
                           "type": "identifier"
                         },
                         {
-                          "value": 4,
+                          "value": 2,
                           "type": "number"
                         }
                       ],
@@ -284,8 +264,8 @@
                       "type": "term"
                     },
                     {
-                      "value": 2,
-                      "type": "number"
+                      "identifier": "i",
+                      "type": "identifier"
                     }
                   ],
                   "operator": "+",
@@ -304,11 +284,11 @@
                     {
                       "factors": [
                         {
-                          "identifier": "i",
+                          "identifier": "playerSize",
                           "type": "identifier"
                         },
                         {
-                          "value": 4,
+                          "value": 3,
                           "type": "number"
                         }
                       ],
@@ -316,8 +296,8 @@
                       "type": "term"
                     },
                     {
-                      "value": 3,
-                      "type": "number"
+                      "identifier": "i",
+                      "type": "identifier"
                     }
                   ],
                   "operator": "+",
@@ -378,12 +358,6 @@
           "varDeclaration": null,
           "condition": null,
           "body": [
-            {
-              "value": {
-                "identifier": "card",
-                "type": "color"
-              }
-            },
             {
               "instructionType": "IfStatment",
               "condition": {
@@ -455,44 +429,696 @@
       }
     },
     {
+      "instructionType": "Function",
+      "identifier": "HashFunction",
+      "arguments": [
+        {
+          "identifier": "seed",
+          "type": "identifier"
+        },
+        {
+          "identifier": "index",
+          "type": "identifier"
+        }
+      ],
+      "functionBody": [
+        {
+          "value": {
+            "value": "About to do modulo",
+            "type": "string"
+          }
+        },
+        {
+          "instructionType": "Return",
+          "value": {
+            "factors": [
+              {
+                "operands": [
+                  {
+                    "operands": [
+                      {
+                        "factors": [
+                          {
+                            "identifier": "seed",
+                            "type": "identifier"
+                          },
+                          {
+                            "identifier": "index",
+                            "type": "identifier"
+                          }
+                        ],
+                        "operator": "*",
+                        "type": "term"
+                      },
+                      {
+                        "value": 5,
+                        "type": "number"
+                      }
+                    ],
+                    "operator": "+",
+                    "type": "arithmetic"
+                  },
+                  {
+                    "factors": [
+                      {
+                        "identifier": "index",
+                        "type": "identifier"
+                      },
+                      {
+                        "value": 526,
+                        "type": "number"
+                      }
+                    ],
+                    "operator": "*",
+                    "type": "term"
+                  }
+                ],
+                "operator": "+",
+                "type": "arithmetic"
+              },
+              {
+                "value": 42,
+                "type": "number"
+              }
+            ],
+            "operator": "%",
+            "type": "term"
+          }
+        }
+      ],
+      "scope": {
+        "variables": {
+          "seed": {
+            "identifier": "seed",
+            "type": "identifier"
+          },
+          "index": {
+            "identifier": "index",
+            "type": "identifier"
+          }
+        },
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
+    },
+    {
+      "instructionType": "Function",
+      "identifier": "TakeTurn",
+      "arguments": [
+        {
+          "identifier": "ply",
+          "type": "identifier"
+        },
+        {
+          "identifier": "seed",
+          "type": "identifier"
+        }
+      ],
+      "functionBody": [
+        {
+          "instructionType": "VarDeclaration",
+          "identifier": "i",
+          "type": "VarDeclaration",
+          "value": {
+            "factors": [
+              {
+                "identifier": "seed",
+                "type": "identifier"
+              },
+              {
+                "value": 4,
+                "type": "number"
+              }
+            ],
+            "operator": "%",
+            "type": "term"
+          },
+          "isConst": false
+        },
+        {
+          "instructionType": "Return",
+          "value": {
+            "identifier": "ply",
+            "value": {
+              "identifier": "i",
+              "type": "identifier"
+            },
+            "type": "discardCard"
+          }
+        }
+      ],
+      "scope": {
+        "variables": {
+          "seed": {
+            "identifier": "seed",
+            "type": "identifier"
+          },
+          "ply": {
+            "identifier": "ply",
+            "type": "identifier"
+          }
+        },
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
+    },
+    {
+      "instructionType": "Function",
+      "identifier": "PlayGame",
+      "arguments": [],
+      "functionBody": [
+        {
+          "instructionType": "FunctionCall",
+          "type": "FunctionCall",
+          "identifier": "DistributeCards",
+          "arguments": []
+        },
+        {
+          "instructionType": "VarDeclaration",
+          "identifier": "seed",
+          "type": "VarDeclaration",
+          "value": {
+            "value": 0,
+            "type": "number"
+          },
+          "isConst": false
+        },
+        {
+          "instructionType": "WhileStatement",
+          "condition": {
+            "value": true,
+            "type": "Boolean"
+          },
+          "body": [
+            {
+              "instructionType": "VarDeclaration",
+              "identifier": "extractedCards",
+              "type": "VarDeclaration",
+              "value": {
+                "list": [],
+                "type": "list"
+              },
+              "isConst": false
+            },
+            {
+              "instructionType": "ForStatement",
+              "identifier": null,
+              "iterable": null,
+              "iteration": {
+                "instructionType": "Assignment",
+                "identifier": "i",
+                "value": {
+                  "operands": [
+                    {
+                      "identifier": "i",
+                      "type": "identifier"
+                    },
+                    {
+                      "value": 1,
+                      "type": "number"
+                    }
+                  ],
+                  "operator": "+",
+                  "type": "arithmetic"
+                }
+              },
+              "varDeclaration": {
+                "instructionType": "VarDeclaration",
+                "identifier": "i",
+                "type": "VarDeclaration",
+                "value": {
+                  "value": 0,
+                  "type": "number"
+                },
+                "isConst": false
+              },
+              "condition": {
+                "operands": [
+                  {
+                    "identifier": "i",
+                    "type": "identifier"
+                  },
+                  {
+                    "identifier": "playerSize",
+                    "type": "identifier"
+                  }
+                ],
+                "operator": "lt",
+                "type": "comparison"
+              },
+              "body": [
+                {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "ply",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "identifier": "players",
+                    "value": {
+                      "identifier": "i",
+                      "type": "identifier"
+                    },
+                    "type": "get"
+                  },
+                  "isConst": false
+                },
+                {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "card",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "instructionType": "FunctionCall",
+                    "type": "FunctionCall",
+                    "identifier": "TakeTurn",
+                    "arguments": [
+                      {
+                        "identifier": "ply",
+                        "type": "identifier"
+                      },
+                      {
+                        "identifier": "seed",
+                        "type": "identifier"
+                      }
+                    ]
+                  },
+                  "isConst": false
+                },
+                {
+                  "identifier": "extractedCards",
+                  "value": {
+                    "identifier": "card",
+                    "type": "identifier"
+                  },
+                  "type": "add"
+                },
+                {
+                  "instructionType": "Assignment",
+                  "identifier": "seed",
+                  "value": {
+                    "instructionType": "FunctionCall",
+                    "type": "FunctionCall",
+                    "identifier": "HashFunction",
+                    "arguments": [
+                      {
+                        "identifier": "seed",
+                        "type": "identifier"
+                      },
+                      {
+                        "identifier": "i",
+                        "type": "identifier"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "scope": {
+                "variables": {},
+                "constants": {},
+                "functions": {},
+                "isProgramScope": false
+              }
+            },
+            {
+              "instructionType": "ForStatement",
+              "identifier": null,
+              "iterable": null,
+              "iteration": {
+                "instructionType": "Assignment",
+                "identifier": "i",
+                "value": {
+                  "operands": [
+                    {
+                      "identifier": "i",
+                      "type": "identifier"
+                    },
+                    {
+                      "value": 1,
+                      "type": "number"
+                    }
+                  ],
+                  "operator": "+",
+                  "type": "arithmetic"
+                }
+              },
+              "varDeclaration": {
+                "instructionType": "VarDeclaration",
+                "identifier": "i",
+                "type": "VarDeclaration",
+                "value": {
+                  "value": 0,
+                  "type": "number"
+                },
+                "isConst": false
+              },
+              "condition": {
+                "operands": [
+                  {
+                    "identifier": "i",
+                    "type": "identifier"
+                  },
+                  {
+                    "identifier": "playerSize",
+                    "type": "identifier"
+                  }
+                ],
+                "operator": "lt",
+                "type": "comparison"
+              },
+              "body": [
+                {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "receiverIndex",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "factors": [
+                      {
+                        "operands": [
+                          {
+                            "identifier": "i",
+                            "type": "identifier"
+                          },
+                          {
+                            "value": 1,
+                            "type": "number"
+                          }
+                        ],
+                        "operator": "+",
+                        "type": "arithmetic"
+                      },
+                      {
+                        "identifier": "playerSize",
+                        "type": "identifier"
+                      }
+                    ],
+                    "operator": "%",
+                    "type": "term"
+                  },
+                  "isConst": false
+                },
+                {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "receiver",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "identifier": "players",
+                    "value": {
+                      "identifier": "receiverIndex",
+                      "type": "identifier"
+                    },
+                    "type": "get"
+                  },
+                  "isConst": false
+                },
+                {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "card",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "identifier": "extractedCards",
+                    "value": {
+                      "identifier": "i",
+                      "type": "identifier"
+                    },
+                    "type": "get"
+                  },
+                  "isConst": false
+                },
+                {
+                  "identifier": "receiver",
+                  "value": {
+                    "identifier": "card",
+                    "type": "identifier"
+                  },
+                  "type": "drawCard"
+                }
+              ],
+              "scope": {
+                "variables": {},
+                "constants": {},
+                "functions": {},
+                "isProgramScope": false
+              }
+            },
+            {
+              "instructionType": "ForEachStatement",
+              "identifier": "ply",
+              "iterable": {
+                "identifier": "players",
+                "type": "identifier"
+              },
+              "iteration": null,
+              "varDeclaration": null,
+              "condition": null,
+              "body": [
+                {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "hand",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "identifier": "ply",
+                    "value": null,
+                    "type": "getHand"
+                  },
+                  "isConst": false
+                },
+                {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "hasWon",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "instructionType": "FunctionCall",
+                    "type": "FunctionCall",
+                    "identifier": "CheckHand",
+                    "arguments": [
+                      {
+                        "identifier": "hand",
+                        "type": "identifier"
+                      }
+                    ]
+                  },
+                  "isConst": false
+                },
+                {
+                  "instructionType": "IfStatment",
+                  "condition": {
+                    "identifier": "hasWon",
+                    "type": "identifier"
+                  },
+                  "thenBody": [
+                    {
+                      "instructionType": "Return",
+                      "value": {
+                        "value": true,
+                        "type": "Boolean"
+                      }
+                    }
+                  ],
+                  "elseBody": [],
+                  "thenScope": {
+                    "variables": {},
+                    "constants": {},
+                    "functions": {},
+                    "isProgramScope": false
+                  },
+                  "elseScope": {
+                    "variables": {},
+                    "constants": {},
+                    "functions": {},
+                    "isProgramScope": false
+                  }
+                }
+              ],
+              "scope": {
+                "variables": {},
+                "constants": {},
+                "functions": {},
+                "isProgramScope": false
+              }
+            }
+          ],
+          "scope": {
+            "variables": {},
+            "constants": {},
+            "functions": {},
+            "isProgramScope": false
+          }
+        }
+      ],
+      "scope": {
+        "variables": {},
+        "constants": {},
+        "functions": {},
+        "isProgramScope": false
+      }
+    },
+    {
       "instructionType": "FunctionCall",
       "type": "FunctionCall",
-      "identifier": "DistributeCards",
+      "identifier": "PlayGame",
       "arguments": []
-    },
-    {
-      "instructionType": "VarDeclaration",
-      "identifier": "ply",
-      "type": "VarDeclaration",
-      "value": {
-        "identifier": "players",
-        "value": {
-          "value": 0,
-          "type": "number"
-        },
-        "type": "get"
-      },
-      "isConst": false
-    },
-    {
-      "value": {
-        "instructionType": "FunctionCall",
-        "type": "FunctionCall",
-        "identifier": "CheckHand",
-        "arguments": [
-          {
-            "identifier": "ply",
-            "value": null,
-            "type": "getHand"
-          }
-        ]
-      }
     }
   ],
   "scope": {
     "variables": {},
     "constants": {},
     "functions": {
+      "HashFunction": {
+        "instructionType": "Function",
+        "identifier": "HashFunction",
+        "arguments": [
+          {
+            "identifier": "seed",
+            "type": "identifier"
+          },
+          {
+            "identifier": "index",
+            "type": "identifier"
+          }
+        ],
+        "functionBody": [
+          {
+            "value": {
+              "value": "About to do modulo",
+              "type": "string"
+            }
+          },
+          {
+            "instructionType": "Return",
+            "value": {
+              "factors": [
+                {
+                  "operands": [
+                    {
+                      "operands": [
+                        {
+                          "factors": [
+                            {
+                              "identifier": "seed",
+                              "type": "identifier"
+                            },
+                            {
+                              "identifier": "index",
+                              "type": "identifier"
+                            }
+                          ],
+                          "operator": "*",
+                          "type": "term"
+                        },
+                        {
+                          "value": 5,
+                          "type": "number"
+                        }
+                      ],
+                      "operator": "+",
+                      "type": "arithmetic"
+                    },
+                    {
+                      "factors": [
+                        {
+                          "identifier": "index",
+                          "type": "identifier"
+                        },
+                        {
+                          "value": 526,
+                          "type": "number"
+                        }
+                      ],
+                      "operator": "*",
+                      "type": "term"
+                    }
+                  ],
+                  "operator": "+",
+                  "type": "arithmetic"
+                },
+                {
+                  "value": 42,
+                  "type": "number"
+                }
+              ],
+              "operator": "%",
+              "type": "term"
+            }
+          }
+        ],
+        "scope": {
+          "variables": {
+            "seed": {
+              "identifier": "seed",
+              "type": "identifier"
+            },
+            "index": {
+              "identifier": "index",
+              "type": "identifier"
+            }
+          },
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
+        }
+      },
+      "TakeTurn": {
+        "instructionType": "Function",
+        "identifier": "TakeTurn",
+        "arguments": [
+          {
+            "identifier": "ply",
+            "type": "identifier"
+          },
+          {
+            "identifier": "seed",
+            "type": "identifier"
+          }
+        ],
+        "functionBody": [
+          {
+            "instructionType": "VarDeclaration",
+            "identifier": "i",
+            "type": "VarDeclaration",
+            "value": {
+              "factors": [
+                {
+                  "identifier": "seed",
+                  "type": "identifier"
+                },
+                {
+                  "value": 4,
+                  "type": "number"
+                }
+              ],
+              "operator": "%",
+              "type": "term"
+            },
+            "isConst": false
+          },
+          {
+            "instructionType": "Return",
+            "value": {
+              "identifier": "ply",
+              "value": {
+                "identifier": "i",
+                "type": "identifier"
+              },
+              "type": "discardCard"
+            }
+          }
+        ],
+        "scope": {
+          "variables": {
+            "seed": {
+              "identifier": "seed",
+              "type": "identifier"
+            },
+            "ply": {
+              "identifier": "ply",
+              "type": "identifier"
+            }
+          },
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
+        }
+      },
       "CheckHand": {
         "instructionType": "Function",
         "identifier": "CheckHand",
@@ -528,12 +1154,6 @@
             "varDeclaration": null,
             "condition": null,
             "body": [
-              {
-                "value": {
-                  "identifier": "card",
-                  "type": "color"
-                }
-              },
               {
                 "instructionType": "IfStatment",
                 "condition": {
@@ -604,22 +1224,379 @@
           "isProgramScope": false
         }
       },
+      "PlayGame": {
+        "instructionType": "Function",
+        "identifier": "PlayGame",
+        "arguments": [],
+        "functionBody": [
+          {
+            "instructionType": "FunctionCall",
+            "type": "FunctionCall",
+            "identifier": "DistributeCards",
+            "arguments": []
+          },
+          {
+            "instructionType": "VarDeclaration",
+            "identifier": "seed",
+            "type": "VarDeclaration",
+            "value": {
+              "value": 0,
+              "type": "number"
+            },
+            "isConst": false
+          },
+          {
+            "instructionType": "WhileStatement",
+            "condition": {
+              "value": true,
+              "type": "Boolean"
+            },
+            "body": [
+              {
+                "instructionType": "VarDeclaration",
+                "identifier": "extractedCards",
+                "type": "VarDeclaration",
+                "value": {
+                  "list": [],
+                  "type": "list"
+                },
+                "isConst": false
+              },
+              {
+                "instructionType": "ForStatement",
+                "identifier": null,
+                "iterable": null,
+                "iteration": {
+                  "instructionType": "Assignment",
+                  "identifier": "i",
+                  "value": {
+                    "operands": [
+                      {
+                        "identifier": "i",
+                        "type": "identifier"
+                      },
+                      {
+                        "value": 1,
+                        "type": "number"
+                      }
+                    ],
+                    "operator": "+",
+                    "type": "arithmetic"
+                  }
+                },
+                "varDeclaration": {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "i",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "value": 0,
+                    "type": "number"
+                  },
+                  "isConst": false
+                },
+                "condition": {
+                  "operands": [
+                    {
+                      "identifier": "i",
+                      "type": "identifier"
+                    },
+                    {
+                      "identifier": "playerSize",
+                      "type": "identifier"
+                    }
+                  ],
+                  "operator": "lt",
+                  "type": "comparison"
+                },
+                "body": [
+                  {
+                    "instructionType": "VarDeclaration",
+                    "identifier": "ply",
+                    "type": "VarDeclaration",
+                    "value": {
+                      "identifier": "players",
+                      "value": {
+                        "identifier": "i",
+                        "type": "identifier"
+                      },
+                      "type": "get"
+                    },
+                    "isConst": false
+                  },
+                  {
+                    "instructionType": "VarDeclaration",
+                    "identifier": "card",
+                    "type": "VarDeclaration",
+                    "value": {
+                      "instructionType": "FunctionCall",
+                      "type": "FunctionCall",
+                      "identifier": "TakeTurn",
+                      "arguments": [
+                        {
+                          "identifier": "ply",
+                          "type": "identifier"
+                        },
+                        {
+                          "identifier": "seed",
+                          "type": "identifier"
+                        }
+                      ]
+                    },
+                    "isConst": false
+                  },
+                  {
+                    "identifier": "extractedCards",
+                    "value": {
+                      "identifier": "card",
+                      "type": "identifier"
+                    },
+                    "type": "add"
+                  },
+                  {
+                    "instructionType": "Assignment",
+                    "identifier": "seed",
+                    "value": {
+                      "instructionType": "FunctionCall",
+                      "type": "FunctionCall",
+                      "identifier": "HashFunction",
+                      "arguments": [
+                        {
+                          "identifier": "seed",
+                          "type": "identifier"
+                        },
+                        {
+                          "identifier": "i",
+                          "type": "identifier"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "scope": {
+                  "variables": {},
+                  "constants": {},
+                  "functions": {},
+                  "isProgramScope": false
+                }
+              },
+              {
+                "instructionType": "ForStatement",
+                "identifier": null,
+                "iterable": null,
+                "iteration": {
+                  "instructionType": "Assignment",
+                  "identifier": "i",
+                  "value": {
+                    "operands": [
+                      {
+                        "identifier": "i",
+                        "type": "identifier"
+                      },
+                      {
+                        "value": 1,
+                        "type": "number"
+                      }
+                    ],
+                    "operator": "+",
+                    "type": "arithmetic"
+                  }
+                },
+                "varDeclaration": {
+                  "instructionType": "VarDeclaration",
+                  "identifier": "i",
+                  "type": "VarDeclaration",
+                  "value": {
+                    "value": 0,
+                    "type": "number"
+                  },
+                  "isConst": false
+                },
+                "condition": {
+                  "operands": [
+                    {
+                      "identifier": "i",
+                      "type": "identifier"
+                    },
+                    {
+                      "identifier": "playerSize",
+                      "type": "identifier"
+                    }
+                  ],
+                  "operator": "lt",
+                  "type": "comparison"
+                },
+                "body": [
+                  {
+                    "instructionType": "VarDeclaration",
+                    "identifier": "receiverIndex",
+                    "type": "VarDeclaration",
+                    "value": {
+                      "factors": [
+                        {
+                          "operands": [
+                            {
+                              "identifier": "i",
+                              "type": "identifier"
+                            },
+                            {
+                              "value": 1,
+                              "type": "number"
+                            }
+                          ],
+                          "operator": "+",
+                          "type": "arithmetic"
+                        },
+                        {
+                          "identifier": "playerSize",
+                          "type": "identifier"
+                        }
+                      ],
+                      "operator": "%",
+                      "type": "term"
+                    },
+                    "isConst": false
+                  },
+                  {
+                    "instructionType": "VarDeclaration",
+                    "identifier": "receiver",
+                    "type": "VarDeclaration",
+                    "value": {
+                      "identifier": "players",
+                      "value": {
+                        "identifier": "receiverIndex",
+                        "type": "identifier"
+                      },
+                      "type": "get"
+                    },
+                    "isConst": false
+                  },
+                  {
+                    "instructionType": "VarDeclaration",
+                    "identifier": "card",
+                    "type": "VarDeclaration",
+                    "value": {
+                      "identifier": "extractedCards",
+                      "value": {
+                        "identifier": "i",
+                        "type": "identifier"
+                      },
+                      "type": "get"
+                    },
+                    "isConst": false
+                  },
+                  {
+                    "identifier": "receiver",
+                    "value": {
+                      "identifier": "card",
+                      "type": "identifier"
+                    },
+                    "type": "drawCard"
+                  }
+                ],
+                "scope": {
+                  "variables": {},
+                  "constants": {},
+                  "functions": {},
+                  "isProgramScope": false
+                }
+              },
+              {
+                "instructionType": "ForEachStatement",
+                "identifier": "ply",
+                "iterable": {
+                  "identifier": "players",
+                  "type": "identifier"
+                },
+                "iteration": null,
+                "varDeclaration": null,
+                "condition": null,
+                "body": [
+                  {
+                    "instructionType": "VarDeclaration",
+                    "identifier": "hand",
+                    "type": "VarDeclaration",
+                    "value": {
+                      "identifier": "ply",
+                      "value": null,
+                      "type": "getHand"
+                    },
+                    "isConst": false
+                  },
+                  {
+                    "instructionType": "VarDeclaration",
+                    "identifier": "hasWon",
+                    "type": "VarDeclaration",
+                    "value": {
+                      "instructionType": "FunctionCall",
+                      "type": "FunctionCall",
+                      "identifier": "CheckHand",
+                      "arguments": [
+                        {
+                          "identifier": "hand",
+                          "type": "identifier"
+                        }
+                      ]
+                    },
+                    "isConst": false
+                  },
+                  {
+                    "instructionType": "IfStatment",
+                    "condition": {
+                      "identifier": "hasWon",
+                      "type": "identifier"
+                    },
+                    "thenBody": [
+                      {
+                        "instructionType": "Return",
+                        "value": {
+                          "value": true,
+                          "type": "Boolean"
+                        }
+                      }
+                    ],
+                    "elseBody": [],
+                    "thenScope": {
+                      "variables": {},
+                      "constants": {},
+                      "functions": {},
+                      "isProgramScope": false
+                    },
+                    "elseScope": {
+                      "variables": {},
+                      "constants": {},
+                      "functions": {},
+                      "isProgramScope": false
+                    }
+                  }
+                ],
+                "scope": {
+                  "variables": {},
+                  "constants": {},
+                  "functions": {},
+                  "isProgramScope": false
+                }
+              }
+            ],
+            "scope": {
+              "variables": {},
+              "constants": {},
+              "functions": {},
+              "isProgramScope": false
+            }
+          }
+        ],
+        "scope": {
+          "variables": {},
+          "constants": {},
+          "functions": {},
+          "isProgramScope": false
+        }
+      },
       "DistributeCards": {
         "instructionType": "Function",
         "identifier": "DistributeCards",
         "arguments": [],
         "functionBody": [
-          {
-            "instructionType": "VarDeclaration",
-            "identifier": "playerSize",
-            "type": "VarDeclaration",
-            "value": {
-              "identifier": "players",
-              "value": null,
-              "type": "size"
-            },
-            "isConst": false
-          },
           {
             "instructionType": "ForStatement",
             "identifier": null,
@@ -686,46 +1663,26 @@
                 "value": {
                   "identifier": "cardSet",
                   "value": {
-                    "factors": [
+                    "identifier": "i",
+                    "type": "identifier"
+                  },
+                  "type": "get"
+                },
+                "type": "drawCard"
+              },
+              {
+                "identifier": "ply",
+                "value": {
+                  "identifier": "cardSet",
+                  "value": {
+                    "operands": [
                       {
-                        "identifier": "i",
+                        "identifier": "playerSize",
                         "type": "identifier"
                       },
                       {
-                        "value": 4,
-                        "type": "number"
-                      }
-                    ],
-                    "operator": "*",
-                    "type": "term"
-                  },
-                  "type": "get"
-                },
-                "type": "drawCard"
-              },
-              {
-                "identifier": "ply",
-                "value": {
-                  "identifier": "cardSet",
-                  "value": {
-                    "operands": [
-                      {
-                        "factors": [
-                          {
-                            "identifier": "i",
-                            "type": "identifier"
-                          },
-                          {
-                            "value": 4,
-                            "type": "number"
-                          }
-                        ],
-                        "operator": "*",
-                        "type": "term"
-                      },
-                      {
-                        "value": 1,
-                        "type": "number"
+                        "identifier": "i",
+                        "type": "identifier"
                       }
                     ],
                     "operator": "+",
@@ -744,11 +1701,11 @@
                       {
                         "factors": [
                           {
-                            "identifier": "i",
+                            "identifier": "playerSize",
                             "type": "identifier"
                           },
                           {
-                            "value": 4,
+                            "value": 2,
                             "type": "number"
                           }
                         ],
@@ -756,8 +1713,8 @@
                         "type": "term"
                       },
                       {
-                        "value": 2,
-                        "type": "number"
+                        "identifier": "i",
+                        "type": "identifier"
                       }
                     ],
                     "operator": "+",
@@ -776,11 +1733,11 @@
                       {
                         "factors": [
                           {
-                            "identifier": "i",
+                            "identifier": "playerSize",
                             "type": "identifier"
                           },
                           {
-                            "value": 4,
+                            "value": 3,
                             "type": "number"
                           }
                         ],
@@ -788,8 +1745,8 @@
                         "type": "term"
                       },
                       {
-                        "value": 3,
-                        "type": "number"
+                        "identifier": "i",
+                        "type": "identifier"
                       }
                     ],
                     "operator": "+",

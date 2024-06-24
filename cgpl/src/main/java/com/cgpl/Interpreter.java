@@ -146,6 +146,11 @@ public class Interpreter {
             returnValue = interpretInstruction(instruction);
         }
 
+        if (returnValue instanceof Instruction) {
+            Instruction instruction = (Instruction) returnValue;
+            returnValue = interpretInstruction(instruction);
+        }
+
         symbolTable.popScope();
 
         return returnValue; // Should return the return value of the function
@@ -209,7 +214,7 @@ public class Interpreter {
         while (condition) {
             try {
                 // Execute the body
-                symbolTable.pushScope(whileLoop.getScope());
+                symbolTable.pushScope(new Scope(false));
                 for (Instruction instruction : whileLoop.getBody()) {
                     if (instruction.getInstructionType().equals("Return")) {
                         returnValue = ((Return) instruction).getValue().evaluate(symbolTable);
@@ -232,7 +237,7 @@ public class Interpreter {
 
         if (loopType.equals("ForEachStatement")) {
             LinkedListLiteral iterable = (LinkedListLiteral) forLoop.getIterable().evaluate(symbolTable);
-            symbolTable.pushScope(forLoop.getScope());
+            symbolTable.pushScope(new Scope(false));
             symbolTable.addSymbol(forLoop.getIdentifier(), null, false);
             // Iterate over the elements in the list
             for (Expression element : iterable.getList()) {
@@ -256,7 +261,7 @@ public class Interpreter {
             }
             symbolTable.popScope();
         } else {
-            symbolTable.pushScope(forLoop.getScope());
+            symbolTable.pushScope(new Scope(false));
             symbolTable.addSymbol(forLoop.getVarDeclaration().getIdentifier(), forLoop.getVarDeclaration().getValue().evaluate(symbolTable), false);
             
             boolean condition = ((Boolean)forLoop.getCondition().evaluate(symbolTable)).getValue();

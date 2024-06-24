@@ -129,12 +129,22 @@ factor
 	| listfunction
 	| LPAREN arthexp RPAREN
 	;
+binary_mult_div_mod
+    : factor OP_MULT factor
+    | factor OP_DIV factor
+    | factor OP_MOD factor
+    ;
+
 term
-	: factor (OP_MULT factor | OP_DIV factor | OP_MOD factor)*
-	;
+    : factor
+    | binary_mult_div_mod
+    ;
+
 arthexp
-	: term (OP_ADD term | OP_SUB)*
-	;
+    : arthexp OP_ADD term
+    | arthexp OP_SUB term
+    | term
+    ;
 
 increment: IDENTIFIER OP_INC;
 decrement: IDENTIFIER OP_DEC;

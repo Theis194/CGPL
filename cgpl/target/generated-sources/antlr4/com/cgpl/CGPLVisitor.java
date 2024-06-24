@@ -143,6 +143,12 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFactor(CGPLParser.FactorContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CGPLParser#binary_mult_div_mod}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBinary_mult_div_mod(CGPLParser.Binary_mult_div_modContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CGPLParser#term}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

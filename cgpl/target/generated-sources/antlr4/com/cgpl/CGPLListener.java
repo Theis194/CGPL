@@ -228,6 +228,16 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitFactor(CGPLParser.FactorContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CGPLParser#binary_mult_div_mod}.
+	 * @param ctx the parse tree
+	 */
+	void enterBinary_mult_div_mod(CGPLParser.Binary_mult_div_modContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CGPLParser#binary_mult_div_mod}.
+	 * @param ctx the parse tree
+	 */
+	void exitBinary_mult_div_mod(CGPLParser.Binary_mult_div_modContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CGPLParser#term}.
 	 * @param ctx the parse tree
 	 */

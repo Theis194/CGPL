@@ -1,6 +1,7 @@
 package com.cgpl.visitors;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import com.cgpl.CGPLBaseVisitor;
 import com.cgpl.CGPLParser;
@@ -14,42 +15,46 @@ import com.cgpl.AST.expressions.Term;
 public class ArithmeticExpressionVisitor extends CGPLBaseVisitor<Expression> {
     @Override
     public Expression visitArthexp(CGPLParser.ArthexpContext ctx) {
-        List<Expression> operands = ctx.term().stream().map(this::visitTerm).toList();
-
-        if (operands.size() == 1) {
-            return operands.get(0);
-            
+        // Base case: if there's only one term, visit that term directly.
+        if (ctx.arthexp() == null) {
+            return visitTerm(ctx.term());
         }
 
-        String operator = null;
-        if (ctx.OP_ADD() != null) {
-            operator = "+";
-        } else if (ctx.OP_SUB() != null) {
-            operator = "-";
-        }
+        List<Expression> operands = new ArrayList<>();
+        Expression left = visitArthexp(ctx.arthexp());
+        Expression right = visitTerm(ctx.term());
         
+        operands.add(left);
+        operands.add(right);
+
+        String operator = ctx.OP_ADD() != null ? "+" : "-";
+
         return new ArithmeticExpression(operands, operator);
     }
 
     @Override
     public Expression visitTerm(CGPLParser.TermContext ctx) {
-        List<Expression> factors = ctx.factor().stream().map(this::visitFactor).toList();
-
-        if (factors.size() == 1) {
-            return factors.get(0);
+        if (ctx.binary_mult_div_mod() != null) {
+            return visitBinary_mult_div_mod(ctx.binary_mult_div_mod());
+        } else {
+            return visitFactor(ctx.factor());
         }
+    }
 
-        String operator = null;
+    @Override
+    public Expression visitBinary_mult_div_mod(CGPLParser.Binary_mult_div_modContext ctx) {
+        List<Expression> operands = ctx.factor().stream().map(this::visitFactor).toList();
+
+        String operator;
         if (ctx.OP_MULT() != null) {
             operator = "*";
         } else if (ctx.OP_DIV() != null) {
             operator = "/";
-        } else if (ctx.OP_MOD() != null) {
+        } else { // ctx.OP_MOD() != null
             operator = "%";
         }
 
-        // Assuming Term is a class that can handle a list of factors and multiplication/division operators
-        return new Term(factors, operator);
+        return new Term(operands, operator);
     }
 
     @Override
