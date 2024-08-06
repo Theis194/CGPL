@@ -19,3 +19,5 @@ var stringTest = switchTest("a");
 var numberTest = switchTest(1);
 var boolTest = switchTest(true);
 var defaultTest = switchTest(4);
+
+print(stringTest);

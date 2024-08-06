@@ -86,6 +86,7 @@ function:
 
 value
 	: NUMBER
+	| suitfunction
 	| IDENTIFIER
 	| STRING
 	| listfunction
@@ -170,7 +171,7 @@ deckfunctionname
 	| 'deckSize'
 	;
 
-card: cardvalue 'of' suit;
+card: cardvalue 'of' IDENTIFIER;
 cardfunction: IDENTIFIER '.' cardfunctionname LPAREN RPAREN;
 cardfunctionname
 	: 'value' 
@@ -178,12 +179,9 @@ cardfunctionname
 	| 'color' 
 	| 'name'
 	;
-suit
-	: 'hearts' 
-	| 'diamonds' 
-	| 'clubs' 
-	| 'spades'
-	;
+
+suitfunction: 'Suit' LPAREN STRING ',' STRING RPAREN;
+
 cardvalue
 	: NUMBER 
 	| 'jack' 

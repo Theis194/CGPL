@@ -1,6 +1,6 @@
 var deck = Deck;
-
-var card = 2 of hearts;
+var heart = Suit("mongo", "sort");
+var card = 2 of heart;
 
 deck.shuffle();
 deck.draw();
@@ -11,3 +11,5 @@ var cardValue = card.value();
 var cardSuit = card.suit();
 var cardColor = card.color();
 var cardName = card.name();
+print(cardSuit);
+print(cardColor);

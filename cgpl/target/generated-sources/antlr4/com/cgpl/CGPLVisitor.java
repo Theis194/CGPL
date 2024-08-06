@@ -233,11 +233,11 @@ public interface CGPLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCardfunctionname(CGPLParser.CardfunctionnameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CGPLParser#suit}.
+	 * Visit a parse tree produced by {@link CGPLParser#suitfunction}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSuit(CGPLParser.SuitContext ctx);
+	T visitSuitfunction(CGPLParser.SuitfunctionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CGPLParser#cardvalue}.
 	 * @param ctx the parse tree

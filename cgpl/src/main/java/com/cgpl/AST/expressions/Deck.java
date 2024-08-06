@@ -10,7 +10,7 @@ public class Deck implements Expression {
 
     public Deck() {
         this.cards = new Stack<Card>();
-        fillDeck();
+        //fillDeck();
     }
 
     public Stack<Card> getCards()

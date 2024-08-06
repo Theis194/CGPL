@@ -7,7 +7,8 @@ import com.cgpl.AST.expressions.Deck;
 import com.cgpl.AST.expressions.Card;
 
 public class DeckTest {
-    public final static int DECK_SIZE = 52;
+    public final static int DECK_SIZE = 0;
+    public final static int STANDARD_DECK_SIZE = 52;
 
     // UNIT
     @Test
@@ -118,10 +119,9 @@ public class DeckTest {
     {
         Deck deck = new Deck();
 
-        deck.clear();
         deck.fillDeck();
 
-        Assertions.assertEquals(deck.size(), DECK_SIZE);
+        Assertions.assertEquals(deck.size(), STANDARD_DECK_SIZE);
     }
 
     // UNIT

@@ -19,8 +19,10 @@ public class Card implements Expression {
     public String getColor() {
         if (suit.equals("Hearts") || suit.equals("Diamonds")) {
             return "Red";
-        } else {
+        } else if (suit.equals("Clubs") || suit.equals("Spades")) {
             return "Black";
+        } else {
+            return "Unknown";//husk at lave
         }
     }
 

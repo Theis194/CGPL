@@ -1,0 +1,8 @@
+var mongo = Suit("navnet", "farven");
+var kort = 3 of mongo;
+
+var cardSuit = kort.suit();
+var cardColor = kort.color();
+
+print(cardSuit);
+print(cardColor);

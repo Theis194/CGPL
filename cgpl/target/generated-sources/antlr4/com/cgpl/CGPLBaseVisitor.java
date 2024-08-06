@@ -276,7 +276,7 @@ public class CGPLBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements C
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSuit(CGPLParser.SuitContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSuitfunction(CGPLParser.SuitfunctionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

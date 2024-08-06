@@ -98,7 +98,7 @@ public class Interpreter {
         }
         
         // If the value is a function call then interpret the function and assign the return value to the variable
-        if (varDeclaration.getValue() instanceof FunctionCall) { 
+        if (varDeclaration.getValue() instanceof FunctionCall) {
             FunctionCall functionCall = (FunctionCall) varDeclaration.getValue();
             Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
             returnValue = interpretFunction(function, functionCall.getArguments());

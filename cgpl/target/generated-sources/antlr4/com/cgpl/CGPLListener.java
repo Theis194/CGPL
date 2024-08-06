@@ -378,15 +378,15 @@ public interface CGPLListener extends ParseTreeListener {
 	 */
 	void exitCardfunctionname(CGPLParser.CardfunctionnameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CGPLParser#suit}.
+	 * Enter a parse tree produced by {@link CGPLParser#suitfunction}.
 	 * @param ctx the parse tree
 	 */
-	void enterSuit(CGPLParser.SuitContext ctx);
+	void enterSuitfunction(CGPLParser.SuitfunctionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CGPLParser#suit}.
+	 * Exit a parse tree produced by {@link CGPLParser#suitfunction}.
 	 * @param ctx the parse tree
 	 */
-	void exitSuit(CGPLParser.SuitContext ctx);
+	void exitSuitfunction(CGPLParser.SuitfunctionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CGPLParser#cardvalue}.
 	 * @param ctx the parse tree

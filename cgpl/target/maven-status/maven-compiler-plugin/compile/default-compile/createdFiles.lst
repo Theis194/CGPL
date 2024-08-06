@@ -12,13 +12,14 @@ com\cgpl\CGPLParser$WhilestmtContext.class
 com\cgpl\CGPLParser$BoolvalueContext.class
 com\cgpl\CGPLParser$StringConcatContext.class
 com\cgpl\CGPLParser$IfstmtContext.class
+com\cgpl\CGPLParser$SuitfunctionContext.class
 com\cgpl\CGPLParser$ListContext.class
 com\cgpl\CGPLParser$ComparisonContext.class
 com\cgpl\CGPLParser$DeckContext.class
+com\cgpl\CGPL.interp
 com\cgpl\CGPLBaseListener.class
 com\cgpl\CGPLParser$ProgramContext.class
 com\cgpl\CGPLParser$CardfunctionContext.class
-com\cgpl\CGPLParser$SuitContext.class
 com\cgpl\CGPLParser$FunctionContext.class
 com\cgpl\CGPLParser$CasestmtContext.class
 com\cgpl\CGPLParser$PrintstmtContext.class
@@ -48,3 +49,4 @@ com\cgpl\CGPLParser$ArthexpContext.class
 com\cgpl\CGPLParser$AssignmentContext.class
 com\cgpl\CGPLParser$ForstmtContext.class
 com\cgpl\CGPLParser$ListfunctionnameContext.class
+CGPL.tokens

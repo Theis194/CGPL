@@ -8,7 +8,7 @@ public class CardVisitor extends CGPLBaseVisitor<Card>{
     @Override
     public Card visitCard(CGPLParser.CardContext ctx) {
         String value = ctx.cardvalue().getText();
-        String suit = ctx.suit().getText();
+        String suit = ctx.IDENTIFIER().getText();
         return new Card(value, suit);
     }
 }

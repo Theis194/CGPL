@@ -460,13 +460,13 @@ public class CGPLBaseListener implements CGPLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSuit(CGPLParser.SuitContext ctx) { }
+	@Override public void enterSuitfunction(CGPLParser.SuitfunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSuit(CGPLParser.SuitContext ctx) { }
+	@Override public void exitSuitfunction(CGPLParser.SuitfunctionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
