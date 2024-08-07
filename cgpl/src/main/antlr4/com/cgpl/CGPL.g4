@@ -51,6 +51,7 @@ program: instruction* EOF;
 instruction
 	: vardcl CRLF
 	| function
+	| suitfunction CRLF
 	| ifstmt
 	| forstmt
 	| whilestmt
@@ -86,7 +87,6 @@ function:
 
 value
 	: NUMBER
-	| suitfunction
 	| IDENTIFIER
 	| STRING
 	| listfunction
@@ -166,6 +166,7 @@ deckfunction: IDENTIFIER '.' deckfunctionname LPAREN (value)? RPAREN;
 deckfunctionname
 	: 'shuffle'
 	| 'draw'
+	| 'fillDeckFrench'
 	| 'addCard'
 	| 'removeCard'
 	| 'deckSize'
@@ -180,7 +181,7 @@ cardfunctionname
 	| 'name'
 	;
 
-suitfunction: 'Suit' LPAREN STRING ',' STRING RPAREN;
+suitfunction: 'new' 'Suit' LPAREN STRING ',' STRING RPAREN;
 
 cardvalue
 	: NUMBER 

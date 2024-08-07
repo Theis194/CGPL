@@ -119,7 +119,7 @@ public class DeckTest {
     {
         Deck deck = new Deck();
 
-        deck.fillDeck();
+        deck.fillDeckFrench();
 
         Assertions.assertEquals(deck.size(), STANDARD_DECK_SIZE);
     }

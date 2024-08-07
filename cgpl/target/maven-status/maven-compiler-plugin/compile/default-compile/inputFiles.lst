@@ -5,6 +5,7 @@ C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\instructions\
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\visitors\VardclVisitor.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\expressions\Identifier.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\expressions\StringLiteral.java
+C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\expressions\Suit.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\visitors\BreakVisitor.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\expressions\Card.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\visitors\FunctionVisitor.java
@@ -12,7 +13,9 @@ C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\visitors\LoopVisi
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\expressions\NotExpression.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\CGPL.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\expressions\Expression.java
+C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\instructions\SuitFunction.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\instructions\Assignment.java
+C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\visitors\SuitFunctionVisitor.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\visitors\FunctionCallVisitor.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\visitors\PlayerFunctionVisitor.java
 C:\Users\Kristoffer\Desktop\CGPL-1\cgpl\src\main\java\com\cgpl\AST\expressions\CardFunction.java

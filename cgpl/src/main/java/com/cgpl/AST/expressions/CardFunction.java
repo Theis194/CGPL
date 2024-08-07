@@ -2,6 +2,7 @@ package com.cgpl.AST.expressions;
 
 import com.cgpl.SymbolTable;
 import com.cgpl.AST.instructions.Instruction;
+import com.cgpl.AST.instructions.SuitFunction;
 
 public class CardFunction implements Expression, Instruction{
     private String identifier;
@@ -50,11 +51,11 @@ public class CardFunction implements Expression, Instruction{
                 return new Number(cardValue);
 
             case "suit":
-            return new StringLiteral(((Card)symbolTable.getSymbol(identifier)).getSuit());
-
+                return new StringLiteral(((Card)symbolTable.getSymbol(identifier)).getSuit());
             case "color":
-                return new StringLiteral(((Card)symbolTable.getSymbol(identifier)).getColor());
-                
+                Card card = (Card) symbolTable.getSymbol(identifier);
+                Suit suit = (Suit) symbolTable.getSymbol(card.getSuit());
+                return new StringLiteral(suit.getColor());
             case "name":
                 return new StringLiteral(((Card)symbolTable.getSymbol(identifier)).getName());
         

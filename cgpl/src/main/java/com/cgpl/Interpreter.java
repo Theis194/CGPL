@@ -72,6 +72,8 @@ public class Interpreter {
                 return interpretPrint((Print) instruction);
             case "PlayerFunction":
                 return interpretPlayerFunction((PlayerFunction) instruction);
+            case "SuitFunction":
+                return interpretSuitFunction((SuitFunction) instruction);
             case "Break":
                 throw new BreakStatementException();
             default:
@@ -102,10 +104,11 @@ public class Interpreter {
             FunctionCall functionCall = (FunctionCall) varDeclaration.getValue();
             Function function = (Function) symbolTable.getSymbol(functionCall.getIdentifier());
             returnValue = interpretFunction(function, functionCall.getArguments());
-            
+
             symbolTable.addSymbol(varDeclaration.getIdentifier(), returnValue, varDeclaration.isConst());
             return;
         }
+        
         // If the value is a not a functin call then assign the value to the new variable
         symbolTable.addSymbol(varDeclaration.getIdentifier(), varDeclaration.getValue().evaluate(symbolTable), varDeclaration.isConst());
         System.out.println("varDeclaration: " + varDeclaration.getIdentifier() + " = " + varDeclaration.getValue().evaluate(symbolTable).getValue() + " of type " + varDeclaration.getValue().evaluate(symbolTable).getType() + " added to symbol table");
@@ -319,6 +322,8 @@ public class Interpreter {
 
         // Get the card from the symbol table
         Card card = (Card) symbolTable.getSymbol(identifier);
+        // Get the suit from the symbol table
+        Suit suit = (Suit) symbolTable.getSymbol(card.getSuit());
 
         // Get the type of card function
         String type = cardFunction.getType();
@@ -327,10 +332,10 @@ public class Interpreter {
                 returnValue = new Number(Integer.parseInt(card.getValue()));
                 break;
             case "suit":
-                returnValue = new StringLiteral(card.getSuit());
+                returnValue = new StringLiteral(suit.getName());
                 break;
             case "color":
-                returnValue = new StringLiteral(card.getColor());
+                returnValue = new StringLiteral(suit.getColor());
                 break;
             case "name":
                 returnValue = new StringLiteral(card.toString());
@@ -383,6 +388,15 @@ public class Interpreter {
                 break;
             case "deckSize":
                 returnValue = new Number(deck.size());
+                break;
+            case "fillDeckFrench":
+                Suit[] suits = {new Suit("Hearts", "red"), new Suit("Diamonds", "red"), new Suit("Clubs", "black"), new Suit("Spades", "black")};
+            
+                for (Suit suit : suits) {
+                    symbolTable.addSymbol(suit.getName(), suit, false);
+                }
+                deck.fillDeckFrench();
+                returnValue = deck;
                 break;
         
             default:
@@ -457,6 +471,18 @@ public class Interpreter {
 
         System.out.println(value.toString());
         return value;
+    }
+
+    private Expression interpretSuitFunction(SuitFunction suitfunction){
+        String identifier = suitfunction.getName();
+        Suit suit = new Suit(suitfunction.getName(), suitfunction.getColor());
+        if (!symbolTable.hasSymbol(identifier)) {
+            symbolTable.addSymbol(identifier, suit, false);
+        } else if (symbolTable.hasSymbol(identifier)) {
+            throw new IllegalArgumentException("Suit with given name already exists");
+        }
+
+        return suit;
     }
 
     private Expression interpretPlayerFunction(PlayerFunction playerFunction) {

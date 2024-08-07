@@ -13,17 +13,7 @@ public class Card implements Expression {
     }
 
     public String getSuit() {
-        return suit;
-    }
-
-    public String getColor() {
-        if (suit.equals("Hearts") || suit.equals("Diamonds")) {
-            return "Red";
-        } else if (suit.equals("Clubs") || suit.equals("Spades")) {
-            return "Black";
-        } else {
-            return "Unknown";//husk at lave
-        }
+        return this.suit;
     }
 
     public String getRank() {

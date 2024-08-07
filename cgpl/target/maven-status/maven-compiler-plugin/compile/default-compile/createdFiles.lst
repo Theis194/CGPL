@@ -8,6 +8,7 @@ com\cgpl\CGPLParser$CardvalueContext.class
 com\cgpl\CGPLParser$DecrementContext.class
 com\cgpl\CGPLParser$BreakstmtContext.class
 com\cgpl\CGPLParser$ReturnstmtContext.class
+com\cgpl\CGPLLexer.interp
 com\cgpl\CGPLParser$WhilestmtContext.class
 com\cgpl\CGPLParser$BoolvalueContext.class
 com\cgpl\CGPLParser$StringConcatContext.class
@@ -34,6 +35,8 @@ com\cgpl\CGPLParser$PlayerContext.class
 com\cgpl\CGPLParser$CardContext.class
 com\cgpl\CGPLParser$SwitchstmtContext.class
 com\cgpl\CGPLBaseVisitor.class
+com\cgpl\CGPLLexer.class
+CGPLLexer.tokens
 com\cgpl\CGPLParser$FactorContext.class
 com\cgpl\CGPLParser$Arth_opContext.class
 com\cgpl\CGPLParser$ThenBlockContext.class

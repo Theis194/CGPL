@@ -22,9 +22,6 @@ public class ExpressionVisitor extends CGPLBaseVisitor<Expression> {
             // Handle string
             return new StringLiteral(ctx.STRING().getText().replaceAll("\"", ""));
 
-        } else if (ctx.suitfunction() != null) {
-            return new SuitFunctionVisitor().visitSuitfunction(ctx.suitfunction());
-
         } else if (ctx.boolExpr() != null) {
             // Handle boolean expression
             return new BooleanExpressionVisitor().visitBoolExpr(ctx.boolExpr());

@@ -51,13 +51,13 @@ public class Deck implements Expression {
         this.cards.remove(index);
     }
 
-    public void fillDeck() {
-        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+    public void fillDeckFrench() {
+        Suit[] suits = {new Suit("Hearts", "red"), new Suit("Diamonds", "red"), new Suit("Clubs", "black"), new Suit("Spades", "black")};
         String[] values = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
     
-        for (String suit : suits) {
+        for (Suit suit : suits) {
             for (String value : values) {
-                this.addCard(new Card(value, suit));
+                this.addCard(new Card(value, suit.getName()));
             }
         }
     }

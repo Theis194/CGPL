@@ -2,6 +2,8 @@ var deck = Deck;
 var p1 = Player;
 var p2 = Player;
 var currentPlayer = p1;
+deck.fillDeckFrench();
+
 
 function Select(ply) {
     deck.shuffle();

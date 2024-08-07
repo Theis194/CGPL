@@ -24,7 +24,10 @@ public class InstructionVisitor extends CGPLBaseVisitor<Instruction> {
             // Handle function
             return new FunctionVisitor().visitFunction(ctx.function(), scope);
 
-        } else if (ctx.ifstmt() != null) {
+        } else if (ctx.suitfunction() != null){
+            return new SuitFunctionVisitor().visitSuitfunction(ctx.suitfunction());
+            
+        }else if (ctx.ifstmt() != null) {
             // Handle if statement
             return new IfStatementVisitor().visitIfstmt(ctx.ifstmt(), scope);
 
