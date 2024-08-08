@@ -1,15 +1,17 @@
 var deck = Deck;
-var heart = Suit("mongo", "sort");
-var card = 2 of heart;
+new Suit("mongo", "sort");
+new Suit("sovs", "sort");
+new Suit("hummer", "black");
 
+deck.fillDeckColor("sort");
 deck.shuffle();
-deck.draw();
-deck.addCard(card);
-deck.removeCard(0);
 
+var card = deck.draw();
+var decksize = deck.deckSize();
 var cardValue = card.value();
 var cardSuit = card.suit();
 var cardColor = card.color();
 var cardName = card.name();
 print(cardSuit);
 print(cardColor);
+print(decksize);

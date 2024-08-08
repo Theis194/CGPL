@@ -1,8 +1,11 @@
 package com.cgpl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 import com.cgpl.AST.expressions.Expression;
+import com.cgpl.AST.expressions.Suit;
 import com.cgpl.AST.Scope;
 
 // Represents the symbol table that contains all the scopes
@@ -81,4 +84,27 @@ public class SymbolTable {
             }
         }
     } */
+
+
+   public List<Suit> getSuitsByColor(String color) {
+        List<Suit> suits = new ArrayList<>();
+        // Iterate over all scopes in the stack
+        for (Scope scope : this.scopes) {
+            // Iterate over all variables in the current scope
+            for (String identifier : scope.getVariableIdentifiers()) {
+                Object variable = scope.getVariableValue(identifier);
+                
+                // Check if the variable is an instance of Suit
+                if (variable instanceof Suit) {
+                    Suit suit = (Suit) variable;
+                    
+                    // Check if the suit has the specified color
+                    if (suit.getColor().equals(color)) {
+                        suits.add(suit);
+                    }
+                }
+            }
+        }
+        return suits;
+    }
 }

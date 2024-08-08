@@ -8,6 +8,7 @@ import com.cgpl.AST.Scope;
 import com.cgpl.AST.expressions.Card;
 import com.cgpl.AST.expressions.CardFunction;
 import com.cgpl.AST.expressions.StringLiteral;
+import com.cgpl.AST.expressions.Suit;
 import com.cgpl.AST.expressions.Number;
 
 public class CardFunctionTest {
@@ -152,19 +153,21 @@ public class CardFunctionTest {
         Scope scope = new Scope(true);
         SymbolTable symbolTable = new SymbolTable();
 
+
         String rank = "Ace";
-        String suit = "Hearts";
         String id = "c";
         String type = "color";
 
-        Card card = new Card(rank, suit);
+        Suit suit = new Suit("Hearts", "red");
+        Card card = new Card(rank, suit.getName());
 
         CardFunction cardFunction = new CardFunction(id, type);
 
         symbolTable.pushScope(scope);
+        symbolTable.addSymbol(suit.getName(), suit, false);
         symbolTable.addSymbol(id, card, false);
 
-        // Assertions.assertEquals(((StringLiteral)cardFunction.evaluate(symbolTable)).getValue(), card.getColor());
+        Assertions.assertEquals(((StringLiteral)cardFunction.evaluate(symbolTable)).getValue().toString(), suit.getColor());
     }
 
     // INTEGRATION

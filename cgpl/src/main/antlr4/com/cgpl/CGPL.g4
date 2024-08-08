@@ -167,6 +167,7 @@ deckfunctionname
 	: 'shuffle'
 	| 'draw'
 	| 'fillDeckFrench'
+	| 'fillDeckColor'
 	| 'addCard'
 	| 'removeCard'
 	| 'deckSize'

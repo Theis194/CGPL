@@ -1,5 +1,6 @@
 package com.cgpl.AST.expressions;
 
+import java.util.List;
 import java.util.Stack;
 
 import com.cgpl.SymbolTable;
@@ -10,7 +11,6 @@ public class Deck implements Expression {
 
     public Deck() {
         this.cards = new Stack<Card>();
-        //fillDeck();
     }
 
     public Stack<Card> getCards()
@@ -52,7 +52,18 @@ public class Deck implements Expression {
     }
 
     public void fillDeckFrench() {
-        Suit[] suits = {new Suit("Hearts", "red"), new Suit("Diamonds", "red"), new Suit("Clubs", "black"), new Suit("Spades", "black")};
+        Suit[] suits = { new Suit("Hearts", "red"), new Suit("Diamonds", "red"), new Suit("Clubs", "black"),
+                new Suit("Spades", "black") };
+        String[] values = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+
+        for (Suit suit : suits) {
+            for (String value : values) {
+                this.addCard(new Card(value, suit.getName()));
+            }
+        }
+    }
+    
+    public void fillDeckColor(List<Suit> suits) {
         String[] values = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
     
         for (Suit suit : suits) {

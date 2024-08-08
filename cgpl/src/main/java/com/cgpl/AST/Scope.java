@@ -1,6 +1,7 @@
 package com.cgpl.AST;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.HashMap;
 import java.util.List;
 
@@ -103,5 +104,9 @@ public class Scope {
     // Testing
     public Boolean isFunction(String name) {
         return functions.containsKey(name);
+    }
+
+    public Set<String> getVariableIdentifiers() {
+        return variables.keySet();
     }
 }

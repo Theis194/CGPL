@@ -390,12 +390,18 @@ public class Interpreter {
                 returnValue = new Number(deck.size());
                 break;
             case "fillDeckFrench":
-                Suit[] suits = {new Suit("Hearts", "red"), new Suit("Diamonds", "red"), new Suit("Clubs", "black"), new Suit("Spades", "black")};
+                Suit[] suits = {new Suit("Hearts", "Red"), new Suit("Diamonds", "Red"), new Suit("Clubs", "Black"), new Suit("Spades", "Black")};
             
                 for (Suit suit : suits) {
                     symbolTable.addSymbol(suit.getName(), suit, false);
                 }
                 deck.fillDeckFrench();
+                returnValue = deck;
+                break;
+            case "fillDeckColor":
+                StringLiteral color = (StringLiteral) deckFunction.getValue();
+                List<Suit> suitsWithColor = symbolTable.getSuitsByColor(color.toString());
+                deck.fillDeckColor(suitsWithColor);
                 returnValue = deck;
                 break;
         

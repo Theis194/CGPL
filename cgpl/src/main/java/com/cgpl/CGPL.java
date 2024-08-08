@@ -9,7 +9,7 @@ import com.cgpl.AST.Program;
 
 public class CGPL {
     public static void main(String[] args) {
-        String inputFileName = "demo_concentration.cgpl";
+        String inputFileName = "deck.cgpl";
         if (args.length == 1) {
             inputFileName = args[0];
         } else {

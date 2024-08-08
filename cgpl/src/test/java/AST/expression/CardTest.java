@@ -3,6 +3,7 @@ package AST.expression;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import com.cgpl.AST.expressions.Card;
+import com.cgpl.AST.expressions.Suit;
 
 public class CardTest {
     // UNIT
@@ -22,36 +23,22 @@ public class CardTest {
     @Test
     public void TestCardColor()
     {
-        String rank = "Ace";
-        String hearts = "Hearts";
-        String diamonds = "Diamonds";
-        String clubs = "Clubs";
-        String spades = "Spades";
-
+        Suit hearts = new Suit("Hearts", "Red");
+        Suit diamonds = new Suit("Diamonds", "Red");
+        Suit clubs = new Suit("Clubs", "Black");
+        Suit spades = new Suit("Spades", "Black");
+        
         String red = "Red";
         String black = "Black";
 
-        Card cardHearts = new Card(rank, hearts);
-        Card cardDiamonds = new Card(rank, diamonds);
-        Card cardClubs = new Card(rank, clubs);
-        Card cardSpades = new Card(rank, spades);
+        Assertions.assertEquals(hearts.getColor(), red);
 
-        // Assertions.assertEquals(cardHearts.getColor(), red);
-        // Assertions.assertEquals(cardDiamonds.getColor(), red);
-        // Assertions.assertEquals(cardClubs.getColor(), black);
-        // Assertions.assertEquals(cardSpades.getColor(), black);
+        Assertions.assertEquals(diamonds.getColor(), red);
+        Assertions.assertEquals(clubs.getColor(), black);
+        Assertions.assertEquals(spades.getColor(), black);
 
-        // Assertions.assertEquals(cardHearts.getColor(), cardDiamonds.getColor());
-        // Assertions.assertEquals(cardClubs.getColor(), cardSpades.getColor());
-    }
-
-    // UNIT
-    @Test
-    public void TestCardNull()
-    {
-        // Card card = new Card(null, null);
-
-        // Assertions.assertThrows(NullPointerException.class, () -> card.getColor());
+        Assertions.assertEquals(hearts.getColor(), diamonds.getColor());
+        Assertions.assertEquals(clubs.getColor(), spades.getColor());
     }
 
     // UNIT
